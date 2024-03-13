@@ -1,5 +1,9 @@
+"""PyTorch SWAG wrapper for BERT"""
+
 import inspect
 import logging
+
+import torch
 
 from transformers import PreTrainedModel, PretrainedConfig, BertConfig, BertModel
 
@@ -53,7 +57,7 @@ class SwagBertPreTrainedModel(PreTrainedModel):
         )
 
     def _init_weights(self, module):
-        # What should be here?
+        # FIXME: What should be here?
         raise NotImplementedError("TODO")
 
 
@@ -61,11 +65,3 @@ class SwagBertModel(SwagBertPreTrainedModel):
 
     def forward(self, *args, **kwargs):
         return self.model.forward(*args, **kwargs)
-
-
-if __name__ == '__main__':
-    logging.basicConfig(level=logging.DEBUG)
-    config = SwagBertConfig(no_cov_mat=False, hidden_size=240)
-    print(config)
-    model = SwagBertPreTrainedModel(config)
-    print(model)
