@@ -1,12 +1,17 @@
 import logging
 import unittest
+import tempfile
 
+import numpy as np
 import torch
 
-from transformers import AutoConfig, AutoModel, AutoModelForSequenceClassification, AutoTokenizer
+from datasets import Dataset, DatasetDict
+from transformers import AutoConfig, AutoModel, AutoModelForSequenceClassification, AutoTokenizer, \
+    DataCollatorWithPadding, Trainer, TrainingArguments
 
 from swag_transformers.swag_bert import SwagBertConfig, SwagBertModel, SwagBertPreTrainedModel, \
     SwagBertForSequenceClassification
+from swag_transformers.trainer_utils import SwagUpdateCallback
 
 
 class TestSwagBert(unittest.TestCase):
@@ -26,7 +31,7 @@ class TestSwagBert(unittest.TestCase):
             # Warning from using forward before sampling parameters
             self.assertTrue(any(msg.startswith('WARNING') for msg in cm.output))
         logging.debug(out)
-        swag_model.model.sample()
+        swag_model.swag.sample()
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.last_hidden_state.shape, (1, 2, hidden_size))
@@ -37,9 +42,9 @@ class TestSwagBert(unittest.TestCase):
         config = SwagBertConfig(no_cov_mat=False, hidden_size=hidden_size, num_labels=num_labels)
         logging.debug(config)
         swag_model = SwagBertForSequenceClassification(config)
-        swag_model.model.sample()
+        swag_model.swag.sample()
         logging.debug(swag_model)
-        logging.debug(swag_model.model.base.config)
+        logging.debug(swag_model.swag.base.config)
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
@@ -51,7 +56,7 @@ class TestSwagBert(unittest.TestCase):
         logging.debug(config)
         swag_model = SwagBertModel.from_base(model)
         logging.debug(swag_model)
-        swag_model.model.sample()
+        swag_model.swag.sample()
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.last_hidden_state.shape, (1, 2, hidden_size))
@@ -61,11 +66,59 @@ class TestSwagBert(unittest.TestCase):
         model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
         swag_model = SwagBertForSequenceClassification.from_base(model)
         logging.debug(swag_model)
-        swag_model.model.sample()
+        swag_model.swag.sample()
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
 
+    def _data_gen(self):
+        yield {"text": "Hello world", "label": 0}
+        yield {"text": "Just some swaggering", "label": 1}
+        yield {"text": "Have a good day", "label": 0}
+        yield {"text": "You swaggy boy!", "label": 1}
+        yield {"text": "That's so bad", "label": 0}
+        yield {"text": "This is SWAG", "label": 1}
+
+    def test_pretrained_bert_tiny_classifier_finetune(self):
+        num_labels = 2
+        train_epochs = 5
+        model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
+        swag_model = SwagBertForSequenceClassification.from_base(model)
+        tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
+        tokens = tokenizer(["Hello world", "Just some swaggering"],
+                           padding=True, truncation=False, return_tensors="pt")
+        out_base = model(**tokens)
+        swag_model.swag.sample()
+        out_swag = swag_model(**tokens)
+        self.assertTrue(torch.allclose(out_base.logits, out_swag.logits))
+
+        def tokenize_function(example):
+            return tokenizer(example["text"], truncation=False)
+
+        dataset = Dataset.from_generator(self._data_gen)
+        raw_datasets = DatasetDict({"train": dataset})
+        tokenized_datasets = raw_datasets.map(tokenize_function, batched=True)
+        data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+        with tempfile.TemporaryDirectory() as tempdir:
+            training_args = TrainingArguments(
+                output_dir=tempdir,
+                num_train_epochs=train_epochs,
+            )
+            trainer = Trainer(
+                model,
+                training_args,
+                train_dataset=tokenized_datasets["train"],
+                data_collator=data_collator,
+                tokenizer=tokenizer,
+                callbacks=[SwagUpdateCallback(swag_model)]
+            )
+            trainer.train()
+        self.assertEqual(swag_model.swag.n_models, train_epochs)
+        swag_model.swag.sample()
+        out_swag = swag_model(**tokens)
+        self.assertEqual(out_swag.logits.shape, (2, num_labels))
+
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     unittest.main()

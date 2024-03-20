@@ -49,7 +49,7 @@ class SwagBertPreTrainedModel(PreTrainedModel):
 
     def __init__(self, config):
         super().__init__(config)
-        self.model = SWAG(
+        self.swag = SWAG(
             base=self.internal_model_class,
             no_cov_mat=config.no_cov_mat,
             max_num_models=config.max_num_models,
@@ -63,7 +63,7 @@ class SwagBertPreTrainedModel(PreTrainedModel):
         """Initialize from existing BertPreTrainedModel"""
         config = SwagBertConfig.from_config(base_model.config, **kwargs)
         swag_model = cls(config)
-        swag_model.model.base = base_model
+        swag_model.swag.base = base_model
         return swag_model
 
     def _init_weights(self, module):
@@ -74,7 +74,7 @@ class SwagBertPreTrainedModel(PreTrainedModel):
 class SwagBertModel(SwagBertPreTrainedModel):
 
     def forward(self, *args, **kwargs):
-        return self.model.forward(*args, **kwargs)
+        return self.swag.forward(*args, **kwargs)
 
 
 class SwagBertForSequenceClassification(SwagBertPreTrainedModel):
@@ -82,4 +82,4 @@ class SwagBertForSequenceClassification(SwagBertPreTrainedModel):
     internal_model_class = BertForSequenceClassification
 
     def forward(self, *args, **kwargs):
-        return self.model.forward(*args, **kwargs)
+        return self.swag.forward(*args, **kwargs)
