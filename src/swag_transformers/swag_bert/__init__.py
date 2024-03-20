@@ -67,8 +67,8 @@ class SwagBertPreTrainedModel(PreTrainedModel):
         return swag_model
 
     def _init_weights(self, module):
-        # FIXME: What should be here?
-        raise NotImplementedError("TODO")
+        # FIXME: Is it enough to do this?
+        self.swag.base._init_weights(module)
 
 
 class SwagBertModel(SwagBertPreTrainedModel):
@@ -77,9 +77,6 @@ class SwagBertModel(SwagBertPreTrainedModel):
         return self.swag.forward(*args, **kwargs)
 
 
-class SwagBertForSequenceClassification(SwagBertPreTrainedModel):
+class SwagBertForSequenceClassification(SwagBertModel):
 
     internal_model_class = BertForSequenceClassification
-
-    def forward(self, *args, **kwargs):
-        return self.swag.forward(*args, **kwargs)
