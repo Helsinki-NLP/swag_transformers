@@ -1,11 +1,10 @@
 """PyTorch SWAG wrapper for BERT"""
 
-import inspect
 import logging
 
 import torch
 
-from transformers import PreTrainedModel, PretrainedConfig, BertConfig, BertModel
+from transformers import PreTrainedModel, PretrainedConfig, BertConfig, BertModel, BertForSequenceClassification
 
 from swag.posteriors.swag import SWAG
 
@@ -25,14 +24,8 @@ class SwagBertConfig(PretrainedConfig):
             var_clamp: float = 1e-30,
             **kwargs
     ):
-        internal_params = list(inspect.signature(self.internal_config_class).parameters)
-        internal_kwargs = {
-            name: kwargs.pop(name)
-            for name in internal_params
-            if name in kwargs
-        }
-        super().__init__(**kwargs)
-        internal_config = self.internal_config_class(**internal_kwargs)
+        super().__init__()
+        internal_config = self.internal_config_class(**kwargs)
         self.no_cov_mat = no_cov_mat
         self.max_num_models = max_num_models
         self.var_clamp = var_clamp
@@ -62,6 +55,14 @@ class SwagBertPreTrainedModel(PreTrainedModel):
 
 
 class SwagBertModel(SwagBertPreTrainedModel):
+
+    def forward(self, *args, **kwargs):
+        return self.model.forward(*args, **kwargs)
+
+
+class SwagBertForSequenceClassification(SwagBertPreTrainedModel):
+
+    internal_model_class = BertForSequenceClassification
 
     def forward(self, *args, **kwargs):
         return self.model.forward(*args, **kwargs)
