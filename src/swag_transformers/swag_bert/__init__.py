@@ -1,10 +1,12 @@
 """PyTorch SWAG wrapper for BERT"""
 
 import logging
+from typing import Union
 
 import torch
 
-from transformers import PreTrainedModel, PretrainedConfig, BertConfig, BertModel, BertForSequenceClassification
+from transformers import PreTrainedModel, PretrainedConfig, BertConfig, BertModel, \
+    BertPreTrainedModel, BertForSequenceClassification
 
 from swag.posteriors.swag import SWAG
 
@@ -31,6 +33,13 @@ class SwagBertConfig(PretrainedConfig):
         self.var_clamp = var_clamp
         self.internal_model_config = internal_config.to_dict()
 
+    @classmethod
+    def from_config(cls, base_config: BertConfig, **kwargs):
+        """Initialize from existing BertConfig"""
+        config = cls(**kwargs)
+        config.internal_model_config = base_config.to_dict()
+        return config
+
 
 class SwagBertPreTrainedModel(PreTrainedModel):
 
@@ -48,6 +57,14 @@ class SwagBertPreTrainedModel(PreTrainedModel):
             config=config.internal_config_class(**config.internal_model_config),
             device='cpu'  # FIXME: how to deal with device
         )
+
+    @classmethod
+    def from_base(cls, base_model: BertPreTrainedModel, **kwargs):
+        """Initialize from existing BertPreTrainedModel"""
+        config = SwagBertConfig.from_config(base_model.config, **kwargs)
+        swag_model = cls(config)
+        swag_model.model.base = base_model
+        return swag_model
 
     def _init_weights(self, module):
         # FIXME: What should be here?
