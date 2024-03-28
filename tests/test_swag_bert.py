@@ -35,6 +35,7 @@ class TestSwagBert(unittest.TestCase):
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.last_hidden_state.shape, (1, 2, hidden_size))
+        print(swag_model.swag.base.embeddings.token_type_embeddings.weight_mean)
 
     def test_untrained_classifier(self):
         hidden_size = 240
@@ -48,6 +49,7 @@ class TestSwagBert(unittest.TestCase):
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
+        print(swag_model.swag.base.bert.embeddings.token_type_embeddings.weight_mean)
 
     def test_pretrained_bert_tiny(self):
         model = AutoModel.from_pretrained(self.pretrained_model_name)
@@ -64,12 +66,17 @@ class TestSwagBert(unittest.TestCase):
     def test_pretrained_bert_tiny_classifier(self):
         num_labels = 4
         model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
+        print(model.config)
         swag_model = SwagBertForSequenceClassification.from_base(model)
         logging.debug(swag_model)
         swag_model.swag.sample()
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
+        print(swag_model.config)
+        print(swag_model.swag.base.config)
+        print(swag_model.swag.base.bert.embeddings.token_type_embeddings.weight)
+        print(swag_model.swag.base.bert.embeddings.token_type_embeddings.weight_mean)
 
     def _data_gen(self):
         yield {"text": "Hello world", "label": 0}
@@ -88,9 +95,14 @@ class TestSwagBert(unittest.TestCase):
         tokens = tokenizer(["Hello world", "Just some swaggering"],
                            padding=True, truncation=False, return_tensors="pt")
         out_base = model(**tokens)
+        self.assertEqual(out_base.logits.shape, (2, num_labels))
+        out_swag = swag_model(**tokens)
+        self.assertEqual(out_swag.logits.shape, (2, num_labels))
+        self.assertTrue(torch.allclose(out_swag.logits, torch.zeros(*out_swag.logits.shape)))
         swag_model.swag.sample()
         out_swag = swag_model(**tokens)
-        self.assertTrue(torch.allclose(out_base.logits, out_swag.logits))
+        self.assertEqual(out_swag.logits.shape, (2, num_labels))
+        self.assertTrue(torch.allclose(out_swag.logits, torch.zeros(*out_swag.logits.shape)))
 
         def tokenize_function(example):
             return tokenizer(example["text"], truncation=False)
@@ -117,6 +129,13 @@ class TestSwagBert(unittest.TestCase):
         swag_model.swag.sample()
         out_swag = swag_model(**tokens)
         self.assertEqual(out_swag.logits.shape, (2, num_labels))
+
+        # Test saving & loading
+        with tempfile.TemporaryDirectory() as tempdir:
+            swag_model.save_pretrained(tempdir)
+            stored_model = SwagBertForSequenceClassification.from_pretrained(tempdir)
+        out_stored = stored_model(**tokens)
+        self.assertTrue(torch.allclose(out_swag.logits, out_stored.logits))
 
 
 if __name__ == "__main__":

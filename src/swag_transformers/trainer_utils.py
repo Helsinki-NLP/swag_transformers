@@ -12,15 +12,17 @@ logger = logging.getLogger(__name__)
 class SwagUpdateCallback(TrainerCallback):
 
     def __init__(self, swag_model):
-        if isinstance(swag_model, SWAG):
-            self.swag = swag_model
-        else:
-            # expect SwagBertPreTrainedModel etc.
-            self.swag = swag_model.swag
+        self.main_model = swag_model
+        # if isinstance(swag_model, SWAG):
+        #     self.swag = swag_model
+        # else:
+        #     # expect SwagBertPreTrainedModel etc.
+        #     self.swag = swag_model.swag
 
     def on_epoch_end(self, args, state, control, logs=None, model=None, **kwargs):
         if model is None:
             logger.error("No model provided for SWAG update")
             return
         logger.info("Updating SWAG parameters from %s", type(model).__name__)
-        self.swag.collect_model(model)
+        self.main_model.swag.collect_model(model)
+        self.main_model.config.update_internal_config(model.config)

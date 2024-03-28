@@ -4,11 +4,15 @@ import logging
 import os
 import sys
 
+import torch
 import transformers
 import datasets
 
 from swag_transformers.swag_bert import SwagBertForSequenceClassification
 from swag_transformers.trainer_utils import SwagUpdateCallback
+
+
+logger = logging.getLogger(__name__)
 
 
 def main():
@@ -54,8 +58,13 @@ def main():
         callbacks=[SwagUpdateCallback(swag_model)]
     )
     trainer.train()
-    # trainer.save_model(os.path.join(args.save_folder, "final"))
-    swag_model.save_pretrained(os.path.join(args.save_folder, "final"))
+    trainer.save_model(os.path.join(args.save_folder, "final_base"))
+
+    # Save the full model + tokenizer + training arguments (similar to trainer.save_model)
+    final_out = os.path.join(args.save_folder, "final")
+    swag_model.save_pretrained(final_out)
+    trainer.tokenizer.save_pretrained(final_out)
+    torch.save(trainer.args, os.path.join(final_out, transformers.trainer.TRAINING_ARGS_NAME))
 
 
 if __name__ == '__main__':
