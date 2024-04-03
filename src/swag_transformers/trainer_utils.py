@@ -10,19 +10,28 @@ logger = logging.getLogger(__name__)
 
 
 class SwagUpdateCallback(TrainerCallback):
+    """Callback for updating SWAG parameters during training
+
+    Use with transformers.Trainer to collect the SWAG parameters
+    during training of the base model. Example:
+
+    swag_model = SwagBertForSequenceClassification.from_base(base_model)
+    trainer = transformers.Trainer(
+        model=base_model,
+        ...
+        callbacks=[SwagUpdateCallback(swag_model)]
+    )
+    trainer.train()
+
+    """
 
     def __init__(self, swag_model):
         self.main_model = swag_model
-        # if isinstance(swag_model, SWAG):
-        #     self.swag = swag_model
-        # else:
-        #     # expect SwagBertPreTrainedModel etc.
-        #     self.swag = swag_model.swag
 
-    def on_epoch_end(self, args, state, control, logs=None, model=None, **kwargs):
+    def on_epoch_end(self, args, state, control, model=None, **kwargs):
         if model is None:
             logger.error("No model provided for SWAG update")
             return
-        logger.info("Updating SWAG parameters from %s", type(model).__name__)
+        logger.debug("Updating SWAG parameters from %s", type(model).__name__)
         self.main_model.swag.collect_model(model)
         self.main_model.config.update_internal_config(model.config)

@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 class SwagBertConfig(PretrainedConfig):
+    """Config for Bert model averaging with SWAG"""
 
     model_type = 'swag_bert'
     internal_config_class = BertConfig
@@ -55,6 +56,7 @@ class SwagBertConfig(PretrainedConfig):
 
 
 class SwagBertPreTrainedModel(PreTrainedModel):
+    """Pretrained SWAG Bert model"""
 
     config_class = SwagBertConfig
     base_model_prefix = 'swag_bert'
@@ -94,11 +96,11 @@ class SwagBertPreTrainedModel(PreTrainedModel):
         return swag_model
 
     def _init_weights(self, module):
-        # FIXME: Is it enough to do this?
         self.swag.base._init_weights(module)
 
 
 class SwagBertModel(SwagBertPreTrainedModel):
+    """SWAG Bert model"""
 
     def forward(self, *args, **kwargs):
         return self.swag.forward(*args, **kwargs)
@@ -106,6 +108,11 @@ class SwagBertModel(SwagBertPreTrainedModel):
     def get_logits(
         self, *args, num_predictions=None, scale=1.0, cov=True, block=False, **kwargs
     ):
+        """Sample model parameters num_predictions times and get logits for the input
+
+        Results in a tensor of size batch_size x num_predictions x output_size.
+
+        """
         if num_predictions is None:
             sample = False
             num_predictions = 1
@@ -117,10 +124,11 @@ class SwagBertModel(SwagBertPreTrainedModel):
                 self.swag.sample(scale=scale, cov=cov, block=block)
             out = self.forward(*args, **kwargs)
             logits.append(out.logits)
-        logits = torch.permute(torch.stack(logits), (1, 0, 2))  # [batch_size, num_predictions, labels]
+        logits = torch.permute(torch.stack(logits), (1, 0, 2))  # [batch_size, num_predictions, output_size]
         return logits
 
 
 class SwagBertForSequenceClassification(SwagBertModel):
+    """SWAG Bert model for sequence classification"""
 
     internal_model_class = BertForSequenceClassification
