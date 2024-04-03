@@ -6,10 +6,10 @@ import numpy as np
 import torch
 
 from datasets import Dataset, DatasetDict
-from transformers import AutoConfig, AutoModel, AutoModelForSequenceClassification, AutoTokenizer, \
-    DataCollatorWithPadding, Trainer, TrainingArguments
+from transformers import AutoConfig, AutoModel, AutoModelForSequenceClassification, AutoModelWithLMHead, \
+    AutoTokenizer, DataCollatorWithPadding, Trainer, TrainingArguments
 
-from swag_transformers.swag_bert import SwagBertConfig, SwagBertModel, SwagBertPreTrainedModel, \
+from swag_transformers.swag_bert import SwagBertConfig, SwagBertLMHeadModel, SwagBertModel, SwagBertPreTrainedModel, \
     SwagBertForSequenceClassification
 from swag_transformers.trainer_utils import SwagUpdateCallback
 
@@ -52,6 +52,23 @@ class TestSwagBert(unittest.TestCase):
         self.assertEqual(out.logits.shape, (1, num_labels))
         print(swag_model.swag.base.bert.embeddings.token_type_embeddings.weight_mean)
 
+    def test_untrained_lmhead(self):
+        hidden_size = 128
+        vocab_size = 512
+        num_attention_heads = 4
+        config = SwagBertConfig(
+            no_cov_mat=False, num_attention_heads=num_attention_heads, hidden_size=hidden_size,
+            vocab_size=vocab_size, is_decoder=True)
+        swag_model = SwagBertLMHeadModel(config)
+        swag_model.swag.sample()
+        logging.debug(swag_model.config)
+        logging.debug(swag_model)
+        prep_inputs = swag_model.prepare_inputs_for_generation(input_ids=torch.tensor([[3, 14, 45]]))
+        logging.debug(prep_inputs)
+        out = swag_model.forward(**prep_inputs)
+        logging.debug(out)
+        self.assertEqual(out.logits.shape, (1, 3, vocab_size))
+
     def test_pretrained_bert_tiny_base(self):
         model = AutoModel.from_pretrained(self.pretrained_model_name)
         self.assertEqual(model.device.type, 'cpu')
@@ -73,14 +90,14 @@ class TestSwagBert(unittest.TestCase):
         swag_model = SwagBertForSequenceClassification.from_base(model)
         logging.debug(swag_model)
         self.assertEqual(swag_model.device.type, 'cpu')
+        logging.debug(swag_model.device)
+        logging.debug(swag_model.swag.device)
+        logging.debug(swag_model.swag.base.device)
+        swag_model.swag.collect_model(model)
         swag_model.swag.sample()
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
-        print(swag_model.config)
-        print(swag_model.swag.base.config)
-        print(swag_model.swag.base.bert.embeddings.token_type_embeddings.weight)
-        print(swag_model.swag.base.bert.embeddings.token_type_embeddings.weight_mean)
 
     def _data_gen(self):
         yield {"text": "Hello world", "label": 0}

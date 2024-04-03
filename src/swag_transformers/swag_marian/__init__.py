@@ -1,4 +1,4 @@
-"""PyTorch SWAG wrapper for BERT"""
+"""PyTorch SWAG wrapper for Marian models"""
 
 import copy
 import functools
@@ -7,8 +7,9 @@ from typing import Union
 
 import torch
 
-from transformers import PreTrainedModel, PretrainedConfig, BertConfig, BertLMHeadModel, BertModel, \
-    BertPreTrainedModel, BertForSequenceClassification
+from transformers import PreTrainedModel, PretrainedConfig, MarianConfig, \
+    MarianModel, MarianMTModel
+from transformers.models.marian import MarianPreTrainedModel
 
 from swag.posteriors.swag import SWAG
 
@@ -16,11 +17,11 @@ from swag.posteriors.swag import SWAG
 logger = logging.getLogger(__name__)
 
 
-class SwagBertConfig(PretrainedConfig):
-    """Config for BERT model averaging with SWAG"""
+class SwagMarianConfig(PretrainedConfig):
+    """Config for Marian model averaging with SWAG"""
 
-    model_type = 'swag_bert'
-    internal_config_class = BertConfig
+    model_type = 'swag_marian'
+    internal_config_class = MarianConfig
 
     def __init__(
             self,
@@ -41,13 +42,13 @@ class SwagBertConfig(PretrainedConfig):
         self.var_clamp = var_clamp
 
     @classmethod
-    def from_config(cls, base_config: BertConfig, **kwargs):
-        """Initialize from existing BertConfig"""
+    def from_config(cls, base_config: MarianConfig, **kwargs):
+        """Initialize from existing MarianConfig"""
         config = cls(**kwargs)
         config.internal_model_config = base_config.to_dict()
         return config
 
-    def update_internal_config(self, base_config: BertConfig):
+    def update_internal_config(self, base_config: MarianConfig):
         """Update internal config from base_config"""
         self.internal_model_config = base_config.to_dict()
         # Copy some things to the top level
@@ -55,12 +56,12 @@ class SwagBertConfig(PretrainedConfig):
             self.problem_type = base_config.problem_type
 
 
-class SwagBertPreTrainedModel(PreTrainedModel):
-    """Pretrained SWAG BERT model"""
+class SwagMarianPreTrainedModel(PreTrainedModel):
+    """Pretrained SWAG Marian model"""
 
-    config_class = SwagBertConfig
-    base_model_prefix = 'swag_bert'
-    internal_model_class = BertModel
+    config_class = SwagMarianConfig
+    base_model_prefix = 'swag_marian'
+    internal_model_class = MarianPreTrainedModel
 
     def __init__(self, config):
         super().__init__(config)
@@ -69,15 +70,17 @@ class SwagBertPreTrainedModel(PreTrainedModel):
             no_cov_mat=config.no_cov_mat,
             max_num_models=config.max_num_models,
             var_clamp=config.var_clamp,
-            config=config.internal_config_class(**config.internal_model_config)
+            config=config.internal_config_class(**config.internal_model_config),
         )
 
     def _init_weights(self, module):
         self.swag.base._init_weights(module)
 
 
-class SwagBertModel(SwagBertPreTrainedModel):
-    """SWAG BERT model"""
+class SwagMarianModel(SwagMarianPreTrainedModel):
+    """SWAG Marian model"""
+
+    internal_model_class = MarianModel
 
     def __init__(self, config, base_model=None):
         super().__init__(config)
@@ -98,9 +101,9 @@ class SwagBertModel(SwagBertPreTrainedModel):
         return copy.deepcopy(model)
 
     @classmethod
-    def from_base(cls, base_model: BertPreTrainedModel, **kwargs):
-        """Initialize from existing BertPreTrainedModel"""
-        config = SwagBertConfig.from_config(base_model.config, **kwargs)
+    def from_base(cls, base_model: MarianPreTrainedModel, **kwargs):
+        """Initialize from existing MarianPreTrainedModel"""
+        config = SwagMarianConfig.from_config(base_model.config, **kwargs)
         swag_model = cls(config, base_model=base_model)
         return swag_model
 
@@ -108,38 +111,10 @@ class SwagBertModel(SwagBertPreTrainedModel):
         return self.swag.forward(*args, **kwargs)
 
 
-class SwagBertForSequenceClassification(SwagBertModel):
-    """SWAG BERT model for sequence classification"""
+class SwagMarianMTModel(SwagMarianModel):
+    """SWAG MarianMT model"""
 
-    internal_model_class = BertForSequenceClassification
+    internal_model_class = MarianMTModel
 
-    def get_logits(
-        self, *args, num_predictions=None, scale=1.0, cov=True, block=False, **kwargs
-    ):
-        """Sample model parameters num_predictions times and get logits for the input
-
-        Results in a tensor of size batch_size x num_predictions x output_size.
-
-        """
-        if num_predictions is None:
-            sample = False
-            num_predictions = 1
-        else:
-            sample = True
-        logits = []
-        for _ in range(num_predictions):
-            if sample:
-                self.swag.sample(scale=scale, cov=cov, block=block)
-            out = self.forward(*args, **kwargs)
-            logits.append(out.logits)
-        logits = torch.permute(torch.stack(logits), (1, 0, 2))  # [batch_size, num_predictions, output_size]
-        return logits
-
-
-class SwagBertLMHeadModel(SwagBertModel):
-    """SWAG BERT model with LM head"""
-
-    internal_model_class = BertLMHeadModel
-
-    def prepare_inputs_for_generation(self, *args, **kwargs):
-        return self.swag.base.prepare_inputs_for_generation(*args, **kwargs)
+    def generate(self, *args, **kwargs):
+        return self.swag.base.generate(*args, **kwargs)
