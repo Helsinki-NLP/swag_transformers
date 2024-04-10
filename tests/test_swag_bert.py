@@ -23,9 +23,9 @@ class TestSwagBert(unittest.TestCase):
         config = SwagBertConfig(no_cov_mat=False, hidden_size=hidden_size)
         logging.debug(config)
         swag_model = SwagBertPreTrainedModel(config)
-        logging.debug(swag_model)
         swag_model = SwagBertModel(config)
         logging.debug(swag_model)
+        self.assertEqual(swag_model.device.type, 'cpu')
         with self.assertLogs(level='WARNING') as cm:
             out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
             # Warning from using forward before sampling parameters
@@ -46,29 +46,33 @@ class TestSwagBert(unittest.TestCase):
         swag_model.swag.sample()
         logging.debug(swag_model)
         logging.debug(swag_model.swag.base.config)
+        self.assertEqual(swag_model.device.type, 'cpu')
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
         print(swag_model.swag.base.bert.embeddings.token_type_embeddings.weight_mean)
 
-    def test_pretrained_bert_tiny(self):
+    def test_pretrained_bert_tiny_base(self):
         model = AutoModel.from_pretrained(self.pretrained_model_name)
+        self.assertEqual(model.device.type, 'cpu')
         hidden_size = model.config.hidden_size
         config = SwagBertConfig.from_config(model.config, no_cov_mat=False)
         logging.debug(config)
         swag_model = SwagBertModel.from_base(model)
         logging.debug(swag_model)
+        self.assertEqual(swag_model.device.type, 'cpu')
         swag_model.swag.sample()
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.last_hidden_state.shape, (1, 2, hidden_size))
 
-    def test_pretrained_bert_tiny_classifier(self):
+    def test_pretrained_bert_tiny_classifier_test(self):
         num_labels = 4
         model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
         print(model.config)
         swag_model = SwagBertForSequenceClassification.from_base(model)
         logging.debug(swag_model)
+        self.assertEqual(swag_model.device.type, 'cpu')
         swag_model.swag.sample()
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
@@ -90,7 +94,9 @@ class TestSwagBert(unittest.TestCase):
         num_labels = 2
         train_epochs = 5
         model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
+        self.assertEqual(model.device.type, 'cpu')
         swag_model = SwagBertForSequenceClassification.from_base(model)
+        self.assertEqual(swag_model.device.type, 'cpu')
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
         tokens = tokenizer(["Hello world", "Just some swaggering"],
                            padding=True, truncation=False, return_tensors="pt")

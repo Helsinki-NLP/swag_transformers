@@ -19,7 +19,7 @@ setup(
     package_dir={"": "src"},
     install_requires=[
         "transformers>=4.30",
-        "swa_gaussian>=0.1.2"
+        "swa_gaussian>=0.1.3"
     ],
     classifiers=[
         "Development Status :: 3 - Alpha",

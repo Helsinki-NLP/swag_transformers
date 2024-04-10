@@ -62,38 +62,15 @@ class SwagBertPreTrainedModel(PreTrainedModel):
     base_model_prefix = 'swag_bert'
     internal_model_class = BertModel
 
-    @staticmethod
-    def _base_model_copy(model, *args, **kwargs):
-        # Has to be copied, otherwise SWAG would initialize parameters
-        # of the original model to zero
-        return copy.deepcopy(model)
-
-    def __init__(self, config, base_model=None):
+    def __init__(self, config):
         super().__init__(config)
-        if base_model is None:
-            self.swag = SWAG(
-                base=self.internal_model_class,
-                no_cov_mat=config.no_cov_mat,
-                max_num_models=config.max_num_models,
-                var_clamp=config.var_clamp,
-                config=config.internal_config_class(**config.internal_model_config),
-                device='cpu'  # FIXME: how to deal with device
-            )
-        else:
-            self.swag = SWAG(
-                base=functools.partial(self._base_model_copy, base_model),
-                no_cov_mat=config.no_cov_mat,
-                max_num_models=config.max_num_models,
-                var_clamp=config.var_clamp,
-                device='cpu'  # FIXME: how to deal with device
-            )
-
-    @classmethod
-    def from_base(cls, base_model: BertPreTrainedModel, **kwargs):
-        """Initialize from existing BertPreTrainedModel"""
-        config = SwagBertConfig.from_config(base_model.config, **kwargs)
-        swag_model = cls(config, base_model=base_model)
-        return swag_model
+        self.swag = SWAG(
+            base=self.internal_model_class,
+            no_cov_mat=config.no_cov_mat,
+            max_num_models=config.max_num_models,
+            var_clamp=config.var_clamp,
+            config=config.internal_config_class(**config.internal_model_config)
+        )
 
     def _init_weights(self, module):
         self.swag.base._init_weights(module)
@@ -101,6 +78,35 @@ class SwagBertPreTrainedModel(PreTrainedModel):
 
 class SwagBertModel(SwagBertPreTrainedModel):
     """SWAG Bert model"""
+
+    def __init__(self, config, base_model=None):
+        super().__init__(config)
+        if base_model:
+            self.swag = SWAG(
+                base=functools.partial(self._base_model_copy, base_model),
+                no_cov_mat=config.no_cov_mat,
+                max_num_models=config.max_num_models,
+                var_clamp=config.var_clamp
+            )
+        # Should have some parameter in order to self.device to work
+        # (SWAG stores only buffers, not parameters)
+        # See https://stackoverflow.com/a/63477353
+        self._dummy_param = torch.nn.Parameter(torch.empty(0))
+        self.post_init()
+
+    @staticmethod
+    def _base_model_copy(model, *args, **kwargs):
+        """Return deep copy of the model ignoring other arguments"""
+        # Has to be copied, otherwise SWAG would initialize parameters
+        # of the original model to zero
+        return copy.deepcopy(model)
+
+    @classmethod
+    def from_base(cls, base_model: BertPreTrainedModel, **kwargs):
+        """Initialize from existing BertPreTrainedModel"""
+        config = SwagBertConfig.from_config(base_model.config, **kwargs)
+        swag_model = cls(config, base_model=base_model)
+        return swag_model
 
     def forward(self, *args, **kwargs):
         return self.swag.forward(*args, **kwargs)
