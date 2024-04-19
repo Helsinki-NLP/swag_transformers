@@ -3,6 +3,10 @@ import logging
 import os
 import bz2
 import random
+import collections
+import itertools
+import sys
+import json
 
 import torch
 import transformers
@@ -11,8 +15,7 @@ import evaluate
 
 import numpy as np
 
-from datasets import DatasetDict
-from datasets import load_dataset
+from datasets import Dataset, DatasetDict, load_dataset
 
 from transformers import EarlyStoppingCallback
 
@@ -73,9 +76,9 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
 
     num_train_samples = len(dataset["train"])
     num_negatives = num_negatives if num_negatives is not None else num_train_samples
-        
+
     negative_sources, negative_targets = [], []
-        
+
     # Sampling negative examples
     if negatives == "same":
         # sample from the same data distribution
@@ -86,7 +89,7 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
                 negative_targets.append(s2)
                 if len(negative_sources) == num_negatives:
                     break
-        
+
     elif negatives == "random":
         # sample randomly from all data
         with bz2.open(source_data, "rt") as f:
@@ -95,7 +98,7 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
                 _, s1, s2, *_ = choice.split("\t")
                 negative_sources.append(s1)
                 negative_targets.append(s2)
-        
+
     elif negatives == "after":
         # sample from data after the positive examples
         with bz2.open(source_data, "rt") as f:
@@ -198,7 +201,7 @@ def main():
             "test": dataset["test"]
         })
 
-    
+
     def tokenize_dataset(examples):
         processed = tokenizer(
             examples["sent1"],
@@ -210,7 +213,7 @@ def main():
 
         processed["labels"] = [annotation_to_label(val) for val in examples["annot_score"]]
         return processed
-    
+
     metric = evaluate.load("accuracy")
 
 
