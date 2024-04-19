@@ -1,0 +1,1575 @@
+{"lang": "fi", "input": "Teidän on aika liittyä taas joukkoomme.", "target": "Teidän on aika tulla eristyksistä - ja liittyä meihin.", "annot_score": 1}
+{"lang": "fi", "input": "Sotajoukko lähestyy tätä asemaa.", "target": "Sotavoimat hyökkäävät tälle asemalle.", "annot_score": 1}
+{"lang": "fi", "input": "Se ei ollut parini syy.", "target": "Se ei ollut hänen vikansa.", "annot_score": 1}
+{"lang": "fi", "input": "Teidän maijesteetti.", "target": "teidän korkeutenne.", "annot_score": 1}
+{"lang": "fi", "input": "Polttolaukaus.", "target": "Vaiheistulta.", "annot_score": 0}
+{"lang": "fi", "input": "Miks toi äijä kerto meille ton tarinan?", "target": "Miks se kerto sen meille?", "annot_score": 1}
+{"lang": "fi", "input": "Leivonnaista ja viiniä, kiitos.", "target": "Kaksi pulloa puna - sekä valkoviiniä.", "annot_score": 0}
+{"lang": "fi", "input": "Ei, hän on ystävien kanssa.", "target": "Hän on kaverin luona.", "annot_score": 1}
+{"lang": "fi", "input": "Vakuuta Cotton naimaan sinut.", "target": "Suostuttele Cotton Mather naimaan sinut.", "annot_score": 1}
+{"lang": "fi", "input": "Et voi enää piiloutua miehesi taakse.", "target": "Ette voi piileksiä miehenne takana.", "annot_score": 1}
+{"lang": "fi", "input": "Hae, paikanna, tuhoa.", "target": "Etsi ja pysäytä.", "annot_score": 0}
+{"lang": "fi", "input": "Carlille ei sitten naisia.", "target": "Ei naisia Carlille.", "annot_score": 1}
+{"lang": "fi", "input": "Olen Lenan serkku Alice.", "target": "Olen Alice, Lenan serkku.", "annot_score": 1}
+{"lang": "fi", "input": "Minulla on kysymys.", "target": "Joe rakentaa kuvunkaatajaa.", "annot_score": 0}
+{"lang": "fi", "input": "Herra Proctor.", "target": "Mitä kuuluu, Kai?", "annot_score": 0}
+{"lang": "fi", "input": "Missä Whispers on?", "target": "Missä hän on nyt?", "annot_score": 1}
+{"lang": "fi", "input": "Älä sano siksi.", "target": "Älä kutsu minua sillä nimellä.", "annot_score": 1}
+{"lang": "fi", "input": "Valmiina ampumaan.", "target": "Kanuunat ovat valmiina.", "annot_score": 1}
+{"lang": "fi", "input": "Se voi tappaa hänet.", "target": "Hän saattaa kuolla.", "annot_score": 1}
+{"lang": "fi", "input": "Monan tappoonko?", "target": "Jälkeenpäin.", "annot_score": 0}
+{"lang": "fi", "input": "Ja pidän sen.", "target": "Te lupasitte.", "annot_score": 0}
+{"lang": "fi", "input": "Se on työn alla.", "target": "Totuttelen niihin.", "annot_score": 0}
+{"lang": "fi", "input": "Voitte pysyä vaiti.", "target": "Sinulla on oikeus olla hiljaa.", "annot_score": 1}
+{"lang": "fi", "input": "Olen hyvin tärkeä mies.", "target": "Tämä ei ole tarpeen.", "annot_score": 0}
+{"lang": "fi", "input": "Mistä sinä sait tietää?", "target": "Kuka sinulle kertoi?", "annot_score": 1}
+{"lang": "fi", "input": "Hän ei ole tajuissaan.", "target": "Hän on tajuton.", "annot_score": 1}
+{"lang": "fi", "input": "Niin minä olenkin.", "target": "Minä olen ystäväsi.", "annot_score": 0}
+{"lang": "fi", "input": "Asia on vireillä.", "target": "Homma hallussa.", "annot_score": 0}
+{"lang": "fi", "input": "On hyvä nähdä myös sinua.", "target": "Hauska nähdä sinua.", "annot_score": 1}
+{"lang": "fi", "input": "Pitääkö se paikkansa.", "target": "Onko tuo totta?", "annot_score": 1}
+{"lang": "fi", "input": "Sitä käytetään väärin.", "target": "Jotain on pielessä.", "annot_score": 0}
+{"lang": "fi", "input": "Palaa töihin siitä.", "target": "Mene takaisin töihin.", "annot_score": 1}
+{"lang": "fi", "input": "Nirhaan tuon jätkän.", "target": "Aion tappaa hänet.", "annot_score": 1}
+{"lang": "fi", "input": "Se on mitä on.", "target": "Minkä sille voi.", "annot_score": 1}
+{"lang": "fi", "input": "Tulemme uudestaan.", "target": "Me palaamme vielä.", "annot_score": 1}
+{"lang": "fi", "input": "Ravintola on suljettu.", "target": "Olemme kiinni.", "annot_score": 1}
+{"lang": "fi", "input": "Emme olekaan tavanneet hetkeen.", "target": "Pitkästä aikaa.", "annot_score": 1}
+{"lang": "fi", "input": "Agentti Hardy.", "target": "Tämäpä yllätys.", "annot_score": 0}
+{"lang": "fi", "input": "Seriffi halusi niin.", "target": "En tiedä muuta.", "annot_score": 0}
+{"lang": "fi", "input": "Sellainen on hienoa.", "target": "Pidän siitä.", "annot_score": 1}
+{"lang": "fi", "input": "Onko tämä tottakaan?", "target": "Onko se mahdollista?", "annot_score": 1}
+{"lang": "fi", "input": "Hän oli oikeassa.", "target": "Oikeassa Jamie olikin.", "annot_score": 1}
+{"lang": "fi", "input": "Tiedättekö te?", "target": "Ei, ei vielä.", "annot_score": 0}
+{"lang": "fi", "input": "Olen muuttunut.", "target": "En ole enää sama hirviö.", "annot_score": 1}
+{"lang": "fi", "input": "Olen niin ylpeä sinusta.", "target": "Olen sinusta hyvin ylpeä.", "annot_score": 1}
+{"lang": "fi", "input": "Tee kuten käsken.", "target": "Tee, niin kuin sanon.", "annot_score": 1}
+{"lang": "fi", "input": "Pieni onnettomuus.", "target": "Sattuuko siihen?", "annot_score": 0}
+{"lang": "fi", "input": "Soittakaa apua.", "target": "Soita hätänumeroon.", "annot_score": 1}
+{"lang": "fi", "input": "En välitä paskan vertaa.", "target": "Aivan vitun sama.", "annot_score": 1}
+{"lang": "fi", "input": "Eikö mikään?", "target": "Vaikenetko edelleen?", "annot_score": 0}
+{"lang": "fi", "input": "Mitä hirnut siinä?", "target": "Mikä on noin hauskaa?", "annot_score": 1}
+{"lang": "fi", "input": "Sinäkö se oot taas?", "target": "Oletko sinä tuossa?", "annot_score": 1}
+{"lang": "fi", "input": "Tähän asti.", "target": "Ja nyt tapahtui jotain.", "annot_score": 0}
+{"lang": "fi", "input": "Viemme sairaalaan.", "target": "Mitä me teemme?", "annot_score": 0}
+{"lang": "fi", "input": "Viisi minuuttia.", "target": "Ja olet yhä mukana.", "annot_score": 0}
+{"lang": "fi", "input": "Elääkö Jamie?", "target": "Onko hän elossa?", "annot_score": 1}
+{"lang": "fi", "input": "Taitaa olla poika tulossa.", "target": "Uskon sen olevan poika.", "annot_score": 1}
+{"lang": "fi", "input": "Saan siemensyöksyn ennenaikaisesti.", "target": "Saan ennenaikaisen siemensyöksyn.", "annot_score": 1}
+{"lang": "fi", "input": "Onko pakko puhua siitä, kuinka iso olen?", "target": "Puhummeko vain siitä, kuinka iso minä olen?", "annot_score": 1}
+{"lang": "fi", "input": "Oletko sinä puhunut hänelle?", "target": "Oletko puhunut Tomin kanssa?", "annot_score": 1}
+{"lang": "fi", "input": "Nyt joku voi viedä meidät takaisin.", "target": "Minä toin sinut tänne.", "annot_score": 0}
+{"lang": "fi", "input": "Kulttuuriin tutustumassa?", "target": "Tutustut paikalliseen kulttuuriin?", "annot_score": 1}
+{"lang": "fi", "input": "Heidän avullaan ihmiskunta selviää.", "target": "Ihmiskunta tarvitsee heitä.", "annot_score": 1}
+{"lang": "fi", "input": "Hän ruiskuttaa minun vertani sinuun.", "target": "Hän haluaa ruiskuttaa sinuun minun vertani.", "annot_score": 1}
+{"lang": "fi", "input": "Siitä on niin kauan.", "target": "En ole nähnyt häntä vuosiin.", "annot_score": 1}
+{"lang": "fi", "input": "Se on repeämän yläpuolella.", "target": "Se sattuu olemaan repeämän päällä.", "annot_score": 1}
+{"lang": "fi", "input": "Se muuttaa maailman.", "target": "Maailma on erilainen, koska hän elää.", "annot_score": 1}
+{"lang": "fi", "input": "Loimme ohjelmistolla hänestä nykykuvan.", "target": "Loimme kuvan hänestä ikääntyneenä.", "annot_score": 0}
+{"lang": "fi", "input": "Salem on eturintamaa.", "target": "Eturintama on Salemissa.", "annot_score": 1}
+{"lang": "fi", "input": "Sinulla on tulehdus.", "target": "Ei, tarkoitin toista koetta... . mansikkahillo", "annot_score": 0}
+{"lang": "fi", "input": "Betsy oli monitaituri.", "target": "Hän oli monilahjakkuus.", "annot_score": 1}
+{"lang": "fi", "input": "Aistin ne teistä.", "target": "Aistin voimakalusi.", "annot_score": 0}
+{"lang": "fi", "input": "Kuka teidät paIkkasi?", "target": "Kuka sinuIIe soitti?", "annot_score": 0}
+{"lang": "fi", "input": "En ota määräyksiä keltään.", "target": "En ota käskyjä keneltäkään.", "annot_score": 1}
+{"lang": "fi", "input": "Vain sinua minä rakastan.", "target": "Olet ainoa, jota rakastan.", "annot_score": 1}
+{"lang": "fi", "input": "Olen sinun kropassasi.", "target": "Se on sinun vartalosi.", "annot_score": 0}
+{"lang": "fi", "input": "Maksoit, että hän sanoisi noin.", "target": "Maksoit hänelle tuosta.", "annot_score": 1}
+{"lang": "fi", "input": "Ikävöitkö sinä minua?", "target": "Tuleeko sinulle ikävä?", "annot_score": 1}
+{"lang": "fi", "input": "Harvoin tapaa ystävättömän.", "target": "Ystävätöntä miestä tapaa harvoin.", "annot_score": 1}
+{"lang": "fi", "input": "Saatan laivaston taas yhteen.", "target": "Aion yhdistää laivaston.", "annot_score": 1}
+{"lang": "fi", "input": "Sinua siis pelottaa?", "target": "Pelkäätkö sinä?", "annot_score": 1}
+{"lang": "fi", "input": "Heillä on tehtävä tai viesti.", "target": "Mistä sinä sen tiedät?", "annot_score": 0}
+{"lang": "fi", "input": "Se ei jätä meitä koskaan.", "target": "Se ei koskaan poistu luotamme.", "annot_score": 1}
+{"lang": "fi", "input": "Mestarin kuuluu saada palkintonsa.", "target": "Mestari saa hänet.", "annot_score": 1}
+{"lang": "fi", "input": "Kulta, sinun pitäisi olla jäähyllä.", "target": "Mikä on, Violet?", "annot_score": 0}
+{"lang": "fi", "input": "Hei, John Rayburn tässä.", "target": "Hei, tässä on John Rayburn.", "annot_score": 1}
+{"lang": "fi", "input": "Silmäsi, Gabriel.", "target": "Gabriel, silmäsi.", "annot_score": 1}
+{"lang": "fi", "input": "Voinko yrittää uudestaan?", "target": "Saanko uuden yrityksen?", "annot_score": 1}
+{"lang": "fi", "input": "Pidä huoli, ettei hän kutsu minua enää isäksi.", "target": "Poika ei saa kutsua minua isäksi.", "annot_score": 1}
+{"lang": "fi", "input": "Meiltä jäi jokin huomaamatta.", "target": "Siellä on oltava jotain, mitä emme löytäneet.", "annot_score": 1}
+{"lang": "fi", "input": "Jokainen häviäjä lausuu samat sanat.", "target": "Kaikki tapaamani häviäjät ovat sanoneet samoin.", "annot_score": 1}
+{"lang": "fi", "input": "Järjestäkää Relicol-käynti 7B: hen liittyen ja varmistakaa, että heidät erotetaan muista.", "target": "Laadi Relicolin aikataulu ryhmälle 7B, ja eristä heidät.", "annot_score": 1}
+{"lang": "fi", "input": "Ida lähtee pienimmästäkin kotiin.", "target": "Muista, että pienimmästäkin jutusta tyttö palautuu minulle.", "annot_score": 1}
+{"lang": "fi", "input": "Emma, sinäkö siellä?", "target": "Emma, oletko se sinä?", "annot_score": 1}
+{"lang": "fi", "input": "Sekään koira ei hauku.", "target": "Ei hauku sekään koira.", "annot_score": 1}
+{"lang": "fi", "input": "Arvaa kenen vuoro on seuraavaksi.", "target": "Arvaa kuka on seuraavana.", "annot_score": 1}
+{"lang": "fi", "input": "Onko tuo se jota etsit?", "target": "Onko tämä se mitä olet etsinyt?", "annot_score": 1}
+{"lang": "fi", "input": "Ei minulla ole muitakaan.", "target": "Minulla ei ole muita kuin sinä.", "annot_score": 1}
+{"lang": "fi", "input": "Kilin kellit.", "target": "Ju-ma-lauta.", "annot_score": 1}
+{"lang": "fi", "input": "Ei nyt hätäännytä.", "target": "Ei tehdä hätäisiä päätelmiä.", "annot_score": 1}
+{"lang": "fi", "input": "Luulet hänen kaltaisen miehen tulevan näin lähelle kiinnijäämistä työntääkseen päänsä ulos?", "target": "Luulet, että sellainen kaveri pääsee näin lähelle vain jäädäkseen kiinni?", "annot_score": 1}
+{"lang": "fi", "input": "Et osunut kahteen.", "target": "Kaksi hutia.", "annot_score": 1}
+{"lang": "fi", "input": "Avaudu sinua ympäröiville vaikutelmille.", "target": "Avaudu vaikutelmille ympärilläsi.", "annot_score": 1}
+{"lang": "fi", "input": "Alfred, hätätapaus.", "target": "Hätätapaus, Alfred.", "annot_score": 1}
+{"lang": "fi", "input": "Varokaa kosketusta.", "target": "Älkää antako niiden koskea.", "annot_score": 1}
+{"lang": "fi", "input": "Taistelijaprinsessani.", "target": "Soturittareni.", "annot_score": 1}
+{"lang": "fi", "input": "Sinun kuuluisi olla täällä.", "target": "Tule, Charles.", "annot_score": 0}
+{"lang": "fi", "input": "Professori Vauhkomieli.", "target": "Selkään puukottava.", "annot_score": 0}
+{"lang": "fi", "input": "Kullan hakemisen voi estää vain tappamalla jokaisen - joka tietää kullan sijainnin.", "target": "Meidän pitäisi tappaa jokainen, joka tietää jotain Urcan kullasta.", "annot_score": 1}
+{"lang": "fi", "input": "Voitte katkaista tämän väärän uskollisuuden ketjun.", "target": "Katkaiskaa tämä harhaanjohdettu uskollisuuden ketju.", "annot_score": 1}
+{"lang": "fi", "input": "Jack ensimmäisenä ehdotti pääsi sisälle menoa.", "target": "Jack ehdotti ensimmäisenä pääsi sisään menoa.", "annot_score": 1}
+{"lang": "fi", "input": "Christinen toimistossa on piirustus.", "target": "Christinella on piirros toimistossaan.", "annot_score": 1}
+{"lang": "fi", "input": "Teet mitä Coulson sanoo.", "target": "Autamme johtaja Coulsonia.", "annot_score": 0}
+{"lang": "fi", "input": "Arvon herrat, tervetuloa piisamitilalle.", "target": "Tervetuloa, herrat.", "annot_score": 1}
+{"lang": "fi", "input": "Ala levittää uutista.", "target": "Nyt alan hoilottaa.", "annot_score": 0}
+{"lang": "fi", "input": "Tiedän olevani Liviä voimakkaampi.", "target": "Heikompi kuolee.", "annot_score": 0}
+{"lang": "fi", "input": "Voimme kertoa kaiken toisillemme.", "target": "Kerromme toisillemme kaiken.", "annot_score": 1}
+{"lang": "fi", "input": "Hän on täydellinen.", "target": "Hän on juuri sopiva.", "annot_score": 1}
+{"lang": "fi", "input": "Oliko heillä aseita?", "target": "Olivatko he aseistettuja?", "annot_score": 1}
+{"lang": "fi", "input": "Mies oli ventovieras.", "target": "Että pistäisin tuntematonta?", "annot_score": 0}
+{"lang": "fi", "input": "Mieluiten paljon.", "target": "Isoihin velkoihin.", "annot_score": 0}
+{"lang": "fi", "input": "Kuka se on onnenpoika on?", "target": "Kuka se onnekas mies on?", "annot_score": 1}
+{"lang": "fi", "input": "Viisisataseen.", "target": "500. kerros.", "annot_score": 1}
+{"lang": "fi", "input": "Kyllä, mutta.", "target": "Kapteeni Vane ei halua jäädä tänne.", "annot_score": 0}
+{"lang": "fi", "input": "Miten arvasit, missä olin?", "target": "Miten löysit minut?", "annot_score": 1}
+{"lang": "fi", "input": "Siksi olen täällä.", "target": "Sen takia tulinkin.", "annot_score": 1}
+{"lang": "fi", "input": "Kaikkia kokoja.", "target": "Kultahampaat.", "annot_score": 0}
+{"lang": "fi", "input": "Ei enää yllätyksiä.", "target": "Yllätykset riittävät.", "annot_score": 1}
+{"lang": "fi", "input": "Se on suunnitelmani.", "target": "Se juuri on tarkoitus.", "annot_score": 1}
+{"lang": "fi", "input": "Mutta minulla on toivoa.", "target": "Mutta toivoa piisaa.", "annot_score": 1}
+{"lang": "fi", "input": "Kuinka asutus jakselee?", "target": "Mitä asutuksellemme kuuluu?", "annot_score": 1}
+{"lang": "fi", "input": "Toisinaan universumi toimii.", "target": "Joskus maailma on kohdallaan.", "annot_score": 1}
+{"lang": "fi", "input": "Keyser Soze?", "target": "Hän oli satamassa.", "annot_score": 0}
+{"lang": "fi", "input": "Ei ennen sitä.", "target": "Ei aikaisemmin.", "annot_score": 1}
+{"lang": "fi", "input": "Aivan, kuningattareni.", "target": "Pelotatte lasta.", "annot_score": 0}
+{"lang": "fi", "input": "Miksi olette yksin täällä?", "target": "Mitä teet täällä yksinäsi?", "annot_score": 1}
+{"lang": "fi", "input": "Tämä on Maddielta.", "target": "Hyvää joulua.", "annot_score": 0}
+{"lang": "fi", "input": "Tässä talossa?", "target": "Näytittekin tutulta.", "annot_score": 0}
+{"lang": "fi", "input": "Nyt en ole siitä niin varma.", "target": "En ole enää varma siitä.", "annot_score": 1}
+{"lang": "fi", "input": "Jotain kiinnostavaa?", "target": "Onko mitään erikoista?", "annot_score": 1}
+{"lang": "fi", "input": "Tämä on selvä.", "target": "Meille riitti.", "annot_score": 0}
+{"lang": "fi", "input": "Pelkään, että näin on.", "target": "Valitettavasti ei.", "annot_score": 0}
+{"lang": "fi", "input": "Se kuuluu tuolta.", "target": "Tuolta se tulee.", "annot_score": 0}
+{"lang": "fi", "input": "Aika on koittanut.", "target": "On aika tehdä se.", "annot_score": 1}
+{"lang": "fi", "input": "121 000 dollaria.", "target": "Rakennan panimoni uudelleen.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä DJ: hin tulee.", "target": "Minä pidän hänestä.", "annot_score": 0}
+{"lang": "fi", "input": "Parasta pukeutua.", "target": "Menen pukeutumaan.", "annot_score": 1}
+{"lang": "fi", "input": "Tiedättekö mikä todella rassaa rattaitani?", "target": "Tiedättekö mikä rassaa minua?", "annot_score": 1}
+{"lang": "fi", "input": "Haluan mennä avioon kanssasi.", "target": "Tahdon sinut miehekseni.", "annot_score": 1}
+{"lang": "fi", "input": "Kestät jään ja tuulen", "target": "Terveiset tuot kaukaa", "annot_score": 0}
+{"lang": "fi", "input": "Nämä ihmiset.", "target": "Nuo tuossa.", "annot_score": 0}
+{"lang": "fi", "input": "Tai vähemmän.", "target": "Tilaisuus meni jo.", "annot_score": 0}
+{"lang": "fi", "input": "Yritän koko ajan.", "target": "Hoidan sen asian.", "annot_score": 0}
+{"lang": "fi", "input": "Kuinka hän jaksaa?", "target": "Miten poika voi?", "annot_score": 1}
+{"lang": "fi", "input": "Hän pakkasi laukkuni.", "target": "Eipä unohdeta tätä.", "annot_score": 0}
+{"lang": "fi", "input": "Olen Jamie Campbell.", "target": "Mitch Morgan?", "annot_score": 0}
+{"lang": "fi", "input": "Lizzy ja Luke?", "target": "Ei tarvitse tulla takaisin.", "annot_score": 0}
+{"lang": "fi", "input": "Isän jalanjäljillä.", "target": "Niin isä kuin poika.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä saisit vastineeksi?", "target": "Mitä hän haluaa?", "annot_score": 0}
+{"lang": "fi", "input": "Olit oikeassa.", "target": "Sinä onnistuit.", "annot_score": 0}
+{"lang": "fi", "input": "Kuinka se on mahdollista?", "target": "Miten hän ei voi tietää?", "annot_score": 0}
+{"lang": "fi", "input": "Tuo herra lähetti lasillisen viiniä ja käyntikorttinsa.", "target": "Hyvin vedetty.", "annot_score": 0}
+{"lang": "fi", "input": "Pidän sua silmällä.", "target": "Minä tarkkailen sinua.", "annot_score": 1}
+{"lang": "fi", "input": "En tiedä vielä.", "target": "Wellsillä on salaisuuksia.", "annot_score": 0}
+{"lang": "fi", "input": "Pidän näppini erossa.", "target": "En koske sormellakaan.", "annot_score": 1}
+{"lang": "fi", "input": "Millainen hän on?", "target": "Kerro äidistäsi.", "annot_score": 0}
+{"lang": "fi", "input": "Heti kun pääsen.", "target": "Niin pian kuin voin.", "annot_score": 1}
+{"lang": "fi", "input": "Olen lääkäri.", "target": "Voin auttaa.", "annot_score": 0}
+{"lang": "fi", "input": "Minun tulee ikävä sitä.", "target": "Jään kaipaamaan.", "annot_score": 1}
+{"lang": "fi", "input": "Sinun on luvattava jotain.", "target": "Lupaa minulle jotain.", "annot_score": 1}
+{"lang": "fi", "input": "Vaihtoehtoja on aina.", "target": "Valinnan varaa on aina.", "annot_score": 1}
+{"lang": "fi", "input": "Pärjäämme ilman häntä.", "target": "Selviämme häntä ilmankin.", "annot_score": 1}
+{"lang": "fi", "input": "Nick, häivytään täältä.", "target": "Nick, painutaan pois täältä.", "annot_score": 1}
+{"lang": "fi", "input": "Hehän tulittavat.", "target": "He ampuvat meitä.", "annot_score": 1}
+{"lang": "fi", "input": "Ilmaa ei tule.", "target": "En edelleenkään mitään.", "annot_score": 0}
+{"lang": "fi", "input": "Ei ole reilua.", "target": "Et ymmärrä, mistä on kyse.", "annot_score": 0}
+{"lang": "fi", "input": "Kuinka veljesi voi?", "target": "Miten veljesi jaksaa?", "annot_score": 1}
+{"lang": "fi", "input": "Olen tympääntynyt.", "target": "Minua pitkästyttää.", "annot_score": 1}
+{"lang": "fi", "input": "Haluan sitä itsekin.", "target": "Sitä minäkin haluan.", "annot_score": 1}
+{"lang": "fi", "input": "Katsokaa sormustani.", "target": "Pidätkö siitä?", "annot_score": 0}
+{"lang": "fi", "input": "Tule takaisin luoksemme.", "target": "Palaa joukkoomme.", "annot_score": 1}
+{"lang": "fi", "input": "Onko tuo käsky?", "target": "Käsketkö minua?", "annot_score": 1}
+{"lang": "fi", "input": "Charlie hävisi äsken.", "target": "Hän lähti juuri.", "annot_score": 0}
+{"lang": "fi", "input": "Kiitos käynnistänne.", "target": "Kiitos, että tulitte.", "annot_score": 1}
+{"lang": "fi", "input": "Vannon sen.", "target": "Olisin suojellut sinua.", "annot_score": 0}
+{"lang": "fi", "input": "Minun takiako?", "target": "Ai minä vai?", "annot_score": 0}
+{"lang": "fi", "input": "Teet minut onnelliseksi.", "target": "Täytyy avata.", "annot_score": 0}
+{"lang": "fi", "input": "Hän ei voinut.", "target": "Ei hän tekisi sitä.", "annot_score": 0}
+{"lang": "fi", "input": "Miten hän jakselee?", "target": "No, kuka hän on?", "annot_score": 0}
+{"lang": "fi", "input": "Sekoitat minut johonkin, joka välittää.", "target": "Luuletko, että välitän?", "annot_score": 1}
+{"lang": "fi", "input": "Siksihän tänne tultiin.", "target": "Siksi muutimme tänne.", "annot_score": 1}
+{"lang": "fi", "input": "Vakuuta minut.", "target": "Esitä todisteesi.", "annot_score": 1}
+{"lang": "fi", "input": "En yritä mitään.", "target": "Ei tämä ole peliä.", "annot_score": 1}
+{"lang": "fi", "input": "Ei ole enää.", "target": "Kuuntele sisarenpoikaani.", "annot_score": 0}
+{"lang": "fi", "input": "Voiko kukaan todistaa sitä?", "target": "Voiko joku vahvistaa sen?", "annot_score": 1}
+{"lang": "fi", "input": "Anna miehen puhua.", "target": "Hei, Sawyer.", "annot_score": 0}
+{"lang": "fi", "input": "Onko reissuja?", "target": "Minne lähdetään?", "annot_score": 0}
+{"lang": "fi", "input": "Kiittäisit minua.", "target": "Sinun kuuluisi kiittää.", "annot_score": 1}
+{"lang": "fi", "input": "Näyttää pahalta.", "target": "Minulla on ongelma.", "annot_score": 0}
+{"lang": "fi", "input": "Kunnia tavata.", "target": "Ra' s Al Ghulin.", "annot_score": 0}
+{"lang": "fi", "input": "Minähän voitin pelin.", "target": "Tämä ei ole reilua.", "annot_score": 0}
+{"lang": "fi", "input": "Päätös oli minun.", "target": "Minä päätin siitä.", "annot_score": 1}
+{"lang": "fi", "input": "Tapan sen naisen.", "target": "Hän ei ole tarpeeksi vahva.", "annot_score": 0}
+{"lang": "fi", "input": "Olemme paljastuneet.", "target": "Meidät on paljastettu.", "annot_score": 1}
+{"lang": "fi", "input": "Hän on mahdoton.", "target": "Etkö halua tietää varmasti?", "annot_score": 0}
+{"lang": "fi", "input": "Kuka täällä määrää?", "target": "Piirijohtaja.", "annot_score": 0}
+{"lang": "fi", "input": "Ne jahtaavat sinua.", "target": "He tulevat perääsi.", "annot_score": 1}
+{"lang": "fi", "input": "Saanko tiedustella syytä siihen?", "target": "Saanko kysyä, miksi?", "annot_score": 1}
+{"lang": "fi", "input": "Paskat oli.", "target": "Hevonkukkua.", "annot_score": 1}
+{"lang": "fi", "input": "Se on ainoa vaihtoehto.", "target": "Tämä on viimeinen tilaisuutemme.", "annot_score": 1}
+{"lang": "fi", "input": "Se on kiristystiedosto.", "target": "Fulcrumista.", "annot_score": 0}
+{"lang": "fi", "input": "Kato totakin.", "target": "Chekkaa tää.", "annot_score": 1}
+{"lang": "fi", "input": "Miten kätesi voi?", "target": "Entä käsivartesi?", "annot_score": 1}
+{"lang": "fi", "input": "Jalkaterään sattuu.", "target": "Jalkojani särkee.", "annot_score": 1}
+{"lang": "fi", "input": "Minulla oli rankka ilta.", "target": "On ollut pitkä ilta.", "annot_score": 1}
+{"lang": "fi", "input": "En tarkoittanut sitä.", "target": "Ei se ollut sitä mitä meinasin.", "annot_score": 1}
+{"lang": "fi", "input": "Entä äiti ja isä?", "target": "Onko maailma poissa?", "annot_score": 0}
+{"lang": "fi", "input": "Olen pahoillani, Simon.", "target": "Simon, olen pahoillani.", "annot_score": 1}
+{"lang": "fi", "input": "Sulhanen jäi auton alle.", "target": "Auto törmäsi häneen.", "annot_score": 1}
+{"lang": "fi", "input": "Varmistin sen.", "target": "Pidin siitä huolen.", "annot_score": 1}
+{"lang": "fi", "input": "Otatko uuden?", "target": "Taasko järistys?", "annot_score": 0}
+{"lang": "fi", "input": "Mikä sinun tekosyysi on?", "target": "Millä sinä puolustat tekoasi?", "annot_score": 1}
+{"lang": "fi", "input": "Haittaako jos istun alas?", "target": "Voinko käydä istumaan?", "annot_score": 1}
+{"lang": "fi", "input": "Olenko se minä?", "target": "Eikö hän pidä minusta?", "annot_score": 0}
+{"lang": "fi", "input": "Toimimme sen mukaan.", "target": "Luotamme sinuun.", "annot_score": 0}
+{"lang": "fi", "input": "Anna minun olla.", "target": "Jätä minut rauhaan nyt", "annot_score": 1}
+{"lang": "fi", "input": "Niinkö huonosti?", "target": "Kuulostaako pahalta?", "annot_score": 0}
+{"lang": "fi", "input": "Me olemme parivaljakko.", "target": "Olemme joukkue.", "annot_score": 1}
+{"lang": "fi", "input": "Herra Donovan.", "target": "Hän on turvallisuuspäällikkömme.", "annot_score": 0}
+{"lang": "fi", "input": "Tuo on seuraavana päivänä, - kun äitini oli lähtenyt.", "target": "Tämä ei voi olla totta.", "annot_score": 0}
+{"lang": "fi", "input": "He ovat hyviä ihmisiä.", "target": "He eivät satuttaisi Peteria.", "annot_score": 0}
+{"lang": "fi", "input": "Ehdottomasti ei.", "target": "Elvät ollenkaan.", "annot_score": 1}
+{"lang": "fi", "input": "Tuo ei ole totta.", "target": "Eikä kirjoittanut.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on painajainen.", "target": "Painajainen tämä on.", "annot_score": 1}
+{"lang": "fi", "input": "Petit minut.", "target": "Olit uskoton.", "annot_score": 1}
+{"lang": "fi", "input": "Aika mennä nukkumaan.", "target": "David, älä.", "annot_score": 0}
+{"lang": "fi", "input": "Pian sattuu.", "target": "Tämä tekee kipeää.", "annot_score": 1}
+{"lang": "fi", "input": "Missään tilanteessa.", "target": "Mikä vain olisi.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä he sinulle tekivät?", "target": "Mitä he ovat tehneet sinulle?", "annot_score": 1}
+{"lang": "fi", "input": "Säälittävä.", "target": "Pateettinen.", "annot_score": 1}
+{"lang": "fi", "input": "Muuta sinun ei tarvitse tietää.", "target": "Ei siitä sen enempää.", "annot_score": 1}
+{"lang": "fi", "input": "Pitää keksiä jotain.", "target": "Tarvitsemme suunnitelman.", "annot_score": 1}
+{"lang": "fi", "input": "Pystyt siihen.", "target": "Hoidat homman.", "annot_score": 1}
+{"lang": "fi", "input": "Ei mitään pitävää.", "target": "En voi kertoa enempää.", "annot_score": 0}
+{"lang": "fi", "input": "Veljeni tapettiin.", "target": "He tappoivat veljeni.", "annot_score": 1}
+{"lang": "fi", "input": "Siellä itse piru.", "target": "Siinä paha, missä mainitaan.", "annot_score": 1}
+{"lang": "fi", "input": "Me löydämme Antonin.", "target": "Löydämme hänet kyllä.", "annot_score": 1}
+{"lang": "fi", "input": "Kiva kampaus.", "target": "Siisti tukka.", "annot_score": 1}
+{"lang": "fi", "input": "Muu ei kelpaa.", "target": "Ei mistään muusta.", "annot_score": 1}
+{"lang": "fi", "input": "Se ei voinut olla vahinko.", "target": "Se ei ollut onnettomuus.", "annot_score": 1}
+{"lang": "fi", "input": "Minua hävettää.", "target": "Sinun koulusi?", "annot_score": 0}
+{"lang": "fi", "input": "Nyt riittää.", "target": "Suu poikki.", "annot_score": 1}
+{"lang": "fi", "input": "Nostakaa ylös.", "target": "Pullot näkyville.", "annot_score": 0}
+{"lang": "fi", "input": "Myöhästyisinkin.", "target": "Toivottavasti.", "annot_score": 0}
+{"lang": "fi", "input": "Teillä ei ole mitään asiaa tänne.", "target": "Ette saisi tulla tänne.", "annot_score": 1}
+{"lang": "fi", "input": "Vielä yksi asia.", "target": "Eräs seikka vielä.", "annot_score": 1}
+{"lang": "fi", "input": "Tiedätkö mitä minä ajattelen?", "target": "Arvaa, mitä mieltä olen?", "annot_score": 1}
+{"lang": "fi", "input": "Voinko nyt mennä?", "target": "Joko on minun vuoro?", "annot_score": 1}
+{"lang": "fi", "input": "En silti ymmärrä.", "target": "En tajua vieläkään.", "annot_score": 1}
+{"lang": "fi", "input": "Kyse on muustakin.", "target": "Julie rakastaa minua.", "annot_score": 0}
+{"lang": "fi", "input": "En tiennyt, mitä tehdä.", "target": "Aloin elvyttää.", "annot_score": 0}
+{"lang": "fi", "input": "He ovat kaikkialla.", "target": "Tiedän tämän olleen tärkeää sinulle jonkin aikaa, mutta tämä on ohi.", "annot_score": 0}
+{"lang": "fi", "input": "Henkilöllisyys?", "target": "Tunnistautukaa.", "annot_score": 1}
+{"lang": "fi", "input": "Tutkimme sitä vielä.", "target": "Me työstämme asiaa.", "annot_score": 1}
+{"lang": "fi", "input": "Että minä ammun hänet.", "target": "Minä keksin sen.", "annot_score": 0}
+{"lang": "fi", "input": "Saatanan runkut.", "target": "Senkin kyrväkkeet.", "annot_score": 1}
+{"lang": "fi", "input": "Batman ei tule.", "target": "Hän ei pääse tulemaan.", "annot_score": 1}
+{"lang": "fi", "input": "Parannuskeinoa ei ole.", "target": "Ei siihen ole vastalääkettä.", "annot_score": 1}
+{"lang": "fi", "input": "Emme tiedä mitään.", "target": "Ei muututa vainoharhaisiksi.", "annot_score": 0}
+{"lang": "fi", "input": "Tuosta en tiedä.", "target": "Täysin tuntematon.", "annot_score": 1}
+{"lang": "fi", "input": "Me palvelimme yhdessä.", "target": "Hän ei voi muuttaa asioita tässä maailmassa.", "annot_score": 0}
+{"lang": "fi", "input": "Toivon todella.", "target": "Enemmän kuin mitään.", "annot_score": 0}
+{"lang": "fi", "input": "Minä pidän tästä työstä.", "target": "Tykkään ihmisistä.", "annot_score": 0}
+{"lang": "fi", "input": "Et pelota minua.", "target": "Turha yrittää säikytellä.", "annot_score": 1}
+{"lang": "fi", "input": "Maksat vielä tästä.", "target": "Kuka tämän korvaa?", "annot_score": 0}
+{"lang": "fi", "input": "Kävi miten tahansa.", "target": "Vaikka miten kävisi.", "annot_score": 1}
+{"lang": "fi", "input": "Ei voi olla totta.", "target": "Oletko aivan vitun tosissasi?", "annot_score": 1}
+{"lang": "fi", "input": "Emme saaneet kunnon sormenjälkeä.", "target": "Hän oli paras ystäväni.", "annot_score": 0}
+{"lang": "fi", "input": "Ollaan myöhässä.", "target": "Meillä on jo kiire.", "annot_score": 1}
+{"lang": "fi", "input": "Halusin puhua kanssasi.", "target": "Haluaisin puhua eräästä asiasta.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä tuo muka tarkoitti?", "target": "En saa selvää, mitä sanot.", "annot_score": 0}
+{"lang": "fi", "input": "Missä Kate on?", "target": "Laske aseesi, tai ammun hänen päänsä hajalle.", "annot_score": 0}
+{"lang": "fi", "input": "Meillä on jotain yhteistä.", "target": "Välillämme on yhteys.", "annot_score": 1}
+{"lang": "fi", "input": "Missä sinä olet ollut?", "target": "Missä hitossa kuppasit?", "annot_score": 1}
+{"lang": "fi", "input": "Toivottavasti tiedät, mitä teet.", "target": "Toivottavasti osaat asiasi.", "annot_score": 1}
+{"lang": "fi", "input": "Mutta olit väärässä.", "target": "Erehdyitte.", "annot_score": 1}
+{"lang": "fi", "input": "Minä olen dalek.", "target": "Olen Clara Oswald.", "annot_score": 0}
+{"lang": "fi", "input": "En kyennyt siihen.", "target": "En voinut tehdä sitä.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä vuotta elämme?", "target": "Mikä vuosi nyt on?", "annot_score": 1}
+{"lang": "fi", "input": "Tulit varhain.", "target": "Sinä olet etuajassa.", "annot_score": 1}
+{"lang": "fi", "input": "Ratkommekin.", "target": "Pidetään jo.", "annot_score": 0}
+{"lang": "fi", "input": "Otan sinut mukaani.", "target": "Haluan, että tulet kanssani.", "annot_score": 1}
+{"lang": "fi", "input": "Olet juuri sopiva.", "target": "Olet täydellinen.", "annot_score": 1}
+{"lang": "fi", "input": "Samalta kuin te.", "target": "Aivan kuten sinä.", "annot_score": 0}
+{"lang": "fi", "input": "Felicitykö hän oli?", "target": "Missä Diggle on?", "annot_score": 0}
+{"lang": "fi", "input": "Mitä he täällä tekevät?", "target": "Millä asialla he ovat?", "annot_score": 1}
+{"lang": "fi", "input": "Kuka sinulle niin sanoi?", "target": "Kuka kertoi sinulle tämän?", "annot_score": 1}
+{"lang": "fi", "input": "Kaksi prosenttia.", "target": "Kiitos, Louis.", "annot_score": 0}
+{"lang": "fi", "input": "Tarvitsen apuasi.", "target": "Haluan että autat minua.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä nyt tehdään?", "target": "Mitä meillä on nyt?", "annot_score": 0}
+{"lang": "fi", "input": "Olen tosissani.", "target": "Aloita sillä.", "annot_score": 0}
+{"lang": "fi", "input": "Pyydä hänet sisään.", "target": "Käske peremmälle.", "annot_score": 1}
+{"lang": "fi", "input": "Se on helppoa.", "target": "Rakastan Trystanea.", "annot_score": 0}
+{"lang": "fi", "input": "Voimme keksiä ratkaisun.", "target": "Keksimme kyllä jotain.", "annot_score": 1}
+{"lang": "fi", "input": "Parannus vampirismiin.", "target": "Otat parannuksen.", "annot_score": 0}
+{"lang": "fi", "input": "Olemme kumppaneita.", "target": "Olemme tässä kimpassa.", "annot_score": 1}
+{"lang": "fi", "input": "Olet rikas kuin kroisos.", "target": "Katso peilikuvaasi.", "annot_score": 0}
+{"lang": "fi", "input": "Ymmärrän sen.", "target": "Tajuan kyllä miksi.", "annot_score": 1}
+{"lang": "fi", "input": "Tämä on monimutkaisempaa kuin se.", "target": "Se on mutkikkaampaa.", "annot_score": 1}
+{"lang": "fi", "input": "Miten nokkelaa.", "target": "Tosi fiksua.", "annot_score": 1}
+{"lang": "fi", "input": "Pidä minulle peukkua.", "target": "Toivota mulle onnea.", "annot_score": 1}
+{"lang": "fi", "input": "Ja tarkoitukseni ei ollut loukata sinua.", "target": "En tarkoittanut loukata.", "annot_score": 1}
+{"lang": "fi", "input": "Alkakaa töihin.", "target": "Rupeahan hommiin.", "annot_score": 1}
+{"lang": "fi", "input": "Pyytämäsi on kuitenkin mahdotonta.", "target": "Se ei ollut pyyntö.", "annot_score": 0}
+{"lang": "fi", "input": "En ymmärrä kysymystä.", "target": "Ensisijainen käyttäjäni.", "annot_score": 0}
+{"lang": "fi", "input": "Luotan sinuun täysin.", "target": "Todella paljon.", "annot_score": 0}
+{"lang": "fi", "input": "Minua nolottaa aivan kamalasti.", "target": "Tämä on niin noloa.", "annot_score": 1}
+{"lang": "fi", "input": "Jätän sinut.", "target": "Ja varmasti jaksat.", "annot_score": 0}
+{"lang": "fi", "input": "Vannomatta paras.", "target": "En olisi liian varma siitä.", "annot_score": 1}
+{"lang": "fi", "input": "Kuinka äitisi voi?", "target": "Miten äitinne jaksaa?", "annot_score": 1}
+{"lang": "fi", "input": "On oltava jokin toinen keino.", "target": "On oltava toinen suunnitelma.", "annot_score": 1}
+{"lang": "fi", "input": "asiat järjestyvät varmasti.", "target": "Kaikki menee hyvin.", "annot_score": 1}
+{"lang": "fi", "input": "Tule ihmeessä.", "target": "Sinun pitäisi tulla.", "annot_score": 1}
+{"lang": "fi", "input": "Tilanne on hyvin mutkikas.", "target": "Se on omaksi parhaaksesi.", "annot_score": 0}
+{"lang": "fi", "input": "Minun pitää käydä vessassa.", "target": "Käyn toiletissa.", "annot_score": 1}
+{"lang": "fi", "input": "Isku kalloon.", "target": "Näyttääkö tutulta?", "annot_score": 0}
+{"lang": "fi", "input": "Uudelleen kansoitus on tauolla kunnes vauva syntyy paitsi, jos Kevin tekee myös Trevorin raskaaksi.", "target": "Onneksi olkoon.", "annot_score": 0}
+{"lang": "fi", "input": "Hirveä nälkä.", "target": "Maistuuko munakas?", "annot_score": 0}
+{"lang": "fi", "input": "Pudota puukko.", "target": "Tiputa veitsi.", "annot_score": 1}
+{"lang": "fi", "input": "Olkaa vain itsenne.", "target": "Ole vain oma itsesi.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä me nyt teimme?", "target": "Mitä olemme tehneet?", "annot_score": 1}
+{"lang": "fi", "input": "En tehnyt sitä.", "target": "Se oli Strauss.", "annot_score": 0}
+{"lang": "fi", "input": "Ei välttämättä hänen.", "target": "En oikeastaan.", "annot_score": 0}
+{"lang": "fi", "input": "Vien sinut hänen luokseen.", "target": "Olemme kohta perillä.", "annot_score": 0}
+{"lang": "fi", "input": "Ne ovat sääntöni.", "target": "Säännöt ovat sellaiset.", "annot_score": 1}
+{"lang": "fi", "input": "Jää luoksemme.", "target": "Älä jätä meitä.", "annot_score": 1}
+{"lang": "fi", "input": "Se on siis totta.", "target": "Se pitää siis paikkansa.", "annot_score": 1}
+{"lang": "fi", "input": "Aloita alusta.", "target": "Kerro kaikki, minkä olet kertonut Julielle.", "annot_score": 0}
+{"lang": "fi", "input": "Hyvä vastaus.", "target": "Auttaa...?", "annot_score": 0}
+{"lang": "fi", "input": "Mitä odottelemme?", "target": "Mitä tässä viivytellään?", "annot_score": 1}
+{"lang": "fi", "input": "Ehkä pystyisin auttamaan?", "target": "Ehkä voin auttaa.", "annot_score": 1}
+{"lang": "fi", "input": "Ei ole aikaa tähän.", "target": "Tähän ei ole nyt aikaa.", "annot_score": 1}
+{"lang": "fi", "input": "Englanniksi.", "target": "Äidinkieleen.", "annot_score": 0}
+{"lang": "fi", "input": "Kaksi iskua.", "target": "Vain sinä ja minä.", "annot_score": 0}
+{"lang": "fi", "input": "Hänellä ei ole tartuntaa.", "target": "Hän on puhdas.", "annot_score": 1}
+{"lang": "fi", "input": "ooksä hullu?", "target": "Oletko järjiltäsi?", "annot_score": 1}
+{"lang": "fi", "input": "Älä kerro hänelle.", "target": "Hän on ollut kaupungissa päivän ajan ja hän saa jo.", "annot_score": 0}
+{"lang": "fi", "input": "Tehty mikä tehty.", "target": "Mitä tapahtui, se tapahtui.", "annot_score": 1}
+{"lang": "fi", "input": "Olen tri Emmett Brown.", "target": "Hyvää iltaa.", "annot_score": 0}
+{"lang": "fi", "input": "Onko tämä sinun syytäsi?", "target": "Teitkö sinä tämän?", "annot_score": 1}
+{"lang": "fi", "input": "Kyllä uskot.", "target": "Valehteletpas.", "annot_score": 0}
+{"lang": "fi", "input": "Onko sinulla parempi idea?", "target": "Onko parempi ehdotus?", "annot_score": 1}
+{"lang": "fi", "input": "En pystynyt siihen.", "target": "En kyennyt tekemään sitä.", "annot_score": 1}
+{"lang": "fi", "input": "Minua jännittää.", "target": "Olen vähän huolissani.", "annot_score": 1}
+{"lang": "fi", "input": "Hauskaa olla avuksi.", "target": "Autan mielelläni.", "annot_score": 1}
+{"lang": "fi", "input": "On kamalaa olla kirottu.", "target": "Tiedän, millaista se on.", "annot_score": 0}
+{"lang": "fi", "input": "Ei hätää, sir.", "target": "Missä tyttäreni on?", "annot_score": 0}
+{"lang": "fi", "input": "Et täsmälleen.", "target": "Emme oikeastaan.", "annot_score": 0}
+{"lang": "fi", "input": "Ei hassummin.", "target": "Tässäkö se oli?", "annot_score": 0}
+{"lang": "fi", "input": "Ei ole mitään puhumista.", "target": "Siinä ei ole mitään keskusteltavaa.", "annot_score": 1}
+{"lang": "fi", "input": "Lupaan tutkia asian.", "target": "Minä annan sanani.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä ei auta.", "target": "Mikset ole vihainen?", "annot_score": 0}
+{"lang": "fi", "input": "Koska sait sellaisen?", "target": "Mistä lähtien.", "annot_score": 0}
+{"lang": "fi", "input": "Musiikki on elämäsi.", "target": "Haluan tulla kotiin.", "annot_score": 0}
+{"lang": "fi", "input": "Helvettiäkö teet täällä?", "target": "Hittoako sinä täällä teet?", "annot_score": 1}
+{"lang": "fi", "input": "Tuo nainen pitää löytää.", "target": "Minun on löydettävä hänet.", "annot_score": 1}
+{"lang": "fi", "input": "Mutta kun en tiennyt.", "target": "En tiennyt lainkaan.", "annot_score": 1}
+{"lang": "fi", "input": "Kelpo heitto.", "target": "Hyvä laukaus.", "annot_score": 0}
+{"lang": "fi", "input": "Eihän sinuun sattunut?", "target": "Oletko kunnossa?", "annot_score": 1}
+{"lang": "fi", "input": "Miksi minä olen täällä?", "target": "Se mikä merkitsee minulle eniten, - on kotona.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä teet ulkona?", "target": "Mitä sinä täällä ulkosalla teet?", "annot_score": 1}
+{"lang": "fi", "input": "Sinä tapailet tuota blondia.", "target": "Antakaa, kun arvaan.", "annot_score": 0}
+{"lang": "fi", "input": "Olet sankari.", "target": "Pidät orpoja leivässä.", "annot_score": 0}
+{"lang": "fi", "input": "Luulenpa niin.", "target": "Pelkäänpä, että pitää.", "annot_score": 0}
+{"lang": "fi", "input": "Se ei ole minun syyni.", "target": "Kyllä helvetissä on.", "annot_score": 0}
+{"lang": "fi", "input": "Minkä neuvon antaisitte?", "target": "Mitä ehdotatte?", "annot_score": 1}
+{"lang": "fi", "input": "Eipä tuo haittaa.", "target": "Sillä ei ole merkitystä.", "annot_score": 1}
+{"lang": "fi", "input": "Aika helposti.", "target": "Se on hyvin yksinkertaista.", "annot_score": 0}
+{"lang": "fi", "input": "En minä ole tuollainen.", "target": "Tuo en ole minä.", "annot_score": 1}
+{"lang": "fi", "input": "Pärjään kyllä.", "target": "Selviän aina jotenkin.", "annot_score": 1}
+{"lang": "fi", "input": "Näyttääkö pahalta?", "target": "Onko huono juttu?", "annot_score": 1}
+{"lang": "fi", "input": "Kieltäydyin.", "target": "Pakkaan tavarani ja muutan pois.", "annot_score": 0}
+{"lang": "fi", "input": "Seis, jumalauta.", "target": "Teidät on pidätetty.", "annot_score": 0}
+{"lang": "fi", "input": "Se ei Iiikuta minua tippaakaan.", "target": "En piittaa paskaakaan.", "annot_score": 1}
+{"lang": "fi", "input": "Kiitos oikein kovasti.", "target": "Paljon kiitoksia.", "annot_score": 1}
+{"lang": "fi", "input": "Hän kävi melkein miehestä.", "target": "Tiedätkö mitä?", "annot_score": 0}
+{"lang": "fi", "input": "Nyt sinä huijaat.", "target": "Et voi vittu olla tosissasi.", "annot_score": 1}
+{"lang": "fi", "input": "Sinun vuorosi.", "target": "Saat paikan.", "annot_score": 0}
+{"lang": "fi", "input": "Siellä on jokin.", "target": "On jotain muutakin.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on ajanhukkaa.", "target": "Täyttä ajantuhlausta.", "annot_score": 1}
+{"lang": "fi", "input": "Miten voin tietää?", "target": "Kuinka voit olla varma?", "annot_score": 0}
+{"lang": "fi", "input": "Siinä kaikki mitä tiedän.", "target": "Muuta minä en tiedä.", "annot_score": 1}
+{"lang": "fi", "input": "Sinua oli kova ikävä.", "target": "olen kaivannut sinua.", "annot_score": 1}
+{"lang": "fi", "input": "Minne olet matkalla?", "target": "Minne sä IuuIet meneväsi?", "annot_score": 1}
+{"lang": "fi", "input": "Ne eivät ole minulla.", "target": "Ei minulla ole niitä.", "annot_score": 1}
+{"lang": "fi", "input": "Milloin se oli?", "target": "Koska tämä oli?", "annot_score": 1}
+{"lang": "fi", "input": "Haluan sinut vaimokseni.", "target": "Yritän mennä kanssasi naimisiin.", "annot_score": 1}
+{"lang": "fi", "input": "En satuta sinua.", "target": "Emme tee sinulle mitään.", "annot_score": 0}
+{"lang": "fi", "input": "On ollut hirveä ikävä.", "target": "Minulla oli sinua ikävä.", "annot_score": 1}
+{"lang": "fi", "input": "Kuka seuraavaksi?", "target": "Kaksi hoidettu.", "annot_score": 0}
+{"lang": "fi", "input": "Merkillistä.", "target": "Kieltämättä upea juttu.", "annot_score": 0}
+{"lang": "fi", "input": "Itseni vuoksi.", "target": "Minun tarinani.", "annot_score": 0}
+{"lang": "fi", "input": "Tarvitsemme apuanne.", "target": "Soittakaa ruudussa näkyvään numeroon.", "annot_score": 0}
+{"lang": "fi", "input": "Mutta en pysty.", "target": "En kuitenkaan saa.", "annot_score": 0}
+{"lang": "fi", "input": "En nyt sanonut niinkään.", "target": "En minä sitä sanonutkaan.", "annot_score": 1}
+{"lang": "fi", "input": "Tuskin kerron.", "target": "Unohda koko juttu.", "annot_score": 0}
+{"lang": "fi", "input": "Hengittääkö hän?", "target": "En osaa sanoa.", "annot_score": 0}
+{"lang": "fi", "input": "Tykkään olla täällä.", "target": "Täällä on hyvä olla.", "annot_score": 1}
+{"lang": "fi", "input": "Antakaa hänen olla.", "target": "Älkää kiusatko häntä.", "annot_score": 1}
+{"lang": "fi", "input": "Löysimme jotain.", "target": "Meillä on tämä.", "annot_score": 0}
+{"lang": "fi", "input": "Luonnollisesti.", "target": "Rajoissa tietenkin.", "annot_score": 0}
+{"lang": "fi", "input": "Kyllä hän jää.", "target": "Se tulee takaisin.", "annot_score": 0}
+{"lang": "fi", "input": "Ei hän ole sellainen.", "target": "Se oli kohteliaisuus.", "annot_score": 0}
+{"lang": "fi", "input": "Herkullinenpas.", "target": "Tämä on tosi hyvää.", "annot_score": 1}
+{"lang": "fi", "input": "Sitä minä tahdon.", "target": "Haluan sitä.", "annot_score": 1}
+{"lang": "fi", "input": "Sinulla on onnea.", "target": "Taitaa olla onnenpäiväsi.", "annot_score": 1}
+{"lang": "fi", "input": "En ole koskaan nähnyt vastaavaa.", "target": "En ole nähnyt 15-vuotisella urallani mitään vastaavaa.", "annot_score": 1}
+{"lang": "fi", "input": "Puhutko englantia?", "target": "Eikö painu kaaliin?", "annot_score": 0}
+{"lang": "fi", "input": "Vahdi häntä.", "target": "Pidä tuota silmällä", "annot_score": 1}
+{"lang": "fi", "input": "En ole koskaan nähnyt mitään tällaista.", "target": "Ihan uutta minulle.", "annot_score": 1}
+{"lang": "fi", "input": "Ei siinä kaikki.", "target": "Ei pelkästään ne.", "annot_score": 1}
+{"lang": "fi", "input": "Sinäkö nämä teit?", "target": "Olitko se sinä?", "annot_score": 1}
+{"lang": "fi", "input": "En tarkkaan ottaen.", "target": "Ei suorasti.", "annot_score": 0}
+{"lang": "fi", "input": "En enää pysty tähän.", "target": "Mitä jatkan?", "annot_score": 0}
+{"lang": "fi", "input": "Nyt mennään 3, 2, 1.", "target": "Kolme, kaksi, yksi.", "annot_score": 1}
+{"lang": "fi", "input": "Kai sinä ymmärrät.", "target": "Tiedät kyllä, mitä tarkoitan.", "annot_score": 1}
+{"lang": "fi", "input": "Olen ystäväsi.", "target": "Laske alas.", "annot_score": 0}
+{"lang": "fi", "input": "Niissä ei näy mitään.", "target": "Eihän siellä ole mitään.", "annot_score": 1}
+{"lang": "fi", "input": "Ei oikeastaan.", "target": "Olet poissa töistä ja näytät tuolta.", "annot_score": 0}
+{"lang": "fi", "input": "Miten sinulla menee?", "target": "Miten olen jaksellut?", "annot_score": 0}
+{"lang": "fi", "input": "Niin paljon.", "target": "Todella kipeästi.", "annot_score": 0}
+{"lang": "fi", "input": "Haluat jotakin.", "target": "Yllättävää.", "annot_score": 0}
+{"lang": "fi", "input": "Puhuin Rachelin vanhemmille.", "target": "Komea ruhtinas piirittää minua.", "annot_score": 0}
+{"lang": "fi", "input": "Satutitteko itsenne?", "target": "Sattuiko sinuun?", "annot_score": 1}
+{"lang": "fi", "input": "Hän ei halua minua.", "target": "Älä kuuntele häntä.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä helvettiä se tarkoittaa?", "target": "Mitä hittoa tuo meinaa?", "annot_score": 1}
+{"lang": "fi", "input": "Ei ole tarinaa.", "target": "Tulin yksin.", "annot_score": 0}
+{"lang": "fi", "input": "Ole kuin kotonasi.", "target": "Tee olosi kodikkaaksi.", "annot_score": 1}
+{"lang": "fi", "input": "Katso nyt näitä käsiä.", "target": "Kiitos, kaverit.", "annot_score": 0}
+{"lang": "fi", "input": "Se toimii sillä lailla.", "target": "Niin se menee.", "annot_score": 1}
+{"lang": "fi", "input": "Emme voi vain istuskella.", "target": "Tehdään jotain.", "annot_score": 1}
+{"lang": "fi", "input": "Sen kerronkin.", "target": "Puhun totta.", "annot_score": 0}
+{"lang": "fi", "input": "Koputitko sinä?", "target": "Sinäkö se olit?", "annot_score": 1}
+{"lang": "fi", "input": "Mitä hän kuhnii?", "target": "Mitä mies tekee?", "annot_score": 0}
+{"lang": "fi", "input": "Minäkin tunnen sinut.", "target": "Tiedän, kuka sinä olet.", "annot_score": 1}
+{"lang": "fi", "input": "Onpa kumma.", "target": "Ken tietää.", "annot_score": 1}
+{"lang": "fi", "input": "Ehkä myöhemmin.", "target": "Joskus toiste kenties.", "annot_score": 1}
+{"lang": "fi", "input": "Baari on minun, mutta kiitos.", "target": "Kiitos kuitenkin.", "annot_score": 0}
+{"lang": "fi", "input": "Hetki koittaa.", "target": "Aika on lyönyt.", "annot_score": 1}
+{"lang": "fi", "input": "Keksitään jotain muuta.", "target": "On oltava toinen keino.", "annot_score": 1}
+{"lang": "fi", "input": "Olet siis mukana.", "target": "Hän on palannut.", "annot_score": 0}
+{"lang": "fi", "input": "Se oli Cruella.", "target": "Etkö käsitä?", "annot_score": 0}
+{"lang": "fi", "input": "Tuota juuri tarkoitin.", "target": "Sanoin ihan samaa.", "annot_score": 1}
+{"lang": "fi", "input": "Whitney on oikeassa.", "target": "Kidutus ei auta.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on tohtori Hiroshi Hatake, - tutkimuksen johtaja.", "target": "TAPAHTUNUT AIEMMIN", "annot_score": 0}
+{"lang": "fi", "input": "Minun on puhuttava hänelle.", "target": "Minulla on Dannylle asiaa.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä sinä oikein tuijotat?", "target": "Mitä tuijotat, meripoika?", "annot_score": 1}
+{"lang": "fi", "input": "Arvaa mitä.", "target": "Ennen pidin evoluutiosta, mutta olen kehittynyt.", "annot_score": 0}
+{"lang": "fi", "input": "Säälittävää.", "target": "Lisäksi perjantai-iltana on koulun tanssit - ja se on ilo suosituille lapsille - ja mahdollisuus teille muille vilkaista itseänne ja kysyä, mikä on vialla.", "annot_score": 0}
+{"lang": "fi", "input": "Heittäisitkö vaikka köyden?", "target": "En tiedä, mitä tekisin.", "annot_score": 0}
+{"lang": "fi", "input": "Tajuatko sen merkitystä?", "target": "Tiedätkö, mitä se tarkoittaa?", "annot_score": 1}
+{"lang": "fi", "input": "Sekaan vaan.", "target": "Tulkaa sisälle.", "annot_score": 1}
+{"lang": "fi", "input": "Pitäkää paikallaan.", "target": "Pidelkää häntä.", "annot_score": 1}
+{"lang": "fi", "input": "Onko ketään?", "target": "Kuka haluaa puhua?", "annot_score": 0}
+{"lang": "fi", "input": "Sinä onnistut.", "target": "Emme me voi.", "annot_score": 0}
+{"lang": "fi", "input": "Luultavasti.", "target": "Todennäköisesti teemme.", "annot_score": 1}
+{"lang": "fi", "input": "Tietääkö juristini tästä?", "target": "Mikä yllätys.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä oikein teen täällä?", "target": "Miten jouduin tähän?", "annot_score": 1}
+{"lang": "fi", "input": "Mitenkäs se niin?", "target": "Mitä siitä sanot?", "annot_score": 0}
+{"lang": "fi", "input": "Millaista haet?", "target": "Mitä sinä etsit?", "annot_score": 1}
+{"lang": "fi", "input": "Kuinka kauan olet pelannut?", "target": "Niin, ehkä.", "annot_score": 0}
+{"lang": "fi", "input": "Minulla on hauskaa.", "target": "Nautin tästä.", "annot_score": 1}
+{"lang": "fi", "input": "Puhutaan ennen sitä.", "target": "Sulkekaa ovi.", "annot_score": 0}
+{"lang": "fi", "input": "Pitäisi olla jo.", "target": "Onko hän täällä?", "annot_score": 0}
+{"lang": "fi", "input": "En se ollut minä.", "target": "Minua ei syytetty mistään.", "annot_score": 0}
+{"lang": "fi", "input": "Lordi Tyrell.", "target": "Teidän ylhäisyytenne.", "annot_score": 0}
+{"lang": "fi", "input": "Kootkaa ne.", "target": "Menkää perään.", "annot_score": 0}
+{"lang": "fi", "input": "Kohta se tapahtuu.", "target": "Olemme melkein siellä.", "annot_score": 0}
+{"lang": "fi", "input": "Hei, vedä käteen.", "target": "Haista paska.", "annot_score": 1}
+{"lang": "fi", "input": "Jo helpottaa.", "target": "Paremminkin.", "annot_score": 0}
+{"lang": "fi", "input": "Älä puhu tuommoisia.", "target": "ÄIä sano noin.", "annot_score": 1}
+{"lang": "fi", "input": "Painu hiiteen kotoani.", "target": "Häivy talostani.", "annot_score": 1}
+{"lang": "fi", "input": "Aseta jäljitysruudukko.", "target": "Minä kuulin.", "annot_score": 0}
+{"lang": "fi", "input": "Ei syytä pelkoon.", "target": "Älkää pelästykö.", "annot_score": 1}
+{"lang": "fi", "input": "Näetpä vain.", "target": "Sitten näet.", "annot_score": 1}
+{"lang": "fi", "input": "Ettäs kehtaat.", "target": "OTTELU FREMONTIA VASTAAN PERUTTU", "annot_score": 0}
+{"lang": "fi", "input": "Pelkäänpä, etten ollut.", "target": "Ei valitettavasti.", "annot_score": 0}
+{"lang": "fi", "input": "Ymmärrän, mitä tarkoitat.", "target": "Minäpä kerron erään asian.", "annot_score": 0}
+{"lang": "fi", "input": "Seinät ovat kuin paperia.", "target": "Miksi sinä noin sanot?", "annot_score": 0}
+{"lang": "fi", "input": "Sanon heille.", "target": "Teen sen varmasti.", "annot_score": 0}
+{"lang": "fi", "input": "Lepää vähän.", "target": "Huilaa hieman.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä hemmettiä on sattunut?", "target": "Mitä hittoa tapahtui?", "annot_score": 1}
+{"lang": "fi", "input": "En kuule mitään.", "target": "Koska olet liian äänekäs - ja liikut koko ajan.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on perseestä.", "target": "Ihan tyhmää.", "annot_score": 1}
+{"lang": "fi", "input": "Ovi kiinni.", "target": "Voitko sulkea sen oven?", "annot_score": 1}
+{"lang": "fi", "input": "Suokaa anteeksi.", "target": "Sallitko että poistun?", "annot_score": 0}
+{"lang": "fi", "input": "Meillä on töitä.", "target": "Duuni alkaa.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä tässä lukee?", "target": "Mikä tuossa sanotaan?", "annot_score": 1}
+{"lang": "fi", "input": "Eipä kummempaa.", "target": "Ei juuri mitään.", "annot_score": 1}
+{"lang": "fi", "input": "White Streetin asunto \" on avain.", "target": "Täsmälleen.", "annot_score": 0}
+{"lang": "fi", "input": "Hoidetaan tämä nyt.", "target": "Tehdään tämä pois alta.", "annot_score": 1}
+{"lang": "fi", "input": "Eikä tietenkään ole.", "target": "Ei, haluan seurustella vakavasti.", "annot_score": 0}
+{"lang": "fi", "input": "Sallikaa minun.", "target": "Saanko koittaa.", "annot_score": 1}
+{"lang": "fi", "input": "En välttämättä.", "target": "Tohtori Carmack on tilassa, - joka on peruuttamaton.", "annot_score": 0}
+{"lang": "fi", "input": "Mitäs sanot, Waits?", "target": "Miltä kuulostaa?", "annot_score": 1}
+{"lang": "fi", "input": "Niin minuakin.", "target": "Otan lasillisen.", "annot_score": 0}
+{"lang": "fi", "input": "Pilailetko?", "target": "Et vittu ole tosissasi.", "annot_score": 1}
+{"lang": "fi", "input": "Kate, olen pulassa.", "target": "Sinun pitäisi lähteä.", "annot_score": 0}
+{"lang": "fi", "input": "Totuus on se, että lääkkeistä riippumatta - hän tuskin selviää tulehduksista.", "target": "Olen pahoillani.", "annot_score": 0}
+{"lang": "fi", "input": "Ei, kiinnostaa vain.", "target": "Olen utelias.", "annot_score": 1}
+{"lang": "fi", "input": "Luutnantti.", "target": "Komisariota?", "annot_score": 0}
+{"lang": "fi", "input": "Voitko paremmin?", "target": "Koheniko olo?", "annot_score": 1}
+{"lang": "fi", "input": "Ketä Düring tapaa?", "target": "Tiedät mitä tarkoitan.", "annot_score": 0}
+{"lang": "fi", "input": "Voisimmeko jutella hetkisen?", "target": "Voinko puhua kanssanne?", "annot_score": 1}
+{"lang": "fi", "input": "Miten se kuuluu?", "target": "Mitä siinä sanotaan?", "annot_score": 1}
+{"lang": "fi", "input": "Piristyitkö?", "target": "Tuntuuko paremmalta?", "annot_score": 1}
+{"lang": "fi", "input": "Kiitos itsellesi.", "target": "Ei, sinua tässä pitäisi kiittää.", "annot_score": 1}
+{"lang": "fi", "input": "Lääkkeen aika.", "target": "Aika on tullut.", "annot_score": 1}
+{"lang": "fi", "input": "Ei se taida olla hyvä ajatus.", "target": "Se ei ole hyvä idea.", "annot_score": 1}
+{"lang": "fi", "input": "Tulkaa ulos autosta.", "target": "Mene pois sieltä.", "annot_score": 0}
+{"lang": "fi", "input": "Ehditkö jutella.", "target": "Onko hetki aikaa?", "annot_score": 1}
+{"lang": "fi", "input": "Ilmaisin huoleni.", "target": "Mitä sanoit hänelle?", "annot_score": 0}
+{"lang": "fi", "input": "Mukavaa päivää.", "target": "Hän soittaa, kun pääsee Istanbuliin.", "annot_score": 0}
+{"lang": "fi", "input": "Mikä hänen nimensä oli?", "target": "Mikä vakoojan nimi oli?", "annot_score": 1}
+{"lang": "fi", "input": "Tarpeen varalta.", "target": "Varmuuden vuoksi.", "annot_score": 1}
+{"lang": "fi", "input": "Minulla ne vasta alkavat.", "target": "Kuuletko tuon?", "annot_score": 0}
+{"lang": "fi", "input": "Kuinka pitkään?", "target": "Kauanko menee?", "annot_score": 1}
+{"lang": "fi", "input": "Löydämme kyllä.", "target": "Niin keksimmekin.", "annot_score": 0}
+{"lang": "fi", "input": "Kirjaimellisesti.", "target": "Hän on perhettä.", "annot_score": 0}
+{"lang": "fi", "input": "Merkitseekö se mitään?", "target": "Onko sillä väliä?", "annot_score": 1}
+{"lang": "fi", "input": "Kiitos kaikille.", "target": "Avery Barkley.", "annot_score": 0}
+{"lang": "fi", "input": "Ylös ja ulos.", "target": "Nostakaa hänet.", "annot_score": 0}
+{"lang": "fi", "input": "Hittoako lässytät?", "target": "Mitä sinä horiset?", "annot_score": 1}
+{"lang": "fi", "input": "Tämä on sinun syytäsi.", "target": "Sinussahan vika oli.", "annot_score": 1}
+{"lang": "fi", "input": "En välitä paskaakaan", "target": "En minä siitä välitä.", "annot_score": 1}
+{"lang": "fi", "input": "Kuunteletko edes?", "target": "Mitä juuri sanoin?", "annot_score": 1}
+{"lang": "fi", "input": "Miettikää nyt vähän.", "target": "Katsokaa nyt itseänne.", "annot_score": 0}
+{"lang": "fi", "input": "Rauhallisesti.", "target": "Älkää pitäkö kiirettä.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä oikein tölläät?", "target": "Mitä sinä katsot?", "annot_score": 1}
+{"lang": "fi", "input": "Pidän teatterista.", "target": "Sehän on loistavaa.", "annot_score": 0}
+{"lang": "fi", "input": "Ajatellaan aukkoa ovena.", "target": "Alan on oikeassa.", "annot_score": 0}
+{"lang": "fi", "input": "Onnistuuhan se.", "target": "Ei ongelmaa.", "annot_score": 1}
+{"lang": "fi", "input": "Siinä on jotain vialla.", "target": "Jokin on vinossa.", "annot_score": 1}
+{"lang": "fi", "input": "Nyt voit rauhoittua.", "target": "Oletko tyytyväinen?", "annot_score": 0}
+{"lang": "fi", "input": "Enemmän tai vähemmän.", "target": "Jotakuinkin niin.", "annot_score": 1}
+{"lang": "fi", "input": "Tiedän mitä tarkoitat.", "target": "Niin tiedänkin.", "annot_score": 0}
+{"lang": "fi", "input": "Hyviä uutisia.", "target": "Sain kirjani valmiiksi.", "annot_score": 0}
+{"lang": "fi", "input": "Ette laisinkaan?", "target": "Eikö mitään?", "annot_score": 0}
+{"lang": "fi", "input": "Napakymppi.", "target": "Häränsilmään.", "annot_score": 1}
+{"lang": "fi", "input": "Olet jättänyt niitä väliin.", "target": "Mikä sinua vaivaa?", "annot_score": 0}
+{"lang": "fi", "input": "Kenellä olisi kone?", "target": "Kuka muukaan?", "annot_score": 0}
+{"lang": "fi", "input": "Rukoile Jumalaa.", "target": "Vastaa minulle.", "annot_score": 0}
+{"lang": "fi", "input": "Aivan kuten haluat.", "target": "Ihan kuinka vaan.", "annot_score": 1}
+{"lang": "fi", "input": "Toimistooni.", "target": "Hei, Nick.", "annot_score": 0}
+{"lang": "fi", "input": "Et pääse siihen.", "target": "Sitä ei tapahdu.", "annot_score": 0}
+{"lang": "fi", "input": "Lordi Hidetora.", "target": "Teidän armonne.", "annot_score": 0}
+{"lang": "fi", "input": "Kuulitko, mitä sanoin?", "target": "Hän raivosi asunnollani.", "annot_score": 0}
+{"lang": "fi", "input": "Mimmi on hullu.", "target": "Hän on seonnut.", "annot_score": 1}
+{"lang": "fi", "input": "Kuinka olet pukeutunut?", "target": "Mitä oletkaan tehnyt?", "annot_score": 0}
+{"lang": "fi", "input": "Kuka tämä tyyppi on?", "target": "Kuka se Zoom on?", "annot_score": 1}
+{"lang": "fi", "input": "Se kuuluu menneeseen.", "target": "Se on mennyttä.", "annot_score": 1}
+{"lang": "fi", "input": "Olen sinusta erittäin ylpeä.", "target": "Olen todella ylpeä sinusta.", "annot_score": 1}
+{"lang": "fi", "input": "Katsokaa häntä.", "target": "Vuoti kuiviin.", "annot_score": 0}
+{"lang": "fi", "input": "Sinä paskiainen.", "target": "Senkin huoranpentu.", "annot_score": 1}
+{"lang": "fi", "input": "Älä edes mieti sitä.", "target": "Älkää edes ajatelko moista.", "annot_score": 1}
+{"lang": "fi", "input": "riittikö jo.", "target": "Joko lopetit?", "annot_score": 1}
+{"lang": "fi", "input": "Ilman vaihtoehtoja.", "target": "En voinut muutakaan.", "annot_score": 0}
+{"lang": "fi", "input": "Ei paljon mitään.", "target": "Luulin nähneeni jonkun.", "annot_score": 0}
+{"lang": "fi", "input": "Saimme sinut.", "target": "Siellähän te olette.", "annot_score": 0}
+{"lang": "fi", "input": "Se auttaa kestämään.", "target": "Kelpaa minulle.", "annot_score": 0}
+{"lang": "fi", "input": "Menen tunnille.", "target": "Minun pitäisi mennä.", "annot_score": 0}
+{"lang": "fi", "input": "Kuka sen teki?", "target": "Kimppuuni hyökättiin.", "annot_score": 0}
+{"lang": "fi", "input": "He ovat niin läheisiä.", "target": "Käy järkeen.", "annot_score": 0}
+{"lang": "fi", "input": "Taitaa olla.", "target": "Luulen osaavani.", "annot_score": 0}
+{"lang": "fi", "input": "Haittaako se?", "target": "Onko tuo paha juttu?", "annot_score": 1}
+{"lang": "fi", "input": "Missä muuallakaan.", "target": "En lähde minnekään.", "annot_score": 0}
+{"lang": "fi", "input": "Kauanko aiot viipyä?", "target": "Niin kauan kuin siihen menee.", "annot_score": 0}
+{"lang": "fi", "input": "Älä käsitä väärin.", "target": "Asia ei ole, niin kuin luulet.", "annot_score": 1}
+{"lang": "fi", "input": "Olen otettu.", "target": "Miten vaikuttavaa.", "annot_score": 1}
+{"lang": "fi", "input": "Kuka tahansa.", "target": "Täällä Dimitriev.", "annot_score": 0}
+{"lang": "fi", "input": "Ehkäpä hyvinkin.", "target": "Siihen suuntaan.", "annot_score": 0}
+{"lang": "fi", "input": "Olen peloissani.", "target": "Kyllä, minä pelkään.", "annot_score": 1}
+{"lang": "fi", "input": "Jumalalle kiitos.", "target": "Ylistetty olkoon Jumala.", "annot_score": 1}
+{"lang": "fi", "input": "Täältä on poistuttava.", "target": "Meidän on päästävä täältä.", "annot_score": 1}
+{"lang": "fi", "input": "Vain viisi minuuttia.", "target": "Viiden minuutin päässä.", "annot_score": 1}
+{"lang": "fi", "input": "Kumpaakaan.", "target": "Molemmista.", "annot_score": 0}
+{"lang": "fi", "input": "Heillä on yhteinen menneisyys.", "target": "Pitkä juttu.", "annot_score": 0}
+{"lang": "fi", "input": "Milloin se tapahtui?", "target": "Koska se olikaan?", "annot_score": 1}
+{"lang": "fi", "input": "Onko mitään?", "target": "Mike toi rahaa Cyrusille.", "annot_score": 0}
+{"lang": "fi", "input": "Kummastakin syystä.", "target": "En kumpaakaan.", "annot_score": 0}
+{"lang": "fi", "input": "Meillä ei ole paljon aikaa.", "target": "Aikamme on loppumassa.", "annot_score": 1}
+{"lang": "fi", "input": "Sinussa on kuun tuoksu.", "target": "En tiedä mitä sanoisin.", "annot_score": 0}
+{"lang": "fi", "input": "Kuinka julkeatte?", "target": "Että kehtaat.", "annot_score": 1}
+{"lang": "fi", "input": "Kuka luulet olevasi?", "target": "Mitä sinä noilla teet?", "annot_score": 0}
+{"lang": "fi", "input": "Pysy rauhallisena.", "target": "Älä pyristele vastaan.", "annot_score": 1}
+{"lang": "fi", "input": "Ei sen kummempaa.", "target": "Ei minulla ole hätää.", "annot_score": 0}
+{"lang": "fi", "input": "Kiitos tulostasi.", "target": "Kiitos, kun tulit tänne.", "annot_score": 1}
+{"lang": "fi", "input": "Mistä minä tiedän?", "target": "Putkassa kai.", "annot_score": 0}
+{"lang": "fi", "input": "Jätä hänet rauhaan.", "target": "Anna se takaisin.", "annot_score": 0}
+{"lang": "fi", "input": "Jos olet väsynyt koputtamiseen.", "target": "En tiedä mitä sanoa.", "annot_score": 0}
+{"lang": "fi", "input": "Niin yritit.", "target": "Tiedän sen.", "annot_score": 0}
+{"lang": "fi", "input": "Oletko tosissasi?", "target": "Jauhatko paskaa?", "annot_score": 1}
+{"lang": "fi", "input": "Voitteko lopettaa?", "target": "Ei, pyydän.", "annot_score": 0}
+{"lang": "fi", "input": "Anna minulle anteeksi.", "target": "Pyydän anna anteeksi.", "annot_score": 1}
+{"lang": "fi", "input": "Minä tiedän.", "target": "SKEITTIPUISTO", "annot_score": 0}
+{"lang": "fi", "input": "En menisi takuuseen.", "target": "Sitä ei koskaan tiedä.", "annot_score": 1}
+{"lang": "fi", "input": "Minä jätän.", "target": "Keksin paremman.", "annot_score": 0}
+{"lang": "fi", "input": "Tapoit Alician.", "target": "Sinä murhasit hänet.", "annot_score": 1}
+{"lang": "fi", "input": "Yhdentekevää.", "target": "Eipä sillä väliä.", "annot_score": 1}
+{"lang": "fi", "input": "Sillä ei ole enää väliä.", "target": "Ei se ole tärkeää.", "annot_score": 1}
+{"lang": "fi", "input": "Ei se ole mitään.", "target": "Putosin satulasta.", "annot_score": 0}
+{"lang": "fi", "input": "Se on pitkä tarina.", "target": "Se voidaan havaita testillä.", "annot_score": 0}
+{"lang": "fi", "input": "Vielä jotakin?", "target": "Muuta kysyttävää?", "annot_score": 1}
+{"lang": "fi", "input": "Tunnemmeko toisemme?", "target": "Tiedänkö sinut?", "annot_score": 1}
+{"lang": "fi", "input": "En tiedä, mitä se tarkoittaa.", "target": "En tajunnut tuota.", "annot_score": 1}
+{"lang": "fi", "input": "Hei, jätkät.", "target": "Teille on vieras.", "annot_score": 0}
+{"lang": "fi", "input": "Katso, mitä lapsilleni tehdään.", "target": "Se on uskomatonta.", "annot_score": 0}
+{"lang": "fi", "input": "Haluan näyttää jotain.", "target": "Näytänpä sinulle jotain.", "annot_score": 1}
+{"lang": "fi", "input": "Nähdään huomenna.", "target": "Tapaamme aamulla.", "annot_score": 1}
+{"lang": "fi", "input": "He tappoivat hänet.", "target": "Kuka hänet tappoi?", "annot_score": 0}
+{"lang": "fi", "input": "Mene matalaksi.", "target": "Varo ettei kukaan näe sinua.", "annot_score": 1}
+{"lang": "fi", "input": "Ihan rauhassa vain.", "target": "Ei mitään hätää.", "annot_score": 1}
+{"lang": "fi", "input": "Kuka tämän teki?", "target": "Kuka poikaa kolhi?", "annot_score": 0}
+{"lang": "fi", "input": "Vitsailetko?", "target": "Arvaa vain.", "annot_score": 0}
+{"lang": "fi", "input": "Kauniisti sanottu.", "target": "Oli se Jumala, universumi tai itse, - kaikella on kaunis yhteys.", "annot_score": 0}
+{"lang": "fi", "input": "Älä unta näe.", "target": "Siinähän toivot.", "annot_score": 1}
+{"lang": "fi", "input": "Tyhmäkö sinä olet?", "target": "Et voi olla tosissasi.", "annot_score": 1}
+{"lang": "fi", "input": "En huomannut heitä.", "target": "Minä en tiennyt.", "annot_score": 0}
+{"lang": "fi", "input": "Oikeastiko?", "target": "Dave Majors?", "annot_score": 0}
+{"lang": "fi", "input": "Miten hän jaksaa?", "target": "Kuinka Caroline voi?", "annot_score": 1}
+{"lang": "fi", "input": "Mistä kiikastaa?", "target": "Joten, mikä on ongelma?", "annot_score": 1}
+{"lang": "fi", "input": "Jätä viesti.", "target": "Se on Barbara.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on harhaa.", "target": "En usko sinua.", "annot_score": 0}
+{"lang": "fi", "input": "Minä palaan,", "target": "Tulen takaisin.", "annot_score": 1}
+{"lang": "fi", "input": "Tai paljon.", "target": "Pidän kovasti.", "annot_score": 0}
+{"lang": "fi", "input": "Hän kertoi meille Bunderslaw' sta.", "target": "Miksi teit sen?", "annot_score": 0}
+{"lang": "fi", "input": "Toin teille jotain, herra Birnam.", "target": "Minulla on sinulle jotain.", "annot_score": 1}
+{"lang": "fi", "input": "Helvetti mikä sotku.", "target": "Katsos vain.", "annot_score": 0}
+{"lang": "fi", "input": "Keitä he ovat?", "target": "Olen toivonut, että löydän jonkun.", "annot_score": 0}
+{"lang": "fi", "input": "Tapat minut.", "target": "Et ole tosissasi.", "annot_score": 0}
+{"lang": "fi", "input": "Minä soittelen.", "target": "Soitan myöhemmin, äiti.", "annot_score": 1}
+{"lang": "fi", "input": "Suu kiinni.", "target": "Kadulla on parempi.", "annot_score": 0}
+{"lang": "fi", "input": "Ole huoleti.", "target": "Hän on insinööri.", "annot_score": 0}
+{"lang": "fi", "input": "Ymmärretty.", "target": "Kuitti selvä.", "annot_score": 1}
+{"lang": "fi", "input": "En ole ehtinyt.", "target": "Ei, en vielä.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä oikein tuijotat?", "target": "Mitä sinä töllistelet?", "annot_score": 1}
+{"lang": "fi", "input": "Kaunis paikka.", "target": "Tämä on todella upea.", "annot_score": 1}
+{"lang": "fi", "input": "En taida selviytyä.", "target": "En pysty tähän.", "annot_score": 1}
+{"lang": "fi", "input": "En pyytänyt sellaista.", "target": "En sanonut niin.", "annot_score": 1}
+{"lang": "fi", "input": "En tajua mitä höpiset.", "target": "En tiedä, mistä puhut.", "annot_score": 1}
+{"lang": "fi", "input": "Oliko muuta?", "target": "Hyvä suunnitelma.", "annot_score": 0}
+{"lang": "fi", "input": "Dolly Titz.", "target": "Minkä niminen?", "annot_score": 0}
+{"lang": "fi", "input": "Älä avaa sitä.", "target": "Mitä tuli sanottua?", "annot_score": 0}
+{"lang": "fi", "input": "Olette oikeassa.", "target": "Totta, korkea aika.", "annot_score": 0}
+{"lang": "fi", "input": "Töihin siitä, Edward.", "target": "Takaisin töihin.", "annot_score": 1}
+{"lang": "fi", "input": "Olit hänen kohteensa.", "target": "Tuo on naurettavaa.", "annot_score": 0}
+{"lang": "fi", "input": "Katsohan tätä.", "target": "Eric, katso.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä vittua oikein teet?", "target": "Mitä helvettiä sekoilet?", "annot_score": 1}
+{"lang": "fi", "input": "Onnistuneita saapumisia.", "target": "Katsopa tuota.", "annot_score": 0}
+{"lang": "fi", "input": "Ihan miten haluat.", "target": "Tee mitä huvittaa.", "annot_score": 1}
+{"lang": "fi", "input": "Isi lupaa sen.", "target": "Kyllä kaikki järjestyy.", "annot_score": 0}
+{"lang": "fi", "input": "Mikä ongelmasi on?", "target": "Mikä sua oikein vaivaa?", "annot_score": 1}
+{"lang": "fi", "input": "He ovat kanssani.", "target": "Ei, odottakaa.", "annot_score": 0}
+{"lang": "fi", "input": "Vauhtia nyt, nopeasti.", "target": "Pidä kiirettä.", "annot_score": 1}
+{"lang": "fi", "input": "Onko täällä ketään?", "target": "Ketään paikalla?", "annot_score": 1}
+{"lang": "fi", "input": "Mikä tässä mättää?", "target": "Mitä täällä tapahtuu?", "annot_score": 0}
+{"lang": "fi", "input": "Jos sanot niin.", "target": "Ihan kuten haluat.", "annot_score": 1}
+{"lang": "fi", "input": "Olen kotona.", "target": "Minä pääsin takaisin.", "annot_score": 0}
+{"lang": "fi", "input": "Sama täällä.", "target": "Niin olisimme.", "annot_score": 0}
+{"lang": "fi", "input": "Pysykää täällä.", "target": "Älkää karatko minnekään.", "annot_score": 1}
+{"lang": "fi", "input": "Menoksi sitten.", "target": "Hoidetaan tämä pois.", "annot_score": 0}
+{"lang": "fi", "input": "voimmeko me?", "target": "Aloitetaanko?", "annot_score": 0}
+{"lang": "fi", "input": "Hoidetaan loppuun.", "target": "Tehdään tämä.", "annot_score": 1}
+{"lang": "fi", "input": "Oliko ikävä?", "target": "Janottaako?", "annot_score": 0}
+{"lang": "fi", "input": "Tiesinhän minä.", "target": "Paska venäläinen auto.", "annot_score": 0}
+{"lang": "fi", "input": "Et sinäkään.", "target": "Koska et ole Kilven johtaja.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä olisi pitänyt tehdä?", "target": "Halusin auttaa.", "annot_score": 0}
+{"lang": "fi", "input": "Voin vakuuttaa teille, että majuri Sheppard on elossa.", "target": "Voin vakuuttaa teille, tohtori McKay, että majuri Sheppard elää ja voi hyvin.", "annot_score": 1}
+{"lang": "fi", "input": "Tottumuksesta.", "target": "Tapojen orja.", "annot_score": 1}
+{"lang": "fi", "input": "Tänä iltanako se oli?", "target": "Tapahtuuko se tänä iltana?", "annot_score": 1}
+{"lang": "fi", "input": "Täältä pitää jotenkin päästä ulos.", "target": "Täällä on pakko olla uloskäynti.", "annot_score": 1}
+{"lang": "fi", "input": "Sinun on palattava ja etsittävä se.", "target": "Sinun on tultava takaisin ja löydettävä se.", "annot_score": 1}
+{"lang": "fi", "input": "Sekö, jonka mielestä olet liian kiltti?", "target": "Sekö joka pitää sinua liian kilttinä?", "annot_score": 1}
+{"lang": "fi", "input": "Saanpahan laskut maksettua.", "target": "Saa maksettua laskut.", "annot_score": 1}
+{"lang": "fi", "input": "Prostituoituja, vasenkätisyys ja elinten poisto.", "target": "Prostituoituja ja elimet viety.", "annot_score": 1}
+{"lang": "fi", "input": "Paljonko ansaitset, kun hän panee minua?", "target": "Paljonko sinulle maksetaan, kun hän nai minua?", "annot_score": 1}
+{"lang": "fi", "input": "Onko meillä lisää aspiriinia?", "target": "Onko aspiriinia jossain lisää?", "annot_score": 1}
+{"lang": "fi", "input": "Olisi pitänyt naida sinut.", "target": "Olisitpa mieheni.", "annot_score": 1}
+{"lang": "fi", "input": "Saamme olla taas perhe.", "target": "Olisimme perhe taas", "annot_score": 1}
+{"lang": "fi", "input": "Oli mukavaa oppia tuntemaan siskosi.", "target": "Oli kiva tutustua siskoosi.", "annot_score": 1}
+{"lang": "fi", "input": "Viikko on kulunut.", "target": "Olet odottanut jo viikon.", "annot_score": 1}
+{"lang": "fi", "input": "Olen ollut 9 kuukautta selvänä.", "target": "Yhdeksän kuukautta juomatta.", "annot_score": 1}
+{"lang": "fi", "input": "Vältimme kuninkaan murhayrityksen.", "target": "Olemme välttäneet salamurhayrityksen kuningasta vastaan.", "annot_score": 1}
+{"lang": "fi", "input": "Nyt sinun on uskottava minua.", "target": "Sinun täytyy uskoa minua tällä kertaa.", "annot_score": 1}
+{"lang": "fi", "input": "Molemmille käsille.", "target": "Yksi kumpaankin käteen.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä tällä on tekemistä poikani kanssa?", "target": "Miten tämä liittyy poikaani?", "annot_score": 1}
+{"lang": "fi", "input": "Minuun mielistyy totuttelemalla.", "target": "Minuun täytyy tottua.", "annot_score": 1}
+{"lang": "fi", "input": "Minusta tulee ylioppilas.", "target": "Minä valmistun.", "annot_score": 1}
+{"lang": "fi", "input": "Minulle maistuu bourbon.", "target": "Pidän enemmän bourbonista.", "annot_score": 1}
+{"lang": "fi", "input": "Minulla oli päänsärkyä.", "target": "Pääni tuli kipeäksi.", "annot_score": 1}
+{"lang": "fi", "input": "Minä ymmärsin sinut, mutta sinä et minua", "target": "Niinpä haluan antaa sinulle toisen tilaisuuden", "annot_score": 0}
+{"lang": "fi", "input": "Olin toivonut sellaista.", "target": "Minäkin halusin.", "annot_score": 1}
+{"lang": "fi", "input": "Mikä on tyyppiäsi?", "target": "Millaisista pidät?", "annot_score": 1}
+{"lang": "fi", "input": "Meitä on nyt täysi määrä.", "target": "Nyt me olemme kaikki koolla.", "annot_score": 1}
+{"lang": "fi", "input": "Meidän voi olla pakko amputoida.", "target": "Voimme joutua amputoimaan.", "annot_score": 1}
+{"lang": "fi", "input": "Liian paljon muuttujia.", "target": "Muuttujia on liikaa,", "annot_score": 1}
+{"lang": "fi", "input": "Täällä on lapsenne.", "target": "Lapsenne on täällä.", "annot_score": 1}
+{"lang": "fi", "input": "Lakitieteestä.", "target": "Lainvartija.", "annot_score": 0}
+{"lang": "fi", "input": "Yritän olla kohtelias.", "target": "Kysyin kohteliaisuudesta.", "annot_score": 1}
+{"lang": "fi", "input": "Kylläpä sinulla riittää kysymyksiä.", "target": "Kyseletpäs sinä paljon.", "annot_score": 1}
+{"lang": "fi", "input": "Kulta, pidä sinä ne reseptit, kyllä ne turvassa ovat.", "target": "Kulta, pidä reseptit vain siellä ja kaikki menee hyvin.", "annot_score": 1}
+{"lang": "fi", "input": "Kuka sinulle laittaa ruoan?", "target": "Kuka valmistaa ruokasi?", "annot_score": 1}
+{"lang": "fi", "input": "Olenko merkityksellisin?", "target": "Kuka on tärkein?", "annot_score": 0}
+{"lang": "fi", "input": "Kuka otti ne hemmetin rahat?", "target": "Kuka hitto vei rahani?", "annot_score": 1}
+{"lang": "fi", "input": "Kokeilitte sitä ensin heksapetoon.", "target": "Sitä olisi kokeiltava heksapetoon.", "annot_score": 0}
+{"lang": "fi", "input": "Kira, tule katsomaan tätä.", "target": "Kira, sinun on nähtävä tämä.", "annot_score": 1}
+{"lang": "fi", "input": "Kerro ketkä ovat lähteesi.", "target": "Kerro tiedot lähteistäsi.", "annot_score": 1}
+{"lang": "fi", "input": "Sukulaiset ovat loistojuttu.", "target": "Kauneus on suhteellista.", "annot_score": 0}
+{"lang": "fi", "input": "Käskin olla tulematta tänne.", "target": "Sanoinhan, ettet saa tulla tänne.", "annot_score": 1}
+{"lang": "fi", "input": "Kannan sinua hengessäni.", "target": "Olet osa sieluani.", "annot_score": 1}
+{"lang": "fi", "input": "Pari senttiä.", "target": "Kaksi paukkua.", "annot_score": 0}
+{"lang": "fi", "input": "Sinä siis olet avaruusmies.", "target": "Joten olette avaruusmiehiä.", "annot_score": 1}
+{"lang": "fi", "input": "Olenko nyt huipulla?", "target": "Joten olen vain varmuuden vuoksi täällä?", "annot_score": 0}
+{"lang": "fi", "input": "Jos kuuntelet ja tottelet, autat minua tuhoamaan ne miehet.", "target": "Jos kuuntelet ja teet niin kuin sanon, autat tuhoamaan heidät.", "annot_score": 1}
+{"lang": "fi", "input": "Kaikki katuvat jotain.", "target": "Jokaisella on katumuksensa.", "annot_score": 1}
+{"lang": "fi", "input": "Jamaikalaiselta?", "target": "Se otti päähän.", "annot_score": 0}
+{"lang": "fi", "input": "Hyvästä mysteeristä nauttivat kaikki.", "target": "Mysteeristä on pakko nauttia.", "annot_score": 1}
+{"lang": "fi", "input": "Onneksi olkoon, Kes.", "target": "Hyvää syntymäpäivää, Kes.", "annot_score": 1}
+{"lang": "fi", "input": "Nyt ei ehditä rehvastella.", "target": "Huono hetki rehennellä.", "annot_score": 1}
+{"lang": "fi", "input": "Hän tietää kenen kanssa Jerry toimii.", "target": "Hän tietää keihin Jerry sotkeentui.", "annot_score": 1}
+{"lang": "fi", "input": "Hän sanoi kaiken tuon?", "target": "Sanoiko hän tuon kaiken?", "annot_score": 1}
+{"lang": "fi", "input": "Hän rikkoi lumouksen.", "target": "Hän vapautui lumouksesta.", "annot_score": 1}
+{"lang": "fi", "input": "Hän pyysi, että juttelisin kanssasi.", "target": "Hän pyysi puhumaan sinulle.", "annot_score": 1}
+{"lang": "fi", "input": "Hän pelastaa minut.", "target": "Hän tulee, varmasti.", "annot_score": 0}
+{"lang": "fi", "input": "Haluatko luodin päähäsi?", "target": "Haluatko sinä kuulan kalloosi myös?", "annot_score": 1}
+{"lang": "fi", "input": "Haluan Kobolin tiedustelutiedot pöydälleni.", "target": "Haluan kaiken Kobolia koskevan materiaalin tiloihini.", "annot_score": 1}
+{"lang": "fi", "input": "Sinun pitää löytää äitini.", "target": "Haluan, että etsit äitini.", "annot_score": 1}
+{"lang": "fi", "input": "Ette taida käsittää sitä millään, luutnantti?", "target": "Sinä se et vain tajua, luutnantti.", "annot_score": 1}
+{"lang": "fi", "input": "Et koskaan pyytänyt sitä.", "target": "Sinä et kysynyt.", "annot_score": 1}
+{"lang": "fi", "input": "Tiedät enemmän kuin kerrot, Chloe.", "target": "Et kerro minulle kaikkea, Chloe.", "annot_score": 1}
+{"lang": "fi", "input": "En pysty unohtamaan.", "target": "Minä en voi unohtaa.", "annot_score": 1}
+{"lang": "fi", "input": "En ole fani näyttämään tunteita yleisesti.", "target": "En ole kiinnostunut yleisestä tunteiden esittelystä.", "annot_score": 1}
+{"lang": "fi", "input": "En oikeastaan ajattelekaan sitä.", "target": "Minä en mieti sellaisia.", "annot_score": 1}
+{"lang": "fi", "input": "En uskonut korviani.", "target": "En halunnut uskoa.", "annot_score": 1}
+{"lang": "fi", "input": "Täällä niitä ei jätetä rauhaan.", "target": "Emme jätä heitä rauhaan täällä.", "annot_score": 1}
+{"lang": "fi", "input": "Emäalukset tulevat satelliitin toimintasäteelle 49 tunnissa.", "target": "Emäalukset ovat 49 tunnin kuluttua satelliitin ampumaetäisyydellä.", "annot_score": 1}
+{"lang": "fi", "input": "En tunne oloani turvalliseksi.", "target": "Ei tunnu turvalliselta.", "annot_score": 1}
+{"lang": "fi", "input": "Se on kuherruskuukautemme.", "target": "Ei riidellä häämatkalla.", "annot_score": 0}
+{"lang": "fi", "input": "Ei ole ruokaa.", "target": "Hetkinen, Bill.", "annot_score": 0}
+{"lang": "fi", "input": "Ei ole montaa tietä mihin mennä.", "target": "On harvoja polkuja valittavaksi.", "annot_score": 1}
+{"lang": "fi", "input": "Ei mitään hätää, Morty.", "target": "Älä huolehdi siitä, Morty.", "annot_score": 1}
+{"lang": "fi", "input": "Viruksista ei merkkejä.", "target": "Ei jälkeäkään viruksesta.", "annot_score": 1}
+{"lang": "fi", "input": "Niin se demokratia toimii.", "target": "Demokratia käytännössä.", "annot_score": 1}
+{"lang": "fi", "input": "Clark liittyy tähän enemmän kuin me muut.", "target": "Clark on enemmän mukana tässä kuin kukaan meistä.", "annot_score": 1}
+{"lang": "fi", "input": "Carol, äläs nyt.", "target": "En pidä, Carol.", "annot_score": 0}
+{"lang": "fi", "input": "Ansaitsetko sitten minut?", "target": "Minutko ansaitset?", "annot_score": 1}
+{"lang": "fi", "input": "Analyysimme mukaan salaat jotain, mikä voi auttaa löytämään hänet.", "target": "Salailet tietoja, joiden avulla voimme löytää hänet.", "annot_score": 1}
+{"lang": "fi", "input": "Olet itse ainoa este Jackin valinnalle.", "target": "Ainoa asia joka estää sinua valitsemasta Jackia, olet sinä itse.", "annot_score": 1}
+{"lang": "fi", "input": "Niin minustakin.", "target": "Minäkin kaipaan isääni.", "annot_score": 0}
+{"lang": "fi", "input": "Paskat tästä.", "target": "Helvettiin koko homma.", "annot_score": 1}
+{"lang": "fi", "input": "Siitä minä selviän.", "target": "Pystyn siihen.", "annot_score": 1}
+{"lang": "fi", "input": "Pelleilen vain.", "target": "Kunhan kiusasin.", "annot_score": 1}
+{"lang": "fi", "input": "Tassut taivaalle.", "target": "Kädet ylös.", "annot_score": 1}
+{"lang": "fi", "input": "Tiedät sen hyvin.", "target": "Olen todella sekaisin.", "annot_score": 0}
+{"lang": "fi", "input": "John, tule tänne.", "target": "Mitä nyt, John?", "annot_score": 0}
+{"lang": "fi", "input": "Hei, Laurel.", "target": "Päästäkää minut pois.", "annot_score": 0}
+{"lang": "fi", "input": "Kuten mitä?", "target": "Tappoiko hän?", "annot_score": 0}
+{"lang": "fi", "input": "Älä muuta sano.", "target": "Kerro lisää?", "annot_score": 0}
+{"lang": "fi", "input": "Laskekaa aseenne.", "target": "Piiput alas.", "annot_score": 1}
+{"lang": "fi", "input": "Hauskaa helvetin päivää.", "target": "Hyvää päivänjatkoa.", "annot_score": 0}
+{"lang": "fi", "input": "Ei, vaan sinä.", "target": "Olen huolissani sinusta.", "annot_score": 0}
+{"lang": "fi", "input": "Äitisi on kunnossa.", "target": "Mitä merkitystä sillä on?", "annot_score": 0}
+{"lang": "fi", "input": "Älä koske minuun.", "target": "Lakkaa sinä läpsimästä.", "annot_score": 1}
+{"lang": "fi", "input": "Sitähän minäkin.", "target": "Ajattelin, että haluaisit tietää.", "annot_score": 0}
+{"lang": "fi", "input": "Oletko täysin tärähtänyt?", "target": "Oletko menettänyt järkesi?", "annot_score": 1}
+{"lang": "fi", "input": "Ei juuri nyt.", "target": "Etsin sen, Elena.", "annot_score": 0}
+{"lang": "fi", "input": "Näyttää kauniilta.", "target": "Onpa se kaunis.", "annot_score": 1}
+{"lang": "fi", "input": "Niin arvelinkin.", "target": "Luulinkin, että pitäisitte.", "annot_score": 1}
+{"lang": "fi", "input": "Hoidan asiaa.", "target": "Sitä yritän.", "annot_score": 1}
+{"lang": "fi", "input": "Toivon, että ei ole liian myöhäistä.", "target": "Toivottavasti emme ole myöhässä.", "annot_score": 1}
+{"lang": "fi", "input": "Tunsitko olosi vahvaksi?", "target": "Tekikö se sinusta voimakkaan?", "annot_score": 1}
+{"lang": "fi", "input": "Tänne ei saisi päästää poikia opettamaan.", "target": "Täällä ei saisi olla poikaopettajia.", "annot_score": 1}
+{"lang": "fi", "input": "Sinun olisi pitänyt vain pyytää.", "target": "Sinun tarvitsi vain pyytää sitä.", "annot_score": 1}
+{"lang": "fi", "input": "Susan ei ole kertonut kaikkea.", "target": "Se tyttö salaa jotakin.", "annot_score": 1}
+{"lang": "fi", "input": "Se ottaa niiltä voimat.", "target": "Se vie heiltä heidän voimansa.", "annot_score": 1}
+{"lang": "fi", "input": "Se on samaa kaikille.", "target": "Se on jokaisen toive.", "annot_score": 0}
+{"lang": "fi", "input": "Sen pitää loppua näin.", "target": "Sen täytyy päättyä näin.", "annot_score": 1}
+{"lang": "fi", "input": "Sanoinhan näin käyvän.", "target": "Sanoinhan, että näin tapahtuisi.", "annot_score": 1}
+{"lang": "fi", "input": "Saat elää omaa elämääsi.", "target": "Vastaat itse elämästäsi.", "annot_score": 1}
+{"lang": "fi", "input": "Pitääkö kaikki selittää?", "target": "Täytyykö minun selittää kaikki?", "annot_score": 1}
+{"lang": "fi", "input": "Pääsin piireihin.", "target": "Olin sisällä.", "annot_score": 1}
+{"lang": "fi", "input": "Sinä olet niin rauhallinen.", "target": "Olet tosi tyyni.", "annot_score": 1}
+{"lang": "fi", "input": "Olet todellinen ystävä.", "target": "Sinä olet tosi ystävä.", "annot_score": 1}
+{"lang": "fi", "input": "Oletko käynyt tapaamassa?", "target": "Oletko tavannut häntä?", "annot_score": 1}
+{"lang": "fi", "input": "Olenko kertonut, kuinka vihaankaan sinua?", "target": "Olenko jo maininnut, kuinka paljon vihaan sinua?", "annot_score": 1}
+{"lang": "fi", "input": "Vaatteesi ja hiuksesi.", "target": "Nuo vaatteet ja kampaus.", "annot_score": 1}
+{"lang": "fi", "input": "Ne jäivät vahingossa pöydälle.", "target": "Ne unohtuivat pöydälle.", "annot_score": 1}
+{"lang": "fi", "input": "Se on pelkkä harhakuva.", "target": "Näet harhoja, Elizabeth.", "annot_score": 1}
+{"lang": "fi", "input": "Mutta sellaista me teemme.", "target": "Mutta se on työtämme.", "annot_score": 1}
+{"lang": "fi", "input": "Minä en hevillä kuole.", "target": "Minua ei ole kovin helppo tappaa.", "annot_score": 1}
+{"lang": "fi", "input": "Minne veitte sen?", "target": "Missä otit kuvan?", "annot_score": 0}
+{"lang": "fi", "input": "Mikset naurakaan nyt?", "target": "Miksei sinua naurata?", "annot_score": 1}
+{"lang": "fi", "input": "Olemme saaneet tartunnan.", "target": "Meissä on tartunta.", "annot_score": 1}
+{"lang": "fi", "input": "Onkohan siellä ketään sisällä?", "target": "Luuletko, että joku voisi olla vielä sisällä?", "annot_score": 1}
+{"lang": "fi", "input": "Minulla on niin ikävä Jackia.", "target": "Luoja, miten ikävöin Jackia.", "annot_score": 1}
+{"lang": "fi", "input": "Loppuunkäsitelty ja selvä.", "target": "Mennyttä kalua.", "annot_score": 1}
+{"lang": "fi", "input": "Liikaa hänelle.", "target": "Se kävi liian rankaksi.", "annot_score": 1}
+{"lang": "fi", "input": "Keneltä sait vihjeen?", "target": "Kuka vinkkasi?", "annot_score": 1}
+{"lang": "fi", "input": "Älä koskaan luota kehenkään.", "target": "Keneenkään ei saa luottaa.", "annot_score": 1}
+{"lang": "fi", "input": "Kahdensadan vuoden päässä tästä hetkestä.", "target": "Siihen on vielä kaksisataa vuotta.", "annot_score": 1}
+{"lang": "fi", "input": "Voinko puhua kanssasi ulkona?", "target": "Jutellaanko ulkona?", "annot_score": 1}
+{"lang": "fi", "input": "Voit juhlia sitä iltaa rauhallisemmalla tavalla.", "target": "Juhlitte sitä rauhallisemmin.", "annot_score": 1}
+{"lang": "fi", "input": "Jos ei kuulu mitään, kuuluu hyvää.", "target": "On hyvä merkki, kun mitään ei kuulu.", "annot_score": 1}
+{"lang": "fi", "input": "Päälleni hyökättiin Rochesterissa.", "target": "Jokin kävi kimppuuni Rochesterissa.", "annot_score": 1}
+{"lang": "fi", "input": "Minullakin on työkokemusta.", "target": "Jep, kuten minä.", "annot_score": 0}
+{"lang": "fi", "input": "Jatka naputtamista.", "target": "Jatkakaa näpyttelyä.", "annot_score": 1}
+{"lang": "fi", "input": "Ja minä pidän tästä.", "target": "Ja tykkään siitä.", "annot_score": 1}
+{"lang": "fi", "input": "Onko hän yhä tuolla sisällä?", "target": "Jäikö hän sinne murjottamaan?", "annot_score": 1}
+{"lang": "fi", "input": "Minulle kelpaisi.", "target": "Itse tarvitsisin ystävää.", "annot_score": 0}
+{"lang": "fi", "input": "Imetkö sä sun peukkua?", "target": "Imetsä peukaloos?", "annot_score": 1}
+{"lang": "fi", "input": "He ovat friikkejä.", "target": "He ovat kummajaisia.", "annot_score": 1}
+{"lang": "fi", "input": "Häntä leikataan paraikaa.", "target": "Hän on nyt leikkauksessa.", "annot_score": 1}
+{"lang": "fi", "input": "Ihan hirveästi.", "target": "Hän ihastui lajiin.", "annot_score": 0}
+{"lang": "fi", "input": "Poikani on hänellä.", "target": "Hänellä on poikani.", "annot_score": 1}
+{"lang": "fi", "input": "Halusin, että näet sen.", "target": "Halusin sinun näkevän sen.", "annot_score": 1}
+{"lang": "fi", "input": "Haluatko naida näyttelijäkaveriasi?", "target": "Haluatko kiksauttaa jotakuta teatterista?", "annot_score": 1}
+{"lang": "fi", "input": "Haluan kokeilla lisää.", "target": "Haluan tehdä enemmän.", "annot_score": 1}
+{"lang": "fi", "input": "Tahdon, että te kaikki menette koteihinne.", "target": "Haluan, että menette kaikki koteihinne.", "annot_score": 1}
+{"lang": "fi", "input": "En tiedä keneen luottaa.", "target": "En uskalla luottaa kehenkään.", "annot_score": 1}
+{"lang": "fi", "input": "Ei mitään kiihdykettä.", "target": "Kiihdykettä ei ollut.", "annot_score": 1}
+{"lang": "fi", "input": "Voi kestää kauemminkin.", "target": "Ehkä pidempään.", "annot_score": 1}
+{"lang": "fi", "input": "Diplomaattinen koskemattomuus.", "target": "Diplomaattisen immuniteetin.", "annot_score": 1}
+{"lang": "fi", "input": "Cohen tekee oman sarjakuvan.", "target": "Cohen aikoo piirtää oman sarjakuvakirjan.", "annot_score": 1}
+{"lang": "fi", "input": "Kuuletko, Bauer?", "target": "Bauer, oletko siellä?", "annot_score": 1}
+{"lang": "fi", "input": "Minä asun nyt täällä.", "target": "Asun täällä nykyään.", "annot_score": 1}
+{"lang": "fi", "input": "Se on vale.", "target": "Suojaudutaan.", "annot_score": 0}
+{"lang": "fi", "input": "Se ei toimi.", "target": "En tiedä, mikä on vikana.", "annot_score": 0}
+{"lang": "fi", "input": "Anteeksi, että olen myöhässä.", "target": "Olen pahoillani myöhästymisestä.", "annot_score": 1}
+{"lang": "fi", "input": "Hyvää yötä.", "target": "Yritän nukkua.", "annot_score": 0}
+{"lang": "fi", "input": "Saanko laskun?", "target": "On, rouva.", "annot_score": 0}
+{"lang": "fi", "input": "Tekisitkö palveluksen minulle?", "target": "Voitko ystävällisesti tehdä minulle palveluksen?", "annot_score": 1}
+{"lang": "fi", "input": "Sinulle ei tarvitse puhua vaikeita.", "target": "Ymmärrät mitä tarkoitan ilman hienoja sanoja.", "annot_score": 1}
+{"lang": "fi", "input": "Tässä säässäkö?", "target": "Pitääkö meidän ratsastaa tällä kelillä Windsoriin yhden paperin takia?", "annot_score": 0}
+{"lang": "fi", "input": "Pane muistiin.", "target": "Tee maksumääräys.", "annot_score": 0}
+{"lang": "fi", "input": "Olin ennen kyttä.", "target": "Tiedän, olin poliisi.", "annot_score": 1}
+{"lang": "fi", "input": "Odotan heräämistäsi.", "target": "Odotin, että heräisit.", "annot_score": 0}
+{"lang": "fi", "input": "Ne eivät tule kysymykseenkään.", "target": "Sen teki Guisen herttua.", "annot_score": 0}
+{"lang": "fi", "input": "Kerrot minulle kaiken tarpeellisen.", "target": "Kerro, mitä minun pitää tietää.", "annot_score": 1}
+{"lang": "fi", "input": "Kadun toisella puolella.", "target": "Mene vastapäätä.", "annot_score": 1}
+{"lang": "fi", "input": "Jään ikävöimään sinua kovasti.", "target": "Tulen kaipaamaan sinua niin.", "annot_score": 1}
+{"lang": "fi", "input": "Sinuakin tarvitaan.", "target": "Ihmiset tarvitsevat sinua.", "annot_score": 1}
+{"lang": "fi", "input": "Hän mainitsi nimesi.", "target": "Sinun nimesi tuli esiin.", "annot_score": 1}
+{"lang": "fi", "input": "Toivon sitä sinulle.", "target": "Haluan sinulle rakkautta.", "annot_score": 1}
+{"lang": "fi", "input": "Ihastuin tähän kaupan ikkunassa.", "target": "Et saa kaikkea.", "annot_score": 0}
+{"lang": "fi", "input": "En tiedä, mitä tehdä sille.", "target": "Romero etsi tätä hänen huoneestaan.", "annot_score": 0}
+{"lang": "fi", "input": "En tiedä, kenelle soittaisin.", "target": "En tiennyt kenelle muullekaan soittaisin.", "annot_score": 1}
+{"lang": "fi", "input": "En ole niin pieni enää.", "target": "En ole enää niin pieni.", "annot_score": 1}
+{"lang": "fi", "input": "Joku sen lähetti.", "target": "En lähettänyt tuota.", "annot_score": 0}
+{"lang": "fi", "input": "Siinä ei ole avainta.", "target": "Ei ole mitään avainta.", "annot_score": 1}
+{"lang": "fi", "input": "Anteeksi, herra.", "target": "Pahoittelen, seriffi.", "annot_score": 1}
+{"lang": "fi", "input": "Suu kiinni, helvetti.", "target": "Tuki turpasi.", "annot_score": 1}
+{"lang": "fi", "input": "En osaa sekoittaa drinkkejä.", "target": "Tämä on uskomatonta.", "annot_score": 0}
+{"lang": "fi", "input": "Saatoin menettää lupani.", "target": "En varsinaisesti.", "annot_score": 0}
+{"lang": "fi", "input": "Kaikki ulos.", "target": "Ulos jokainen.", "annot_score": 1}
+{"lang": "fi", "input": "Mitkä fiilikset?", "target": "Millainen olo sinulla on?", "annot_score": 1}
+{"lang": "fi", "input": "Valtuutetut, istuutukaa.", "target": "Valtuutetut, paikoillenne.", "annot_score": 1}
+{"lang": "fi", "input": "Tappaisit samalla lippumme pois täältä.", "target": "Tappamalla hänet tuhoat pikatiemme ulos.", "annot_score": 1}
+{"lang": "fi", "input": "Sano, että MINÄ voitin.", "target": "Sano vain, että voitin.", "annot_score": 1}
+{"lang": "fi", "input": "Olkaa rohkeita ja vastaanottakaa Jumalan rakkaus.", "target": "Ole rohkea ja usko Jumalaan.", "annot_score": 1}
+{"lang": "fi", "input": "Mistä keksit näitä juttuja?", "target": "Mistä sinä tuon kaiken keksit?", "annot_score": 1}
+{"lang": "fi", "input": "Minne sinut lähetettiin?", "target": "Minne ne lähetti sut?", "annot_score": 1}
+{"lang": "fi", "input": "Minä näytin hänelle kalasi.", "target": "Näytin hänelle sinun kalasi.", "annot_score": 1}
+{"lang": "fi", "input": "Me palasimme yhteen.", "target": "Olemme taas yhdessä.", "annot_score": 1}
+{"lang": "fi", "input": "Otin riskin auttaakseni sinua.", "target": "Menin äärimmäisyyksiin sinun vuoksesi.", "annot_score": 1}
+{"lang": "fi", "input": "Lisää konstailujasi.", "target": "Älä ole noin pahansuopa.", "annot_score": 0}
+{"lang": "fi", "input": "Minulla on koodit.", "target": "Koodit ovat tässä.", "annot_score": 1}
+{"lang": "fi", "input": "Ole pelotta vihollistesi edessä.", "target": "Kohdatkaa vihollisenne pelotta.", "annot_score": 1}
+{"lang": "fi", "input": "Ketään ei ole tapettu.", "target": "Kukaan ei kuollut.", "annot_score": 1}
+{"lang": "fi", "input": "Kehosi ei vastaa lääkitykseen niin kuin sen pitäisi.", "target": "Luulen, että saan sydänkohtauksen.", "annot_score": 0}
+{"lang": "fi", "input": "Kaduilla ei ole mitään mysteeriä, ei ketään arkkivihollista kaiken takana.", "target": "Kaduilla ei ole mysteerejä, ei suurroistoa niiden takana.", "annot_score": 1}
+{"lang": "fi", "input": "Saat maksaa tempustasi.", "target": "Joudut maksamaan siitä, mitä teit minulle.", "annot_score": 1}
+{"lang": "fi", "input": "Olkaa antelias.", "target": "Jotain tosi hauskaa.", "annot_score": 0}
+{"lang": "fi", "input": "Ihmiskunnan kateuden kohde.", "target": "Koko ihmiskunta kadehtii tätä.", "annot_score": 1}
+{"lang": "fi", "input": "Hissi on hajalla.", "target": "Hissinne on rikki.", "annot_score": 1}
+{"lang": "fi", "input": "Hävitetään ruumis.", "target": "Meidän on päästävä ruumiista eroon.", "annot_score": 1}
+{"lang": "fi", "input": "Homon sähkömiehen?", "target": "En tiennyt, että hän oli homo.", "annot_score": 0}
+{"lang": "fi", "input": "En halua ikinä naimisiin.", "target": "En koskaan halua avioitua.", "annot_score": 1}
+{"lang": "fi", "input": "Emme halua vahingoittaa teitä.", "target": "Emme halua teille mitään pahaa.", "annot_score": 1}
+{"lang": "fi", "input": "Melko paha sää, vai mitä?", "target": "Eikö pitelekin aikamoisia ilmoja?", "annot_score": 1}
+{"lang": "fi", "input": "Arviolta kolmen tunnin kuluttua meteoriittikuuro iskee Smallvilleen.", "target": "Noin kolmen tunnin kuluttua Smallvilleen osuu meteorisade.", "annot_score": 1}
+{"lang": "fi", "input": "Ainahan minä.", "target": "Miten tukka on?", "annot_score": 0}
+{"lang": "fi", "input": "Mitään erikoista, jota tulisi tietää?", "target": "Mitä minun pitäisi tehdä?", "annot_score": 0}
+{"lang": "fi", "input": "Hengittele rauhassa.", "target": "Vedä henkeä.", "annot_score": 1}
+{"lang": "fi", "input": "Voiko joku kertoa, mitä hittoa juuri näin?", "target": "Voitteko selittää, mitä juuri näin?", "annot_score": 1}
+{"lang": "fi", "input": "Yhtään noitaa et tänään tapa.", "target": "Tänään ei tapeta noitia.", "annot_score": 1}
+{"lang": "fi", "input": "Sinun ei kannata asua yksin.", "target": "Yksin asuminen ei ole paras vaihtoehto.", "annot_score": 1}
+{"lang": "fi", "input": "Siihen hänellä ei ollut mielenlujuutta.", "target": "Voimani eivät riitä siihen.", "annot_score": 0}
+{"lang": "fi", "input": "Poikamme takia väliemme on muututtava.", "target": "Poikamme tähden emme voi olla kuin ennen.", "annot_score": 1}
+{"lang": "fi", "input": "Pitäkää turvavyönne kiinni, kunnes kapteeni sammuttaa merkkivalon.", "target": "Tervetuloa Islantiin.", "annot_score": 0}
+{"lang": "fi", "input": "Pitääkö edes kysyä?", "target": "Tarvitseeko kysyä?", "annot_score": 1}
+{"lang": "fi", "input": "Tuolla on perhe, joka ei tiedä hänen tulostaan.", "target": "Perhe ei tiedä, että hän tulee.", "annot_score": 1}
+{"lang": "fi", "input": "Pakkaa ja ala vetää.", "target": "Saisipa Carl kunnon syytteet.", "annot_score": 0}
+{"lang": "fi", "input": "Paigella on vaihtoehto.", "target": "Paige saa valita.", "annot_score": 1}
+{"lang": "fi", "input": "Olemme uudessa Havenissa.", "target": "Tämä on uusi Haven.", "annot_score": 1}
+{"lang": "fi", "input": "Teemme tuolla naamalla omaisuuden.", "target": "Nuo kasvot tekevät meille omaisuuden.", "annot_score": 1}
+{"lang": "fi", "input": "Nehän tuhottiin.", "target": "Osa selvisi.", "annot_score": 0}
+{"lang": "fi", "input": "Miten tunnistamme antikristuksen?", "target": "Miten antikristuksen tunnistaa?", "annot_score": 1}
+{"lang": "fi", "input": "Minua ei nimittäin kiinnosta.", "target": "― Ei, mutta viesti on selvä.", "annot_score": 0}
+{"lang": "fi", "input": "Minä lakkaisin olemasta.", "target": "Mistä tiedät sen auttavan?", "annot_score": 0}
+{"lang": "fi", "input": "Miehellä oli puu tatuoituna käteen.", "target": "Wellerilla ei ole puutatuointia.", "annot_score": 0}
+{"lang": "fi", "input": "Mene valoa kohti.", "target": "Olet Jumalan lapsia.", "annot_score": 0}
+{"lang": "fi", "input": "Meidän on oltava ovelia.", "target": "Meidän pitää olla älykkäitä.", "annot_score": 1}
+{"lang": "fi", "input": "Luulin, että menetimme sinut.", "target": "Luulin sinun olleen mennyttä.", "annot_score": 1}
+{"lang": "fi", "input": "Luuletko olevasi tuollainen koko loppuikäsi?", "target": "Uskotko, että olet zombi loppuelämäsi?", "annot_score": 1}
+{"lang": "fi", "input": "Tervehdys, neidit.", "target": "Luulen hänen rakastavan tätä.", "annot_score": 0}
+{"lang": "fi", "input": "Liitytään sen vuoksi yhteen.", "target": "Olkoon yhteinen uhka syy liittoutumiselle.", "annot_score": 1}
+{"lang": "fi", "input": "Pyydän Wun sinne.", "target": "Kutsun Wun avuksi.", "annot_score": 1}
+{"lang": "fi", "input": "Ylöstempaukselta.", "target": "Kristittyjen nosto taivaaseen.", "annot_score": 0}
+{"lang": "fi", "input": "Kiihottaako sinua nainen, joka on juuri harrastanut seksiä?", "target": "Kiihottuisitko ajatuksesta olla naisen kanssa, joka juuri harrasti seksiä?", "annot_score": 1}
+{"lang": "fi", "input": "Kerroin ongelmista isäsi kanssa.", "target": "Kerroin, että meillä oli ongelmia.", "annot_score": 1}
+{"lang": "fi", "input": "Katrina meni vihollisen puolelle.", "target": "Katrina liittoutui vihollisen kanssa.", "annot_score": 1}
+{"lang": "fi", "input": "Jokainen vastaa itsestään.", "target": "Jokainen puhukoon puolestaan.", "annot_score": 1}
+{"lang": "fi", "input": "Sinä sen aiheutit.", "target": "Järjestit hänen loppunsa.", "annot_score": 1}
+{"lang": "fi", "input": "Vieläkin etsit sitä.", "target": "Jahtaat sitä vieläkin.", "annot_score": 1}
+{"lang": "fi", "input": "He rikkovat sinetin.", "target": "Seitsemän sinettiä.", "annot_score": 0}
+{"lang": "fi", "input": "He murtavat kohtalokkaan sinetin.", "target": "Sitten he eivät ole enää ihmisiä.", "annot_score": 0}
+{"lang": "fi", "input": "Hän taitaa olla hukkumaisillaan.", "target": "Luulen, että hän saattaa hukkua.", "annot_score": 1}
+{"lang": "fi", "input": "Hän laittoi sirut meille.", "target": "Meidät on sirutettu.", "annot_score": 1}
+{"lang": "fi", "input": "Hän jatkoi sitä.", "target": "Will kiristää sillä isääsi.", "annot_score": 0}
+{"lang": "fi", "input": "Voimme määrätä hänet hoitoon.", "target": "Hänet on saatava hoitoon.", "annot_score": 0}
+{"lang": "fi", "input": "Haluatko jonkun mielipiteen, Will?", "target": "Odotatko mielipidettä?", "annot_score": 1}
+{"lang": "fi", "input": "Haluan nähdä asiakirjat.", "target": "Haluan nähdä loput paperit.", "annot_score": 1}
+{"lang": "fi", "input": "Kaikki saavat kuulla tästä.", "target": "Haluan kaikkien tietävän, mitä tapahtui.", "annot_score": 1}
+{"lang": "fi", "input": "Ette kuulosta pastorilta.", "target": "Et kuulosta yhtään saarnaajalta.", "annot_score": 1}
+{"lang": "fi", "input": "Eroan välittömästi tehtävistäni.", "target": "Eroan tehtävistäni välittömästi.", "annot_score": 1}
+{"lang": "fi", "input": "Tämä on minun syyni, enkä osaa oikaista sitä.", "target": "En tiedä, kuinka korjaan tämän.", "annot_score": 1}
+{"lang": "fi", "input": "En ollutkaan huolissani itsestäni.", "target": "En pelännyt itseni puolesta.", "annot_score": 1}
+{"lang": "fi", "input": "Ette koskaan totu siihen.", "target": "Ei tähän ikinä totu.", "annot_score": 1}
+{"lang": "fi", "input": "Ei, sinä olet minun.", "target": "Sinä olet paras valintani.", "annot_score": 0}
+{"lang": "fi", "input": "Ehkä he eivät huomaa, mutta tunnistan nistin.", "target": "Tunnen nistin kun näen.", "annot_score": 1}
+{"lang": "fi", "input": "Maksan takaisin 15 000.", "target": "Annat kympin, saat 15.", "annot_score": 0}
+{"lang": "fi", "input": "Ali, mitä \" A \" teki meille?", "target": "Hyvä on, Ali.", "annot_score": 0}
+{"lang": "fi", "input": "Ajattelin aina, että oli mahtava syntyä Rayburnin sukuun.", "target": "Luulin aina, että hienoin minulle tapahtunut asia oli Rayburniksi syntyminen.", "annot_score": 1}
+{"lang": "fi", "input": "Aiotko tosiaan potkaista meidät pellolle?", "target": "Aiotko potkia meidät pihalle?", "annot_score": 1}
+{"lang": "fi", "input": "Sitten mennään.", "target": "Juhlat alkavat.", "annot_score": 0}
+{"lang": "fi", "input": "En ymmärrä, mitä tarkoitat.", "target": "Mistä puhutte?", "annot_score": 1}
+{"lang": "fi", "input": "Hyvä Jumala.", "target": "Voi katolisen synnin kauhistus.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä sinä teet?", "target": "Onko sinulla nappeja?", "annot_score": 0}
+{"lang": "fi", "input": "Mikä helvetti sinua vaivaa?", "target": "Mikä hitto sua riepoo?", "annot_score": 1}
+{"lang": "fi", "input": "Kyllä, kyllä.", "target": "Autat minua tekemään sen.", "annot_score": 0}
+{"lang": "fi", "input": "Tyttäreni täyttää vuosia.", "target": "Tyttärelläni on syntymäpäivä.", "annot_score": 1}
+{"lang": "fi", "input": "Tuollaista ei näekään ihan joka päivä.", "target": "Tuo on jotain, mitä ei näe joka päivä.", "annot_score": 1}
+{"lang": "fi", "input": "Tulet koko ajan paremmaksi tässä.", "target": "Sinä tulet paremmaksi.", "annot_score": 1}
+{"lang": "fi", "input": "Sinä teet nyt näin:", "target": "Tee seuraavasti:", "annot_score": 1}
+{"lang": "fi", "input": "Tai puhun kirjaajalle itse.", "target": "Se on kaupunki.", "annot_score": 0}
+{"lang": "fi", "input": "Tämän on onnistuttava.", "target": "Sen on parasta toimia.", "annot_score": 1}
+{"lang": "fi", "input": "Paul, kuinka voit?", "target": "Paul, mitä kuuluu?", "annot_score": 1}
+{"lang": "fi", "input": "Nyt on, kun sanoit.", "target": "Nyt kun mainitsit asiasta.", "annot_score": 1}
+{"lang": "fi", "input": "No niin, vien sinut kotiin.", "target": "Saat kyydin kotiin.", "annot_score": 1}
+{"lang": "fi", "input": "Se koskee liian paljon.", "target": "Mutta se tekee liian kipeää.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä sinä totuudesta tiedät?", "target": "Mitä sinä tiedät totuudesta?", "annot_score": 1}
+{"lang": "fi", "input": "Miten se joutui tänne?", "target": "Mistä se tänne tuli?", "annot_score": 1}
+{"lang": "fi", "input": "Meillä pitäisi olla hauskaa.", "target": "Meidän tulisi pitää hauskaa.", "annot_score": 1}
+{"lang": "fi", "input": "Luulin, että ymmärsimme toisiamme", "target": "Mutta sinä arvioit minut väärin", "annot_score": 0}
+{"lang": "fi", "input": "Luojan tähden, mitä teet?", "target": "Mitä sinä teet, David?", "annot_score": 1}
+{"lang": "fi", "input": "Merkitsee se minulle.", "target": "Kuulin, mitä teit reloramajelle ja tämän kumppanille.", "annot_score": 0}
+{"lang": "fi", "input": "Älä puhu tuolla tavalla.", "target": "Kuinka kehtaat puhua minulle noin?", "annot_score": 1}
+{"lang": "fi", "input": "Täytyyhän olla joku.", "target": "Jonkun täytyy olla.", "annot_score": 1}
+{"lang": "fi", "input": "Isabelle on kuusi kuukautta vanha.", "target": "Neiti Usher naapurista hankkii kissanpennun.", "annot_score": 0}
+{"lang": "fi", "input": "Homma käynnissä, pojat.", "target": "Pojat, nyt alkaa tapahtua.", "annot_score": 1}
+{"lang": "fi", "input": "Olen pahoillani, jos tunnet noin.", "target": "Harmi, että ajattelet noin.", "annot_score": 1}
+{"lang": "fi", "input": "Hän tappoi Angien.", "target": "Miksi antaisit anteeksi?", "annot_score": 0}
+{"lang": "fi", "input": "En tarvitse paljon tavaroita.", "target": "Matkustan kevyesti.", "annot_score": 1}
+{"lang": "fi", "input": "Sinä et päätä kaikesta.", "target": "En tahdo häntä lasten lähelle.", "annot_score": 0}
+{"lang": "fi", "input": "En ole tilivelvollinen teille.", "target": "Minun ei tarvitse kertoa sinulle mitään.", "annot_score": 1}
+{"lang": "fi", "input": "En kestä nähdäkään sinua.", "target": "En voi edes katsoa sinua.", "annot_score": 1}
+{"lang": "fi", "input": "Claire, ole kiltti.", "target": "En halua satuttaa sua.", "annot_score": 0}
+{"lang": "fi", "input": "Anna vielä suukko.", "target": "Suutele minua uudelleen.", "annot_score": 1}
+{"lang": "fi", "input": "Älkää naurattako.", "target": "Älkää olko höpö.", "annot_score": 1}
+{"lang": "fi", "input": "Älä turhaan vaikeuta tätä.", "target": "Älä vaikeuta tätä enempää.", "annot_score": 1}
+{"lang": "fi", "input": "Tarjotkaa minulle juomaa.", "target": "Tarjoa minulle drinkki.", "annot_score": 1}
+{"lang": "fi", "input": "Siihen on varmaan syy.", "target": "Tähän on varmasti jokin syy.", "annot_score": 1}
+{"lang": "fi", "input": "Pitäisikö minusta tuntua paremmalta?", "target": "Pitäisikö sen lohduttaa?", "annot_score": 1}
+{"lang": "fi", "input": "Oletko minun paras ystäväni?", "target": "Oletko paras kaverini?", "annot_score": 1}
+{"lang": "fi", "input": "Olenko mahtanut mainita häntä koskaan?", "target": "Olenkohan koskaan aikaisemmin maininnut häntä?", "annot_score": 1}
+{"lang": "fi", "input": "Miksi pelkäisin jotain?", "target": "Mitä pelättävää minulla olisi?", "annot_score": 1}
+{"lang": "fi", "input": "Mitä haluaisit olla isona?", "target": "Mikä sinusta tulee isona?", "annot_score": 1}
+{"lang": "fi", "input": "Kunnioita kuolleita.", "target": "Kuolleita pitää kunnioittaa.", "annot_score": 1}
+{"lang": "fi", "input": "Ollaanko partnereita?", "target": "Kumppaneille?", "annot_score": 1}
+{"lang": "fi", "input": "Olen tehnyt töitä koko elämäni.", "target": "Koko elämäni olen tehnyt töitä.", "annot_score": 1}
+{"lang": "fi", "input": "Kirjaudun hotelliin.", "target": "Kirjaudumme sisään.", "annot_score": 0}
+{"lang": "fi", "input": "Hävinnyt ikiajoiksi.", "target": "Isä on poissa ikuisesti?", "annot_score": 0}
+{"lang": "fi", "input": "Hän ei ole ikinä myöhässä.", "target": "Hän ei myöhästy koskaan.", "annot_score": 1}
+{"lang": "fi", "input": "Nyt ei ole enää paluuta.", "target": "Ette voi enää kääntyä takaisin.", "annot_score": 1}
+{"lang": "fi", "input": "Tiedät yhtä paljon kuin minäkin.", "target": "En tiedä niistä sen enempää kuin sinäkään.", "annot_score": 1}
+{"lang": "fi", "input": "En ole nähnyt häntä tällaisena.", "target": "Hän ei ole ikinä ollut tällainen.", "annot_score": 1}
+{"lang": "fi", "input": "Bisnes näyttää sujuvan hyvin.", "target": "Kauppa käy.", "annot_score": 1}
+{"lang": "fi", "input": "Ajattele sitä.", "target": "Miettikää nyt itsekin.", "annot_score": 1}
+{"lang": "fi", "input": "Eikö olekin outoa.", "target": "Kummallista.", "annot_score": 1}
+{"lang": "fi", "input": "Tietämään, mitä tahtoo.", "target": "Tiedät mitä haluat.", "annot_score": 0}
+{"lang": "fi", "input": "Te laitoitte räjähteet.", "target": "Te asetitte pommit.", "annot_score": 1}
+{"lang": "fi", "input": "Valmistaudu tekemään omasi.", "target": "Sinun on aika tehdä omasi.", "annot_score": 1}
+{"lang": "fi", "input": "Se käy sinulle?", "target": "Sinäkin olet sujut asian kanssa?", "annot_score": 1}
+{"lang": "fi", "input": "Vanha armeijakaverini.", "target": "Palvelimme yhdessä.", "annot_score": 1}
+{"lang": "fi", "input": "Taistele tai pakene.", "target": "Pakene tai taistele.", "annot_score": 1}
+{"lang": "fi", "input": "Yritä pitää tunteet kurissa.", "target": "Ota tunteet hallintaan, kuten harjoittelimme.", "annot_score": 1}
+{"lang": "fi", "input": "Onnistuuko Fitzin seuraaminen?", "target": "Onko Fitzin varjostamisessa ongelmia?", "annot_score": 1}
+{"lang": "fi", "input": "Viimeiset elävät Maassa.", "target": "Olemme maailman viimeiset ihmiset.", "annot_score": 1}
+{"lang": "fi", "input": "Nämä kuvaavat perheen kuolemia.", "target": "Nämä ovat kuin ne kuolemat.", "annot_score": 1}
+{"lang": "fi", "input": "Mutta pyydän teitä kaikkia olemaan kunnollisia ja pyhiä - älkää tuhotko istutuksiani.", "target": "Mutta rukoilen sinua kaiken hyvän ja pyhän kautta - älä tuhoa viljelyksiäni.", "annot_score": 1}
+{"lang": "fi", "input": "Mutta mitä vaihtoehtoja sinulla on?", "target": "Mitä muuta muka voit?", "annot_score": 1}
+{"lang": "fi", "input": "Miksi kerrot kulkukorteista?", "target": "Miksi puhut kirjastosta?", "annot_score": 0}
+{"lang": "fi", "input": "Saatoimme löytää ulospääsyn.", "target": "Löysimme tien, joka toivottavasti vie kotiin.", "annot_score": 1}
+{"lang": "fi", "input": "Vedestä löytyi kuollut tyttö.", "target": "Kuollut tyttö löytyi vedestä.", "annot_score": 1}
+{"lang": "fi", "input": "Suosittelen, että Skye jättää Kilven.", "target": "Kokonaan pois Kilvestä.", "annot_score": 0}
+{"lang": "fi", "input": "Katsotaan, voitatko tuon.", "target": "Yritäpä pistää paremmaksi.", "annot_score": 1}
+{"lang": "fi", "input": "Nimeni on Jones.", "target": "Jones on nimeni.", "annot_score": 1}
+{"lang": "fi", "input": "Hän salaa asioita.", "target": "Tämä saattaa olla yksi niistä.", "annot_score": 0}
+{"lang": "fi", "input": "Mitään kauheaa ei koskaan ennen ole tapahtunut hänelle.", "target": "Hänelle ei ole koskaan aikaisemmin tapahtunut mitään kauheaa.", "annot_score": 1}
+{"lang": "fi", "input": "Olisi Hallmarkin elokuva.", "target": "Hän ei voi puhua nyt.", "annot_score": 0}
+{"lang": "fi", "input": "Haluaako hän tosiaan minut hengiltä?", "target": "Lähettääkö Zoom niitä tyyppejä?", "annot_score": 0}
+{"lang": "fi", "input": "Olisi pitänyt vaieta.", "target": "Ei ole oikea aika.", "annot_score": 0}
+{"lang": "fi", "input": "Coulson haluaisi taatusti tietää.", "target": "Se kiinnostaisi taatusti Coulsonia.", "annot_score": 1}
+{"lang": "fi", "input": "Anna sytkärisi.", "target": "Antakaa sytyttimenne.", "annot_score": 1}
+{"lang": "fi", "input": "Aioitko naida minut?", "target": "Aioitko mennä kanssani naimisiin?", "annot_score": 1}
+{"lang": "fi", "input": "Se ei tunnu seksikkäältä.", "target": "Tuo ei ole seksikästä.", "annot_score": 1}
+{"lang": "fi", "input": "Pidetään asia meidän välisenämme.", "target": "Pidetään tämä yksityisenä.", "annot_score": 1}
+{"lang": "fi", "input": "Pelkkää mölyä.", "target": "Pidät vain melua.", "annot_score": 1}
+{"lang": "fi", "input": "Paljonko vapauteni maksoi?", "target": "Paljonko maksoit vapaudestani?", "annot_score": 1}
+{"lang": "fi", "input": "Onko tuo poikakaverisi?", "target": "Tämäkö on miehesi?", "annot_score": 1}
+{"lang": "fi", "input": "Ottiko hän lapseni?", "target": "Oliko Rousseau yksin?", "annot_score": 0}
+{"lang": "fi", "input": "Muukalaiset ovat olleet täällä jo jonkin aikaa.", "target": "Muukalaiset olivat täällä entuudestaan.", "annot_score": 1}
+{"lang": "fi", "input": "Tästä et pidä.", "target": "Molly tässä.", "annot_score": 0}
+{"lang": "fi", "input": "Olitko osallinen Susan Bermanin kuolemaan?", "target": "Mitä tiedätte Susan Bermanin murhasta?", "annot_score": 1}
+{"lang": "fi", "input": "Miksi lähdit Gallifreysta?", "target": "Mikä oli todellinen syy lähtöösi Gallifreystä?", "annot_score": 1}
+{"lang": "fi", "input": "Miksi juuri kirjakauppa?", "target": "Tämän takia kirjakauppa.", "annot_score": 0}
+{"lang": "fi", "input": "Me molemmat vihaamme häntä.", "target": "Sinä vihaat Flintiä.", "annot_score": 0}
+{"lang": "fi", "input": "Olemme olleet kiireisiä.", "target": "Meillä oli kiireitä.", "annot_score": 1}
+{"lang": "fi", "input": "Ne voivat auttaa.", "target": "Kymmenen tunnin kuluttua alamme keräämään heitä talteen.", "annot_score": 0}
+{"lang": "fi", "input": "Kaverille vain, David.", "target": "Yhdelle ystävälleni.", "annot_score": 1}
+{"lang": "fi", "input": "Katso nyt näitäkin.", "target": "Laita hattu päähän.", "annot_score": 0}
+{"lang": "fi", "input": "Joko seuramme kyllästyttää?", "target": "Joko tylsistytämme teitä?", "annot_score": 1}
+{"lang": "fi", "input": "Tai naimisissa?", "target": "Hyppäsin sen vaiheen yli.", "annot_score": 0}
+{"lang": "fi", "input": "Minulla on Fulcrum.", "target": "Fulcrum on minulla.", "annot_score": 1}
+{"lang": "fi", "input": "En tiedä enää muuta paikkaa.", "target": "Minulla ei ole muutakaan paikkaa.", "annot_score": 1}
+{"lang": "fi", "input": "Syytettä ei haluta.", "target": "Emme halua nostaa syytettä.", "annot_score": 1}
+{"lang": "fi", "input": "Elena ei herää.", "target": "Hän ei käynnisty.", "annot_score": 1}
+{"lang": "fi", "input": "Haluaa pysyä piilossa.", "target": "Ei halua tulla löydetyksi.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä pyydät minulta.", "target": "Arvostan antautumistasi.", "annot_score": 0}
+{"lang": "fi", "input": "202-555-0151.", "target": "Soittakaa siihen numeroon.", "annot_score": 0}
+{"lang": "fi", "input": "Tulen kyydissäsi kotiin.", "target": "Tulen tänne ja ajan kotiin kanssasi.", "annot_score": 1}
+{"lang": "fi", "input": "Vaikeampi kuin yleensä.", "target": "Tavallista pahemmin.", "annot_score": 1}
+{"lang": "fi", "input": "Siinä kaikki, mitä tiedämme.", "target": "Tiedämme vain sen.", "annot_score": 1}
+{"lang": "fi", "input": "Pystyn kumpaankin.", "target": "Voin mennä molempiin.", "annot_score": 1}
+{"lang": "fi", "input": "Puhuin poikasi luokanvalvojalle.", "target": "Vain varoituksena.", "annot_score": 0}
+{"lang": "fi", "input": "Ota nyt rauhassa.", "target": "Otitko ne rauhoittavat?", "annot_score": 0}
+{"lang": "fi", "input": "Burrows on yhtä kuin kuollut.", "target": "Isot pamput haluavat tämän tehtyä.", "annot_score": 0}
+{"lang": "fi", "input": "Harmi, että siitä ei tullut mitään.", "target": "Anteeksi, ettei se onnistunut.", "annot_score": 1}
+{"lang": "fi", "input": "3 kilometriä.", "target": "Kaksi kilsaa.", "annot_score": 0}
+{"lang": "fi", "input": "Kolmesataa hopearahaa jokaisesta päästä.", "target": "300 hopearahaa päästä.", "annot_score": 1}
+{"lang": "fi", "input": "Sitä tikarin tarinaa.", "target": "Pelleiletkö?", "annot_score": 0}
+{"lang": "fi", "input": "Minähän sanoin.", "target": "Osun joka kerta.", "annot_score": 0}
+{"lang": "fi", "input": "Tai ehkä en.", "target": "Eivät välttämättä.", "annot_score": 0}
+{"lang": "fi", "input": "Nyt on mentävä.", "target": "Meidän täytyy lähteä heti.", "annot_score": 1}
+{"lang": "fi", "input": "Täällä tuoksuu mukavalta.", "target": "Se tuoksuu herkulliselta.", "annot_score": 1}
+{"lang": "fi", "input": "Se on kiinni periaatteista", "target": "Se on periaatejuttu.", "annot_score": 1}
+{"lang": "fi", "input": "Pannukakkuja?", "target": "Pidätkö letuista?", "annot_score": 0}
+{"lang": "fi", "input": "Olemme jo hankaluuksissa.", "target": "Meillä on muutenkin tarpeeksi ongelmia.", "annot_score": 1}
+{"lang": "fi", "input": "Sinne menee yheksän kaheksan.", "target": "Kymmenen, yhdeksän, kahdeksan.", "annot_score": 0}
+{"lang": "fi", "input": "Yksi kultakello.", "target": "Kello, kultaa.", "annot_score": 1}
+{"lang": "fi", "input": "Jumalien nimeen.", "target": "Kautta jumalten.", "annot_score": 1}
+{"lang": "fi", "input": "Mutta joitakin asioita ei voi muuttaa.", "target": "Jotkut asiat eivät muutu.", "annot_score": 1}
+{"lang": "fi", "input": "Hän saa sen selville.", "target": "Hän saa tietää tästä.", "annot_score": 1}
+{"lang": "fi", "input": "Muija on minun.", "target": "Hän on tyttöni.", "annot_score": 1}
+{"lang": "fi", "input": "Kenelle soittaisit?", "target": "Haamujengillekö?", "annot_score": 0}
+{"lang": "fi", "input": "Ajatukseni harhautuivat.", "target": "Huomioni herpaantui.", "annot_score": 1}
+{"lang": "fi", "input": "Ottaisit sen huomioon.", "target": "Sinun pitäisi miettiä sitä.", "annot_score": 1}
+{"lang": "fi", "input": "Haluan olla luonasi.", "target": "Haluan jäädä teidän luokse.", "annot_score": 1}
+{"lang": "fi", "input": "Hän sai ansaitsemansa.", "target": "Samaa kuin hän.", "annot_score": 0}
+{"lang": "fi", "input": "Sulla taitaa olla mun omaisuuttani.", "target": "Uskon, että teillä on jotain, joka kuuluu minulle.", "annot_score": 1}
+{"lang": "fi", "input": "Yrittäkää ymmärtää yksi asia.", "target": "Sinun on ymmärrettävä jotakin.", "annot_score": 1}
+{"lang": "fi", "input": "Toinen sai kärsiä.", "target": "Panin käteni hänen päälleen.", "annot_score": 0}
+{"lang": "fi", "input": "Oudoimpia tyyppejä joita olen nähnyt.", "target": "Oudoimman näköinen porukka mitä olen nähnyt.", "annot_score": 1}
+{"lang": "fi", "input": "Minä pelastin heidät.", "target": "― Minä olen pelastaja.", "annot_score": 1}
+{"lang": "fi", "input": "Tapaatteko sitä miestä?", "target": "Menetkö mukaan?", "annot_score": 0}
+{"lang": "fi", "input": "Meillä on apurisi.", "target": "― Apurisi on vankinamme.", "annot_score": 1}
+{"lang": "fi", "input": "Kaikkien on poistuttava nyt.", "target": "Kaikkien täytyy mennä nyt.", "annot_score": 1}
+{"lang": "fi", "input": "He ovat turmeltuneita.", "target": "Ne ovat kannibaaleja.", "annot_score": 0}
+{"lang": "fi", "input": "Kipua ei enää ole.", "target": "Et tunne enää kipua.", "annot_score": 1}
+{"lang": "fi", "input": "Mulla ei ole turvavyötä.", "target": "En ole vöissä.", "annot_score": 1}
+{"lang": "fi", "input": "Ei se sinua ennenkään estänyt.", "target": "Tapaanko hänet?", "annot_score": 0}
+{"lang": "fi", "input": "Äiti, Tommy täällä.", "target": "Äiti, se olen minä, Tommy.", "annot_score": 1}
+{"lang": "fi", "input": "Tuoksuu uskomattomalta.", "target": "Se tuoksuu ihanalta.", "annot_score": 1}
+{"lang": "fi", "input": "Yhteistyö on ainoa keino, jolla selviätte tästä ehjinä.", "target": "Selviätte tästä yhtenä kappaleena vain, jos suostutte yhteistyöhön.", "annot_score": 1}
+{"lang": "fi", "input": "Pääsemme pian kotiin.", "target": "Pian olemme taas kotona.", "annot_score": 1}
+{"lang": "fi", "input": "Yritetään nyt jotakin.", "target": "Kokeillaan jotakin.", "annot_score": 1}
+{"lang": "fi", "input": "Tartuta sairaat.", "target": "Katkaista ketju.", "annot_score": 0}
+{"lang": "fi", "input": "Teet vain homman minulle.", "target": "Hoidat vain yhden homman puolestani.", "annot_score": 1}
+{"lang": "fi", "input": "Hän on teini-ikäinen.", "target": "Hän on ottanut huumeita.", "annot_score": 0}
+{"lang": "fi", "input": "Hänen sopii yrittää.", "target": "Olette nähnyt todisteet.", "annot_score": 0}
+{"lang": "fi", "input": "Luemme jälleen arvonne.", "target": "Ennakoitu sammutusaika 12 ja 34.", "annot_score": 0}
+{"lang": "fi", "input": "Tuntuu pahalta, vai mitä?", "target": "Ei tunnu hyvältä, eihän?", "annot_score": 1}
+{"lang": "fi", "input": "Otatko uuden, kulta?", "target": "Cocktaileja.", "annot_score": 0}
+{"lang": "fi", "input": "Ja uuden pyörän.", "target": "Oletteko hullu?", "annot_score": 0}
+{"lang": "fi", "input": "Kestä vielä hetki.", "target": "Koita jaksaa.", "annot_score": 1}
+{"lang": "fi", "input": "Syvyyspommi.", "target": "Tykinkuula.", "annot_score": 0}
+{"lang": "fi", "input": "Sitten ei ole mitään huolta.", "target": "Sitten sinulla ei ole syytä huoleen.", "annot_score": 1}
+{"lang": "fi", "input": "Palkintosi.", "target": "Tämä on teidän.", "annot_score": 1}
+{"lang": "fi", "input": "Teeskentele, että en ole täällä.", "target": "Olkaa kuin en olisi läsnä.", "annot_score": 1}
+{"lang": "fi", "input": "Se on symboliikkaa.", "target": "Niin vertauskuvallista.", "annot_score": 1}
+{"lang": "fi", "input": "Tutkanhäirintä päällä.", "target": "Musiikki soimaan.", "annot_score": 0}
+{"lang": "fi", "input": "Sinne olen suuntaamassa.", "target": "Minä lähden sinne.", "annot_score": 1}
+{"lang": "fi", "input": "John, oletko siellä?", "target": "John, sinäkö se olet?", "annot_score": 1}
+{"lang": "fi", "input": "Minua vihataan.", "target": "He inhoavat minua.", "annot_score": 1}
+{"lang": "fi", "input": "En tiedä mistä edes aloittaisin.", "target": "En edes tiedä mistä aloittaa.", "annot_score": 1}
+{"lang": "fi", "input": "Hän ei ole sinulla.", "target": "Ei sinulla ole häntä.", "annot_score": 1}
+{"lang": "fi", "input": "Kyllä sopii.", "target": "Anna minä teen tämän loppuun.", "annot_score": 0}
+{"lang": "fi", "input": "Anna itsellesi anteeksi.", "target": "Anna anteeksi itsellesi.", "annot_score": 1}
+{"lang": "fi", "input": "Minä en ole mikään myyrä.", "target": "Aiotko sinä tunnustaa?", "annot_score": 0}
+{"lang": "fi", "input": "Yritä pysyä perässä.", "target": "Se voi tulla mukaan.", "annot_score": 0}
+{"lang": "fi", "input": "Muita kysymyksiä?", "target": "Oliko vielä kysyttävää?", "annot_score": 1}
+{"lang": "fi", "input": "Miten se meihin liittyy?", "target": "Miksi me olemme siis mukana?", "annot_score": 1}
+{"lang": "fi", "input": "en haluaisi olla housuissasi.", "target": "Äiti ja minä palaamme myöhemmin, - ehkä.", "annot_score": 0}
+{"lang": "fi", "input": "Älä tuota taas pettymystä.", "target": "Älä tuota minulle enää pettymystä, tyttö.", "annot_score": 1}
+{"lang": "fi", "input": "Tokene nyt.", "target": "Antaa tulla.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on hullua.", "target": "Olet 14-vuotias.", "annot_score": 0}
+{"lang": "fi", "input": "Kelpaahan se.", "target": "Ei se mitään.", "annot_score": 0}
+{"lang": "fi", "input": "Käydään tuolla.", "target": "Lähde kanssani.", "annot_score": 0}
+{"lang": "fi", "input": "Voi kauhistus.", "target": "Konstaapeli.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä helvettiä sinä täällä teet?", "target": "Mitä hittoa sinä oikein teet?", "annot_score": 1}
+{"lang": "fi", "input": "Mikä hänen nimensä on?", "target": "Mikä puolisosi nimi on?", "annot_score": 1}
+{"lang": "fi", "input": "Tiedättekö mitä?", "target": "En jää syömään.", "annot_score": 0}
+{"lang": "fi", "input": "Etkö tiedä, kuka olen?", "target": "Tunnistatko minut?", "annot_score": 1}
+{"lang": "fi", "input": "Se lähettää signaalia.", "target": "Se saa toisen ohjuksen toiseen tuplatuhon takia.", "annot_score": 0}
+{"lang": "fi", "input": "Neste on arvokasta ja sitä on rajallisesti.", "target": "Tätä on rajallisesti ja se on arvokasta.", "annot_score": 1}
+{"lang": "fi", "input": "En minä kärsi.", "target": "En ole ahdingossa.", "annot_score": 1}
+{"lang": "fi", "input": "Tiedämme molemmat, etten vihannut sinua.", "target": "Taidamme molemmat tietää, etten koskaan todella vihannut sinua.", "annot_score": 1}
+{"lang": "fi", "input": "Siksikö että olen omistanut elämäni perheen palvelemiseen, - mutta minut aiotaan heittää ulos?", "target": "Teitä kadettaa.", "annot_score": 0}
+{"lang": "fi", "input": "Pääleiri kutsuu Robia.", "target": "Rob, pääleiri täällä.", "annot_score": 1}
+{"lang": "fi", "input": "Sitäkö sinä todella haluat?", "target": "Oletteko tästä varma?", "annot_score": 1}
+{"lang": "fi", "input": "Tälle varmasti löytyy selitys.", "target": "Olen varma, että tälle on olemassa selitys.", "annot_score": 1}
+{"lang": "fi", "input": "No niin, neidit, vapauttakaa herra Batine.", "target": "Siistikää hänet.", "annot_score": 0}
+{"lang": "fi", "input": "Mutta mihin tarkoitukseen?", "target": "Pysyä puhtaina.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä menetettävää sinulla on?", "target": "Mitä voisitte menettää?", "annot_score": 1}
+{"lang": "fi", "input": "Minulle tyypillistä.", "target": "Se on elämäni tarina.", "annot_score": 1}
+{"lang": "fi", "input": "Miksi valehtelisit?", "target": "Nyt olen pelkkä hieroja.", "annot_score": 0}
+{"lang": "fi", "input": "Olen juhlatuulella.", "target": "Mieleni tekee juhlia.", "annot_score": 1}
+{"lang": "fi", "input": "Maasta sinä olet tullut ja maaksi palaat jälleen.", "target": "Tuhkasta tuhkaksi ja maasta maaksi.", "annot_score": 1}
+{"lang": "fi", "input": "Lainan lyhennys on tulossa.", "target": "Olemme peeaa.", "annot_score": 0}
+{"lang": "fi", "input": "Kuinka voimme pysäyttää sen?", "target": "Miten estämme sen?", "annot_score": 1}
+{"lang": "fi", "input": "Kuin koira luun perässä.", "target": "Hän on kuin koira jolla on luu.", "annot_score": 1}
+{"lang": "fi", "input": "Se minua huolettaa.", "target": "Etkö luule minun tietävän, mitä tuolla on meneillään?", "annot_score": 0}
+{"lang": "fi", "input": "En saa auki tätä.", "target": "En pysty avaamaan sitä.", "annot_score": 1}
+{"lang": "fi", "input": "Miksen minä älynnyt sitä?", "target": "Eipä tullut mieleeni.", "annot_score": 1}
+{"lang": "fi", "input": "David tietää sen.", "target": "Hän tulee vuoksesi.", "annot_score": 0}
+{"lang": "fi", "input": "Annoin hänen mennä.", "target": "En kajonnut häneen.", "annot_score": 1}
+{"lang": "fi", "input": "Loppu on teistä kiinni.", "target": "Loppu riippuu teistä itsestänne.", "annot_score": 1}
+{"lang": "fi", "input": "Terry Ann Wolfmeyerista.", "target": "Kustannuksellasi ei pilailla.", "annot_score": 0}
+{"lang": "fi", "input": "Palvelukset loppuvat tähän.", "target": "Emme tee enää palveluksia.", "annot_score": 1}
+{"lang": "fi", "input": "Kivut olisivat muualla.", "target": "Niinpä kai.", "annot_score": 0}
+{"lang": "fi", "input": "Mikä ettei?", "target": "Kertokaa vain.", "annot_score": 0}
+{"lang": "fi", "input": "Pysy poissa ikkunasta.", "target": "Älkää menkö ikkunaan.", "annot_score": 1}
+{"lang": "fi", "input": "Toivota meille onnea.", "target": "Kohtasimme rehdisti.", "annot_score": 0}
+{"lang": "fi", "input": "Jackie Molina vastaa hyväksymisistä.", "target": "He palkkasivat Jackien.", "annot_score": 0}
+{"lang": "fi", "input": "Hänellä oli jo minut.", "target": "Meni poikki.", "annot_score": 0}
+{"lang": "fi", "input": "Etsi hänen lavastajansa.", "target": "Selvitä, kuka hänet yrittää tapattaa.", "annot_score": 0}
+{"lang": "fi", "input": "Kukaan ei yritä tapattaa häntä.", "target": "Ei häntä kukaan yritä lavastaa.", "annot_score": 0}
+{"lang": "fi", "input": "Mikä teidän nimenne on?", "target": "Kertoisitko meille nimesi?", "annot_score": 1}
+{"lang": "fi", "input": "Mukava nähdä sinua.", "target": "Hyvä tavata taas.", "annot_score": 1}
+{"lang": "fi", "input": "Mukava nähdä.", "target": "Hei, miten menee.", "annot_score": 1}
+{"lang": "fi", "input": "Yritän parhaani.", "target": "Minä sentään yritän.", "annot_score": 1}
+{"lang": "fi", "input": "Minä vien sinut.", "target": "Sain sinusta kiinni.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on kuin toteutunut unelma.", "target": "Unelmamme täyttyy.", "annot_score": 1}
+{"lang": "fi", "input": "Pieni yhteentörmäys.", "target": "Pieni kolari vain.", "annot_score": 1}
+{"lang": "fi", "input": "Olet oikeassa, karmivaa.", "target": "Tämä on vähän karmivaa.", "annot_score": 1}
+{"lang": "fi", "input": "Hän teki päätöksensä.", "target": "Hän teki valinnan.", "annot_score": 1}
+{"lang": "fi", "input": "Voitat jotkut, häviät joillekin.", "target": "Voitat vähän, häviät vähän.", "annot_score": 1}
+{"lang": "fi", "input": "Perhana, mikä nyt risoo?", "target": "Miten vitussa nyt suu pannaan?", "annot_score": 0}
+{"lang": "fi", "input": "Minua väsyttää valtavasti.", "target": "Olen vain niin väsynyt.", "annot_score": 1}
+{"lang": "fi", "input": "Kaupallisia.", "target": "Tilille pannaan katetta.", "annot_score": 0}
+{"lang": "fi", "input": "He ovat ammattimiehiä.", "target": "He tietävät mitä tekevät.", "annot_score": 1}
+{"lang": "fi", "input": "He eivät välitä minusta.", "target": "He sivuuttavat minut.", "annot_score": 1}
+{"lang": "fi", "input": "Kuulostaa järkevämmältä.", "target": "Ai, se olikin hän.", "annot_score": 0}
+{"lang": "fi", "input": "Kerro vain minulle.", "target": "Puhu minun kanssani.", "annot_score": 1}
+{"lang": "fi", "input": "Häntä ei näkynyt.", "target": "Hän ei ilmaantunut paikalle.", "annot_score": 1}
+{"lang": "fi", "input": "Anna se tänne.", "target": "Paikalla nähtiin sotilaita.", "annot_score": 0}
+{"lang": "fi", "input": "Suksi kuuseen.", "target": "En aio olla juoksupoikasi loppuelämääni.", "annot_score": 0}
+{"lang": "fi", "input": "En voinut muuta.", "target": "Hän on paha.", "annot_score": 0}
+{"lang": "fi", "input": "Onko sinulla karttaa?", "target": "Onko kartta teillä?", "annot_score": 1}
+{"lang": "fi", "input": "On minua kutsuttu huonommillakin nimillä.", "target": "Olen kuullut pahempaakin.", "annot_score": 1}
+{"lang": "fi", "input": "Näytä miten suutelisit minua.", "target": "Mitä tarkoitat?", "annot_score": 0}
+{"lang": "fi", "input": "Tämä ei liity haluihini.", "target": "Kyse ei ole haluistani.", "annot_score": 1}
+{"lang": "fi", "input": "Kohta se sinulle selviää.", "target": "Tulet saamaan selville sen pian.", "annot_score": 1}
+{"lang": "fi", "input": "Munapa hyvinkin.", "target": "Hän on muna.", "annot_score": 0}
+{"lang": "fi", "input": "Neljä vuotta lisää.", "target": "Gob saapui äitinsä luo.", "annot_score": 0}
+{"lang": "fi", "input": "Etkö ollutkaan lähdössä?", "target": "Puhuitko sinä Hoytsmanille?", "annot_score": 0}
+{"lang": "fi", "input": "En voi odottaa hänen näkemistä.", "target": "En malta odottaa tapaamista.", "annot_score": 1}
+{"lang": "fi", "input": "Elo kovaonninen tää on", "target": "Ei meitä hoideta, vaan huijataan", "annot_score": 0}
+{"lang": "fi", "input": "Oksaan, hirteen, parruun", "target": "Parruun, oksaan, orteen", "annot_score": 1}
+{"lang": "fi", "input": "Mitä tutkijat sanovat?", "target": "Mitä mieltä he ovat?", "annot_score": 1}
+{"lang": "fi", "input": "Me olemme pahiksia.", "target": "Meitä molempia etsitään.", "annot_score": 0}
+{"lang": "fi", "input": "Meillä on erilaiset tavat ratkoa ongelmia.", "target": "Selvittää ongelmat.", "annot_score": 0}
+{"lang": "fi", "input": "Et saa kertoa löytäneesi näitä.", "target": "Sinä et voi ilmoittaa löydöstä.", "annot_score": 1}
+{"lang": "fi", "input": "Luulin, että luit kansioni.", "target": "Etkö sanonut lukeneesi kansion?", "annot_score": 1}
+{"lang": "fi", "input": "Emme saaneet nukutuksi.", "target": "Emme pystyneet nukkumaan.", "annot_score": 1}
+{"lang": "fi", "input": "Emme niin sopineet.", "target": "Se ei kuulunut sopimukseen.", "annot_score": 1}
+{"lang": "fi", "input": "Asiat muuttuvat paljon, paljon pahemmiksi.", "target": "Siitä tulee vielä paljon kamalampaa.", "annot_score": 1}
+{"lang": "fi", "input": "Anna kun katson.", "target": "Näytäpä minulle.", "annot_score": 1}
+{"lang": "fi", "input": "Voitteko antaa lisätietoja?", "target": "Voisitko vähän tarkentaa?", "annot_score": 1}
+{"lang": "fi", "input": "Missä pillerini ovat?", "target": "Mitä pillereilleni on tapahtunut?", "annot_score": 1}
+{"lang": "fi", "input": "Haluat päästä Saarelle.", "target": "Sinä haluat Saarelle.", "annot_score": 1}
+{"lang": "fi", "input": "Etkö pelkää sen puolesta?", "target": "Etkö sinä muka pelkää?", "annot_score": 1}
+{"lang": "fi", "input": "On tiettyjä sääntöjä.", "target": "On lainalaisuuksia.", "annot_score": 1}
+{"lang": "fi", "input": "Minulla on kuuma.", "target": "Minä hikoilen kamalasti.", "annot_score": 1}
+{"lang": "fi", "input": "Kaveriraukka.", "target": "Voi sitä pikku jäbää.", "annot_score": 1}
+{"lang": "fi", "input": "Tunnenko minä hänet?", "target": "Joku tuttuniko?", "annot_score": 1}
+{"lang": "fi", "input": "Siitä tulee parempi olo.", "target": "Heidän seuransa piristää sinua.", "annot_score": 0}
+{"lang": "fi", "input": "Entä jos kieltäydyn moisesta?", "target": "Entä jos en kuuntele?", "annot_score": 0}
+{"lang": "fi", "input": "Kaikilla näillä lapsilla on ystävä nimeltään Drill, jota kukaan muu ei voi nähdä.", "target": "Aiemmin tapahtunutta:", "annot_score": 0}
+{"lang": "fi", "input": "Se oli minun tyttäreni.", "target": "Se oli tyttäreni teko.", "annot_score": 1}
+{"lang": "fi", "input": "Meidän pitää tehdä tämä hänen vuokseen.", "target": "Olemme sen hänelle velkaa.", "annot_score": 1}
+{"lang": "fi", "input": "Kutsukaa miehet taisteluun", "target": "Kutsukaa kaikki sotaan.", "annot_score": 1}
+{"lang": "fi", "input": "Ette tavallisesti.", "target": "Emme yleensä.", "annot_score": 0}
+{"lang": "fi", "input": "Ei siellä pitäisi olla mitään mainosta.", "target": "Kaksi minuuttia aikaa.", "annot_score": 0}
+{"lang": "fi", "input": "Minäkö olisin hän?", "target": "Olenko Taylor?", "annot_score": 0}
+{"lang": "fi", "input": "Miten lopetan sen?", "target": "Kuinka saan sen pois?", "annot_score": 1}
+{"lang": "fi", "input": "Ette voi tappaa häntä.", "target": "Cole ei voi tappaa Raillya.", "annot_score": 0}
+{"lang": "fi", "input": "Tule työskentelemään minulle.", "target": "Tule minulle hommiin.", "annot_score": 1}
+{"lang": "fi", "input": "Tiedät, etten tottele.", "target": "Tunnet minut tuota paremmin.", "annot_score": 0}
+{"lang": "fi", "input": "Tapailen yhtä tyyppiä.", "target": "Tapailen erästä henkilöä.", "annot_score": 1}
+{"lang": "fi", "input": "Tämä on minulle uutta.", "target": "Tämä on ensikertani.", "annot_score": 1}
+{"lang": "fi", "input": "Syö äidin vuoksi.", "target": "Yritä syödä.", "annot_score": 1}
+{"lang": "fi", "input": "Olin sen tarpeessa.", "target": "Se tuli todella tarpeeseen.", "annot_score": 1}
+{"lang": "fi", "input": "Ottakaa kuvanne, yksi kerrallaan.", "target": "Olette todistajia.", "annot_score": 0}
+{"lang": "fi", "input": "Pidätkö surullisista kappaleista?", "target": "Oikea klassikko.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä jos joku saa meidät kiinni?", "target": "Mitä jos jäämme kiinni?", "annot_score": 1}
+{"lang": "fi", "input": "Kiitos, rouva Hughes.", "target": "Se on nyt ratkaistu.", "annot_score": 0}
+{"lang": "fi", "input": "Heitä ei kiinnosta.", "target": "He eivät välitä.", "annot_score": 1}
+{"lang": "fi", "input": "Etsin yhtä juttua.", "target": "Etsin erästä esinettä.", "annot_score": 1}
+{"lang": "fi", "input": "En nähnyt häntä enää toiste.", "target": "Sen jälkeen en nähnyt häntä.", "annot_score": 1}
+{"lang": "fi", "input": "Ei sitten satuteta häntä.", "target": "Haetaan vain timantit.", "annot_score": 0}
+{"lang": "fi", "input": "Kanssasi ei ole tylsää.", "target": "Ei koskaan tylsää hetkeä.", "annot_score": 1}
+{"lang": "fi", "input": "Eikö se ole hyvä?", "target": "Sinä olet lähdössä.", "annot_score": 0}
+{"lang": "fi", "input": "Tiedän miltä hänestä tuntuu.", "target": "Voin samaistua siihen.", "annot_score": 1}
+{"lang": "fi", "input": "Tule luoksemme.", "target": "Sinun täytyy tulla tänne.", "annot_score": 1}
+{"lang": "fi", "input": "Te ette komentele minua.", "target": "Sinä et pomota minua.", "annot_score": 1}
+{"lang": "fi", "input": "Tilanne on siis huono.", "target": "Se on huonossa kunnossa, eikö olekin?", "annot_score": 1}
+{"lang": "fi", "input": "Mitä minä tälle nyt teen?", "target": "Mitä pitäisi tehdä tälle?", "annot_score": 1}
+{"lang": "fi", "input": "Mistä sinä sen muka tiedät?", "target": "Mistä hitosta tiedät sen?", "annot_score": 1}
+{"lang": "fi", "input": "Mitä tässä on puhuttavaa?", "target": "Miksi puhuisin?", "annot_score": 1}
+{"lang": "fi", "input": "Luulin, että lähdit pois.", "target": "Luulin sinun lähteneen kaupungista.", "annot_score": 1}
+{"lang": "fi", "input": "Lähden Johnin mukaan.", "target": "Menen hänen kanssaan.", "annot_score": 1}
+{"lang": "fi", "input": "Kyse on teistä itsestänne.", "target": "Tässä on kyse sinusta.", "annot_score": 1}
+{"lang": "fi", "input": "Castle jää johtamaan tätä.", "target": "Tavoitat kännykästä.", "annot_score": 0}
+{"lang": "fi", "input": "Apusi olisi tarpeen.", "target": "Voisit auttaa minua siinä.", "annot_score": 1}
+{"lang": "fi", "input": "Hei, kulta.", "target": "Otatko pekonia?", "annot_score": 0}
+{"lang": "fi", "input": "Sinä tarvitset nyt lepoa.", "target": "Sinun on nyt levättävä.", "annot_score": 1}
+{"lang": "fi", "input": "Se onkin jo toinen juttu.", "target": "Se tarina on vielä kesken.", "annot_score": 0}
+{"lang": "fi", "input": "Taas se sama kaveri.", "target": "Se on hän jälleen.", "annot_score": 1}
+{"lang": "fi", "input": "Oletko oikeasti olemassa?", "target": "Oletko todellinen, Cole?", "annot_score": 1}
+{"lang": "fi", "input": "Se on kovin omituista.", "target": "Kumma se onkin.", "annot_score": 1}
+{"lang": "fi", "input": "Ryppyjä paratiisissa?", "target": "Onko kyyhkyläisillä ongelmia?", "annot_score": 1}
+{"lang": "fi", "input": "Mitä menestyminen tarkoittaa?", "target": "Mitä tarkoitat menestymisellä?", "annot_score": 1}
+{"lang": "fi", "input": "Millä olen sinut ansainnut?", "target": "Mitä tein ansaitakseni sinut?", "annot_score": 1}
+{"lang": "fi", "input": "Hän tukehdutti teidät.", "target": "Miten me kuolimme?", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on aivan päätöntä.", "target": "Tuo on hullua.", "annot_score": 1}
+{"lang": "fi", "input": "Niin seksikästä.", "target": "Mies, joka hoitaa itseään.", "annot_score": 0}
+{"lang": "fi", "input": "FBI kävi täällä.", "target": "Dembe on kadonnut.", "annot_score": 0}
+{"lang": "fi", "input": "Minun täytyy löytää työpaikka.", "target": "Tarvitsen työpaikan.", "annot_score": 1}
+{"lang": "fi", "input": "En ihmettele yhtään.", "target": "Pähkinät ovat hyviä.", "annot_score": 0}
+{"lang": "fi", "input": "Emmehän me tapaile yksinomaan toisiamme.", "target": "En ole yksin hänen.", "annot_score": 1}
+{"lang": "fi", "input": "Meillä ei ole minuuttiakaan.", "target": "Ei meillä ole aikaa.", "annot_score": 1}
+{"lang": "fi", "input": "Älä huoli, pidän salaisuuden.", "target": "Osaan säilyttää salaisuuden.", "annot_score": 1}
+{"lang": "fi", "input": "En edes tiedä mitä se tarkoittaa.", "target": "Tuo on ihan hepreaa.", "annot_score": 1}
+{"lang": "fi", "input": "Voin tulla uudestaan.", "target": "Ei, se ei kestä kauan.", "annot_score": 0}
+{"lang": "fi", "input": "Arvaa mitä nyt tarvitaan.", "target": "Tiedätkö, mitä me tarvitsemme?", "annot_score": 1}
+{"lang": "fi", "input": "Ja teet sen.", "target": "Kyllä voit.", "annot_score": 0}
+{"lang": "fi", "input": "Ei ole tarpeen.", "target": "Ei teidän tarvitsekaan.", "annot_score": 1}
+{"lang": "fi", "input": "Hän mainitsi, että ajattelit lopettaa koripallon näytelmän takia.", "target": "Mitä hän sanoi?", "annot_score": 0}
+{"lang": "fi", "input": "Täällä on keskus.", "target": "Tässä puhelunvälittäjä.", "annot_score": 1}
+{"lang": "fi", "input": "Roolimallinne ovat mahtavia.", "target": "Se painaa liikaa.", "annot_score": 0}
+{"lang": "fi", "input": "Onko hän vihainen minulle?", "target": "Suuttuiko hän minulle?", "annot_score": 1}
+{"lang": "fi", "input": "Tänään on pojan syntymäpäivä.", "target": "On hänen synttärit.", "annot_score": 1}
+{"lang": "fi", "input": "Olin samassa tilanteessa.", "target": "Olin ennen kuin sinä.", "annot_score": 1}
+{"lang": "fi", "input": "Luulin hänen kuolleen.", "target": "Luulin, että äiti on kuollut.", "annot_score": 1}
+{"lang": "fi", "input": "On, ikävä kyllä.", "target": "Kyllä valitettavasti.", "annot_score": 1}
+{"lang": "fi", "input": "Kiitos, että yritit.", "target": "Sähköpostiosoite ei johtanut mihinkään.", "annot_score": 0}
+{"lang": "fi", "input": "Yksi on testaamatta.", "target": "Kaikki paitsi yksi.", "annot_score": 0}
+{"lang": "fi", "input": "Hän on aivan peloissaan.", "target": "Hän pelkää kuollakseen.", "annot_score": 1}
+{"lang": "fi", "input": "Ette kaikki, luulisin.", "target": "Mutta minä olen täällä.", "annot_score": 0}
+{"lang": "fi", "input": "Elämäni tarina.", "target": "En tiedä mitään, vannon sen.", "annot_score": 0}
+{"lang": "fi", "input": "Ei ole mitään menetettävää.", "target": "Mitä hävittävää meillä on?", "annot_score": 1}
+{"lang": "fi", "input": "Se on loppu nyt.", "target": "Kaikki olisi ohi.", "annot_score": 0}
+{"lang": "fi", "input": "On kiva kuulla sinusta.", "target": "Mukava, että soitit.", "annot_score": 1}
+{"lang": "fi", "input": "Lupasin hänet takaisin.", "target": "Sanoin palauttavani hänet.", "annot_score": 1}
+{"lang": "fi", "input": "Pinnalla saatamme saada ne ladattua.", "target": "Lataamme ne pinnalla.", "annot_score": 1}
+{"lang": "fi", "input": "Media kutsuu heitä aaveiksi.", "target": "Heitä kutsutaan aaveiksi.", "annot_score": 1}
+{"lang": "fi", "input": "Hartley Rathaway on valtavan nerokas mies.", "target": "Hartley Rathaway on suurimpia tapaamiani älykköjä.", "annot_score": 1}
+{"lang": "fi", "input": "Mutta minä taistelen.", "target": "Hän anasti vallan itselleen.", "annot_score": 0}
+{"lang": "fi", "input": "Palaan kapteeniksi parissa päivässä.", "target": "Alle kahden päivän päästä - olen jälleen kapteeni.", "annot_score": 1}
+{"lang": "fi", "input": "Aika puolustautua.", "target": "Taistelun aika.", "annot_score": 1}
+{"lang": "fi", "input": "Aiemmin teit sen ilmaiseksi.", "target": "Viimeksi lähdit ilmaiseksi.", "annot_score": 1}
+{"lang": "fi", "input": "15 vuotta sitten olimme läheisiä.", "target": "Olimme lupaavia nuoria tutkijoita.", "annot_score": 0}
+{"lang": "fi", "input": "Et ole valmis.", "target": "Mistä hyvästä?", "annot_score": 0}
+{"lang": "fi", "input": "Laskin leikkiä.", "target": "Me leikimme vain.", "annot_score": 0}
+{"lang": "fi", "input": "Toimimme pakon edessä.", "target": "Teimme, mitä täytyi.", "annot_score": 1}
+{"lang": "fi", "input": "Huolesi katoavat onnen sinulle hymyillessä.", "target": "Ongelmasi häviävät ja tulevaisuus hymyilee sinulle.", "annot_score": 1}
+{"lang": "fi", "input": "Tusina kärsimätöntä ruotsalaista - odottaa näkevänsä sarvikuonoja.", "target": "Herätys, Jackson.", "annot_score": 0}
+{"lang": "fi", "input": "Erinomaista.", "target": "Tehkää koe.", "annot_score": 0}
+{"lang": "fi", "input": "Olen iloinen, että olette täällä.", "target": "Onpa ihanaa, että te tulitte.", "annot_score": 1}
+{"lang": "fi", "input": "Onko asia niin yksinkertainen?", "target": "Noinko helposti?", "annot_score": 1}
+{"lang": "fi", "input": "Miten teillä vapaa-aikaa?", "target": "Oletko ollut linnassa?", "annot_score": 0}
+{"lang": "fi", "input": "Meitä ei voi pysäyttää nyt.", "target": "Meitä ei pysäytä mikään.", "annot_score": 1}
+{"lang": "fi", "input": "Luulin, että olit unohtanut minut.", "target": "Luulin sinun unohtaneen minut.", "annot_score": 1}
+{"lang": "fi", "input": "Liian paljon on pelissä.", "target": "Vaakalaudalla on liian paljon.", "annot_score": 1}
+{"lang": "fi", "input": "Joka paikassa on kameroita.", "target": "Kameroita on kaikkialla.", "annot_score": 1}
+{"lang": "fi", "input": "Hengitätkö sinä?", "target": "Oletko hengissä?", "annot_score": 1}
+{"lang": "fi", "input": "Tahdon sinun saavan sen.", "target": "Haluan, että sinä kannat sitä.", "annot_score": 1}
+{"lang": "fi", "input": "En pidä korkeuksista.", "target": "Liian ylhäällä.", "annot_score": 0}
+{"lang": "fi", "input": "Sousa tässä.", "target": "Tule kellariin.", "annot_score": 0}
+{"lang": "fi", "input": "Voisin luulla toisin.", "target": "Olisit voinut huijata minua.", "annot_score": 0}
+{"lang": "fi", "input": "Mikä on nimesi, poju?", "target": "Mikä sinun nimesi on, poika?", "annot_score": 1}
+{"lang": "fi", "input": "minä tulen vaimoksesi.", "target": "Menen kanssasi naimisiin.", "annot_score": 1}
+{"lang": "fi", "input": "Kiitos, et kadu tätä.", "target": "Et joudu katumaan.", "annot_score": 1}
+{"lang": "fi", "input": "En mene minnekään kanssasi.", "target": "En lähde matkaasi.", "annot_score": 1}
+{"lang": "fi", "input": "Ei, mikäli voin tehdä jotain.", "target": "Ei, jos voin auttaa.", "annot_score": 1}
+{"lang": "fi", "input": "Aikuisella miehellä?", "target": "Hän on aikuinen mies.", "annot_score": 0}
+{"lang": "fi", "input": "Voinko mennä kotiin nyt?", "target": "Voinko nyt lähteä kotiin?", "annot_score": 1}
+{"lang": "fi", "input": "Te ette ole tervetulleita tänne.", "target": "Tänne ei ole enää tulemista.", "annot_score": 1}
+{"lang": "fi", "input": "Niin ei ole tapahtunut koskaan aiemmin.", "target": "Tämä oli uutta.", "annot_score": 1}
+{"lang": "fi", "input": "Ensi vuonna.", "target": "Vuoden päästä.", "annot_score": 1}
+{"lang": "fi", "input": "Millä tavalla?", "target": "Kuinka kiitollinen?", "annot_score": 0}
+{"lang": "fi", "input": "Huomaatteko?", "target": "Sinulla on enemmän valtaa kuin koskaan.", "annot_score": 0}
+{"lang": "fi", "input": "Yöllä oli uusi hyökkäys.", "target": "On ollut toinenkin hyökkäys.", "annot_score": 1}
+{"lang": "fi", "input": "Miksei saman tien?", "target": "Mikset tee sitä nyt?", "annot_score": 1}
+{"lang": "fi", "input": "Tämä ei ollut ideani.", "target": "En keksinyt sitä itse.", "annot_score": 1}
+{"lang": "fi", "input": "Täällähän sitä ollaan.", "target": "Niin ajattelinkin.", "annot_score": 0}
+{"lang": "fi", "input": "Vaikeuttaako se?", "target": "Ne hajaantuivat.", "annot_score": 0}
+{"lang": "fi", "input": "Tytöt ovat lähdössä.", "target": "Nämä ovat tulossa esiin, Nancy.", "annot_score": 0}
+{"lang": "fi", "input": "Milloin myöhemmin?", "target": "Minkä jälkeen?", "annot_score": 0}
+{"lang": "fi", "input": "Saanko sinut hermostumaan?", "target": "Hermostutanko sinua?", "annot_score": 1}
+{"lang": "fi", "input": "Fantomas, nyt jäät kiinni.", "target": "Kytkekää antenni pois päältä.", "annot_score": 0}
+{"lang": "fi", "input": "Älä kerro tästä kenellekään.", "target": "Siihen asti vaikene tapaamisestamme.", "annot_score": 1}
+{"lang": "fi", "input": "Pysy loitolla siskostani.", "target": "Pysy poissa sisareni luota.", "annot_score": 1}
+{"lang": "fi", "input": "Sinä hämmennät minut.", "target": "Mitä minä puhun?", "annot_score": 0}
+{"lang": "fi", "input": "Sitten olin koulussa.", "target": "Kukaan ei vastannut.", "annot_score": 0}
+{"lang": "fi", "input": "Kakki ne ihmiset, 2 000 ihmistä talloivat toisiaan ja.", "target": "Se tapahtui kovin nopeasti.", "annot_score": 0}
+{"lang": "fi", "input": "Juurihan te.", "target": "Mutta sinähän sanoit.", "annot_score": 0}
+{"lang": "fi", "input": "Saat lokerosta kohteen nimen.", "target": "Haluan, että ymmärrät.", "annot_score": 0}
+{"lang": "fi", "input": "Etenkään sinua.", "target": "Sinua varsinkin.", "annot_score": 0}
+{"lang": "fi", "input": "Anna kun puhun hänen kanssaan.", "target": "Haluan puhua tytölle.", "annot_score": 1}
+{"lang": "fi", "input": "Se on tavallaan mutkikasta.", "target": "Aika monimutkaista.", "annot_score": 1}
+{"lang": "fi", "input": "Ne seuraavat syöttiä.", "target": "Ne kulkevat houkuteltuna suoraan.", "annot_score": 0}
+{"lang": "fi", "input": "Me ollaan täällä töissä.", "target": "Olemme töissä täällä.", "annot_score": 1}
+{"lang": "fi", "input": "Hän ei saa ottaa vastaan vieraita.", "target": "Tarkkailussa ei sallita vierailuja.", "annot_score": 1}
+{"lang": "fi", "input": "Tulimme rauhan merkeissä.", "target": "Emme tahdo pahaa.", "annot_score": 1}
+{"lang": "fi", "input": "Cylonien miehittämä Caprica", "target": "Cylonien hallussa oleva Caprica", "annot_score": 1}
+{"lang": "fi", "input": "Tämä keskustelu on ohi.", "target": "Tämä puhelu päättyy nyt.", "annot_score": 1}
+{"lang": "fi", "input": "Tarvitsetko lehmän?", "target": "Oletko kyytiä vailla?", "annot_score": 0}
+{"lang": "fi", "input": "Tein kauhean erehdyksen.", "target": "Tein pahan virheen.", "annot_score": 1}
+{"lang": "fi", "input": "Siinä kun syytätte.", "target": "Tule vastaan.", "annot_score": 0}
+{"lang": "fi", "input": "Viedäänkö se kotiin?", "target": "Saanko pitää sen?", "annot_score": 0}
+{"lang": "fi", "input": "Äitisi soitti.", "target": "Muistamme sen.", "annot_score": 0}
+{"lang": "fi", "input": "Minun on tiedettävä, mitä tapahtui.", "target": "Minun pitää tietää mitä kävi.", "annot_score": 1}
+{"lang": "fi", "input": "Voi, kulta... kiitos.", "target": "Minäkin ajattelin tuota.", "annot_score": 0}
+{"lang": "fi", "input": "Löisitkö vielä kerran?", "target": "Saanko uuden?", "annot_score": 0}
+{"lang": "fi", "input": "Jalat haralleen.", "target": "Pussaa tiskiä.", "annot_score": 0}
+{"lang": "fi", "input": "Ei hän rakastanut.", "target": "Mutta ei tappanut.", "annot_score": 0}
+{"lang": "fi", "input": "Olet mitä sanomme.", "target": "Ammeessasi on ruumis.", "annot_score": 0}
+{"lang": "fi", "input": "Aja hitaammin, Frank.", "target": "Rauhallisesti, Frank.", "annot_score": 1}
+{"lang": "fi", "input": "Joo joo, joo joo.", "target": "Tulossa ollaan.", "annot_score": 0}
+{"lang": "fi", "input": "Onko jokin hätänä?", "target": "Joku vialla?", "annot_score": 1}
+{"lang": "fi", "input": "Minä haluan sanoa jotain.", "target": "Minulla on asiaa.", "annot_score": 1}
+{"lang": "fi", "input": "Ihmettelen miksi?", "target": "Minkähän tähden?", "annot_score": 1}
+{"lang": "fi", "input": "Tämä on minun syytäni.", "target": "Kaikki on mun syytä.", "annot_score": 1}
+{"lang": "fi", "input": "Kadulla makaa tajuton mies.", "target": "Kadulla on pyörtynyt mies.", "annot_score": 1}
+{"lang": "fi", "input": "Ei minullakaan ole hätää.", "target": "Selviän kyllä.", "annot_score": 1}
+{"lang": "fi", "input": "Missä se on?", "target": "Anaheimkatu.", "annot_score": 0}
+{"lang": "fi", "input": "Sitten hoidamme jokaisen ulos.", "target": "Oletteko valmiina?", "annot_score": 0}
+{"lang": "fi", "input": "Mikä asema sinulla on?", "target": "Sitäkö kuuntelet?", "annot_score": 0}
+{"lang": "fi", "input": "Ilo oli täysin minun puolellani.", "target": "Ilo oli varmasti kokonaan minun.", "annot_score": 1}
+{"lang": "fi", "input": "Mihin te nyt menette?", "target": "Minne olette menossa?", "annot_score": 1}
+{"lang": "fi", "input": "Tämä on valintani.", "target": "Tein päätöksen.", "annot_score": 1}
+{"lang": "fi", "input": "Tai pikemmin.", "target": "Älä noin paljon hymyile.", "annot_score": 0}
+{"lang": "fi", "input": "Sitä yritän kertoa sinulle.", "target": "Sitä yritänkin tässä sanoa.", "annot_score": 1}
+{"lang": "fi", "input": "Sitä olen toitottanut.", "target": "Sitä minä yritän selittää sinulle.", "annot_score": 1}
+{"lang": "fi", "input": "Sinun maljasi.", "target": "Teemme kunniaa teille.", "annot_score": 1}
+{"lang": "fi", "input": "Älkää pojat viitsikö.", "target": "Rauhoittukaa, kaverit.", "annot_score": 1}
+{"lang": "fi", "input": "Säästä sanojasi.", "target": "Olen jo kylvänyt noitasiemenet.", "annot_score": 0}
+{"lang": "fi", "input": "Näin hänen makaavan maassa.", "target": "Se oli ennen sitä.", "annot_score": 0}
+{"lang": "fi", "input": "Minulla on toinen.", "target": "Tässä on taas yksi.", "annot_score": 1}
+{"lang": "fi", "input": "Luokka voi lähteä.", "target": "Tunti on päättynyt.", "annot_score": 1}
+{"lang": "fi", "input": "Puoleksi vuodeksi?", "target": "Kuusi kuukautta?", "annot_score": 1}
+{"lang": "fi", "input": "Päätösten aika.", "target": "Koeta jo päättää.", "annot_score": 1}
+{"lang": "fi", "input": "Voitko hankkia minulle Rambon aseen?", "target": "Kaksi tähteä.", "annot_score": 0}
+{"lang": "fi", "input": "Koska se oli, Harold?", "target": "Kahdeksan vuotta sitten.", "annot_score": 0}
+{"lang": "fi", "input": "Hän oli turvonnut ja kostea.", "target": "Tunnen tuon kaverin.", "annot_score": 0}
+{"lang": "fi", "input": "Haluan hänet elävänä.", "target": "En halua hänen kuolevan", "annot_score": 1}
+{"lang": "fi", "input": "Olemme nyt ihan kahden.", "target": "Enää me olemme jäljellä.", "annot_score": 1}
+{"lang": "fi", "input": "Minun ei pitänyt satuttaa sinua.", "target": "Ei ollut tarkoitus satuttaa.", "annot_score": 1}
+{"lang": "fi", "input": "Ei ole pakokeinoa.", "target": "Ei täältä pääse pois.", "annot_score": 1}
+{"lang": "fi", "input": "Ei, se on minun syytäni.", "target": "Ei, minä olen syypää.", "annot_score": 1}
+{"lang": "fi", "input": "Faarao on Egypti.", "target": "Egypti on faarao.", "annot_score": 1}
+{"lang": "fi", "input": "Ammuin hänet vuoksesi.", "target": "Olen ylpeä siitä.", "annot_score": 0}
+{"lang": "fi", "input": "En pärjää missään.", "target": "Allekirjoita se.", "annot_score": 0}
+{"lang": "fi", "input": "Älä ole siitä niin varma.", "target": "Älä mene sanomaan.", "annot_score": 1}
+{"lang": "fi", "input": "Kymmenen, yhdeksän, kahdeksan, seitsemän, kuusi, viisi, - neljä, kolme, kaksi, yksi.", "target": "10, 9, 8 4, 3, 2 1, nolla.", "annot_score": 0}
+{"lang": "fi", "input": "Tiedätkö, miksi olet täällä?", "target": "Tiedätkö syyn tuloosi?", "annot_score": 1}
+{"lang": "fi", "input": "Sain kontaktin.", "target": "Viholliskosketus.", "annot_score": 1}
+{"lang": "fi", "input": "Kuinka kauan odotamme?", "target": "Miten kauan aiomme odottaa?", "annot_score": 1}
+{"lang": "fi", "input": "Kiitos, että pelastit henkeni.", "target": "Kiitos pelastuksesta.", "annot_score": 1}
+{"lang": "fi", "input": "Kehtaat puhua luottamuksesta.", "target": "Ovatko kämppiksesi täällä?", "annot_score": 0}
+{"lang": "fi", "input": "Olen niin nälkäinen.", "target": "Ihan hirveä nälkä.", "annot_score": 1}
+{"lang": "fi", "input": "Ihan kuin välittäisit siitä.", "target": "Et välitä tippaakaan.", "annot_score": 1}
+{"lang": "fi", "input": "Anna minulle se puukko.", "target": "Anna se veitsi.", "annot_score": 1}
+{"lang": "fi", "input": "Olet väärässä.", "target": "Aina löytyy joku syypää.", "annot_score": 0}
+{"lang": "fi", "input": "Becky Cooper oli painajaismainen.", "target": "Älä viitsi.", "annot_score": 0}
+{"lang": "fi", "input": "Täällä sattui taas hyökkäys.", "target": "On ollut uusi hyökkäys.", "annot_score": 1}
+{"lang": "fi", "input": "Tämäpä omituista.", "target": "Hassu juttu.", "annot_score": 1}
+{"lang": "fi", "input": "En tiennyt muuta paikkaa.", "target": "En voinut mennä muualle.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä yrität sanoa?", "target": "Eli mitä tarkoitat?", "annot_score": 1}
+{"lang": "fi", "input": "Lasketko leikkiä?", "target": "Pilailet, eikö?", "annot_score": 1}
+{"lang": "fi", "input": "Ei aavistustakaan.", "target": "En tiedä, mutta Kellog hautoo jotain.", "annot_score": 0}
+{"lang": "fi", "input": "Sen kun otat.", "target": "Pidä hyvänäsi.", "annot_score": 1}
+{"lang": "fi", "input": "Täytyy tehdä työtä.", "target": "On pakko raataa.", "annot_score": 1}
+{"lang": "fi", "input": "Valtaamme yhdessä Gladesin.", "target": "Me valtaamme Gladesin.", "annot_score": 1}
+{"lang": "fi", "input": "Hän on pian mennyttä.", "target": "Ei kestä enää kauaa.", "annot_score": 0}
+{"lang": "fi", "input": "Älä nyt viitsi, Eva.", "target": "Tule, Eva, mennään.", "annot_score": 0}
+{"lang": "fi", "input": "Sepä on uutta.", "target": "Uusi asento.", "annot_score": 0}
+{"lang": "fi", "input": "Mistä lähdetään?", "target": "Miten aloitamme?", "annot_score": 1}
+{"lang": "fi", "input": "Meri ja aurinko.", "target": "Molemmat ovat kauniita ja tappavia.", "annot_score": 0}
+{"lang": "fi", "input": "En haluaisi tunkeilla.", "target": "En halua olla vaivaksi.", "annot_score": 1}
+{"lang": "fi", "input": "Olet nero, Peralta.", "target": "Peralta, olet nero.", "annot_score": 1}
+{"lang": "fi", "input": "Haluan esitellä sinut jollekulle.", "target": "Täällä on eräs, jonka haluan sinun tapaavan.", "annot_score": 1}
+{"lang": "fi", "input": "Voi Jeesuksen paska.", "target": "Lip, avaa ovi.", "annot_score": 0}
+{"lang": "fi", "input": "Puhuin sivu suuni.", "target": "Sanoin jo liikaa.", "annot_score": 1}
+{"lang": "fi", "input": "Vain parin päivän ajan.", "target": "Pariksi päiväksi vain.", "annot_score": 1}
+{"lang": "fi", "input": "Minuun se upposi.", "target": "Minä uskoin siihen.", "annot_score": 1}
+{"lang": "fi", "input": "Onpa röyhkeä.", "target": "Kuka hän luulee olevansa?", "annot_score": 1}
+{"lang": "fi", "input": "Se on kamala idea.", "target": "Hirveä ajatus.", "annot_score": 1}
+{"lang": "fi", "input": "He rakastavat häntä.", "target": "Hänestä pidetään.", "annot_score": 1}
+{"lang": "fi", "input": "Selittäisittekö tarkemmin?", "target": "Ole hyvä ja selitä.", "annot_score": 1}
+{"lang": "fi", "input": "Mutta luulen niin.", "target": "Mutta ei kuitenkaan.", "annot_score": 0}
+{"lang": "fi", "input": "Miksi tulit puheilleni?", "target": "Miksi käännyt minun puoleeni?", "annot_score": 1}
+{"lang": "fi", "input": "Me kumpikin teimme.", "target": "Me molemmat voitimme.", "annot_score": 0}
+{"lang": "fi", "input": "Näyttäisittekö lippunne?", "target": "Liput, olkaa hyvä.", "annot_score": 1}
+{"lang": "fi", "input": "Löysittekö mitään?", "target": "Kertokaa Hernandosta.", "annot_score": 0}
+{"lang": "fi", "input": "Haluan että lopetat.", "target": "Niinhän minä juuri tein.", "annot_score": 0}
+{"lang": "fi", "input": "Lupasin sinulle jotain.", "target": "Annoin sinulle lupauksen.", "annot_score": 1}
+{"lang": "fi", "input": "Ajatteletko, mitä minä ajattelen?", "target": "Mietitkö samaa kuin minäkin?", "annot_score": 1}
+{"lang": "fi", "input": "Liza on kunnossa.", "target": "Hän voi hyvin.", "annot_score": 1}
+{"lang": "fi", "input": "Sano jotain härskiä.", "target": "Puhu tuhmia.", "annot_score": 1}
+{"lang": "fi", "input": "Luistaako bisnes?", "target": "Miten bisnekset rullaavat?", "annot_score": 1}
+{"lang": "fi", "input": "Mitä oikein teet?", "target": "Otan kuvan.", "annot_score": 0}
+{"lang": "fi", "input": "Se on ainoa tapa.", "target": "Emme voi muuta.", "annot_score": 1}
+{"lang": "fi", "input": "Et... et oikeastaan.", "target": "Enpä juuri.", "annot_score": 0}
+{"lang": "fi", "input": "... käytti pelinappuloita.", "target": "Iso, läski kaveri.", "annot_score": 0}
+{"lang": "fi", "input": "Näytät upealta.", "target": "Mitä hittoa, miten sinulla on mennyt?", "annot_score": 0}
+{"lang": "fi", "input": "Tämän pitäisi hoitaa homman.", "target": "Kalsiumtippa auttaa.", "annot_score": 0}
+{"lang": "fi", "input": "Huomenta, ilopilleri.", "target": "Huomenta, auringonsäde.", "annot_score": 1}
+{"lang": "fi", "input": "Hulluutta, hulluutta.", "target": "Tulee 7 nälkävuotta, valtiaani", "annot_score": 0}
+{"lang": "fi", "input": "Enpähän pysynyt.", "target": "Mutta en tullut.", "annot_score": 0}
+{"lang": "fi", "input": "En tietenkään.", "target": "Et kai luullut.", "annot_score": 0}
+{"lang": "fi", "input": "Siinä on tosi kyseessä.", "target": "Tarkoitan sitä.", "annot_score": 0}
+{"lang": "fi", "input": "Koska tapasitte viimeksi?", "target": "Milloin näit häntä viimeksi?", "annot_score": 1}
+{"lang": "fi", "input": "Kallista pää taakse.", "target": "Nojaudu taaksepäin.", "annot_score": 1}
+{"lang": "fi", "input": "Jostain loistokkaasta.", "target": "Taitavia kavereita.", "annot_score": 0}
+{"lang": "fi", "input": "Hyvää huomenta, kullanmuru.", "target": "Huomenta, aurinkoinen.", "annot_score": 1}
+{"lang": "fi", "input": "Ei täällä ole enää mitään.", "target": "Kävellään tuonne.", "annot_score": 0}
+{"lang": "fi", "input": "Se lopettaisi kärsimykseni.", "target": "Tee siitä loppu.", "annot_score": 0}
+{"lang": "fi", "input": "Rauhoittukaa?", "target": "Tein kuten hän halusi.", "annot_score": 0}
+{"lang": "fi", "input": "Ongelmia siitä seuraa.", "target": "Se on tulevaisuus.", "annot_score": 0}
+{"lang": "fi", "input": "Mikä sitten on hätänä?", "target": "Mikä ongelma siinä on?", "annot_score": 1}
+{"lang": "fi", "input": "Voin kertoa, missä hän on.", "target": "Kerron missä poikasi on.", "annot_score": 1}
+{"lang": "fi", "input": "Kerron jotain.", "target": "Me kaksi olemme vanhoja ystäviä.", "annot_score": 0}
+{"lang": "fi", "input": "Joku jahtaa meitä.", "target": "Olemme hänen kohteenaan.", "annot_score": 0}
+{"lang": "fi", "input": "Työskentelette ja asutte yhdessä.", "target": "He menivät tänne.", "annot_score": 0}
+{"lang": "fi", "input": "Emme etsi karttaa.", "target": "Tämä on murhatutkimus.", "annot_score": 0}
+{"lang": "fi", "input": "Hän ei ole menossa mihinkään.", "target": "Ei hän lähde mihinkään.", "annot_score": 1}
+{"lang": "fi", "input": "Oletteko valmis?", "target": "Laulusähke.", "annot_score": 0}
+{"lang": "fi", "input": "Soitan vain pikaisesti.", "target": "Sanon asiani lyhyesti.", "annot_score": 1}
+{"lang": "fi", "input": "Saalistaja etsi jotain syötävää tai naitavaa - tai kusiastiaa.", "target": "Ne ovat eläimiä.", "annot_score": 0}
+{"lang": "fi", "input": "Olen Erali.", "target": "Pois tieltä.", "annot_score": 0}
+{"lang": "fi", "input": "Äiti ei halua puhua siitä.", "target": "Emme koskaan.", "annot_score": 0}
+{"lang": "fi", "input": "Voitko auttaa häntä?", "target": "Pystytkö korjaamaan hänet?", "annot_score": 1}
+{"lang": "fi", "input": "Niinkö se tapahtui?", "target": "Niinkö sinulle kävi?", "annot_score": 1}
+{"lang": "fi", "input": "Minustakaan siinä ei ole järkeä.", "target": "Minäkään en ymmärrä sitä.", "annot_score": 1}
+{"lang": "fi", "input": "Täällä näin.", "target": "Juuri tähän huoneeseen.", "annot_score": 0}
+{"lang": "fi", "input": "Tulee Yrjö.", "target": "Taidan tulla kipeäksi.", "annot_score": 0}
+{"lang": "fi", "input": "Älä katso minua tuolla tavalla.", "target": "Olin ekaa vuotta yliopistossa.", "annot_score": 0}
+{"lang": "fi", "input": "Teidän kannattaa lähteä.", "target": "Minusta sinun on parempi mennä.", "annot_score": 1}
+{"lang": "fi", "input": "Olen kokenut pahempaakin.", "target": "Minulla on ollut pahempia.", "annot_score": 1}
+{"lang": "fi", "input": "Minulla on ajanvaraus.", "target": "Olin sopinut tapaamisesta.", "annot_score": 1}
+{"lang": "fi", "input": "Päivää, herra Murphy.", "target": "Menossa alas?", "annot_score": 0}
+{"lang": "fi", "input": "Hän menee alakertaan.", "target": "Hän on matkalla alas.", "annot_score": 1}
+{"lang": "fi", "input": "Emme halua ongelmia.", "target": "Lakatkaa sitten aiheuttamasta niitä.", "annot_score": 0}
+{"lang": "fi", "input": "Enintään vuoden.", "target": "Siinä kaikki.", "annot_score": 0}
+{"lang": "fi", "input": "Kuka hitto sinä olet?", "target": "Kukas helvetti sää oot?", "annot_score": 1}
+{"lang": "fi", "input": "Missä on Harry Yung?", "target": "Minne menette?", "annot_score": 0}
+{"lang": "fi", "input": "Yritin jymäyttää teitä.", "target": "Se on huijausta.", "annot_score": 0}
+{"lang": "fi", "input": "Minulla on ideoita.", "target": "Olisi pari ideaa.", "annot_score": 1}
+{"lang": "fi", "input": "Ylistä Jeesusta.", "target": "Kunnia Jeesukselle.", "annot_score": 1}
+{"lang": "fi", "input": "Kiitos oluesta.", "target": "Anna sekunti.", "annot_score": 0}
+{"lang": "fi", "input": "Meidän on tehtävä se nyt.", "target": "Tämä pitää tehdä nyt.", "annot_score": 1}
+{"lang": "fi", "input": "Ei minua kukaan siksi kutsu.", "target": "Kukaan ei sano minua siksi.", "annot_score": 1}
+{"lang": "fi", "input": "Palauta hänet eloon.", "target": "Tuo äiti takaisin.", "annot_score": 0}
+{"lang": "fi", "input": "Jaksatko seistä?", "target": "Pysytkö pystyssä?", "annot_score": 1}
+{"lang": "fi", "input": "Aivan kuin uusi.", "target": "Elämänsä kunnossa.", "annot_score": 1}
+{"lang": "fi", "input": "Se ei tapahdu koskaan.", "target": "Sitä päivää ei tule.", "annot_score": 1}
+{"lang": "fi", "input": "Tuletko kanssamme?", "target": "Oletko tulossa mukaan?", "annot_score": 1}
+{"lang": "fi", "input": "Luulin, että meillä oli sopimus.", "target": "Meillä piti olla yhteisymmärrys.", "annot_score": 1}
+{"lang": "fi", "input": "Loput, seuratkaa minua.", "target": "Loput minun mukaani.", "annot_score": 1}
+{"lang": "fi", "input": "Vastaa siis tähän.", "target": "Kertokaa sitten.", "annot_score": 0}
+{"lang": "fi", "input": "Isä, ole kiltti.", "target": "Mikset anna sitä?", "annot_score": 0}
+{"lang": "fi", "input": "Halusin vain sanoa hyvästit.", "target": "Halusin vain hyvästellä.", "annot_score": 1}
+{"lang": "fi", "input": "Ai niin, sitä.", "target": "Miksi et halua minua tutkintaasi?", "annot_score": 0}
+{"lang": "fi", "input": "Olet väsynyt, etkö olekin?", "target": "Taidat olla väsynyt.", "annot_score": 1}
+{"lang": "fi", "input": "Olen tehnyt tämän ennenkin.", "target": "Tämä on minulle tuttua.", "annot_score": 1}
+{"lang": "fi", "input": "Mitä hänen pitäisi tehdä?", "target": "Mitä tuo joutsen tekee?", "annot_score": 0}
+{"lang": "fi", "input": "Sain kilpailukiellon.", "target": "Minut erotettiin.", "annot_score": 0}
+{"lang": "fi", "input": "Mikä siinä niin viehättää?", "target": "Mitä hienoa siinä on?", "annot_score": 1}
+{"lang": "fi", "input": "Kuurupiilo.", "target": "Löysinpäs sinut.", "annot_score": 0}
+{"lang": "fi", "input": "Kerro mitä sinä tiedät.", "target": "Kerro kaikki tietosi.", "annot_score": 1}
+{"lang": "fi", "input": "Onko se noin paha?", "target": "Haisevatko ne?", "annot_score": 0}
+{"lang": "fi", "input": "Ei sitten millään onnistu.", "target": "Helvetin huono idea.", "annot_score": 0}
+{"lang": "fi", "input": "Ei siellä ole mitään pelottavaa.", "target": "Ei ole mitään syytä pelätä.", "annot_score": 1}
+{"lang": "fi", "input": "Mikä tahansa.", "target": "Kaikin keinoin.", "annot_score": 0}
+{"lang": "fi", "input": "Kukaan ei kuuntele minua.", "target": "En saa päättää vaatteistani enkä syömisistäni.", "annot_score": 0}
+{"lang": "fi", "input": "Siihen tottuu kyllä.", "target": "Se käy helpommaksi.", "annot_score": 1}
+{"lang": "fi", "input": "Miten sen pään kanssa menee?", "target": "Kuinka pääsi voi?", "annot_score": 1}
+{"lang": "fi", "input": "En oikein tiedä enää.", "target": "En enää tiedä, Ben.", "annot_score": 1}
+{"lang": "fi", "input": "Vastatkaa, Myrskylintu 5.", "target": "Myrskylintu 5, vastatkaa.", "annot_score": 1}
+{"lang": "fi", "input": "Me vartuimme yhdessä.", "target": "Minä olen Gabe.", "annot_score": 0}
+{"lang": "fi", "input": "Myöhästyin koneesta.", "target": "Jäin paitsi siitä.", "annot_score": 0}
+{"lang": "fi", "input": "Et ansaitse Tediä.", "target": "Ei ole koskaan huvittanut.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä tässä seisot?", "target": "Miksi puhut minulle?", "annot_score": 0}
+{"lang": "fi", "input": "Hyvää työtä.", "target": "Otetaan autoni.", "annot_score": 0}
+{"lang": "fi", "input": "Minä luulin, että olemme ystäviä.", "target": "Luulin meitä ystäviksi.", "annot_score": 1}
+{"lang": "fi", "input": "Tämä mies huolestuttaa.", "target": "Joeta ohjasi ego.", "annot_score": 0}
+{"lang": "fi", "input": "Hankkiudutaan hänestä eroon.", "target": "Hänestä pitää hankkiutua eroon.", "annot_score": 1}
+{"lang": "fi", "input": "Tuo on hevonen.", "target": "Oliko tuo vitsi?", "annot_score": 0}
+{"lang": "fi", "input": "Tarvitsen varmuuden.", "target": "Minun täytyy olla varma.", "annot_score": 1}
+{"lang": "fi", "input": "Okei, minä menen.", "target": "Hyvä on, haen hänet heti.", "annot_score": 0}
+{"lang": "fi", "input": "Emme voi kääntyä takaisin.", "target": "Takaisin ei ole menemistä.", "annot_score": 1}
+{"lang": "fi", "input": "Tämä on varmasti vaikeaa sinulle.", "target": "Tämän täytyy olla hyvin vaikeata sinulle.", "annot_score": 1}
+{"lang": "fi", "input": "Mikä sen nimi oli?", "target": "Koiranpennun.", "annot_score": 0}
+{"lang": "fi", "input": "En voi mennä muuallekaan.", "target": "En voi kääntyä kenenkään muun puoleen.", "annot_score": 1}
+{"lang": "fi", "input": "14-vuotias.", "target": "Hän asuu äitinsä kanssa.", "annot_score": 0}
+{"lang": "fi", "input": "Se on vain varotoimi.", "target": "Se on turvallisuustoimenpide.", "annot_score": 1}
+{"lang": "fi", "input": "Nyt hän on palannut.", "target": "Mutta hän tuli takaisin.", "annot_score": 1}
+{"lang": "fi", "input": "mitä vialla, kapteeni?", "target": "Mikä hätänä, kapu?", "annot_score": 1}
+{"lang": "fi", "input": "Hänellä oli onnea.", "target": "Onnekas tyyppi.", "annot_score": 1}
+{"lang": "fi", "input": "Jokin rutossa muuttui.", "target": "En tiedä mitä, kun en nähnyt.", "annot_score": 0}
+{"lang": "fi", "input": "En sanoisi noinkaan.", "target": "Tiedä tuosta.", "annot_score": 0}
+{"lang": "fi", "input": "Tässä on nyt muutakin.", "target": "Tekeillä on jotain muuta.", "annot_score": 1}
+{"lang": "fi", "input": "Saamme pian sen selville.", "target": "Näemme sen kohta.", "annot_score": 1}
+{"lang": "fi", "input": "Touchdownin.", "target": "Löysit perille.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on peliä.", "target": "Hassu mies.", "annot_score": 0}
+{"lang": "fi", "input": "D.C Kokoaa ryhmää operaatiota varten.", "target": "DC lähettää ryhmän estämään sitä.", "annot_score": 0}
+{"lang": "fi", "input": "Tämä on vaikeaa sinulle.", "target": "Tiedän, että sinun on vaikea hyväksyä tätä.", "annot_score": 1}
+{"lang": "fi", "input": "Tuhota meidät.", "target": "Se on Drill.", "annot_score": 0}
+{"lang": "fi", "input": "Se jää meidän väliseksi salaisuudeksi.", "target": "Tämä on meidän salaisuutemme.", "annot_score": 1}
+{"lang": "fi", "input": "Olette jo muuttanut.", "target": "Sinä tarjosit jo.", "annot_score": 0}
+{"lang": "fi", "input": "Olen täällä, kulta.", "target": "Olet turvassa, rakas.", "annot_score": 0}
+{"lang": "fi", "input": "Ne ovat eri asioita.", "target": "Siinä on vissi ero.", "annot_score": 1}
+{"lang": "fi", "input": "Miten se auttaa meitä?", "target": "Mitä apua siitä on meille?", "annot_score": 1}
+{"lang": "fi", "input": "Mitä muita vaihtoehtoja meillä on?", "target": "Onko meillä muuta mahdollisuutta?", "annot_score": 1}
+{"lang": "fi", "input": "Missä miehesi ovat?", "target": "Neuvotteletko aivan yksin?", "annot_score": 0}
+{"lang": "fi", "input": "Onko hätätapaus?", "target": "Minulla on potilas.", "annot_score": 0}
+{"lang": "fi", "input": "Mitä vikaa niissä on?", "target": "Mikä mehiläisiä vaivaa?", "annot_score": 0}
+{"lang": "fi", "input": "Voisinpa todeta samoin.", "target": "Kunpa voisin sanoa samaa.", "annot_score": 1}
+{"lang": "fi", "input": "Miten me mennään ulos?", "target": "Kuinka pääsemme ulos?", "annot_score": 1}
+{"lang": "fi", "input": "Nielin ylpeyteni ja itsetuntoni, tulin tänne ja koputin ovellesi.", "target": "Koska olen täällä.", "annot_score": 0}
+{"lang": "fi", "input": "Kiinnostaa vain.", "target": "Olen vain utelias", "annot_score": 1}
+{"lang": "fi", "input": "Ilmoituksen?", "target": "Liikeasioissako?", "annot_score": 0}
