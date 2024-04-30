@@ -19,6 +19,7 @@ from datasets import Dataset, DatasetDict, load_dataset
 
 from transformers import EarlyStoppingCallback
 
+sys.path.append("src/")
 from swag_transformers.swag_bert import SwagBertForSequenceClassification
 from swag_transformers.trainer_utils import SwagUpdateCallback
 
