@@ -108,24 +108,27 @@ class TestSwagBert(unittest.TestCase):
         yield {"text": "This is SWAG", "label": 1}
 
     def test_pretrained_bert_tiny_classifier_finetune(self):
+        device = "cuda" if torch.cuda.is_available() else "cpu"
         num_labels = 2
         train_epochs = 5
         model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
-        self.assertEqual(model.device.type, 'cpu')
+        model.to(device)
+        self.assertEqual(model.device.type, device)
         swag_model = SwagBertForSequenceClassification.from_base(model)
-        self.assertEqual(swag_model.device.type, 'cpu')
+        swag_model.to(device)
+        self.assertEqual(swag_model.device.type, device)
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
         tokens = tokenizer(["Hello world", "Just some swaggering"],
-                           padding=True, truncation=False, return_tensors="pt")
+                           padding=True, truncation=False, return_tensors="pt").to(device)
         out_base = model(**tokens)
         self.assertEqual(out_base.logits.shape, (2, num_labels))
         out_swag = swag_model(**tokens)
         self.assertEqual(out_swag.logits.shape, (2, num_labels))
-        self.assertTrue(torch.allclose(out_swag.logits, torch.zeros(*out_swag.logits.shape)))
+        self.assertTrue(torch.allclose(out_swag.logits.to('cpu'), torch.zeros(*out_swag.logits.shape)))
         swag_model.swag.sample()
         out_swag = swag_model(**tokens)
         self.assertEqual(out_swag.logits.shape, (2, num_labels))
-        self.assertTrue(torch.allclose(out_swag.logits, torch.zeros(*out_swag.logits.shape)))
+        self.assertTrue(torch.allclose(out_swag.logits.to('cpu'), torch.zeros(*out_swag.logits.shape)))
 
         def tokenize_function(example):
             return tokenizer(example["text"], truncation=False)
@@ -138,6 +141,7 @@ class TestSwagBert(unittest.TestCase):
             training_args = TrainingArguments(
                 output_dir=tempdir,
                 num_train_epochs=train_epochs,
+                use_cpu=True if device == "cpu" else False
             )
             trainer = Trainer(
                 model,
@@ -156,8 +160,10 @@ class TestSwagBert(unittest.TestCase):
         # Test saving & loading
         with tempfile.TemporaryDirectory() as tempdir:
             swag_model.save_pretrained(tempdir)
-            stored_model = SwagBertForSequenceClassification.from_pretrained(tempdir)
+            stored_model = SwagBertForSequenceClassification.from_pretrained(tempdir).to(device)
         out_stored = stored_model(**tokens)
+        logging.debug(out_swag.logits)
+        logging.debug(out_stored.logits)
         self.assertTrue(torch.allclose(out_swag.logits, out_stored.logits))
 
 

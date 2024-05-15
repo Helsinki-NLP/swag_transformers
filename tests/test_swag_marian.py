@@ -105,9 +105,12 @@ class TestSwagMarian(unittest.TestCase):
                "target": "Polizei von Karratha verhaftet 20-Jährigen nach schneller Motorradjagd"}
 
     def test_pretrained_marian_tiny_finetune(self):
+        device = "cuda" if torch.cuda.is_available() else "cpu"
         model = MarianMTModel.from_pretrained(self.pretrained_model_name)
+        model.to(device)
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
         swag_model = SwagMarianMTModel.from_base(model)
+        swag_model.to(device)
 
         max_input_length = 128
         max_target_length = 128
@@ -151,7 +154,8 @@ class TestSwagMarian(unittest.TestCase):
         self.assertEqual(swag_model.swag.n_models, train_epochs)
         swag_model.swag.sample()
         sample_text = "what is so great ?"
-        batch = tokenizer([sample_text], return_tensors="pt")
+
+        batch = tokenizer([sample_text], return_tensors="pt").to(device)
         generated_ids = model.generate(**batch, max_new_tokens=10)
         base_output = tokenizer.batch_decode(generated_ids, skip_special_tokens=False)[0]
         logging.debug(base_output)
