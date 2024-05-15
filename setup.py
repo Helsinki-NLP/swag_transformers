@@ -20,7 +20,12 @@ setup(
     install_requires=[
         "transformers>=4.30",
         "swa_gaussian>=0.1.5"
+        "transformers[torch]>=4.30",
+        "swa_gaussian>=0.1.5"
     ],
+    extras_require={
+        "test": ["datasets", "nose", "sentencepiece"]
+    },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",
