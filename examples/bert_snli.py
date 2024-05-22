@@ -21,6 +21,8 @@ def main():
     parser.add_argument("--device", type=str, help="set device (default: cuda if available, otherwise cpu)")
     parser.add_argument("--save-folder", type=str, default="save_folder")
     parser.add_argument("--limit-training", type=int, help="limit training data to N first samples")
+    parser.add_argument("--data-cache-dir", type=str, help="folder to cache HF datasets")
+    parser.add_argument("--model-cache-dir", type=str, help="folder to cache HF models and tokenizers")
     args = parser.parse_args()
 
     if args.device:
@@ -28,13 +30,13 @@ def main():
     else:
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model)
-    model = transformers.AutoModelForSequenceClassification.from_pretrained(args.base_model, num_labels=3)
+    tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model, cache_dir=args.model_cache_dir)
+    model = transformers.AutoModelForSequenceClassification.from_pretrained(args.base_model, num_labels=3, cache_dir=args.model_cache_dir)
     model.to(device)
     swag_model = SwagBertForSequenceClassification.from_base(model)
     swag_model.to(device)
 
-    dataset = datasets.load_dataset("snli", split="train")
+    dataset = datasets.load_dataset("snli", split="train", cache_dir=args.data_cache_dir)
     dataset = dataset.filter(lambda example: example["label"] != -1)
     if args.limit_training:
         dataset = dataset.select(range(args.limit_training))
@@ -46,7 +48,7 @@ def main():
         return processed
 
     training_args = transformers.TrainingArguments(
-        output_dir=arsg.save_folder,
+        output_dir=args.save_folder,
         learning_rate=2e-5,
         per_device_train_batch_size=4,
         per_device_eval_batch_size=4,
