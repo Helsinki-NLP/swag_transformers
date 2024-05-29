@@ -23,6 +23,10 @@ def main():
     parser.add_argument("--limit-training", type=int, help="limit training data to N first samples")
     parser.add_argument("--data-cache-dir", type=str, help="folder to cache HF datasets")
     parser.add_argument("--model-cache-dir", type=str, help="folder to cache HF models and tokenizers")
+    parser.add_argument("--batch-size", type=int, default=4, help="batch size")
+    parser.add_argument("--epochs", type=int, default=3, help="number of training epochs")
+    parser.add_argument("--collect-steps", type=int, default=100, help="number of steps between collecting parameters")
+    parser.add_argument("--learning-rate", type=float, default=2e-5, help="learning rate")
     args = parser.parse_args()
 
     if args.device:
@@ -49,10 +53,10 @@ def main():
 
     training_args = transformers.TrainingArguments(
         output_dir=args.save_folder,
-        learning_rate=2e-5,
-        per_device_train_batch_size=4,
-        per_device_eval_batch_size=4,
-        num_train_epochs=3,
+        learning_rate=args.learning_rate,
+        per_device_train_batch_size=args.batch_size,
+        per_device_eval_batch_size=args.batch_size,
+        num_train_epochs=args.epochs,
         use_cpu=True if device == "cpu" else False
     )
 
@@ -66,7 +70,7 @@ def main():
         train_dataset=processed_dataset,
         tokenizer=tokenizer,
         data_collator=data_collator,
-        callbacks=[SwagUpdateCallback(swag_model)]
+        callbacks=[SwagUpdateCallback(swag_model, collect_steps=args.collect_steps)]
     )
     trainer.train()
     trainer.save_model(os.path.join(args.save_folder, "final_base"))
