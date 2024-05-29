@@ -66,12 +66,24 @@ class SwagMarianPreTrainedModel(PreTrainedModel):
     def __init__(self, config):
         super().__init__(config)
         self.swag = SWAG(
-            base=self.internal_model_class,
+            base=self.new_base_model,
             no_cov_mat=config.no_cov_mat,
             max_num_models=config.max_num_models,
             var_clamp=config.var_clamp,
             config=config.internal_config_class(**config.internal_model_config),
         )
+        self.post_init()
+
+    @classmethod
+    def new_base_model(cls, *args, **kwargs):
+        """Return new model of the base class
+
+        Any arguments are passed to the base class constructor.
+
+        """
+        model = cls.internal_model_class(*args, **kwargs)
+        model.tie_weights()
+        return model
 
     def _init_weights(self, module):
         self.swag.base._init_weights(module)
@@ -91,14 +103,15 @@ class SwagMarianModel(SwagMarianPreTrainedModel):
                 max_num_models=config.max_num_models,
                 var_clamp=config.var_clamp
             )
-        self.post_init()
 
     @staticmethod
     def _base_model_copy(model, *args, **kwargs):
         """Return deep copy of the model ignoring other arguments"""
         # Has to be copied, otherwise SWAG would initialize parameters
         # of the original model to zero
-        return copy.deepcopy(model)
+        model = copy.deepcopy(model)
+        model.tie_weights()
+        return model
 
     @classmethod
     def from_base(cls, base_model: MarianPreTrainedModel, **kwargs):

@@ -2,16 +2,23 @@ import logging
 import unittest
 import tempfile
 
-import numpy as np
 import torch
 
 from datasets import Dataset, DatasetDict
-from transformers import AutoConfig, AutoModel, AutoModelForSequenceClassification, AutoModelWithLMHead, \
-    AutoTokenizer, DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments, MarianMTModel
+from transformers import AutoTokenizer, DataCollatorForSeq2Seq, Seq2SeqTrainer, \
+    Seq2SeqTrainingArguments, MarianMTModel
 
 from swag_transformers.swag_marian import SwagMarianConfig, SwagMarianModel, SwagMarianMTModel, \
     SwagMarianPreTrainedModel
 from swag_transformers.trainer_utils import SwagUpdateCallback
+
+
+def buf_and_param_names(model):
+    """Return set of parameter and buffer names prefixed with BUF: or PAR:"""
+    named_buffers = set('BUF:' + x[0] for x in model.named_buffers())
+    named_params = set('PAR:' + x[0] for x in model.named_parameters())
+    bufs_and_params = named_buffers | named_params
+    return sorted(bufs_and_params)
 
 
 class TestSwagMarian(unittest.TestCase):
@@ -57,8 +64,14 @@ class TestSwagMarian(unittest.TestCase):
         # The amount of (non-duplicate) parameters should match
         self.assertEqual(len(swag_model.swag.params), len(list(model.parameters())))
 
+        bufs_and_params_before = set(buf_and_param_names(swag_model))
+
         swag_model.swag.collect_model(model)
         swag_model.swag.sample()
+
+        bufs_and_params_after = set(buf_and_param_names(swag_model))
+        self.assertEqual(bufs_and_params_before, bufs_and_params_after)
+
         logging.debug(model.device)
         logging.debug(swag_model.device)
         logging.debug(swag_model.swag.device)
@@ -108,9 +121,13 @@ class TestSwagMarian(unittest.TestCase):
         device = "cuda" if torch.cuda.is_available() else "cpu"
         model = MarianMTModel.from_pretrained(self.pretrained_model_name)
         model.to(device)
+        self.assertEqual(model.device.type, device)
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
+        logging.info("Init from base")
         swag_model = SwagMarianMTModel.from_base(model)
         swag_model.to(device)
+        self.assertEqual(swag_model.device.type, device)
+        logging.info("Done")
 
         max_input_length = 128
         max_target_length = 128
@@ -141,6 +158,7 @@ class TestSwagMarian(unittest.TestCase):
             training_args = Seq2SeqTrainingArguments(
                 output_dir=tempdir,
                 num_train_epochs=train_epochs,
+                use_cpu=True if device == "cpu" else False
             )
             trainer = Seq2SeqTrainer(
                 model,
@@ -169,4 +187,22 @@ class TestSwagMarian(unittest.TestCase):
         # Test saving & loading
         with tempfile.TemporaryDirectory() as tempdir:
             swag_model.save_pretrained(tempdir)
+            logging.info("Loading stored model")
             stored_model = SwagMarianMTModel.from_pretrained(tempdir)
+
+        tied_params_orig = set(x[0][0] for x in swag_model.swag.tied_params)
+        tied_params_stored = set(x[0][0] for x in stored_model.swag.tied_params)
+        self.assertEqual(tied_params_orig, tied_params_stored)
+
+        orig_embed = swag_model.swag.base.model.shared.weight.to('cpu')
+        for rnd in range(3):
+            loaded_embed = stored_model.swag.base.model.shared.weight
+            loaded_enc = stored_model.swag.base.model.encoder.embed_tokens.weight
+            loaded_head = stored_model.swag.base.lm_head.weight
+            logging.debug("\nORIG:%s\nNEW:%s\nENC:%s\nHEAD:%s", orig_embed, loaded_embed, loaded_enc, loaded_head)
+            if rnd == 0:
+                # before sampling
+                self.assertTrue(torch.allclose(orig_embed, loaded_embed))
+            self.assertTrue(torch.allclose(loaded_embed, loaded_enc))
+            self.assertTrue(torch.allclose(loaded_embed, loaded_head))
+            stored_model.swag.sample()

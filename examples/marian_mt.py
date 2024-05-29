@@ -30,7 +30,7 @@ def main():
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model)
-    model = transformers.MarianMTModel.from_pretrained(args.base_model, num_labels=3)
+    model = transformers.MarianMTModel.from_pretrained(args.base_model)
     model.to(device)
     swag_model = SwagMarianMTModel.from_base(model)
     swag_model.to(device)
