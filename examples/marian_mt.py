@@ -1,8 +1,6 @@
 import argparse
-import collections
 import logging
 import os
-import sys
 
 import torch
 import transformers

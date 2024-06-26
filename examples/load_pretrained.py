@@ -1,13 +1,9 @@
 import argparse
-import collections
 import logging
-import os
-import sys
 
 import transformers
 
 from swag_transformers.swag_bert import SwagBertConfig, SwagBertForSequenceClassification
-from swag_transformers.trainer_utils import SwagUpdateCallback
 
 
 def main():

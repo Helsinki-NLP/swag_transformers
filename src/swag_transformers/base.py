@@ -1,10 +1,9 @@
 """SWAG wrapper base classes"""
 
-from abc import ABCMeta, abstractmethod
 import copy
 import functools
 import logging
-from typing import Union, Type
+from typing import Type
 
 import torch
 

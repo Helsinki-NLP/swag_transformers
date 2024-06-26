@@ -2,11 +2,10 @@ import logging
 import unittest
 import tempfile
 
-import numpy as np
 import torch
 
 from datasets import Dataset, DatasetDict
-from transformers import AutoConfig, AutoModel, AutoModelForSequenceClassification, AutoModelWithLMHead, \
+from transformers import AutoModel, AutoModelForSequenceClassification, \
     AutoTokenizer, DataCollatorWithPadding, Trainer, TrainingArguments
 
 from swag_transformers.swag_bert import SwagBertConfig, SwagBertLMHeadModel, SwagBertModel, SwagBertPreTrainedModel, \
