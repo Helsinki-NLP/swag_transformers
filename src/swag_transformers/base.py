@@ -102,6 +102,10 @@ class SwagPreTrainedModel(PreTrainedModel):
     def _init_weights(self, module):
         self.swag.base._init_weights(module)
 
+    def sample_parameters(self):
+        """Sample new model parameters"""
+        self.swag.sample()
+
 
 class SwagModel(SwagPreTrainedModel):
     """Base class for SWAG models
@@ -177,7 +181,7 @@ class SampleLogitsMixin:
         logits = []
         for _ in range(num_predictions):
             if sample:
-                self.swag.sample(scale=scale, cov=cov, block=block)
+                self.sample_parameters(scale=scale, cov=cov, block=block)
             out = self.forward(*args, **kwargs)
             logits.append(out.logits)
         logits = torch.permute(torch.stack(logits), (1, 0, 2))  # [batch_size, num_predictions, output_size]

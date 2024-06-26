@@ -32,7 +32,7 @@ class TestSwagBart(unittest.TestCase):
             # Warning from using forward before sampling parameters
             self.assertTrue(any(msg.startswith('WARNING') for msg in cm.output))
         logging.debug(out)
-        swag_model.swag.sample()
+        swag_model.sample_parameters()
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.last_hidden_state.shape, (1, 2, hidden_size))
@@ -48,7 +48,7 @@ class TestSwagBart(unittest.TestCase):
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
 
         swag_model.swag.collect_model(model)
-        swag_model.swag.sample()
+        swag_model.sample_parameters()
 
         # Test forward
         base_out = model.forward(input_ids=torch.tensor([[3, 14]]), decoder_input_ids=torch.tensor([[1, 2, 4]]))

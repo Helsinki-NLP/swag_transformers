@@ -37,14 +37,14 @@ class TestSwagMarian(unittest.TestCase):
         logging.debug(swag_model)
         swag_model = SwagMarianModel(config)
         logging.debug(swag_model)
-        swag_model.swag.sample()
+        swag_model.sample_parameters()
         logging.debug(swag_model.swag.base.decoder.embed_tokens.weight)
         out = swag_model.forward(**input_dict)
         self.assertEqual(out.last_hidden_state.shape, (1, 1, hidden_size))
 
         swag_model = SwagMarianMTModel(config)
         logging.debug(swag_model)
-        swag_model.swag.sample()
+        swag_model.sample_parameters()
         logging.debug(swag_model.swag.base.model.decoder.embed_tokens.weight)
         out = swag_model.forward(**input_dict)
         logging.debug(out.logits.shape)
@@ -67,7 +67,7 @@ class TestSwagMarian(unittest.TestCase):
         bufs_and_params_before = set(buf_and_param_names(swag_model))
 
         swag_model.swag.collect_model(model)
-        swag_model.swag.sample()
+        swag_model.sample_parameters()
 
         bufs_and_params_after = set(buf_and_param_names(swag_model))
         self.assertEqual(bufs_and_params_before, bufs_and_params_after)
@@ -171,7 +171,7 @@ class TestSwagMarian(unittest.TestCase):
             trainer.train()
         logging.info("N models: %s", swag_model.swag.n_models.item())
         # self.assertEqual(swag_model.swag.n_models, train_epochs)
-        swag_model.swag.sample()
+        swag_model.sample_parameters()
         sample_text = "India and Japan prime ministers meet in Tokyo"
         batch = tokenizer([sample_text], return_tensors="pt")
         generated_ids = model.generate(**batch, max_new_tokens=10)
@@ -205,4 +205,4 @@ class TestSwagMarian(unittest.TestCase):
                 self.assertTrue(torch.allclose(orig_embed, loaded_embed))
             self.assertTrue(torch.allclose(loaded_embed, loaded_enc))
             self.assertTrue(torch.allclose(loaded_embed, loaded_head))
-            stored_model.swag.sample()
+            stored_model.sample_parameters()
