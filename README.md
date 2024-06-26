@@ -38,15 +38,15 @@ For collecting the SWAG parameters, two possible schedules are supported:
 ### Sampling model parameters
 
 After `swag_model` is trained or fine-tuned as described above,
-`swag_model.swag.sample()` should be called to sample new model
+`swag_model.sample_parameters()` should be called to sample new model
 parameters. After that, `swag_model.forward()` can be used to predict
 new output from classifiers and `swag_model.generate()` to generate
 new output from generative LMs. In order to get a proper distribution
-of outputs, `swag_model.swag.sample()` needs to be called each time
-before `forward()` or `generate()`. For classifiers, the
-`SampleLogitsMixin` class provides the convenience method
-`get_logits()` that samples the parameters and makes a new prediction
-`num_predictions` times, and returns the logit values in a tensor.
+of outputs, `sample_parameters()` needs to be called each time before
+`forward()` or `generate()`. For classifiers, the `SampleLogitsMixin`
+class provides the convenience method `get_logits()` that samples the
+parameters and makes a new prediction `num_predictions` times, and
+returns the logit values in a tensor.
 
 ### Currently supported models
 
