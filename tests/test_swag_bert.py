@@ -99,7 +99,8 @@ class TestSwagBert(unittest.TestCase):
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
 
-    def _data_gen(self):
+    @staticmethod
+    def _data_gen():
         yield {"text": "Hello world", "label": 0}
         yield {"text": "Just some swaggering", "label": 1}
         yield {"text": "Have a good day", "label": 0}
