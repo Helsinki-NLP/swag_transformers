@@ -17,7 +17,7 @@ convenience tools in the `transformers` library (e.g. `Pipeline` and
 
 See also [examples](./examples).
 
-### Fine-tuning
+### Fine-tuning with SWAG
 
 BERT model, sequence classification task:
 
@@ -28,9 +28,39 @@ BERT model, sequence classification task:
 5. Train the model (`trainer.train()`)
 6. Store the complete model using `swag_model.save_pretrained(path)`
 
+Note that `trainer.save_model(path)` will save only the base model without the distribution parameters from SWAG.
+
+For collecting the SWAG parameters, two possible schedules are supported:
+
+* After the end of each training epoch (default, `collect_steps = 0` for `SwagUpdateCallback`)
+* After each N training steps (set `collect_steps > 0` for `SwagUpdateCallback`)
+
+### Sampling model parameters
+
+After `swag_model` is trained or fine-tuned as described above,
+`swag_model.swag.sample()` should be called to sample new model
+parameters. After that, `swag_model.forward()` can be used to predict
+new output from classifiers and `swag_model.generate()` to generate
+new output from generative LMs. In order to get a proper distribution
+of outputs, `swag_model.swag.sample()` needs to be called each time
+before `forward()` or `generate()`. For classifiers, the
+`SampleLogitsMixin` class provides the convenience method
+`get_logits()` that samples the parameters and makes a new prediction
+`num_predictions` times, and returns the logit values in a tensor.
+
 ### Currently supported models
 
-* BERT
+* BERT (bidirectional encoder)
   * `BertPreTrainedModel` -> `SwagBertPreTrainedModel`
   * `BertModel` -> `SwagBertModel`
+  * `BertLMHeadModel` -> `SwagBertLMHeadModel`
   * `BertForSequenceClassification` -> `SwagBertForSequenceClassification`
+* BART (bidirectional encoder + causal decoder)
+  * `BartPreTrainedModel` -> `SwagBartPreTrainedModel`
+  * `BartModel` -> `SwagBartModel`
+  * `BartForConditionalGeneration` -> `SwagBartForConditionalGeneration`
+  * `BartForSequenceClassification` -> `SwagBartForSequenceClassification`
+* MarianMT (bidirectional encoder + causal decoder)
+  * `MarianPreTrainedModel` -> `SwagMarianPreTrainedModel`
+  * `MarianModel` -> `SwagMarianModel`
+  * `MarianMTModel` -> `SwagMarianMTModel`
