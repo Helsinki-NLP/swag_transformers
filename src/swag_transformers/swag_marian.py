@@ -5,7 +5,7 @@ import logging
 from transformers import MarianConfig, MarianModel, MarianMTModel
 from transformers.models.marian import MarianPreTrainedModel
 
-from ..base import SwagConfig, SwagPreTrainedModel, SwagModel
+from .base import SwagConfig, SwagPreTrainedModel, SwagModel
 
 
 logger = logging.getLogger(__name__)

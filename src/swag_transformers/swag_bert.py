@@ -5,7 +5,7 @@ import logging
 from transformers import BertConfig, BertLMHeadModel, BertModel, BertPreTrainedModel, \
     BertForSequenceClassification
 
-from ..base import SwagConfig, SwagPreTrainedModel, SwagModel, SampleLogitsMixin
+from .base import SwagConfig, SwagPreTrainedModel, SwagModel, SampleLogitsMixin
 
 
 logger = logging.getLogger(__name__)
