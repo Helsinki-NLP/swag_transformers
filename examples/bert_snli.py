@@ -1,8 +1,6 @@
 import argparse
-import collections
 import logging
 import os
-import sys
 
 import torch
 import transformers
@@ -35,7 +33,8 @@ def main():
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model, cache_dir=args.model_cache_dir)
-    model = transformers.AutoModelForSequenceClassification.from_pretrained(args.base_model, num_labels=3, cache_dir=args.model_cache_dir)
+    model = transformers.AutoModelForSequenceClassification.from_pretrained(
+        args.base_model, num_labels=3, cache_dir=args.model_cache_dir)
     model.to(device)
     swag_model = SwagBertForSequenceClassification.from_base(model)
     swag_model.to(device)

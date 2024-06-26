@@ -2,7 +2,6 @@
 
 import logging
 
-from swag.posteriors.swag import SWAG
 from transformers import TrainerCallback
 
 

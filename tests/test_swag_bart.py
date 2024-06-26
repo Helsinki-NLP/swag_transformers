@@ -2,16 +2,12 @@ import logging
 import unittest
 import tempfile
 
-import numpy as np
 import torch
 
-from datasets import Dataset, DatasetDict
-from transformers import AutoConfig, AutoModel, AutoModelForSequenceClassification, \
-    AutoTokenizer, DataCollatorWithPadding, Trainer, TrainingArguments, BartForConditionalGeneration
+from transformers import AutoTokenizer, BartForConditionalGeneration
 
 from swag_transformers.swag_bart import SwagBartConfig, SwagBartModel, SwagBartPreTrainedModel, \
-    SwagBartForSequenceClassification, SwagBartForConditionalGeneration
-from swag_transformers.trainer_utils import SwagUpdateCallback
+    SwagBartForConditionalGeneration
 
 
 class TestSwagBart(unittest.TestCase):
@@ -75,7 +71,6 @@ class TestSwagBart(unittest.TestCase):
         out = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
         logging.info(out)
         self.assertEqual(base_out, out)
-
 
 
 if __name__ == "__main__":
