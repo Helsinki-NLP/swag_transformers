@@ -1,0 +1,43 @@
+name: Run Python Tests
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - main
+  # schedule:
+  #   # Run on Tuesdays at 5:59
+  #   - cron: '59 5 * * 2'
+  workflow_dispatch:
+jobs:
+  build-n-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m ensurepip --upgrade
+          python -m pip install --upgrade setuptools
+          python -m pip install --upgrade pip
+          python -m pip install flake8
+          python -m pip install .[test]
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          python -m flake8 --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings
+          python -m flake8 --count --exit-zero --statistics
+      - name: Run tests with pytest
+        run: python -m pytest

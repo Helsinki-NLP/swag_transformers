@@ -23,7 +23,7 @@ setup(
         "swa_gaussian>=0.1.6"
     ],
     extras_require={
-        "test": ["datasets", "nose", "sentencepiece"]
+        "test": ["datasets", "pytest", "sentencepiece"]
     },
     classifiers=[
         "Development Status :: 3 - Alpha",
