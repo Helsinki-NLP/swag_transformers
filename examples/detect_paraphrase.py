@@ -3,9 +3,6 @@ import logging
 import os
 import bz2
 import random
-import collections
-import itertools
-import sys
 import json
 
 import torch
@@ -19,7 +16,6 @@ from datasets import Dataset, DatasetDict, load_dataset
 
 from transformers import EarlyStoppingCallback
 
-sys.path.append("src/")
 from swag_transformers.swag_bert import SwagBertForSequenceClassification
 from swag_transformers.trainer_utils import SwagUpdateCallback
 
@@ -37,33 +33,6 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
     '''
     Downloads Opusparcus training and dev/test sets from Huggingface transformers.
     '''
-    # if args.use_absolute_data_size:
-    #     # Download this to get dev/test and features
-    #     dataset = load_dataset("GEM/Opusparcus", f"{lang}.{quality}", cache_dir="./tmp")
-    #     dataset = dataset.rename_column("input", "sent1")
-    #     dataset = dataset.rename_column("target", "sent2")
-    #     dataset = dataset.remove_columns("references")
-
-    #     sent1, sent2, ids = [], [], []
-    #     with bz2.open(args.source_data, "rt") as f:
-    #         for i, line in enumerate(f):
-    #             id, s1, s2, score, *_ = line.split("\t")
-    #             sent1.append(s1)
-    #             sent2.append(s2)
-    #             ids.append(id)
-    #             if len(sent1) >= args.num_positives:
-    #                 break
-
-    #     train_dataset = datasets.Dataset.from_dict({
-    #         "lang": [lang]*args.num_positives,
-    #         "sent1": sent1,
-    #         "sent2": sent2,
-    #         "annot_score": [0.0]*args.num_positives,
-    #         "gem_id": [f"pos{i}" for i in range(args.num_positives)],
-    #     }, features=dataset["train"].features)
-    #     dataset["train"] = train_dataset
-
-    # else:
     dataset = load_dataset(
         "GEM/opusparcus",
         lang=language,
@@ -164,10 +133,10 @@ def main():
     parser = argparse.ArgumentParser(description="Fine-tune pre-trained BERT for paraphrase detection using SWAG")
     parser.add_argument("--base_model", type=str, default="bert-base-uncased")
     parser.add_argument("--save_folder", type=str, default="save_folder")
+    parser.add_argument("--negatives", type=str, default="same", help="Type of negative sampling (options: same, random, after)")
     parser.add_argument("--limit_training", type=int, help="limit training data to N first samples")
     parser.add_argument("--num_positives", type=int, help="Number of positive examples if limit_training")
     parser.add_argument("--num_negatives", type=int, help="Number of negative examples")
-    parser.add_argument("--negatives", type=str, default="same", help="Type of negative sampling (options: same, random, after)")
     parser.add_argument("--source_data", type=str, help="Data directory of Opusparcus data")
     parser.add_argument("--train_data", type=str, help="Path to training dataset (json)")
     parser.add_argument("--eval_data", type=str, help="Path to validation dataset (json)")
