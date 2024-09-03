@@ -29,6 +29,7 @@ def annotation_to_label(annotation):
         return 0
 
 
+<<<<<<< HEAD
 def download_data(source_data, negatives, language, quality, num_negatives=None):
     '''
     Downloads Opusparcus training and dev/test sets from Huggingface transformers.
@@ -133,10 +134,10 @@ def main():
     parser = argparse.ArgumentParser(description="Fine-tune pre-trained BERT for paraphrase detection using SWAG")
     parser.add_argument("--base_model", type=str, default="bert-base-uncased")
     parser.add_argument("--save_folder", type=str, default="save_folder")
-    parser.add_argument("--negatives", type=str, default="same", help="Type of negative sampling (options: same, random, after)")
     parser.add_argument("--limit_training", type=int, help="limit training data to N first samples")
     parser.add_argument("--num_positives", type=int, help="Number of positive examples if limit_training")
     parser.add_argument("--num_negatives", type=int, help="Number of negative examples")
+    parser.add_argument("--negatives", type=str, default="same", help="Type of negative sampling (options: same, random, after)")
     parser.add_argument("--source_data", type=str, help="Data directory of Opusparcus data")
     parser.add_argument("--train_data", type=str, help="Path to training dataset (json)")
     parser.add_argument("--eval_data", type=str, help="Path to validation dataset (json)")
@@ -211,6 +212,13 @@ def main():
         greater_is_better=True,
         load_best_model_at_end=True,
     )
+
+    # tokenization
+    # process_fn = partial(tokenize_dataset, tokenizer=tokenizer)
+    # processed_train = dataset["train"].map(process_fn, batched=True, remove_columns=dataset["train"].column_names)
+    # processed_eval = dataset["validation"].map(process_fn, batched=True, remove_columns=dataset["validation"].column_names)
+    # processed_test = dataset["test"].map(process_fn, batched=True, remove_columns=dataset["test"].column_names)
+
 
     processed_train = dataset["train"].map(
         tokenize_dataset, batched=True, remove_columns=dataset["train"].column_names)
