@@ -2,24 +2,15 @@ import argparse
 import logging
 import os
 import bz2
-import sys
-import json
 import random
 
 import torch
 import transformers
 import datasets
 
-from datasets import Dataset
 from datasets import DatasetDict
 from datasets import load_dataset
 
-from transformers import DataCollatorWithPadding
-from torch.utils.data.dataloader import DataLoader
-
-from functools import partial
-
-sys.path.append("src/")
 from swag_transformers.swag_bert import SwagBertForSequenceClassification
 from swag_transformers.trainer_utils import SwagUpdateCallback
 
@@ -33,20 +24,7 @@ def annotation_to_label(annotation):
         return 0
 
 
-def tokenize_dataset(examples, tokenizer):
-    processed = tokenizer(
-        examples["sent1"],
-        examples["sent2"],
-        padding=False,
-        max_length=tokenizer.model_max_length,
-        truncation=True,
-    )
-
-    processed["labels"] = [annotation_to_label(val) for val in examples["annot_score"]]
-    return processed
-    
-
-def download_data(lang, source_data, negatives, tokenizer, quality=95, num_negatives=None):
+def download_data(source_data, negatives, num_negatives=None):
     '''
     Downloads Opusparcus training and dev/test sets from Huggingface transformers.
     '''
@@ -77,7 +55,13 @@ def download_data(lang, source_data, negatives, tokenizer, quality=95, num_negat
     #     dataset["train"] = train_dataset
 
     # else:
-    dataset = load_dataset("GEM/Opusparcus", f"{lang}.{quality}", cache_dir="./tmp")
+    dataset = load_dataset(
+        "GEM/opusparcus",
+        lang="en",
+        quality=95,
+        cache_dir="./tmp",
+        trust_remote_code=True
+    )
     dataset = dataset.rename_column("input", "sent1")
     dataset = dataset.rename_column("target", "sent2")
     dataset = dataset.remove_columns("references")
@@ -149,7 +133,7 @@ def download_data(lang, source_data, negatives, tokenizer, quality=95, num_negat
 
     num_negatives = len(negative_sources)
     negative_data = datasets.Dataset.from_dict({
-        "lang": [lang]*num_negatives,
+        "lang": ["en"]*num_negatives,
         "sent1": negative_sources,
         "sent2": negative_targets,
         "annot_score": [-1]*num_negatives,
@@ -162,12 +146,6 @@ def download_data(lang, source_data, negatives, tokenizer, quality=95, num_negat
 
     cols_to_remove = [k for k in list(dataset["train"][0].keys()) if k not in ["labels"]]
 
-    # dataset = dataset.map(
-    #     partial(tokenize_dataset, tokenizer),
-    #     batched=True,
-    #     remove_columns=cols_to_remove,
-    # )
-
     dataset["train"] = dataset["train"].shuffle()
 
     return dataset
@@ -177,30 +155,30 @@ def main():
     parser = argparse.ArgumentParser(description="Fine-tune pre-trained BERT for paraphrase detection using SWAG")
     parser.add_argument("--base_model", type=str, default="bert-base-uncased")
     parser.add_argument("--save_folder", type=str, default="save_folder")
-    parser.add_argument("--negatives", type=str, default="same", help="Type of negative sampling (options: same, random, after)")
     parser.add_argument("--limit_training", type=int, help="limit training data to N first samples")
     parser.add_argument("--num_positives", type=int, help="Number of positive examples if limit_training")
     parser.add_argument("--num_negatives", type=int, help="Number of negative examples")
+    parser.add_argument("--negatives", type=str, default="same", help="Type of negative sampling (options: same, random, after)")
+    parser.add_argument("--source_data", type=str, help="Data directory of Opusparcus data")
     parser.add_argument("--train_data", type=str, help="Path to training dataset (json)")
     parser.add_argument("--eval_data", type=str, help="Path to validation dataset (json)")
     parser.add_argument("--test_data", type=str, help="Path to test dataset (json)")
-    parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--lang", type=str, help="Language of the data (en, fi, fr, de, ru, sv)")
     parser.add_argument("--quality", type=int, help="Estimated clean label proportion for the Opusparcus dataset (95, 90, 85, 80, 75, 70, 65, 60)")
-    parser.add_argument("--source_data", type=str, help="Data directory of Opusparcus data")
+    parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--cache", type=str, default="./tmp", help="Temporary directory for storing models and data downloaded from HF.")
     args = parser.parse_args()
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model, cache_dir="./tmp")
     model = transformers.AutoModelForSequenceClassification.from_pretrained(args.base_model, num_labels=2, cache_dir="./tmp")
     swag_model = SwagBertForSequenceClassification.from_base(model)
+    swag_model.to(device)
 
     dataset = download_data(
-        lang=args.lang,
         source_data=args.source_data,
         negatives=args.negatives,
-        tokenizer=tokenizer,
-        quality=args.quality,
         num_negatives=args.num_negatives,
     )
 
@@ -211,8 +189,19 @@ def main():
             "test": dataset["test"]
         })
 
-    # if args.limit_training:
-    #     dataset = dataset.select(range(args.limit_training))
+    
+    def tokenize_dataset(examples):
+        processed = tokenizer(
+            examples["sent1"],
+            examples["sent2"],
+            padding=False,
+            max_length=tokenizer.model_max_length,
+            truncation=True,
+        )
+
+        processed["labels"] = [annotation_to_label(val) for val in examples["annot_score"]]
+        return processed
+
 
     training_args = transformers.TrainingArguments(
         output_dir=args.save_folder,
@@ -224,6 +213,13 @@ def main():
         save_steps=500,
         save_total_limit=1,
     )
+
+    # tokenization
+    # process_fn = partial(tokenize_dataset, tokenizer=tokenizer)
+    # processed_train = dataset["train"].map(process_fn, batched=True, remove_columns=dataset["train"].column_names)
+    # processed_eval = dataset["validation"].map(process_fn, batched=True, remove_columns=dataset["validation"].column_names)
+    # processed_test = dataset["test"].map(process_fn, batched=True, remove_columns=dataset["test"].column_names)
+
 
     processed_train = dataset["train"].map(
         tokenize_dataset, batched=True, remove_columns=dataset["train"].column_names)
