@@ -101,9 +101,9 @@ class SwagPreTrainedModel(PreTrainedModel):
     def _init_weights(self, module):
         self.swag.base._init_weights(module)
 
-    def sample_parameters(self):
+    def sample_parameters(self, *args, **kwargs):
         """Sample new model parameters"""
-        self.swag.sample()
+        self.swag.sample(*args, **kwargs)
 
 
 class SwagModel(SwagPreTrainedModel):
