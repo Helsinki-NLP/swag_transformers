@@ -24,7 +24,7 @@ def annotation_to_label(annotation):
         return 0
 
 
-def download_data(source_data, negatives, num_negatives=None):
+def download_data(source_data, negatives, language, quality, num_negatives=None):
     '''
     Downloads Opusparcus training and dev/test sets from Huggingface transformers.
     '''
@@ -57,8 +57,8 @@ def download_data(source_data, negatives, num_negatives=None):
     # else:
     dataset = load_dataset(
         "GEM/opusparcus",
-        lang="en",
-        quality=95,
+        lang=language,
+        quality=quality,
         cache_dir="./tmp",
         trust_remote_code=True
     )
@@ -163,7 +163,7 @@ def main():
     parser.add_argument("--train_data", type=str, help="Path to training dataset (json)")
     parser.add_argument("--eval_data", type=str, help="Path to validation dataset (json)")
     parser.add_argument("--test_data", type=str, help="Path to test dataset (json)")
-    parser.add_argument("--lang", type=str, help="Language of the data (en, fi, fr, de, ru, sv)")
+    parser.add_argument("--language", type=str, help="Language of the data (en, fi, fr, de, ru, sv)")
     parser.add_argument("--quality", type=int, help="Estimated clean label proportion for the Opusparcus dataset (95, 90, 85, 80, 75, 70, 65, 60)")
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--cache", type=str, default="./tmp", help="Temporary directory for storing models and data downloaded from HF.")
@@ -179,6 +179,8 @@ def main():
     dataset = download_data(
         source_data=args.source_data,
         negatives=args.negatives,
+        language=args.language,
+        quality=args.quality,
         num_negatives=args.num_negatives,
     )
 
@@ -213,13 +215,6 @@ def main():
         save_steps=500,
         save_total_limit=1,
     )
-
-    # tokenization
-    # process_fn = partial(tokenize_dataset, tokenizer=tokenizer)
-    # processed_train = dataset["train"].map(process_fn, batched=True, remove_columns=dataset["train"].column_names)
-    # processed_eval = dataset["validation"].map(process_fn, batched=True, remove_columns=dataset["validation"].column_names)
-    # processed_test = dataset["test"].map(process_fn, batched=True, remove_columns=dataset["test"].column_names)
-
 
     processed_train = dataset["train"].map(
         tokenize_dataset, batched=True, remove_columns=dataset["train"].column_names)
