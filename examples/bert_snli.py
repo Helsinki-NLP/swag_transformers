@@ -23,7 +23,8 @@ def main():
     parser.add_argument("--model-cache-dir", type=str, help="folder to cache HF models and tokenizers")
     parser.add_argument("--batch-size", type=int, default=4, help="batch size")
     parser.add_argument("--epochs", type=int, default=3, help="number of training epochs")
-    parser.add_argument("--collect-steps", type=int, default=100, help="number of steps between collecting parameters")
+    parser.add_argument("--collect-steps", type=int, default=100,
+                        help="number of steps between collecting parameters; set to zero for per epoch updates")
     parser.add_argument("--learning-rate", type=float, default=2e-5, help="learning rate")
     args = parser.parse_args()
 
