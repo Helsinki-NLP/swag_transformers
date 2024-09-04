@@ -165,13 +165,15 @@ class SampleLogitsMixin:
     """Mixin class for classification models providing get_logits() method using SWAG"""
 
     def get_logits(
-        self, *args, num_predictions=None, scale=1.0, cov=True, block=False, **kwargs
+        self, *args, num_predictions=None, scale=1.0, cov=None, block=False, **kwargs
     ):
         """Sample model parameters num_predictions times and get logits for the input
 
         Results in a tensor of size batch_size x num_predictions x output_size.
 
         """
+        if cov is None:
+            cov = not self.config.no_cov_mat
         if num_predictions is None:
             sample = False
             num_predictions = 1
