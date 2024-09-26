@@ -34,6 +34,12 @@ class SwagUpdateCallback(TrainerCallback):
         self.collect_steps = collect_steps
         self.last_collect_step = None
 
+    def _update(self, model):
+        """Update SWAG model parameters and config"""
+        self.main_model.swag.collect_model(model)
+        self.main_model.config.update_internal_config(model.config)
+        self.main_model.config.cov_mat_rank = self.main_model.swag.cov_mat_rank
+
     def on_train_end(self, args, state, control, model=None, **kwargs):
         if self.last_collect_step == state.global_step:
             return
@@ -41,8 +47,7 @@ class SwagUpdateCallback(TrainerCallback):
             logger.error("No model provided for SWAG update")
             return
         logger.debug("Updating SWAG parameters from %s after train end (steps %s)", type(model).__name__, state.global_step)
-        self.main_model.swag.collect_model(model)
-        self.main_model.config.update_internal_config(model.config)
+        self._update(model)
 
     def on_epoch_end(self, args, state, control, model=None, **kwargs):
         if self.collect_steps:
@@ -51,8 +56,7 @@ class SwagUpdateCallback(TrainerCallback):
             logger.error("No model provided for SWAG update")
             return
         logger.debug("Updating SWAG parameters from %s after epoch end (steps %s)", type(model).__name__, state.global_step)
-        self.main_model.swag.collect_model(model)
-        self.main_model.config.update_internal_config(model.config)
+        self._update(model)
         self.last_collect_step = state.global_step
 
     def on_step_end(self, args, state, control, model=None, **kwargs):
@@ -66,6 +70,5 @@ class SwagUpdateCallback(TrainerCallback):
             logger.error("No model provided for SWAG update")
             return
         logger.debug("Updating SWAG parameters from %s after step %s", type(model).__name__, state.global_step)
-        self.main_model.swag.collect_model(model)
-        self.main_model.config.update_internal_config(model.config)
+        self._update(model)
         self.last_collect_step = state.global_step

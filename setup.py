@@ -20,7 +20,7 @@ setup(
     install_requires=[
         "transformers>=4.30",
         "transformers[torch]>=4.30",
-        "swa_gaussian>=0.1.6"
+        "swa_gaussian>=0.1.7"
     ],
     extras_require={
         "test": ["datasets", "pytest", "sentencepiece"]

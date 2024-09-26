@@ -32,6 +32,7 @@ class SwagConfig(PretrainedConfig):
             self,
             internal_model_config: dict = None,
             no_cov_mat: bool = True,
+            cov_mat_rank: int = 0,
             max_num_models: int = 20,
             var_clamp: float = 1e-30,
             **kwargs
@@ -43,6 +44,7 @@ class SwagConfig(PretrainedConfig):
             internal_config = self.internal_config_class(**kwargs)
             self.internal_model_config = internal_config.to_dict()
         self.no_cov_mat = no_cov_mat
+        self.cov_mat_rank = cov_mat_rank
         self.max_num_models = max_num_models
         self.var_clamp = var_clamp
 
@@ -81,6 +83,7 @@ class SwagPreTrainedModel(PreTrainedModel):
         self.swag = SWAG(
             base=self.new_base_model,
             no_cov_mat=config.no_cov_mat,
+            cov_mat_rank=config.cov_mat_rank,
             max_num_models=config.max_num_models,
             var_clamp=config.var_clamp,
             config=config.internal_config_class(**config.internal_model_config)
@@ -124,6 +127,7 @@ class SwagModel(SwagPreTrainedModel):
             self.swag = SWAG(
                 base=functools.partial(self._base_model_copy, base_model),
                 no_cov_mat=config.no_cov_mat,
+                cov_mat_rank=config.cov_mat_rank,
                 max_num_models=config.max_num_models,
                 var_clamp=config.var_clamp
             )

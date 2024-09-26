@@ -107,14 +107,14 @@ class TestSwagBert(unittest.TestCase):
         yield {"text": "That's so bad", "label": 0}
         yield {"text": "This is SWAG", "label": 1}
 
-    def test_pretrained_bert_tiny_classifier_finetune(self):
+    def pretrained_bert_tiny_classifier_finetune(self, no_cov_mat):
         device = "cuda" if torch.cuda.is_available() else "cpu"
         num_labels = 2
         train_epochs = 5
         model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
         model.to(device)
         self.assertEqual(model.device.type, device)
-        swag_model = SwagBertForSequenceClassification.from_base(model)
+        swag_model = SwagBertForSequenceClassification.from_base(model, no_cov_mat=no_cov_mat)
         swag_model.to(device)
         self.assertEqual(swag_model.device.type, device)
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
@@ -165,6 +165,12 @@ class TestSwagBert(unittest.TestCase):
         logging.debug(out_swag.logits)
         logging.debug(out_stored.logits)
         self.assertTrue(torch.allclose(out_swag.logits, out_stored.logits))
+
+    def test_pretrained_bert_tiny_classifier_finetune_no_cov(self):
+        self.pretrained_bert_tiny_classifier_finetune(no_cov_mat=True)
+
+    def test_pretrained_bert_tiny_classifier_finetune_with_cov(self):
+        self.pretrained_bert_tiny_classifier_finetune(no_cov_mat=False)
 
 
 if __name__ == "__main__":
