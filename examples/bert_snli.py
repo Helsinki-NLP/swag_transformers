@@ -23,11 +23,15 @@ def main():
     parser.add_argument("--model-cache-dir", type=str, help="folder to cache HF models and tokenizers")
     parser.add_argument("--batch-size", type=int, default=4, help="batch size")
     parser.add_argument("--epochs", type=int, default=3, help="number of training epochs")
-    parser.add_argument("--collect-steps", type=int, default=100,
-                        help="number of steps between collecting parameters; set to zero for per epoch updates")
+    #FIXME: I want to collect at epoch end, and this invalidates for now.
+    #parser.add_argument("--collect-steps", type=int, default=100,
+    #                    help="number of steps between collecting parameters; set to zero for per epoch updates")
     parser.add_argument("--learning-rate", type=float, default=2e-5, help="learning rate")
     args = parser.parse_args()
 
+    #FIXME:
+    args.collect_steps = None
+    
     if args.device:
         device = args.device
     else:
@@ -57,6 +61,7 @@ def main():
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
         num_train_epochs=args.epochs,
+        save_steps=500000,
         use_cpu=True if device == "cpu" else False
     )
 
