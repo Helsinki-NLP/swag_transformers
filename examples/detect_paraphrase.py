@@ -7,6 +7,7 @@ import random
 import torch
 import transformers
 import datasets
+<<<<<<< HEAD
 import evaluate
 
 import numpy as np
@@ -30,6 +31,7 @@ def annotation_to_label(annotation):
 
 
 def download_data(source_data, negatives, language, quality, num_negatives=None):
+# def download_data(source_data, negatives, num_negatives=None):
     '''
     Downloads Opusparcus training and dev/test sets from Huggingface transformers.
     '''
@@ -198,7 +200,7 @@ def main():
             "test": dataset["test"]
         })
 
-    
+
     def tokenize_dataset(examples):
         processed = tokenizer(
             examples["sent1"],
@@ -210,7 +212,8 @@ def main():
 
         processed["labels"] = [annotation_to_label(val) for val in examples["annot_score"]]
         return processed
-    
+
+
     metric = evaluate.load("accuracy")
 
 
@@ -238,6 +241,12 @@ def main():
         greater_is_better=True,
         load_best_model_at_end=True,
     )
+
+    # tokenization
+    # process_fn = partial(tokenize_dataset, tokenizer=tokenizer)
+    # processed_train = dataset["train"].map(process_fn, batched=True, remove_columns=dataset["train"].column_names)
+    # processed_eval = dataset["validation"].map(process_fn, batched=True, remove_columns=dataset["validation"].column_names)
+    # processed_test = dataset["test"].map(process_fn, batched=True, remove_columns=dataset["test"].column_names)
 
     processed_train = dataset["train"].map(
         tokenize_dataset, batched=True, remove_columns=dataset["train"].column_names)
