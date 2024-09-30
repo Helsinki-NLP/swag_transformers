@@ -7,9 +7,14 @@ import random
 import torch
 import transformers
 import datasets
+import evaluate
+
+import numpy as np
 
 from datasets import DatasetDict
 from datasets import load_dataset
+
+from transformers import EarlyStoppingCallback
 
 from swag_transformers.swag_bert import SwagBertForSequenceClassification
 from swag_transformers.trainer_utils import SwagUpdateCallback
@@ -166,6 +171,8 @@ def main():
     parser.add_argument("--language", type=str, help="Language of the data (en, fi, fr, de, ru, sv)")
     parser.add_argument("--quality", type=int, help="Estimated clean label proportion for the Opusparcus dataset (95, 90, 85, 80, 75, 70, 65, 60)")
     parser.add_argument("--batch_size", type=int, default=32)
+    parser.add_argument("--collect_steps", type=int, default=100,
+                        help="number of steps between collecting parameters; set to zero for per epoch updates")
     parser.add_argument("--cache", type=str, default="./tmp", help="Temporary directory for storing models and data downloaded from HF.")
     args = parser.parse_args()
 
@@ -173,7 +180,7 @@ def main():
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model, cache_dir="./tmp")
     model = transformers.AutoModelForSequenceClassification.from_pretrained(args.base_model, num_labels=2, cache_dir="./tmp")
-    swag_model = SwagBertForSequenceClassification.from_base(model)
+    swag_model = SwagBertForSequenceClassification.from_base(model, no_cov_mat=False)
     swag_model.to(device)
 
     dataset = download_data(
@@ -203,17 +210,33 @@ def main():
 
         processed["labels"] = [annotation_to_label(val) for val in examples["annot_score"]]
         return processed
+    
+    metric = evaluate.load("accuracy")
+
+
+    def compute_metrics(eval_pred):
+        logits, labels = eval_pred
+        predictions = np.argmax(logits, axis=-1)
+        accuracy = metric.compute(predictions=predictions, references=labels)
+        return {"accuracy": accuracy["accuracy"]}
 
 
     training_args = transformers.TrainingArguments(
         output_dir=args.save_folder,
+        # seed=42,
         learning_rate=2e-5,
+        weight_decay=0.1,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
-        num_train_epochs=3,
-        seed=42,
+        evaluation_strategy="steps",
+        max_steps=100000,
+        # num_train_epochs=3,
+        eval_steps=500,
         save_steps=500,
         save_total_limit=1,
+        metric_for_best_model="accuracy",
+        greater_is_better=True,
+        load_best_model_at_end=True,
     )
 
     processed_train = dataset["train"].map(
@@ -224,13 +247,16 @@ def main():
         tokenize_dataset, batched=True, remove_columns=dataset["test"].column_names)
 
     data_collator = transformers.DataCollatorWithPadding(tokenizer=tokenizer)
+
     trainer = transformers.Trainer(
         model=model,
         args=training_args,
         train_dataset=processed_train,
+        eval_dataset=processed_eval,
         tokenizer=tokenizer,
         data_collator=data_collator,
-        callbacks=[SwagUpdateCallback(swag_model)]
+        compute_metrics=compute_metrics,
+        callbacks=[SwagUpdateCallback(swag_model, collect_steps=args.collect_steps), EarlyStoppingCallback(early_stopping_patience=10)]
     )
     trainer.train()
     trainer.save_model(os.path.join(args.save_folder, "final_base"))
