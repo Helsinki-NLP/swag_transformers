@@ -7,7 +7,6 @@ import random
 import torch
 import transformers
 import datasets
-<<<<<<< HEAD
 import evaluate
 
 import numpy as np
