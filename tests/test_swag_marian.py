@@ -118,14 +118,14 @@ class TestSwagMarian(unittest.TestCase):
         yield {"source": "Karratha police arrest 20-year-old after high speed motorcycle chase",
                "target": "Polizei von Karratha verhaftet 20-Jährigen nach schneller Motorradjagd"}
 
-    def test_pretrained_marian_tiny_finetune(self):
+    def pretrained_marian_tiny_finetune(self, no_cov_mat):
         device = "cuda" if torch.cuda.is_available() else "cpu"
         model = MarianMTModel.from_pretrained(self.pretrained_model_name)
         model.to(device)
         self.assertEqual(model.device.type, device)
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
         logging.info("Init from base")
-        swag_model = SwagMarianMTModel.from_base(model)
+        swag_model = SwagMarianMTModel.from_base(model, no_cov_mat=no_cov_mat)
         swag_model.to(device)
         self.assertEqual(swag_model.device.type, device)
         logging.info("Done")
@@ -203,3 +203,9 @@ class TestSwagMarian(unittest.TestCase):
             self.assertTrue(torch.allclose(loaded_embed, loaded_enc))
             self.assertTrue(torch.allclose(loaded_embed, loaded_head))
             stored_model.sample_parameters()
+
+    def test_pretrained_marian_tiny_finetune_no_cov(self):
+        self.pretrained_marian_tiny_finetune(no_cov_mat=True)
+
+    def test_pretrained_marian_tiny_finetune_with_cov(self):
+        self.pretrained_marian_tiny_finetune(no_cov_mat=False)
