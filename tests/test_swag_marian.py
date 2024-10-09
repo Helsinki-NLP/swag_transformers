@@ -168,7 +168,7 @@ class TestSwagMarian(unittest.TestCase):
             trainer.train()
         logging.info("N models: %s", swag_model.swag.n_models.item())
         # self.assertEqual(swag_model.swag.n_models, train_epochs)
-        swag_model.sample_parameters()
+        swag_model.sample_parameters(cov=not no_cov_mat)
         sample_text = "India and Japan prime ministers meet in Tokyo"
         batch = tokenizer([sample_text], return_tensors="pt")
         generated_ids = model.generate(**batch, max_new_tokens=10)
@@ -202,7 +202,7 @@ class TestSwagMarian(unittest.TestCase):
                 self.assertTrue(torch.allclose(orig_embed, loaded_embed))
             self.assertTrue(torch.allclose(loaded_embed, loaded_enc))
             self.assertTrue(torch.allclose(loaded_embed, loaded_head))
-            stored_model.sample_parameters()
+            stored_model.sample_parameters(cov=not no_cov_mat)
 
     def test_pretrained_marian_tiny_finetune_no_cov(self):
         self.pretrained_marian_tiny_finetune(no_cov_mat=True)

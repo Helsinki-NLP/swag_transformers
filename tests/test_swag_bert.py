@@ -125,7 +125,7 @@ class TestSwagBert(unittest.TestCase):
         out_swag = swag_model(**tokens)
         self.assertEqual(out_swag.logits.shape, (2, num_labels))
         self.assertTrue(torch.allclose(out_swag.logits.to('cpu'), torch.zeros(*out_swag.logits.shape)))
-        swag_model.sample_parameters()
+        swag_model.sample_parameters(cov=not no_cov_mat)
         out_swag = swag_model(**tokens)
         self.assertEqual(out_swag.logits.shape, (2, num_labels))
         self.assertTrue(torch.allclose(out_swag.logits.to('cpu'), torch.zeros(*out_swag.logits.shape)))
@@ -153,7 +153,7 @@ class TestSwagBert(unittest.TestCase):
             )
             trainer.train()
         self.assertEqual(swag_model.swag.n_models, train_epochs)
-        swag_model.sample_parameters()
+        swag_model.sample_parameters(cov=not no_cov_mat)
         out_swag = swag_model(**tokens)
         self.assertEqual(out_swag.logits.shape, (2, num_labels))
 

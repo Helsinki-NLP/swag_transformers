@@ -50,7 +50,7 @@ class TestSwagBart(unittest.TestCase):
         logging.warning(gen_config)
 
         swag_model.swag.collect_model(model)
-        swag_model.sample_parameters()
+        swag_model.sample_parameters(cov=not no_cov_mat)
         # has to be updated manually when using collect_model directly
         swag_model.config.cov_mat_rank = swag_model.swag.cov_mat_rank
 
