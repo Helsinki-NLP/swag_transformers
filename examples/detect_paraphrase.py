@@ -35,19 +35,19 @@ def read_data(path_to_train_data, language):
     and add validation and test sets.
     '''
     train_data = load_dataset("json", data_files=path_to_train_data)
-    valid_data = load_dataset("GEM/opusparcus", f"{language}.100", trust_remote_code=True, cache_dir="./tmp") # Downloads valid and test sets for the given language.
-    valid_data = valid_data["validation.full"]
-    test_data = valid_data["test.full"]
+    dataset = load_dataset("GEM/opusparcus", f"{language}.100", trust_remote_code=True, cache_dir="./tmp") # Downloads valid and test sets for the given language.
 
-    valid_data = valid_data.rename_column("input", "sentence1").rename_column("target", "sentence2")
-    test_data = test_data.rename_column("input", "sentence1").rename_column("target", "sentence2")
-    valid_data = valid_data.remove_columns("references")
-    test_data = test_data.remove_columns("references")
+    dataset = dataset.rename_column("input", "sentence1")
+    dataset = dataset.rename_column("target", "sentence2")
+    dataset = dataset.remove_columns("references")
+    
+    dataset["validation"] = dataset["validation.full"]
+    dataset["test"] = dataset["test.full"]
 
     dataset_dict = DatasetDict({
-        "train": train_data,
-        "validation": valid_data,
-        "test": test_data,
+        "train": train_data["train"],
+        "validation": dataset["validation"],
+        "test": dataset["test"],
     })
 
     dataset_dict["train"] = dataset_dict["train"].shuffle()
@@ -66,8 +66,8 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
         cache_dir="./tmp",
         trust_remote_code=True
     )
-    dataset = dataset.rename_column("input", "sent1")
-    dataset = dataset.rename_column("target", "sent2")
+    dataset = dataset.rename_column("input", "sentence1")
+    dataset = dataset.rename_column("target", "sentence2")
     dataset = dataset.remove_columns("references")
 
     num_train_samples = len(dataset["train"])
@@ -138,8 +138,8 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
     num_negatives = len(negative_sources)
     negative_data = datasets.Dataset.from_dict({
         "lang": ["en"]*num_negatives,
-        "sent1": negative_sources,
-        "sent2": negative_targets,
+        "sentence1": negative_sources,
+        "sentence2": negative_targets,
         "annot_score": [-1]*num_negatives,
         "gem_id": [f"neg{i}" for i in range(num_negatives)],
     }, features=dataset["train"].features)
@@ -185,6 +185,8 @@ def main():
     swag_model.to(device)
 
     if args.train_data is not None:
+        dataset = read_data(args.train_data, args.language)
+    else:
         dataset = download_data(
             source_data=args.source_data,
             negatives=args.negatives,
@@ -192,8 +194,6 @@ def main():
             quality=args.quality,
             num_negatives=args.num_negatives,
         )
-    else:
-        dataset = read_data(args.train_data, args.language)
 
     if args.limit_training:
         dataset = DatasetDict({
@@ -207,8 +207,8 @@ def main():
 
     def tokenize_dataset(examples):
         processed = tokenizer(
-            examples["sent1"],
-            examples["sent2"],
+            examples["sentence1"],
+            examples["sentence2"],
             padding=False,
             max_length=tokenizer.model_max_length,
             truncation=True,
