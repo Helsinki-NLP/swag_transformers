@@ -3,6 +3,7 @@ import logging
 import os
 import bz2
 import random
+import json
 
 import torch
 import transformers
@@ -29,38 +30,36 @@ def annotation_to_label(annotation):
         return 0
 
 
+def read_data(path_to_train_data, language):
+    '''
+    Read an existing training data file
+    and add validation and test sets.
+    '''
+    train_data = load_dataset("json", data_files=path_to_train_data)
+    valid_data = load_dataset("GEM/opusparcus", f"{language}.100", trust_remote_code=True, cache_dir="./tmp") # Downloads valid and test sets for the given language.
+    valid_data = valid_data["validation.full"]
+    test_data = valid_data["test.full"]
+
+    valid_data = valid_data.rename_column("input", "sentence1").rename_column("target", "sentence2")
+    test_data = test_data.rename_column("input", "sentence1").rename_column("target", "sentence2")
+    valid_data = valid_data.remove_columns("references")
+    test_data = test_data.remove_columns("references")
+
+    dataset_dict = DatasetDict({
+        "train": train_data,
+        "validation": valid_data,
+        "test": test_data,
+    })
+
+    dataset_dict["train"] = dataset_dict["train"].shuffle()
+
+    return dataset_dict
+
+
 def download_data(source_data, negatives, language, quality, num_negatives=None):
-# def download_data(source_data, negatives, num_negatives=None):
     '''
     Downloads Opusparcus training and dev/test sets from Huggingface transformers.
     '''
-    # if args.use_absolute_data_size:
-    #     # Download this to get dev/test and features
-    #     dataset = load_dataset("GEM/Opusparcus", f"{lang}.{quality}", cache_dir="./tmp")
-    #     dataset = dataset.rename_column("input", "sent1")
-    #     dataset = dataset.rename_column("target", "sent2")
-    #     dataset = dataset.remove_columns("references")
-
-    #     sent1, sent2, ids = [], [], []
-    #     with bz2.open(args.source_data, "rt") as f:
-    #         for i, line in enumerate(f):
-    #             id, s1, s2, score, *_ = line.split("\t")
-    #             sent1.append(s1)
-    #             sent2.append(s2)
-    #             ids.append(id)
-    #             if len(sent1) >= args.num_positives:
-    #                 break
-
-    #     train_dataset = datasets.Dataset.from_dict({
-    #         "lang": [lang]*args.num_positives,
-    #         "sent1": sent1,
-    #         "sent2": sent2,
-    #         "annot_score": [0.0]*args.num_positives,
-    #         "gem_id": [f"pos{i}" for i in range(args.num_positives)],
-    #     }, features=dataset["train"].features)
-    #     dataset["train"] = train_dataset
-
-    # else:
     dataset = load_dataset(
         "GEM/opusparcus",
         lang=language,
@@ -74,9 +73,9 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
 
     num_train_samples = len(dataset["train"])
     num_negatives = num_negatives if num_negatives is not None else num_train_samples
-        
+
     negative_sources, negative_targets = [], []
-        
+
     # Sampling negative examples
     if negatives == "same":
         # sample from the same data distribution
@@ -87,7 +86,7 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
                 negative_targets.append(s2)
                 if len(negative_sources) == num_negatives:
                     break
-        
+
     elif negatives == "random":
         # sample randomly from all data
         with bz2.open(source_data, "rt") as f:
@@ -96,7 +95,7 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
                 _, s1, s2, *_ = choice.split("\t")
                 negative_sources.append(s1)
                 negative_targets.append(s2)
-        
+
     elif negatives == "after":
         # sample from data after the positive examples
         with bz2.open(source_data, "rt") as f:
@@ -174,23 +173,28 @@ def main():
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--collect_steps", type=int, default=100,
                         help="number of steps between collecting parameters; set to zero for per epoch updates")
+    parser.add_argument("--eval_strategy", type=str, default="steps", help="Evaluation strategy, either steps or epoch.")
     parser.add_argument("--cache", type=str, default="./tmp", help="Temporary directory for storing models and data downloaded from HF.")
+    parser.add_argument("--no_cov_mat", action="store_true", help="If active, train without covariance matrix calculation (SWA model training)")
     args = parser.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model, cache_dir="./tmp")
     model = transformers.AutoModelForSequenceClassification.from_pretrained(args.base_model, num_labels=2, cache_dir="./tmp")
-    swag_model = SwagBertForSequenceClassification.from_base(model, no_cov_mat=False)
+    swag_model = SwagBertForSequenceClassification.from_base(model, no_cov_mat=args.no_cov_mat) # True = SWA, False = SWAG
     swag_model.to(device)
 
-    dataset = download_data(
-        source_data=args.source_data,
-        negatives=args.negatives,
-        language=args.language,
-        quality=args.quality,
-        num_negatives=args.num_negatives,
-    )
+    if args.train_data is not None:
+        dataset = download_data(
+            source_data=args.source_data,
+            negatives=args.negatives,
+            language=args.language,
+            quality=args.quality,
+            num_negatives=args.num_negatives,
+        )
+    else:
+        dataset = read_data(args.train_data, args.language)
 
     if args.limit_training:
         dataset = DatasetDict({
@@ -198,6 +202,8 @@ def main():
             "validation": dataset["validation"],
             "test": dataset["test"]
         })
+
+    logging.info(f"Training with:\n{dataset}")
 
 
     def tokenize_dataset(examples):
@@ -230,22 +236,17 @@ def main():
         weight_decay=0.1,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
-        evaluation_strategy="steps",
-        max_steps=100000,
-        # num_train_epochs=3,
-        eval_steps=500,
-        save_steps=500,
+        evaluation_strategy=args.eval_strategy,
+        save_strategy=args.eval_strategy,
+        max_steps=100000 if args.eval_strategy == "steps" else None,
+        num_train_epochs=10 if args.eval_strategy == "epoch" else None,
+        eval_steps=500 if args.eval_strategy == "steps" else None,
+        save_steps=500 if args.eval_strategy == "steps" else None,
         save_total_limit=1,
         metric_for_best_model="accuracy",
         greater_is_better=True,
         load_best_model_at_end=True,
     )
-
-    # tokenization
-    # process_fn = partial(tokenize_dataset, tokenizer=tokenizer)
-    # processed_train = dataset["train"].map(process_fn, batched=True, remove_columns=dataset["train"].column_names)
-    # processed_eval = dataset["validation"].map(process_fn, batched=True, remove_columns=dataset["validation"].column_names)
-    # processed_test = dataset["test"].map(process_fn, batched=True, remove_columns=dataset["test"].column_names)
 
     processed_train = dataset["train"].map(
         tokenize_dataset, batched=True, remove_columns=dataset["train"].column_names)
@@ -256,6 +257,11 @@ def main():
 
     data_collator = transformers.DataCollatorWithPadding(tokenizer=tokenizer)
 
+    if args.eval_strategy == "steps":
+        callbacks = [SwagUpdateCallback(swag_model, collect_steps=args.collect_steps), EarlyStoppingCallback(early_stopping_patience=10)]
+    else:
+        callbacks = [SwagUpdateCallback(swag_model, collect_steps=args.collect_steps)]
+
     trainer = transformers.Trainer(
         model=model,
         args=training_args,
@@ -264,7 +270,7 @@ def main():
         tokenizer=tokenizer,
         data_collator=data_collator,
         compute_metrics=compute_metrics,
-        callbacks=[SwagUpdateCallback(swag_model, collect_steps=args.collect_steps), EarlyStoppingCallback(early_stopping_patience=10)]
+        callbacks=callbacks,
     )
     trainer.train()
     trainer.save_model(os.path.join(args.save_folder, "final_base"))
