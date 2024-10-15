@@ -170,6 +170,8 @@ def main():
     parser.add_argument("--language", type=str, help="Language of the data (en, fi, fr, de, ru, sv)")
     parser.add_argument("--quality", type=int, help="Estimated clean label proportion for the Opusparcus dataset (95, 90, 85, 80, 75, 70, 65, 60)")
     parser.add_argument("--batch_size", type=int, default=32)
+    parser.add_argument("--max_steps", type=int, help="Max steps for training")
+    parser.add_argument("--train_epochs", type=int, help="Number of training epochs")
     parser.add_argument("--collect_steps", type=int, default=100,
                         help="number of steps between collecting parameters; set to zero for per epoch updates")
     parser.add_argument("--eval_strategy", type=str, default="steps", help="Evaluation strategy, either steps or epoch.")
@@ -184,7 +186,7 @@ def main():
     swag_model = SwagBertForSequenceClassification.from_base(model, no_cov_mat=args.no_cov_mat) # True = SWA, False = SWAG
     swag_model.to(device)
 
-    if args.train_data is not None:
+    if args.train_data:
         dataset = read_data(args.train_data, args.language)
     else:
         dataset = download_data(
@@ -236,14 +238,14 @@ def main():
         per_device_eval_batch_size=args.batch_size,
         evaluation_strategy=args.eval_strategy,
         save_strategy=args.eval_strategy,
-        max_steps=100000 if args.eval_strategy == "steps" else None,
-        num_train_epochs=10 if args.eval_strategy == "epoch" else None,
+        max_steps=args.max_steps if args.eval_strategy == "steps" else -1,
+        num_train_epochs=args.train_epochs if args.eval_strategy == "epoch" else None,
         eval_steps=500 if args.eval_strategy == "steps" else None,
         save_steps=500 if args.eval_strategy == "steps" else None,
         save_total_limit=1,
         metric_for_best_model="accuracy",
         greater_is_better=True,
-        load_best_model_at_end=True,
+        load_best_model_at_end=False,
     )
 
     processed_train = dataset["train"].map(
