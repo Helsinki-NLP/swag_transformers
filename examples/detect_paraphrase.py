@@ -40,7 +40,7 @@ def read_data(path_to_train_data, language):
     dataset = dataset.rename_column("input", "sentence1")
     dataset = dataset.rename_column("target", "sentence2")
     dataset = dataset.remove_columns("references")
-    
+
     dataset["validation"] = dataset["validation.full"]
     dataset["test"] = dataset["test.full"]
 
