@@ -1,3 +1,4 @@
+import copy
 import logging
 import unittest
 import tempfile
@@ -68,7 +69,7 @@ class TestSwagBert(unittest.TestCase):
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, 3, vocab_size))
 
-    def test_pretrained_bert_tiny_base(self):
+    def test_pretrained_bert_base(self):
         model = AutoModel.from_pretrained(self.pretrained_model_name)
         self.assertEqual(model.device.type, 'cpu')
         hidden_size = model.config.hidden_size
@@ -82,7 +83,7 @@ class TestSwagBert(unittest.TestCase):
         logging.debug(out)
         self.assertEqual(out.last_hidden_state.shape, (1, 2, hidden_size))
 
-    def test_pretrained_bert_tiny_classifier_test(self):
+    def test_pretrained_bert_classifier_test(self):
         num_labels = 4
         model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
         print(model.config)
@@ -98,6 +99,20 @@ class TestSwagBert(unittest.TestCase):
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
 
+
+class TestSwagBertFinetune(unittest.TestCase):
+
+    pretrained_model_name = 'prajjwal1/bert-tiny'
+    num_labels = 2
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    @classmethod
+    def setUpClass(cls):
+        cls.base_model = AutoModelForSequenceClassification.from_pretrained(
+            cls.pretrained_model_name, num_labels=cls.num_labels)
+        cls.base_model.to(cls.device)
+        cls.tokenizer = AutoTokenizer.from_pretrained(cls.pretrained_model_name)
+
     @staticmethod
     def _data_gen():
         yield {"text": "Hello world", "label": 0}
@@ -107,27 +122,24 @@ class TestSwagBert(unittest.TestCase):
         yield {"text": "That's so bad", "label": 0}
         yield {"text": "This is SWAG", "label": 1}
 
-    def pretrained_bert_tiny_classifier_finetune(self, no_cov_mat):
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        num_labels = 2
+    def pretrained_bert_classifier_finetune(self, no_cov_mat):
         train_epochs = 5
-        model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
-        model.to(device)
-        self.assertEqual(model.device.type, device)
+        model = copy.deepcopy(self.base_model)
+        tokenizer = self.tokenizer
         swag_model = SwagBertForSequenceClassification.from_base(model, no_cov_mat=no_cov_mat)
-        swag_model.to(device)
-        self.assertEqual(swag_model.device.type, device)
-        tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
+        swag_model.to(self.device)
+        self.assertEqual(model.device.type, self.device)
+        self.assertEqual(swag_model.device.type, self.device)
         tokens = tokenizer(["Hello world", "Just some swaggering"],
-                           padding=True, truncation=False, return_tensors="pt").to(device)
+                           padding=True, truncation=False, return_tensors="pt").to(self.device)
         out_base = model(**tokens)
-        self.assertEqual(out_base.logits.shape, (2, num_labels))
+        self.assertEqual(out_base.logits.shape, (2, self.num_labels))
         out_swag = swag_model(**tokens)
-        self.assertEqual(out_swag.logits.shape, (2, num_labels))
+        self.assertEqual(out_swag.logits.shape, (2, self.num_labels))
         self.assertTrue(torch.allclose(out_swag.logits.to('cpu'), torch.zeros(*out_swag.logits.shape)))
         swag_model.sample_parameters(cov=not no_cov_mat)
         out_swag = swag_model(**tokens)
-        self.assertEqual(out_swag.logits.shape, (2, num_labels))
+        self.assertEqual(out_swag.logits.shape, (2, self.num_labels))
         self.assertTrue(torch.allclose(out_swag.logits.to('cpu'), torch.zeros(*out_swag.logits.shape)))
 
         def tokenize_function(example):
@@ -141,7 +153,7 @@ class TestSwagBert(unittest.TestCase):
             training_args = TrainingArguments(
                 output_dir=tempdir,
                 num_train_epochs=train_epochs,
-                use_cpu=True if device == "cpu" else False
+                use_cpu=True if self.device == "cpu" else False
             )
             trainer = Trainer(
                 model,
@@ -153,24 +165,33 @@ class TestSwagBert(unittest.TestCase):
             )
             trainer.train()
         self.assertEqual(swag_model.swag.n_models, train_epochs)
-        swag_model.sample_parameters(cov=not no_cov_mat)
-        out_swag = swag_model(**tokens)
-        self.assertEqual(out_swag.logits.shape, (2, num_labels))
+        return swag_model
 
+    def finetuned_model_test(self, swag_model, no_cov_mat=True, blockwise=False, scale=1):
+        tokens = self.tokenizer(["Hello world", "Just some swaggering"],
+                                padding=True, truncation=False, return_tensors="pt").to(self.device)
+        swag_model.sample_parameters(cov=not no_cov_mat, block=blockwise, scale=scale, seed=1234)
+        out_swag = swag_model(**tokens)
+        self.assertEqual(out_swag.logits.shape, (2, self.num_labels))
         # Test saving & loading
         with tempfile.TemporaryDirectory() as tempdir:
             swag_model.save_pretrained(tempdir)
-            stored_model = SwagBertForSequenceClassification.from_pretrained(tempdir).to(device)
+            stored_model = SwagBertForSequenceClassification.from_pretrained(tempdir).to(self.device)
+        stored_model.sample_parameters(cov=not no_cov_mat, block=blockwise, scale=scale, seed=1234)
         out_stored = stored_model(**tokens)
         logging.debug(out_swag.logits)
         logging.debug(out_stored.logits)
         self.assertTrue(torch.allclose(out_swag.logits, out_stored.logits))
 
-    def test_pretrained_bert_tiny_classifier_finetune_no_cov(self):
-        self.pretrained_bert_tiny_classifier_finetune(no_cov_mat=True)
+    def test_pretrained_bert_classifier_finetune_no_cov(self):
+        model = self.pretrained_bert_classifier_finetune(no_cov_mat=True)
+        self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=0)  # SWA
+        self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=1)  # SWAG-Diag
 
-    def test_pretrained_bert_tiny_classifier_finetune_with_cov(self):
-        self.pretrained_bert_tiny_classifier_finetune(no_cov_mat=False)
+    def test_pretrained_bert_classifier_finetune_with_cov(self):
+        model = self.pretrained_bert_classifier_finetune(no_cov_mat=False)
+        self.finetuned_model_test(model, no_cov_mat=False, blockwise=False, scale=0.5)
+        self.finetuned_model_test(model, no_cov_mat=False, blockwise=True, scale=0.5)
 
 
 if __name__ == "__main__":

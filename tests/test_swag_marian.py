@@ -1,3 +1,4 @@
+import copy
 import logging
 import unittest
 import tempfile
@@ -51,7 +52,7 @@ class TestSwagMarian(unittest.TestCase):
         self.assertEqual(out.encoder_last_hidden_state.shape, (1, 2, hidden_size))
         self.assertEqual(out.logits.shape, (1, 1, vocab_size))
 
-    def test_pretrained_marian_tiny_test(self):
+    def test_pretrained_marian_test(self):
         model = MarianMTModel.from_pretrained(self.pretrained_model_name)
         logging.debug(model)
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
@@ -106,6 +107,18 @@ class TestSwagMarian(unittest.TestCase):
         self.assertGreater(len(output), 0)
         self.assertEqual(base_output, output)
 
+
+class TestSwagMarianFinetune(unittest.TestCase):
+
+    pretrained_model_name = 'sshleifer/tiny-marian-en-de'
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    @classmethod
+    def setUpClass(cls):
+        cls.base_model = MarianMTModel.from_pretrained(cls.pretrained_model_name)
+        cls.base_model.to(cls.device)
+        cls.tokenizer = AutoTokenizer.from_pretrained(cls.pretrained_model_name)
+
     @staticmethod
     def _data_gen():
         yield {"source": "India and Japan prime ministers meet in Tokyo",
@@ -118,16 +131,15 @@ class TestSwagMarian(unittest.TestCase):
         yield {"source": "Karratha police arrest 20-year-old after high speed motorcycle chase",
                "target": "Polizei von Karratha verhaftet 20-Jährigen nach schneller Motorradjagd"}
 
-    def pretrained_marian_tiny_finetune(self, no_cov_mat):
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        model = MarianMTModel.from_pretrained(self.pretrained_model_name)
-        model.to(device)
-        self.assertEqual(model.device.type, device)
+    def pretrained_marian_finetune(self, no_cov_mat):
+        model = copy.deepcopy(self.base_model)
+        tokenizer = self.tokenizer
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
         logging.info("Init from base")
         swag_model = SwagMarianMTModel.from_base(model, no_cov_mat=no_cov_mat)
-        swag_model.to(device)
-        self.assertEqual(swag_model.device.type, device)
+        swag_model.to(self.device)
+        self.assertEqual(model.device.type, self.device)
+        self.assertEqual(swag_model.device.type, self.device)
         logging.info("Done")
 
         max_input_length = 128
@@ -155,7 +167,7 @@ class TestSwagMarian(unittest.TestCase):
             training_args = Seq2SeqTrainingArguments(
                 output_dir=tempdir,
                 num_train_epochs=train_epochs,
-                use_cpu=True if device == "cpu" else False
+                use_cpu=True if self.device == "cpu" else False
             )
             trainer = Seq2SeqTrainer(
                 model,
@@ -168,16 +180,19 @@ class TestSwagMarian(unittest.TestCase):
             trainer.train()
         logging.info("N models: %s", swag_model.swag.n_models.item())
         # self.assertEqual(swag_model.swag.n_models, train_epochs)
-        swag_model.sample_parameters(cov=not no_cov_mat)
+        return model, swag_model
+
+    def finetuned_model_test(self, base_model, swag_model, no_cov_mat=True, blockwise=False, scale=1):
+        swag_model.sample_parameters(cov=not no_cov_mat, block=blockwise, scale=scale, seed=1234)
         sample_text = "India and Japan prime ministers meet in Tokyo"
-        batch = tokenizer([sample_text], return_tensors="pt")
-        generated_ids = model.generate(**batch, max_new_tokens=10)
-        base_output = tokenizer.batch_decode(generated_ids, skip_special_tokens=False)[0]
+        batch = self.tokenizer([sample_text], return_tensors="pt")
+        generated_ids = base_model.generate(**batch, max_new_tokens=10)
+        base_output = self.tokenizer.batch_decode(generated_ids, skip_special_tokens=False)[0]
         logging.debug(base_output)
         self.assertGreater(len(base_output), 0)
         generated_ids = swag_model.generate(**batch, max_new_tokens=10)
         logging.debug(generated_ids)
-        output = tokenizer.batch_decode(generated_ids, skip_special_tokens=False)[0]
+        output = self.tokenizer.batch_decode(generated_ids, skip_special_tokens=False)[0]
         logging.debug(output)
         self.assertGreater(len(output), 0)
 
@@ -192,6 +207,7 @@ class TestSwagMarian(unittest.TestCase):
         self.assertEqual(tied_params_orig, tied_params_stored)
 
         orig_embed = swag_model.swag.base.model.shared.weight.to('cpu')
+        stored_model.sample_parameters(cov=not no_cov_mat, block=blockwise, scale=scale, seed=1234)
         for rnd in range(3):
             loaded_embed = stored_model.swag.base.model.shared.weight
             loaded_enc = stored_model.swag.base.model.encoder.embed_tokens.weight
@@ -200,12 +216,17 @@ class TestSwagMarian(unittest.TestCase):
             if rnd == 0:
                 # before sampling
                 self.assertTrue(torch.allclose(orig_embed, loaded_embed))
+            # Tied parameters
             self.assertTrue(torch.allclose(loaded_embed, loaded_enc))
             self.assertTrue(torch.allclose(loaded_embed, loaded_head))
-            stored_model.sample_parameters(cov=not no_cov_mat)
+            stored_model.sample_parameters(cov=not no_cov_mat, block=blockwise, scale=scale)
 
-    def test_pretrained_marian_tiny_finetune_no_cov(self):
-        self.pretrained_marian_tiny_finetune(no_cov_mat=True)
+    def test_pretrained_marian_finetune_no_cov(self):
+        base_model, swag_model = self.pretrained_marian_finetune(no_cov_mat=True)
+        self.finetuned_model_test(base_model, swag_model, no_cov_mat=True, scale=0)  # SWA
+        self.finetuned_model_test(base_model, swag_model, no_cov_mat=True, scale=1)  # SWAG-Diag
 
-    def test_pretrained_marian_tiny_finetune_with_cov(self):
-        self.pretrained_marian_tiny_finetune(no_cov_mat=False)
+    def test_pretrained_marian_finetune_with_cov(self):
+        base_model, swag_model = self.pretrained_marian_finetune(no_cov_mat=False)
+        self.finetuned_model_test(base_model, swag_model, no_cov_mat=False, blockwise=False, scale=0.5)
+        self.finetuned_model_test(base_model, swag_model, no_cov_mat=False, blockwise=True, scale=0.5)
