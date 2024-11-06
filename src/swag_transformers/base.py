@@ -35,6 +35,7 @@ class SwagConfig(PretrainedConfig):
             cov_mat_rank: int = 0,
             max_num_models: int = 20,
             var_clamp: float = 1e-30,
+            module_prefix_list: list = None,
             **kwargs
     ):
         super().__init__()
@@ -47,6 +48,7 @@ class SwagConfig(PretrainedConfig):
         self.cov_mat_rank = cov_mat_rank
         self.max_num_models = max_num_models
         self.var_clamp = var_clamp
+        self.module_prefix_list = module_prefix_list
 
     @classmethod
     def from_config(cls, base_config: PretrainedConfig, **kwargs):
@@ -86,6 +88,7 @@ class SwagPreTrainedModel(PreTrainedModel):
             cov_mat_rank=config.cov_mat_rank,
             max_num_models=config.max_num_models,
             var_clamp=config.var_clamp,
+            module_prefix_list=config.module_prefix_list,
             config=config.internal_config_class(**config.internal_model_config)
         )
         self.post_init()
@@ -129,7 +132,8 @@ class SwagModel(SwagPreTrainedModel):
                 no_cov_mat=config.no_cov_mat,
                 cov_mat_rank=config.cov_mat_rank,
                 max_num_models=config.max_num_models,
-                var_clamp=config.var_clamp
+                var_clamp=config.var_clamp,
+                module_prefix_list=config.module_prefix_list
             )
         self.prepare_inputs_for_generation = self.swag.base.prepare_inputs_for_generation
         self.generate = self.swag.base.generate

@@ -98,6 +98,27 @@ class TestSwagBert(unittest.TestCase):
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
+        with tempfile.TemporaryDirectory() as tempdir:
+            swag_model.save_pretrained(tempdir)
+
+    def test_pretrained_bert_classifier_test_partial(self):
+        num_labels = 4
+        model = AutoModelForSequenceClassification.from_pretrained(self.pretrained_model_name, num_labels=num_labels)
+        print(model.config)
+        swag_model = SwagBertForSequenceClassification.from_base(
+            model, module_prefix_list=['bert.embeddings.word_embeddings', 'classifier'])
+        logging.debug(swag_model)
+        self.assertEqual(swag_model.device.type, 'cpu')
+        logging.debug(swag_model.device)
+        logging.debug(swag_model.swag.device)
+        logging.debug(swag_model.swag.base.device)
+        swag_model.swag.collect_model(model)
+        swag_model.sample_parameters()
+        out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
+        logging.debug(out)
+        self.assertEqual(out.logits.shape, (1, num_labels))
+        with tempfile.TemporaryDirectory() as tempdir:
+            swag_model.save_pretrained(tempdir)
 
     def test_pretrained_bert_qa_test(self):
         model = AutoModelForQuestionAnswering.from_pretrained(self.pretrained_model_name)
@@ -143,11 +164,12 @@ class TestSwagBertFinetune(unittest.TestCase):
         yield {"text": "That's so bad", "label": 0}
         yield {"text": "This is SWAG", "label": 1}
 
-    def pretrained_bert_classifier_finetune(self, no_cov_mat):
+    def pretrained_bert_classifier_finetune(self, no_cov_mat, module_prefix_list=None):
         train_epochs = 5
         model = copy.deepcopy(self.base_model)
         tokenizer = self.tokenizer
-        swag_model = SwagBertForSequenceClassification.from_base(model, no_cov_mat=no_cov_mat)
+        swag_model = SwagBertForSequenceClassification.from_base(
+            model, no_cov_mat=no_cov_mat, module_prefix_list=module_prefix_list)
         swag_model.to(self.device)
         self.assertEqual(model.device.type, self.device)
         self.assertEqual(swag_model.device.type, self.device)
@@ -211,6 +233,18 @@ class TestSwagBertFinetune(unittest.TestCase):
 
     def test_pretrained_bert_classifier_finetune_with_cov(self):
         model = self.pretrained_bert_classifier_finetune(no_cov_mat=False)
+        self.finetuned_model_test(model, no_cov_mat=False, blockwise=False, scale=0.5)
+        self.finetuned_model_test(model, no_cov_mat=False, blockwise=True, scale=0.5)
+
+    def test_pretrained_bert_classifier_finetune_no_cov_partial(self):
+        model = self.pretrained_bert_classifier_finetune(
+            no_cov_mat=True, module_prefix_list=['bert.embeddings.word_embeddings', 'classifier'])
+        self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=0)  # SWA
+        self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=1)  # SWAG-Diag
+
+    def test_pretrained_bert_classifier_finetune_with_cov_partial(self):
+        model = self.pretrained_bert_classifier_finetune(
+            no_cov_mat=False, module_prefix_list=['bert.embeddings.word_embeddings', 'classifier'])
         self.finetuned_model_test(model, no_cov_mat=False, blockwise=False, scale=0.5)
         self.finetuned_model_test(model, no_cov_mat=False, blockwise=True, scale=0.5)
 
