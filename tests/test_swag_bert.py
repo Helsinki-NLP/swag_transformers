@@ -6,11 +6,11 @@ import tempfile
 import torch
 
 from datasets import Dataset, DatasetDict
-from transformers import AutoModel, AutoModelForSequenceClassification, \
+from transformers import AutoModel, AutoModelForSequenceClassification, AutoModelForQuestionAnswering, \
     AutoTokenizer, DataCollatorWithPadding, Trainer, TrainingArguments
 
 from swag_transformers.swag_bert import SwagBertConfig, SwagBertLMHeadModel, SwagBertModel, SwagBertPreTrainedModel, \
-    SwagBertForSequenceClassification
+    SwagBertForSequenceClassification, SwagBertForQuestionAnswering
 from swag_transformers.trainer_utils import SwagUpdateCallback
 
 
@@ -98,6 +98,27 @@ class TestSwagBert(unittest.TestCase):
         out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
         logging.debug(out)
         self.assertEqual(out.logits.shape, (1, num_labels))
+
+    def test_pretrained_bert_qa_test(self):
+        model = AutoModelForQuestionAnswering.from_pretrained(self.pretrained_model_name)
+        tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
+        swag_model = SwagBertForQuestionAnswering.from_base(model)
+        swag_model.swag.collect_model(model)
+        swag_model.sample_parameters()
+        inputs = tokenizer(
+            "What is context?",
+            "Context is the interrelated conditions in which something exists or occurs.",
+            max_length=100,
+            truncation="only_second",
+            stride=50,
+            return_tensors="pt"
+        )
+        logging.debug(inputs)
+        num_positions = inputs['input_ids'].shape[1]
+        out = swag_model.forward(**inputs)
+        logging.debug(out)
+        self.assertEqual(out.start_logits.shape, (1, num_positions))
+        self.assertEqual(out.end_logits.shape, (1, num_positions))
 
 
 class TestSwagBertFinetune(unittest.TestCase):
