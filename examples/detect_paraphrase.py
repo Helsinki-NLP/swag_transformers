@@ -35,7 +35,8 @@ def read_data(path_to_train_data, language):
     and add validation and test sets.
     '''
     train_data = load_dataset("json", data_files=path_to_train_data)
-    dataset = load_dataset("GEM/opusparcus", f"{language}.100", trust_remote_code=True, cache_dir="./tmp") # Downloads valid and test sets for the given language.
+    # Download only the validation and test sets for the given language.
+    dataset = load_dataset("GEM/opusparcus", f"{language}.100", trust_remote_code=True, cache_dir="./tmp")
 
     dataset = dataset.rename_column("input", "sentence1")
     dataset = dataset.rename_column("target", "sentence2")
@@ -55,7 +56,7 @@ def read_data(path_to_train_data, language):
     return dataset_dict
 
 
-def download_data(source_data, negatives, language, quality, num_negatives=None):
+def download_data(negative_examples, negatives, language, quality, num_negatives=None):
     '''
     Downloads Opusparcus training and dev/test sets from Huggingface transformers.
     '''
@@ -70,55 +71,59 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
     dataset = dataset.rename_column("target", "sentence2")
     dataset = dataset.remove_columns("references")
 
-    num_train_samples = len(dataset["train"])
-    num_negatives = num_negatives if num_negatives is not None else num_train_samples
+    num_positives = len(dataset["train"])
+    num_negatives = num_negatives if num_negatives is not None else num_positives
 
-    negative_sources, negative_targets = [], []
+    # negative_sources, negative_targets = [], []
 
     # Sampling negative examples
     if negatives == "same":
         # sample from the same data distribution
-        with bz2.open(source_data, "rt") as f:
-            for i, line in enumerate(f):
-                _, s1, s2, *_ = line.split("\t")
-                negative_sources.append(s1)
-                negative_targets.append(s2)
-                if len(negative_sources) == num_negatives:
-                    break
+        # (sentence1 randomly from all data, sentence2 from the current training set)
+        negative_samples = load_dataset("json", data_files=f"{negative_examples}")
+        negative_samples = negative_samples["train"].select(range(num_negatives))
 
-    elif negatives == "random":
-        # sample randomly from all data
-        with bz2.open(source_data, "rt") as f:
-            choices = random.sample(f.readlines(), num_negatives)
-            for choice in choices:
-                _, s1, s2, *_ = choice.split("\t")
-                negative_sources.append(s1)
-                negative_targets.append(s2)
+        # with open(negative_examples, "rt") as f:
+        #     for i, line in enumerate(f):
+        #         _, s1, s2, *_ = line.split("\t")
+        #         negative_sources.append(s1)
+        #         negative_targets.append(s2)
+        #         if len(negative_sources) == num_negatives:
+        #             break
 
-    elif negatives == "after":
-        # sample from data after the positive examples
-        with bz2.open(source_data, "rt") as f:
-            for i, line in enumerate(f):
-                if i < num_negatives:
-                    continue
-                _, s1, s2, *_ = line.split("\t")
-                negative_sources.append(s1)
-                negative_targets.append(s2)
-                if len(negative_sources) == num_negatives:
-                    break
+    # elif negatives == "random":
+    #     # sample randomly from all data
+    #     with bz2.open(negative_examples, "rt") as f:
+    #         choices = random.sample(f.readlines(), num_negatives)
+    #         for choice in choices:
+    #             _, s1, s2, *_ = choice.split("\t")
+    #             negative_sources.append(s1)
+    #             negative_targets.append(s2)
 
-        missing = num_negatives - len(negative_sources)
-        if missing > 0:
-            startind = num_train_samples - missing
-            with bz2.open(source_data, "rt") as f:
-                for i, line in enumerate(f):
-                    if i < startind:
-                        continue
-                    if len(negative_sources) == num_negatives:
-                        break
-                    _, s1, s2, *_ = line.split("\t")
-                    negative_sources.append(s1)
-                    negative_targets.append(s2)
+    # elif negatives == "after":
+    #     # sample from data after the positive examples
+    #     with bz2.open(negative_examples, "rt") as f:
+    #         for i, line in enumerate(f):
+    #             if i < num_negatives:
+    #                 continue
+    #             _, s1, s2, *_ = line.split("\t")
+    #             negative_sources.append(s1)
+    #             negative_targets.append(s2)
+    #             if len(negative_sources) == num_negatives:
+    #                 break
+
+        # missing = num_negatives - len(negative_sources)
+        # if missing > 0:
+        #     startind = num_positives - missing
+        #     with bz2.open(negative_examples, "rt") as f:
+        #         for i, line in enumerate(f):
+        #             if i < startind:
+        #                 continue
+        #             if len(negative_sources) == num_negatives:
+        #                 break
+        #             _, s1, s2, *_ = line.split("\t")
+        #             negative_sources.append(s1)
+        #             negative_targets.append(s2)
 
     else:
         ValueError(negatives)
@@ -133,22 +138,22 @@ def download_data(source_data, negatives, language, quality, num_negatives=None)
     dataset["validation"] = dataset["validation.full"]
     dataset["test"] = dataset["test.full"]
 
-    random.shuffle(negative_sources)
+    # random.shuffle(negative_sources)
 
-    num_negatives = len(negative_sources)
-    negative_data = datasets.Dataset.from_dict({
-        "lang": ["en"]*num_negatives,
-        "sentence1": negative_sources,
-        "sentence2": negative_targets,
-        "annot_score": [-1]*num_negatives,
-        "gem_id": [f"neg{i}" for i in range(num_negatives)],
-    }, features=dataset["train"].features)
+    # num_negatives = len(negative_sources)
+    # negative_data = datasets.Dataset.from_dict({
+    #     "lang": ["en"]*num_negatives,
+    #     "sentence1": negative_sources,
+    #     "sentence2": negative_targets,
+    #     "annot_score": [-1]*num_negatives,
+    #     "gem_id": [f"neg{i}" for i in range(num_negatives)],
+    # }, features=dataset["train"].features)
 
     dataset["train"] = datasets.concatenate_datasets(
-        [dataset["train"], negative_data]
+        [dataset["train"], negative_samples]
     )
 
-    cols_to_remove = [k for k in list(dataset["train"][0].keys()) if k not in ["labels"]]
+    # cols_to_remove = [k for k in list(dataset["train"][0].keys()) if k not in ["labels"]]
 
     dataset["train"] = dataset["train"].shuffle()
 
@@ -163,7 +168,7 @@ def main():
     parser.add_argument("--num_positives", type=int, help="Number of positive examples if limit_training")
     parser.add_argument("--num_negatives", type=int, help="Number of negative examples")
     parser.add_argument("--negatives", type=str, default="same", help="Type of negative sampling (options: same, random, after)")
-    parser.add_argument("--source_data", type=str, help="Data directory of Opusparcus data")
+    parser.add_argument("--negative_data", type=str, help="Data directory of negative examples")
     parser.add_argument("--train_data", type=str, help="Path to training dataset (json)")
     parser.add_argument("--eval_data", type=str, help="Path to validation dataset (json)")
     parser.add_argument("--test_data", type=str, help="Path to test dataset (json)")
@@ -190,7 +195,7 @@ def main():
         dataset = read_data(args.train_data, args.language)
     else:
         dataset = download_data(
-            source_data=args.source_data,
+            negative_examples=args.negative_data,
             negatives=args.negatives,
             language=args.language,
             quality=args.quality,
@@ -229,9 +234,11 @@ def main():
         return {"accuracy": accuracy["accuracy"]}
 
 
+    seed = random.randint(1, 10000000)
+
     training_args = transformers.TrainingArguments(
         output_dir=args.save_folder,
-        # seed=42,
+        seed=seed,
         learning_rate=2e-5,
         weight_decay=0.1,
         per_device_train_batch_size=args.batch_size,
