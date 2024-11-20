@@ -9,6 +9,7 @@ from datasets import Dataset, DatasetDict
 from transformers import AutoTokenizer, DataCollatorForSeq2Seq, Seq2SeqTrainer, \
     Seq2SeqTrainingArguments, MarianMTModel
 
+from swag_transformers.base import SwagConfigurationError
 from swag_transformers.swag_marian import SwagMarianConfig, SwagMarianModel, SwagMarianMTModel, \
     SwagMarianPreTrainedModel
 from swag_transformers.trainer_utils import SwagUpdateCallback
@@ -107,6 +108,16 @@ class TestSwagMarian(unittest.TestCase):
         self.assertGreater(len(output), 0)
         self.assertEqual(base_output, output)
 
+    def test_pretrained_marian_module_prefix(self):
+        model = MarianMTModel.from_pretrained(self.pretrained_model_name)
+        with self.assertRaises(SwagConfigurationError):
+            SwagMarianMTModel.from_base(model, module_prefix_list=['model.decoder', 'foo.bar'])
+        with self.assertRaises(SwagConfigurationError):
+            # Tied parameter model.encoder.embed_tokens -> model.shared
+            SwagMarianMTModel.from_base(model, module_prefix_list=['model.decoder', 'model.encoder.embed_tokens'])
+        # OK
+        SwagMarianMTModel.from_base(model, module_prefix_list=['model.decoder', 'model.shared'])
+
 
 class TestSwagMarianFinetune(unittest.TestCase):
 
@@ -131,12 +142,12 @@ class TestSwagMarianFinetune(unittest.TestCase):
         yield {"source": "Karratha police arrest 20-year-old after high speed motorcycle chase",
                "target": "Polizei von Karratha verhaftet 20-Jährigen nach schneller Motorradjagd"}
 
-    def pretrained_marian_finetune(self, no_cov_mat):
+    def pretrained_marian_finetune(self, no_cov_mat, module_prefix_list=None):
         model = copy.deepcopy(self.base_model)
         tokenizer = self.tokenizer
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name)
         logging.info("Init from base")
-        swag_model = SwagMarianMTModel.from_base(model, no_cov_mat=no_cov_mat)
+        swag_model = SwagMarianMTModel.from_base(model, no_cov_mat=no_cov_mat, module_prefix_list=module_prefix_list)
         swag_model.to(self.device)
         self.assertEqual(model.device.type, self.device)
         self.assertEqual(swag_model.device.type, self.device)
@@ -228,5 +239,11 @@ class TestSwagMarianFinetune(unittest.TestCase):
 
     def test_pretrained_marian_finetune_with_cov(self):
         base_model, swag_model = self.pretrained_marian_finetune(no_cov_mat=False)
+        self.finetuned_model_test(base_model, swag_model, no_cov_mat=False, blockwise=False, scale=0.5)
+        self.finetuned_model_test(base_model, swag_model, no_cov_mat=False, blockwise=True, scale=0.5)
+
+    def test_pretrained_marian_finetune_with_cov_partial(self):
+        base_model, swag_model = self.pretrained_marian_finetune(
+            no_cov_mat=False, module_prefix_list=["model.shared", "model.decoder.layers.1"])
         self.finetuned_model_test(base_model, swag_model, no_cov_mat=False, blockwise=False, scale=0.5)
         self.finetuned_model_test(base_model, swag_model, no_cov_mat=False, blockwise=True, scale=0.5)
