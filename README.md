@@ -7,7 +7,8 @@ is tied into two libraries:
 * [transformers](https://github.com/huggingface/transformers)
   (maintained by Hugging Face)
 * [swa_gaussian](https://github.com/Helsinki-NLP/swa_gaussian)
-  (maintained by the Language Technology Research Group at the University of Helsinki)
+  (maintained by the Language Technology Research Group at the
+  University of Helsinki, a fork of https://github.com/wjmaddox/swa_gaussian)
 
 The goal is to make an implementation that works directly with the
 convenience tools in the `transformers` library (e.g. `Pipeline` and
@@ -57,6 +58,31 @@ stored in `model.swag.cov_mat_rank` and automatically updated to
 `model.config.cov_mat_rank` when using `SwagUpdateCallback`. If you
 call `model.swag.collect_model()` manually, you should also update the
 configuration accordingly before saving the model.
+
+### Restricting SWAG to certain parameters
+
+For `N` original parameters, SWAG requires:
+
+* `N` mean values (SWA, SWAG-Diag, SWAG)
+* `N` squared mean values for variances (SWAG-Diag & SWAG)
+* `max_num_models` x `N` parameters for covariance matrix estimation
+  (SWAG)
+
+This means that for full SWAG, the number of parameters may easily
+grow e.g. ten times larger than in the baseline model.
+
+However, it does not always make sense to estimate the full
+(co)variance for all of the parameters. With the `module_prefix_list`
+option, variance estimation can be limited to certain modules of the
+model. The prefixes in the list are matched to full names of the
+parameters. For example, with BERT, `embeddings.word_embeddings.weight`
+would be matched by prefix `embeddings.word_embeddings` and
+`encoder.layer.11.output.dense.weight` by prefix `encoder.layer.11`.
+If `module_prefix_list` is provided, the mean (SWA method) is used for
+all parameters that do not match any of the prefixes.
+
+For tied parameters, you should provide the name of module that
+actually stored the parameters.
 
 ### Sampling model parameters
 

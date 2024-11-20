@@ -15,6 +15,10 @@ from swag.posteriors.swag import SWAG
 logger = logging.getLogger(__name__)
 
 
+class SwagConfigurationError(Exception):
+    """Configuration error for SWAG"""
+
+
 class SwagConfig(PretrainedConfig):
     """Base configuration class for SWAG models
 
@@ -35,6 +39,7 @@ class SwagConfig(PretrainedConfig):
             cov_mat_rank: int = 0,
             max_num_models: int = 20,
             var_clamp: float = 1e-30,
+            module_prefix_list: list = None,
             **kwargs
     ):
         super().__init__()
@@ -47,6 +52,7 @@ class SwagConfig(PretrainedConfig):
         self.cov_mat_rank = cov_mat_rank
         self.max_num_models = max_num_models
         self.var_clamp = var_clamp
+        self.module_prefix_list = module_prefix_list
 
     @classmethod
     def from_config(cls, base_config: PretrainedConfig, **kwargs):
@@ -86,9 +92,31 @@ class SwagPreTrainedModel(PreTrainedModel):
             cov_mat_rank=config.cov_mat_rank,
             max_num_models=config.max_num_models,
             var_clamp=config.var_clamp,
+            module_prefix_list=config.module_prefix_list,
             config=config.internal_config_class(**config.internal_model_config)
         )
+        if not self.check_configuration():
+            raise SwagConfigurationError("Errors in SWAG configuration - check error log for details.")
         self.post_init()
+
+    def check_configuration(self):
+        """Return whether configuration options make sense for the model"""
+        errors = False
+        if self.swag.module_prefix_list:
+            module_prefix_list = self.swag.module_prefix_list
+            var_enabled = [name for _, _, name in self.swag.params if self.swag.variance_enabled(name)]
+            for prefix in module_prefix_list:
+                if not any(name.startswith(prefix) for name in var_enabled):
+                    for target, _, _, source, _, _ in self.swag.tied_params:
+                        if target.startswith(prefix):
+                            logging.error(
+                                'Module prefix "%s" matches tied parameters %s, use actual parameters %s instead',
+                                prefix, target, source)
+                            break
+                    else:
+                        logging.error('Module prefix "%s" does not match any module', prefix)
+                    errors = True
+        return not errors
 
     @classmethod
     def new_base_model(cls, *args, **kwargs):
@@ -129,7 +157,8 @@ class SwagModel(SwagPreTrainedModel):
                 no_cov_mat=config.no_cov_mat,
                 cov_mat_rank=config.cov_mat_rank,
                 max_num_models=config.max_num_models,
-                var_clamp=config.var_clamp
+                var_clamp=config.var_clamp,
+                module_prefix_list=config.module_prefix_list
             )
         self.prepare_inputs_for_generation = self.swag.base.prepare_inputs_for_generation
         self.generate = self.swag.base.generate

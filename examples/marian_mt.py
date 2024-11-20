@@ -23,6 +23,7 @@ def main():
     parser.add_argument("--epochs", type=int, default=3, help="number of training epochs")
     parser.add_argument("--collect-steps", type=int, default=100, help="number of steps between collecting parameters")
     parser.add_argument("--learning-rate", type=float, default=2e-5, help="learning rate")
+    parser.add_argument("--swag-modules", type=str, action='append', help="restrict SWAG to modules matching given prefix(es)")
     args = parser.parse_args()
 
     if args.device:
@@ -33,7 +34,7 @@ def main():
     tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model)
     model = transformers.MarianMTModel.from_pretrained(args.base_model)
     model.to(device)
-    swag_model = SwagMarianMTModel.from_base(model)
+    swag_model = SwagMarianMTModel.from_base(model, module_prefix_list=args.swag_modules)
     swag_model.to(device)
 
     dataset = datasets.load_dataset("Helsinki-NLP/opus-100", "de-nl", split="test")

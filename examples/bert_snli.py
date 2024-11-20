@@ -26,6 +26,7 @@ def main():
     parser.add_argument("--collect-steps", type=int, default=100,
                         help="number of steps between collecting parameters; set to zero for per epoch updates")
     parser.add_argument("--learning-rate", type=float, default=2e-5, help="learning rate")
+    parser.add_argument("--swag-modules", type=str, action='append', help="restrict SWAG to modules matching given prefix(es)")
     args = parser.parse_args()
 
     if args.device:
@@ -37,7 +38,7 @@ def main():
     model = transformers.AutoModelForSequenceClassification.from_pretrained(
         args.base_model, num_labels=3, cache_dir=args.model_cache_dir)
     model.to(device)
-    swag_model = SwagBertForSequenceClassification.from_base(model)
+    swag_model = SwagBertForSequenceClassification.from_base(model, module_prefix_list=args.swag_modules)
     swag_model.to(device)
 
     dataset = datasets.load_dataset("snli", split="train", cache_dir=args.data_cache_dir)
