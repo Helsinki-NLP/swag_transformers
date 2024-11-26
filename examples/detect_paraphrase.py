@@ -1,25 +1,73 @@
 import argparse
 import logging
 import os
-import bz2
 import random
-import json
 
 import torch
+import torch.nn as nn
 import transformers
 import datasets
 import evaluate
 
 import numpy as np
 
-from datasets import Dataset, DatasetDict, load_dataset
+from datasets import DatasetDict, load_dataset
 
-from transformers import EarlyStoppingCallback
+from torch.nn import KLDivLoss
+
+from transformers import (
+    AutoTokenizer,
+    AutoModelForSequenceClassification,
+    EarlyStoppingCallback,
+    Trainer,
+)
 
 from swag_transformers.swag_bert import SwagBertForSequenceClassification
 from swag_transformers.trainer_utils import SwagUpdateCallback
 
 logger = logging.getLogger(__name__)
+
+
+class TrainerWithCustomLoss(Trainer):
+    def __init__(self, *args, loss_function=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.loss_function = loss_function or KLDivLoss(reduction="batchmean")
+
+    def compute_loss(self, model, inputs, return_outputs=False):
+        labels = inputs.pop("labels")
+        confidence = inputs.pop("confidence", None) # Handle optional confidence values
+        outputs = model(**inputs)
+
+        # Compute the custom KL-Divergence loss
+        logits = outputs.logits
+
+        if isinstance(self.loss_function, KLDivLoss):
+            print(f"Distributions in KLDivLoss:\nLogits (after log_softmax): {torch.log_softmax(logits, dim=-1)}\nLabels: {labels}")
+            loss = self.loss_function(torch.log_softmax(logits, dim=-1), labels)
+        elif isinstance(self.loss_function, CustomCrossEntropyLoss):
+            loss = self.loss_function(logits, labels, confidence)
+        else:
+            ValueError("Unsupported loss function provided.")
+
+        return (loss, outputs) if return_outputs else loss
+
+
+class CustomCrossEntropyLoss(nn.Module):
+    def __init__(self):
+        super(CustomCrossEntropyLoss, self).__init__()
+
+    def forward(self, logits, labels, confidence):
+        loss_fn = nn.CrossEntropyLoss(reduction='none')
+        loss = loss_fn(logits, labels.argmax(dim=-1))
+
+        print(f"Weighting cross-entropy loss with labels: {labels} and confidence: {confidence}")
+
+        if confidence is not None:
+            confidence_weights = confidence * (labels.argmax(dim=-1) == 1).float() + \
+                                (1 - confidence) * (labels.argmax(dim=-1) == 0).float()
+            loss = loss * confidence_weights
+
+        return loss.mean()
 
 
 def annotation_to_label(annotation):
@@ -35,6 +83,7 @@ def read_data(path_to_train_data, language):
     and add validation and test sets.
     '''
     train_data = load_dataset("json", data_files=path_to_train_data)
+    train_data = train_data.remove_columns("rank_scores") # Remove rank_scores
     # Download only the validation and test sets for the given language.
     dataset = load_dataset("GEM/opusparcus", f"{language}.100", trust_remote_code=True, cache_dir="./tmp")
 
@@ -42,16 +91,33 @@ def read_data(path_to_train_data, language):
     dataset = dataset.rename_column("target", "sentence2")
     dataset = dataset.remove_columns("references")
 
+
+    dataset["validation.full"] = dataset["validation.full"].filter(
+        lambda x: x["annot_score"] != 2.5
+    )
+    dataset["test.full"] = dataset["test.full"].filter(
+        lambda x: x["annot_score"] != 2.5
+    )
+
     dataset["validation"] = dataset["validation.full"]
     dataset["test"] = dataset["test.full"]
 
+    def dev_confidence(example):
+        confidence = round((example["annot_score"] - 1.0) / (4.0 - 1.0), 4)
+        return {"label_dist": [round(1 - confidence, 4), confidence]}
+
+    dev_processed = dataset["validation.full"].map(dev_confidence)
+    test_processed = dataset["test.full"].map(dev_confidence)
+
     dataset_dict = DatasetDict({
         "train": train_data["train"],
-        "validation": dataset["validation"],
-        "test": dataset["test"],
+        # "validation": dataset["validation"],
+        # "test": dataset["test"],
+        "validation": dev_processed,
+        "test": test_processed
     })
 
-    dataset_dict["train"] = dataset_dict["train"].shuffle()
+    print(f"Dataset dict after processing: {dataset_dict}")
 
     return dataset_dict
 
@@ -74,8 +140,6 @@ def download_data(negative_examples, negatives, language, quality, num_negatives
     num_positives = len(dataset["train"])
     num_negatives = num_negatives if num_negatives is not None else num_positives
 
-    # negative_sources, negative_targets = [], []
-
     # Sampling negative examples
     if negatives == "same":
         # sample from the same data distribution
@@ -83,50 +147,11 @@ def download_data(negative_examples, negatives, language, quality, num_negatives
         negative_samples = load_dataset("json", data_files=f"{negative_examples}")
         negative_samples = negative_samples["train"].select(range(num_negatives))
 
-        # with open(negative_examples, "rt") as f:
-        #     for i, line in enumerate(f):
-        #         _, s1, s2, *_ = line.split("\t")
-        #         negative_sources.append(s1)
-        #         negative_targets.append(s2)
-        #         if len(negative_sources) == num_negatives:
-        #             break
-
-    # elif negatives == "random":
-    #     # sample randomly from all data
-    #     with bz2.open(negative_examples, "rt") as f:
-    #         choices = random.sample(f.readlines(), num_negatives)
-    #         for choice in choices:
-    #             _, s1, s2, *_ = choice.split("\t")
-    #             negative_sources.append(s1)
-    #             negative_targets.append(s2)
-
-    # elif negatives == "after":
-    #     # sample from data after the positive examples
-    #     with bz2.open(negative_examples, "rt") as f:
-    #         for i, line in enumerate(f):
-    #             if i < num_negatives:
-    #                 continue
-    #             _, s1, s2, *_ = line.split("\t")
-    #             negative_sources.append(s1)
-    #             negative_targets.append(s2)
-    #             if len(negative_sources) == num_negatives:
-    #                 break
-
-        # missing = num_negatives - len(negative_sources)
-        # if missing > 0:
-        #     startind = num_positives - missing
-        #     with bz2.open(negative_examples, "rt") as f:
-        #         for i, line in enumerate(f):
-        #             if i < startind:
-        #                 continue
-        #             if len(negative_sources) == num_negatives:
-        #                 break
-        #             _, s1, s2, *_ = line.split("\t")
-        #             negative_sources.append(s1)
-        #             negative_targets.append(s2)
+        # Assign a label distribution of [1.0, 0.0] for all negative examples
+        negative_samples = negative_samples.map(lambda example: {"label_dist": [1.0, 0.0]})
 
     else:
-        ValueError(negatives)
+        raise ValueError(f"Unsupported value for 'negatives': {negatives}")
 
     dataset["test.full"] = dataset["test.full"].filter(
         lambda x: x["annot_score"] != 2.5
@@ -138,24 +163,12 @@ def download_data(negative_examples, negatives, language, quality, num_negatives
     dataset["validation"] = dataset["validation.full"]
     dataset["test"] = dataset["test.full"]
 
-    # random.shuffle(negative_sources)
-
-    # num_negatives = len(negative_sources)
-    # negative_data = datasets.Dataset.from_dict({
-    #     "lang": ["en"]*num_negatives,
-    #     "sentence1": negative_sources,
-    #     "sentence2": negative_targets,
-    #     "annot_score": [-1]*num_negatives,
-    #     "gem_id": [f"neg{i}" for i in range(num_negatives)],
-    # }, features=dataset["train"].features)
+    dataset = dataset.cast_column("annot_score", datasets.Value("float32"))
+    negative_samples = negative_samples.cast_column("annot_score", datasets.Value("float32"))
 
     dataset["train"] = datasets.concatenate_datasets(
         [dataset["train"], negative_samples]
     )
-
-    # cols_to_remove = [k for k in list(dataset["train"][0].keys()) if k not in ["labels"]]
-
-    dataset["train"] = dataset["train"].shuffle()
 
     return dataset
 
@@ -170,24 +183,26 @@ def main():
     parser.add_argument("--negatives", type=str, default="same", help="Type of negative sampling (options: same, random, after)")
     parser.add_argument("--negative_data", type=str, help="Data directory of negative examples")
     parser.add_argument("--train_data", type=str, help="Path to training dataset (json)")
-    parser.add_argument("--eval_data", type=str, help="Path to validation dataset (json)")
-    parser.add_argument("--test_data", type=str, help="Path to test dataset (json)")
     parser.add_argument("--language", type=str, help="Language of the data (en, fi, fr, de, ru, sv)")
     parser.add_argument("--quality", type=int, help="Estimated clean label proportion for the Opusparcus dataset (95, 90, 85, 80, 75, 70, 65, 60)")
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--max_steps", type=int, help="Max steps for training")
     parser.add_argument("--train_epochs", type=int, help="Number of training epochs")
-    parser.add_argument("--collect_steps", type=int, default=100,
+    parser.add_argument("--collect_steps", type=int, default=500,
                         help="number of steps between collecting parameters; set to zero for per epoch updates")
     parser.add_argument("--eval_strategy", type=str, default="steps", help="Evaluation strategy, either steps or epoch.")
     parser.add_argument("--cache", type=str, default="./tmp", help="Temporary directory for storing models and data downloaded from HF.")
     parser.add_argument("--no_cov_mat", action="store_true", help="If active, train without covariance matrix calculation (SWA model training)")
+
+    # Loss function:
+    parser.add_argument("--loss_function", type=str, default="kl", help="Loss function: kl or cross_entropy")
+
     args = parser.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model, cache_dir="./tmp")
-    model = transformers.AutoModelForSequenceClassification.from_pretrained(args.base_model, num_labels=2, cache_dir="./tmp")
+    tokenizer = AutoTokenizer.from_pretrained(args.base_model, cache_dir="./tmp")
+    model = AutoModelForSequenceClassification.from_pretrained(args.base_model, num_labels=2, cache_dir="./tmp")
     swag_model = SwagBertForSequenceClassification.from_base(model, no_cov_mat=args.no_cov_mat) # True = SWA, False = SWAG
     swag_model.to(device)
 
@@ -221,18 +236,19 @@ def main():
             truncation=True,
         )
 
-        processed["labels"] = [annotation_to_label(val) for val in examples["annot_score"]]
+        # Use distributions as labels
+        processed["labels"] = [np.array(val) for val in examples["label_dist"]]
+        # processed["labels"] = [annotation_to_label(val) for val in examples["annot_score"]]
+        processed["confidence"] = [val[1] for val in examples["label_dist"]] # Collect confidence for positive class
         return processed
 
     metric = evaluate.load("accuracy")
 
-
     def compute_metrics(eval_pred):
         logits, labels = eval_pred
         predictions = np.argmax(logits, axis=-1)
-        accuracy = metric.compute(predictions=predictions, references=labels)
+        accuracy = metric.compute(predictions=predictions, references=np.argmax(labels, axis=-1)) # Take argmax when training with label distributions
         return {"accuracy": accuracy["accuracy"]}
-
 
     seed = random.randint(1, 10000000)
 
@@ -253,14 +269,27 @@ def main():
         metric_for_best_model="accuracy",
         greater_is_better=True,
         load_best_model_at_end=True,
+        remove_unused_columns=False,
     )
 
+    if args.loss_function == "kl":
+        loss_function = KLDivLoss(reduction="batchmean")
+    elif args.loss_function == "cross_entropy":
+        loss_function = CustomCrossEntropyLoss()
+    else:
+        raise ValueError(f"Unknown loss function: {args.loss_function}")
+
+    cols_to_remove = [k for k in list(dataset["train"][0].keys()) if k not in ["labels", "confidence"]]
+
     processed_train = dataset["train"].map(
-        tokenize_dataset, batched=True, remove_columns=dataset["train"].column_names)
+        tokenize_dataset, batched=True, remove_columns=cols_to_remove) # dataset["train"].column_names)
     processed_eval = dataset["validation"].map(
-        tokenize_dataset, batched=True, remove_columns=dataset["validation"].column_names)
+        tokenize_dataset, batched=True, remove_columns=cols_to_remove) # dataset["validation"].column_names)
     processed_test = dataset["test"].map(
-        tokenize_dataset, batched=True, remove_columns=dataset["test"].column_names)
+        tokenize_dataset, batched=True, remove_columns=cols_to_remove) # dataset["test"].column_names)
+
+    logger.info(f"Example tokenized train sample: {processed_train[0]}")
+    logger.info(f"Dataset train label distributions: {processed_train['labels'][:5]}")
 
     data_collator = transformers.DataCollatorWithPadding(tokenizer=tokenizer)
 
@@ -269,7 +298,7 @@ def main():
     else:
         callbacks = [SwagUpdateCallback(swag_model, collect_steps=args.collect_steps)]
 
-    trainer = transformers.Trainer(
+    trainer = TrainerWithCustomLoss(
         model=model,
         args=training_args,
         train_dataset=processed_train,
@@ -278,6 +307,7 @@ def main():
         data_collator=data_collator,
         compute_metrics=compute_metrics,
         callbacks=callbacks,
+        loss_function=loss_function,
     )
     trainer.train()
     trainer.save_model(os.path.join(args.save_folder, "final_base"))
