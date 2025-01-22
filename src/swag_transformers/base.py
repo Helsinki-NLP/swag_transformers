@@ -54,6 +54,10 @@ class SwagConfig(PretrainedConfig):
         self.var_clamp = var_clamp
         self.module_prefix_list = module_prefix_list
 
+    @property
+    def vocab_size(self):
+        return self.internal_model_config.get("vocab_size")
+
     @classmethod
     def from_config(cls, base_config: PretrainedConfig, **kwargs):
         """Initialize from existing PretrainedConfig"""
