@@ -18,9 +18,8 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     install_requires=[
-        "transformers>=4.30",
-        "transformers[torch]>=4.30,<4.43",
-        "swa_gaussian>=0.1.8"
+        "transformers[torch]>=4.30",
+        "swa_gaussian>=0.1.9"
     ],
     extras_require={
         "test": ["datasets", "pytest", "sentencepiece"]

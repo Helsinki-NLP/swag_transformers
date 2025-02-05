@@ -27,12 +27,16 @@ def main():
                         help="number of steps between collecting parameters; set to zero for per epoch updates")
     parser.add_argument("--learning-rate", type=float, default=2e-5, help="learning rate")
     parser.add_argument("--swag-modules", type=str, action='append', help="restrict SWAG to modules matching given prefix(es)")
+    parser.add_argument("--seed", type=int, default=None, help="set random seed")
     args = parser.parse_args()
 
     if args.device:
         device = args.device
     else:
         device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    if args.seed is not None:
+        transformers.set_seed(args.seed)
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(args.base_model, cache_dir=args.model_cache_dir)
     model = transformers.AutoModelForSequenceClassification.from_pretrained(
