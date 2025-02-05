@@ -13,8 +13,8 @@ from swag_transformers.swag_bart import SwagBartConfig, SwagBartModel, SwagBartP
 
 class TestSwagBart(unittest.TestCase):
 
-    pretrained_model_name = 'Finnish-NLP/bart-small-finnish'
-    # pretrained_model_name = 'sshleifer/bart-tiny-random'
+    # pretrained_model_name = 'Finnish-NLP/bart-small-finnish'
+    pretrained_model_name = 'sshleifer/bart-tiny-random'
 
     def test_untrained(self):
         hidden_size = 240
@@ -45,12 +45,11 @@ class TestSwagBart(unittest.TestCase):
         tokenizer = AutoTokenizer.from_pretrained(self.pretrained_model_name, clean_up_tokenization_spaces=False)
 
         gen_config = GenerationConfig.from_model_config(model.config)
-        logging.warning(gen_config)
         gen_config.max_new_tokens = 10
-        logging.warning(gen_config)
+        logging.debug(gen_config)
 
         swag_model.swag.collect_model(model)
-        swag_model.sample_parameters(cov=not no_cov_mat)
+        swag_model.sample_parameters(cov=not no_cov_mat, seed=1234)
         # has to be updated manually when using collect_model directly
         swag_model.config.cov_mat_rank = swag_model.swag.cov_mat_rank
 
@@ -61,26 +60,23 @@ class TestSwagBart(unittest.TestCase):
 
         # Test generate
         example = "I have no BART and I must generate"
-        torch.manual_seed(123)
         batch = tokenizer(example, return_tensors="pt")
         base_generated_ids = model.generate(batch["input_ids"], generation_config=gen_config)
-        # max_length=20, num_beams=1, do_sample=False, early_stopping=False
         base_out = tokenizer.batch_decode(base_generated_ids, skip_special_tokens=True)
-        logging.warning(base_out)
 
         generated_ids = swag_model.generate(batch["input_ids"], generation_config=gen_config)
         out = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
-        logging.warning(out)
         self.assertEqual(base_out, out)
 
         # Test saving & loading
         with tempfile.TemporaryDirectory() as tempdir:
             swag_model.save_pretrained(tempdir)
-            logging.warning(os.listdir(tempdir))
+            logging.debug(os.listdir(tempdir))
             with open(os.path.join(tempdir, 'config.json'), 'r') as fobj:
-                logging.warning(fobj.read())
+                logging.debug(fobj.read())
             stored_model = SwagBartForConditionalGeneration.from_pretrained(tempdir).to(device)
 
+        stored_model.sample_parameters(cov=not no_cov_mat, seed=1234)
         stored_fwd_out = stored_model.forward(
             input_ids=torch.tensor([[3, 14]]), decoder_input_ids=torch.tensor([[1, 2, 4]]))
         self.assertTrue(torch.allclose(swag_fwd_out.logits, stored_fwd_out.logits))
