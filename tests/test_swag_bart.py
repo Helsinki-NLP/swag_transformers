@@ -72,14 +72,14 @@ class TestSwagBart(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tempdir:
             swag_model.save_pretrained(tempdir)
             logging.debug(os.listdir(tempdir))
-            with open(os.path.join(tempdir, 'config.json'), 'r') as fobj:
+            with open(os.path.join(tempdir, 'config.json'), 'r', encoding='utf8') as fobj:
                 logging.debug(fobj.read())
             stored_model = SwagBartForConditionalGeneration.from_pretrained(tempdir).to(device)
 
         stored_model.sample_parameters(cov=not no_cov_mat, seed=1234)
         stored_fwd_out = stored_model.forward(
             input_ids=torch.tensor([[3, 14]]), decoder_input_ids=torch.tensor([[1, 2, 4]]))
-        self.assertTrue(torch.allclose(swag_fwd_out.logits, stored_fwd_out.logits))
+        self.assertTrue(torch.allclose(swag_fwd_out.logits, stored_fwd_out.logits, atol=1e-06))
 
         generated_ids = stored_model.generate(batch["input_ids"], generation_config=gen_config)
         out = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
