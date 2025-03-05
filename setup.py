@@ -18,7 +18,7 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     install_requires=[
-        "transformers[torch]>=4.30",
+        "transformers[torch]>=4.48",
         "swa_gaussian>=0.1.9"
     ],
     extras_require={
@@ -29,6 +29,6 @@ setup(
         "Intended Audience :: Science/Research",
         "Programming Language :: Python :: 3",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.9",
     use_scm_version=True
 )
