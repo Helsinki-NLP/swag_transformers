@@ -185,7 +185,7 @@ class TestSwagMarianFinetune(unittest.TestCase):
                 training_args,
                 train_dataset=tokenized_datasets["train"],
                 data_collator=data_collator,
-                tokenizer=tokenizer,
+                processing_class=tokenizer,
                 callbacks=[SwagUpdateCallback(swag_model, collect_steps=2)]
             )
             trainer.train()
