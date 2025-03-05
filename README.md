@@ -115,6 +115,12 @@ matrix) and `scale=0.5` (recommended). For SWA, you should use
   * `BertLMHeadModel` -> `SwagBertLMHeadModel`
   * `BertForSequenceClassification` -> `SwagBertForSequenceClassification`
   * `BertForQuestionAnswering` -> `SwagBertForQuestionAnswering`
+* ModernBERT (bidirectional encoder)
+  * `ModernBertPreTrainedModel` -> `SwagModernBertPreTrainedModel`
+  * `ModernBertModel` -> `SwagModernBertModel`
+  * `ModernBertForMaskedLM` -> `SwagModernBertForMaskedLM`
+  * `ModernBertForSequenceClassification` -> `SwagModernBertForSequenceClassification`
+  * `ModernBertForTokenClassification` -> `SwagModernBertForTokenClassification`
 * BART (bidirectional encoder + causal decoder)
   * `BartPreTrainedModel` -> `SwagBartPreTrainedModel`
   * `BartModel` -> `SwagBartModel`
@@ -123,7 +129,6 @@ matrix) and `scale=0.5` (recommended). For SWA, you should use
 * MarianMT (bidirectional encoder + causal decoder)
   * `MarianPreTrainedModel` -> `SwagMarianPreTrainedModel`
   * `MarianModel` -> `SwagMarianModel`
-  * `MarianMTModel` -> `SwagMarianMTModel`
 
 ### Registering classes for transformers Auto methods
 

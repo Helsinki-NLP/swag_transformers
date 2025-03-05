@@ -3,6 +3,7 @@ import logging
 import unittest
 import tempfile
 
+import pytest
 import torch
 
 from datasets import Dataset, DatasetDict
@@ -232,16 +233,19 @@ class TestSwagMarianFinetune(unittest.TestCase):
             self.assertTrue(torch.allclose(loaded_embed, loaded_head))
             stored_model.sample_parameters(cov=not no_cov_mat, block=blockwise, scale=scale)
 
+    @pytest.mark.slow
     def test_pretrained_marian_finetune_no_cov(self):
         base_model, swag_model = self.pretrained_marian_finetune(no_cov_mat=True)
         self.finetuned_model_test(base_model, swag_model, no_cov_mat=True, scale=0)  # SWA
         self.finetuned_model_test(base_model, swag_model, no_cov_mat=True, scale=1)  # SWAG-Diag
 
+    @pytest.mark.slow
     def test_pretrained_marian_finetune_with_cov(self):
         base_model, swag_model = self.pretrained_marian_finetune(no_cov_mat=False)
         self.finetuned_model_test(base_model, swag_model, no_cov_mat=False, blockwise=False, scale=0.5)
         self.finetuned_model_test(base_model, swag_model, no_cov_mat=False, blockwise=True, scale=0.5)
 
+    @pytest.mark.slow
     def test_pretrained_marian_finetune_with_cov_partial(self):
         base_model, swag_model = self.pretrained_marian_finetune(
             no_cov_mat=False, module_prefix_list=["model.shared", "model.decoder.layers.1"])
