@@ -36,6 +36,11 @@ For collecting the SWAG parameters, two possible schedules are supported:
 * After the end of each training epoch (default, `collect_steps = 0` for `SwagUpdateCallback`)
 * After each N training steps (set `collect_steps > 0` for `SwagUpdateCallback`)
 
+With optional `skip_first` argument, you can warm-up the model before
+starting collecting the parameters for SWAG. For `collect_steps = 0`
+it sets the number of epochs to skip, otherwise the number of steps as
+a multiplier of `collect_steps`.
+
 ### SWA, SWAG-Diagonal, and SWAG
 
 The library supports both SWA (stochastic weight averaging) and two

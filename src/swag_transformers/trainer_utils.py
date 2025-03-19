@@ -27,15 +27,23 @@ class SwagUpdateCallback(TrainerCallback):
     each collect_steps training steps. Otherwise, and as default, the
     parameters are collected on the end of each training epoch.
 
+    The skip_first option can be set to N > 0 for skipping the first N
+    collect steps that would have been otherwise done.
+
     """
 
-    def __init__(self, swag_model, collect_steps=None):
+    def __init__(self, swag_model, collect_steps=None, skip_first=0):
         self.main_model = swag_model
         self.collect_steps = collect_steps
         self.last_collect_step = None
+        self.skips = skip_first
 
     def _update(self, model):
         """Update SWAG model parameters and config"""
+        if self.skips > 0:
+            logger.debug("Skipping SWAG update, %s skips left", self.skips)
+            self.skips -= 1
+            return
         self.main_model.swag.collect_model(model)
         self.main_model.config.update_internal_config(model.config)
         self.main_model.config.cov_mat_rank = self.main_model.swag.cov_mat_rank
@@ -46,7 +54,8 @@ class SwagUpdateCallback(TrainerCallback):
         if model is None:
             logger.error("No model provided for SWAG update")
             return
-        logger.debug("Updating SWAG parameters from %s after train end (steps %s)", type(model).__name__, state.global_step)
+        logger.debug("Updating SWAG parameters from %s after train end (steps %s)",
+                     type(model).__name__, state.global_step)
         self._update(model)
 
     def on_epoch_end(self, args, state, control, model=None, **kwargs):
@@ -55,7 +64,8 @@ class SwagUpdateCallback(TrainerCallback):
         if model is None:
             logger.error("No model provided for SWAG update")
             return
-        logger.debug("Updating SWAG parameters from %s after epoch end (steps %s)", type(model).__name__, state.global_step)
+        logger.debug("Updating SWAG parameters from %s after epoch end (steps %s)",
+                     type(model).__name__, state.global_step)
         self._update(model)
         self.last_collect_step = state.global_step
 
@@ -69,6 +79,7 @@ class SwagUpdateCallback(TrainerCallback):
         if model is None:
             logger.error("No model provided for SWAG update")
             return
-        logger.debug("Updating SWAG parameters from %s after step %s", type(model).__name__, state.global_step)
+        logger.debug("Updating SWAG parameters from %s after step %s",
+                     type(model).__name__, state.global_step)
         self._update(model)
         self.last_collect_step = state.global_step

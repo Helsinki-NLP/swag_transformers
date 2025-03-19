@@ -172,6 +172,8 @@ class TestSwagMarianFinetune(unittest.TestCase):
             tokenizer=tokenizer, model=model
         )
         train_epochs = 60
+        collect_steps = 2
+        skip_first = 5
         logging.debug(model.lm_head.weight)
         logging.debug(model.model.encoder.embed_tokens.weight)
         logging.debug(model.model.decoder.embed_tokens.weight)
@@ -187,11 +189,11 @@ class TestSwagMarianFinetune(unittest.TestCase):
                 train_dataset=tokenized_datasets["train"],
                 data_collator=data_collator,
                 processing_class=tokenizer,
-                callbacks=[SwagUpdateCallback(swag_model, collect_steps=2)]
+                callbacks=[SwagUpdateCallback(swag_model, collect_steps=collect_steps, skip_first=skip_first)]
             )
             trainer.train()
         logging.info("N models: %s", swag_model.swag.n_models.item())
-        # self.assertEqual(swag_model.swag.n_models, train_epochs)
+        self.assertEqual(swag_model.swag.n_models, train_epochs / collect_steps - skip_first)
         return model, swag_model
 
     def finetuned_model_test(self, base_model, swag_model, no_cov_mat=True, blockwise=False, scale=1):

@@ -166,6 +166,7 @@ class TestSwagBertFinetune(unittest.TestCase):
 
     def pretrained_bert_classifier_finetune(self, no_cov_mat, module_prefix_list=None):
         train_epochs = 5
+        skip_first = 1
         model = copy.deepcopy(self.base_model)
         tokenizer = self.tokenizer
         swag_model = SwagBertForSequenceClassification.from_base(
@@ -204,10 +205,10 @@ class TestSwagBertFinetune(unittest.TestCase):
                 train_dataset=tokenized_datasets["train"],
                 data_collator=data_collator,
                 processing_class=tokenizer,
-                callbacks=[SwagUpdateCallback(swag_model)]
+                callbacks=[SwagUpdateCallback(swag_model, skip_first=skip_first)]
             )
             trainer.train()
-        self.assertEqual(swag_model.swag.n_models, train_epochs)
+        self.assertEqual(swag_model.swag.n_models, train_epochs - skip_first)
         return swag_model
 
     def finetuned_model_test(self, swag_model, no_cov_mat=True, blockwise=False, scale=1):
