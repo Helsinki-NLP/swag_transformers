@@ -120,6 +120,15 @@ matrix) and `scale=0.5` (recommended). For SWA, you should use
   * `BertLMHeadModel` -> `SwagBertLMHeadModel`
   * `BertForSequenceClassification` -> `SwagBertForSequenceClassification`
   * `BertForQuestionAnswering` -> `SwagBertForQuestionAnswering`
+* RoBERTa (bidirectional encoder)
+  * `RobertaPreTrainedModel` -> `SwagRobertaPreTrainedModel`
+  * `RobertaModel` -> `SwagRobertaModel`
+  * `RobertaForMaskedLM` -> `SwagRobertaForMaskedLM`
+  * `RobertaForCausalLM` -> `SwagRobertaForCausalLM`
+  * `RobertaForSequenceClassification` -> `SwagRobertaForSequenceClassification`
+  * `RobertaForMultipleChoice` -> `SwagRobertaForMultipleChoice`
+  * `RobertaForTokenClassification` -> `SwagRobertaForTokenClassification`
+  * `RobertaForQuestionAnswering` -> `SwagRobertaForQuestionAnswering`
 * ModernBERT (bidirectional encoder)
   * `ModernBertPreTrainedModel` -> `SwagModernBertPreTrainedModel`
   * `ModernBertModel` -> `SwagModernBertModel`
