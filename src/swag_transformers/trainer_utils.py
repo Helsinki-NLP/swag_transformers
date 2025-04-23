@@ -1,6 +1,7 @@
 """Utils for training the SWAG models"""
 
 import logging
+import os
 
 from transformers import TrainerCallback
 
@@ -30,13 +31,17 @@ class SwagUpdateCallback(TrainerCallback):
     The skip_first option can be set to N > 0 for skipping the first N
     collect steps that would have been otherwise done.
 
+    If save_folder is provided, after each update the model is saved
+    under it in the subdirectory swag-checkpoint-{steps}.
+
     """
 
-    def __init__(self, swag_model, collect_steps=None, skip_first=0):
+    def __init__(self, swag_model, collect_steps=None, skip_first=0, save_folder=None):
         self.main_model = swag_model
         self.collect_steps = collect_steps
         self.last_collect_step = None
         self.skips = skip_first
+        self.save_folder = save_folder
 
     def _update(self, model):
         """Update SWAG model parameters and config"""
@@ -68,6 +73,8 @@ class SwagUpdateCallback(TrainerCallback):
                      type(model).__name__, state.global_step)
         self._update(model)
         self.last_collect_step = state.global_step
+        if self.save_folder:
+            self.main_model.save_pretrained(os.path.join(self.save_folder, f'swag-checkpoint-{state.global_step}'))
 
     def on_step_end(self, args, state, control, model=None, **kwargs):
         if not self.collect_steps:
@@ -83,3 +90,5 @@ class SwagUpdateCallback(TrainerCallback):
                      type(model).__name__, state.global_step)
         self._update(model)
         self.last_collect_step = state.global_step
+        if self.save_folder:
+            self.main_model.save_pretrained(os.path.join(self.save_folder, f'swag-checkpoint-{state.global_step}'))
