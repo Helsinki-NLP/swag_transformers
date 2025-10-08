@@ -29,6 +29,6 @@ setup(
         "Intended Audience :: Science/Research",
         "Programming Language :: Python :: 3",
     ],
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     use_scm_version=True
 )
