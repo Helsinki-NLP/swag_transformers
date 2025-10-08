@@ -3,11 +3,13 @@
 import copy
 import functools
 import logging
+import os
 from typing import Type
 
 import torch
 
 from transformers import PreTrainedModel, PretrainedConfig
+from transformers.utils.hub import create_and_tag_model_card
 
 from swag.posteriors.swag import SWAG
 
@@ -17,6 +19,12 @@ logger = logging.getLogger(__name__)
 
 class SwagConfigurationError(Exception):
     """Configuration error for SWAG"""
+
+
+COPIED_CONFIG_ATTRIBS = [
+    'is_encoder_decoder', 'is_decoder', 'architectures', 'problem_type',
+    'pad_token_id', 'bos_token_id', 'eos_token_id', 'use_cache'
+]
 
 
 class SwagConfig(PretrainedConfig):
@@ -48,6 +56,8 @@ class SwagConfig(PretrainedConfig):
         else:
             internal_config = self.internal_config_class(**kwargs)
             self.internal_model_config = internal_config.to_dict()
+        for attrib in COPIED_CONFIG_ATTRIBS:
+            setattr(self, attrib, self.internal_model_config.get(attrib))
         self.no_cov_mat = no_cov_mat
         self.cov_mat_rank = cov_mat_rank
         self.max_num_models = max_num_models
@@ -57,6 +67,18 @@ class SwagConfig(PretrainedConfig):
     @property
     def vocab_size(self):
         return self.internal_model_config.get("vocab_size")
+
+    @property
+    def hidden_size(self):
+        return self.internal_model_config.get("hidden_size")
+
+    @property
+    def num_attention_heads(self):
+        return self.internal_model_config.get("num_attention_heads")
+
+    @property
+    def num_hidden_layers(self):
+        return self.internal_model_config.get("num_hidden_layers")
 
     @classmethod
     def from_config(cls, base_config: PretrainedConfig, **kwargs):
@@ -136,6 +158,10 @@ class SwagPreTrainedModel(PreTrainedModel):
     def _init_weights(self, module):
         self.swag.base._init_weights(module)
 
+    def tie_weights(self):
+        if hasattr(self.swag.base, "tie_weights"):
+            self.swag.base.tie_weights()
+
     def sample_parameters(self, *args, **kwargs):
         """Sample new model parameters"""
         self.swag.sample(*args, **kwargs)
@@ -164,8 +190,7 @@ class SwagModel(SwagPreTrainedModel):
                 var_clamp=config.var_clamp,
                 module_prefix_list=config.module_prefix_list
             )
-        self.prepare_inputs_for_generation = self.swag.base.prepare_inputs_for_generation
-        self.generate = self.swag.base.generate
+        self.generation_config = self.swag.base.generation_config
 
     @staticmethod
     def _base_model_copy(model, *args, **kwargs):
@@ -183,6 +208,40 @@ class SwagModel(SwagPreTrainedModel):
         swag_model = cls(config, base_model=base_model)
         return swag_model
 
+    def save_pretrained(self, save_directory, push_to_hub=False, **kwargs):
+        os.makedirs(save_directory, exist_ok=True)
+        # Save internal base model
+        self.swag.base.save_pretrained(os.path.join(save_directory, "base_model"), **kwargs)
+        # Save SWAG config
+        self.config.save_pretrained(save_directory)
+        # Save full state dict (including custom parameters)
+        state_dict = kwargs.get("state_dict", self.state_dict())
+        torch.save(state_dict, os.path.join(save_directory, "model.bin"))
+        # Push to hub if requested
+        if push_to_hub:
+            super().push_to_hub(save_directory=save_directory, **kwargs)
+
+    @classmethod
+    def from_pretrained(cls, load_directory, *model_args, **kwargs):
+        # Load config
+        config = cls.config_class.from_pretrained(load_directory, **kwargs)
+        # Load base model
+        base_model = cls.internal_model_class.from_pretrained(
+            os.path.join(load_directory, "base_model"),
+            *model_args,
+            **kwargs
+        )
+        base_model.tie_weights()  # Re-tie weights after loading
+        # Initialize wrapper
+        model = cls(config, base_model=base_model)
+        # Load full state dict
+        state_dict_path = os.path.join(load_directory, "model.bin")
+        state_dict = torch.load(state_dict_path, map_location=kwargs.get("map_location", "cpu"))
+        model.load_state_dict(state_dict)
+        # Re-tie again to ensure shared weights are restored
+        model.tie_weights()
+        return model
+
     def forward(self, *args, **kwargs):
         """Call forward pass from the base model"""
         return self.swag.forward(*args, **kwargs)
@@ -191,11 +250,14 @@ class SwagModel(SwagPreTrainedModel):
     def can_generate(cls) -> bool:
         return cls.internal_model_class.can_generate()
 
-    def prepare_inputs_for_generation(self, *args, **kwargs):
-        return self.swag.base.prepare_inputs_for_generation(*args, **kwargs)
+    def get_encoder(self):
+        return self.swag.base.get_encoder()
 
-    def generate(self, *args, **kwargs):
-        return self.swag.base.generate(*args, **kwargs)
+    @classmethod
+    @property
+    def _tied_weights_keys(cls):
+        internal_keys = cls.internal_model_class._tied_weights_keys
+        return [f'swag.base.{key}' for key in internal_keys]
 
 
 class SampleLogitsMixin:

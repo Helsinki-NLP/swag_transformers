@@ -1,5 +1,6 @@
 import copy
 import logging
+import sys
 import unittest
 import tempfile
 
@@ -15,13 +16,7 @@ from swag_transformers.swag_marian import SwagMarianConfig, SwagMarianModel, Swa
     SwagMarianPreTrainedModel
 from swag_transformers.trainer_utils import SwagUpdateCallback
 
-
-def buf_and_param_names(model):
-    """Return set of parameter and buffer names prefixed with BUF: or PAR:"""
-    named_buffers = set('BUF:' + x[0] for x in model.named_buffers())
-    named_params = set('PAR:' + x[0] for x in model.named_parameters())
-    bufs_and_params = named_buffers | named_params
-    return sorted(bufs_and_params)
+from . import buf_and_param_names
 
 
 class TestSwagMarian(unittest.TestCase):
@@ -75,17 +70,8 @@ class TestSwagMarian(unittest.TestCase):
         bufs_and_params_after = set(buf_and_param_names(swag_model))
         self.assertEqual(bufs_and_params_before, bufs_and_params_after)
 
-        logging.debug(model.device)
-        logging.debug(swag_model.device)
-        logging.debug(swag_model.swag.device)
-        logging.debug(swag_model.swag.base.device)
-
         # Tied parameters should point to the same data
         shared_pointer = swag_model.swag.base.model.shared.weight.untyped_storage().data_ptr()
-        logging.debug(shared_pointer)
-        logging.debug(swag_model.swag.base.model.encoder.embed_tokens.weight.untyped_storage().data_ptr())
-        logging.debug(swag_model.swag.base.model.decoder.embed_tokens.weight.untyped_storage().data_ptr())
-        logging.debug(swag_model.swag.base.lm_head.weight.untyped_storage().data_ptr())
         self.assertEqual(shared_pointer, swag_model.swag.base.model.encoder.embed_tokens.weight.untyped_storage().data_ptr())
         self.assertEqual(shared_pointer, swag_model.swag.base.model.decoder.embed_tokens.weight.untyped_storage().data_ptr())
         self.assertEqual(shared_pointer, swag_model.swag.base.lm_head.weight.untyped_storage().data_ptr())
@@ -99,10 +85,14 @@ class TestSwagMarian(unittest.TestCase):
         # Test generate
         sample_text = "what is so great ?"
         batch = tokenizer([sample_text], return_tensors="pt")
+        logging.info("Batch: %s", batch)
+        logging.info("gen_conf: %s", model.generation_config)
         generated_ids = model.generate(**batch)
         base_output = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
-        logging.debug(base_output)
+        # logging.debug(base_output)
         self.assertGreater(len(base_output), 0)
+        logging.info("Batch: %s", batch)
+        logging.info("gen_conf: %s", swag_model.generation_config)
         generated_ids = swag_model.generate(**batch)
         output = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
         logging.debug(output)
@@ -216,8 +206,10 @@ class TestSwagMarianFinetune(unittest.TestCase):
             logging.info("Loading stored model")
             stored_model = SwagMarianMTModel.from_pretrained(tempdir)
 
-        tied_params_orig = set(x[0][0] for x in swag_model.swag.tied_params)
-        tied_params_stored = set(x[0][0] for x in stored_model.swag.tied_params)
+        logging.debug(swag_model.swag.tied_params)
+        logging.debug(stored_model.swag.tied_params)
+        tied_params_orig = set(x[0] for x in swag_model.swag.tied_params)
+        tied_params_stored = set(x[0] for x in stored_model.swag.tied_params)
         self.assertEqual(tied_params_orig, tied_params_stored)
 
         orig_embed = swag_model.swag.base.model.shared.weight.to('cpu')

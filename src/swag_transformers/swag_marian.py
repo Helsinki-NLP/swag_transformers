@@ -2,7 +2,7 @@
 
 import logging
 
-from transformers import MarianConfig, MarianModel, MarianMTModel
+from transformers import MarianConfig, MarianModel, MarianMTModel, GenerationMixin
 from transformers.models.marian import MarianPreTrainedModel
 
 from .base import SwagConfig, SwagPreTrainedModel, SwagModel
@@ -37,7 +37,7 @@ class SwagMarianModel(SwagModel):
     internal_model_class = MarianModel
 
 
-class SwagMarianMTModel(SwagMarianModel):
+class SwagMarianMTModel(SwagMarianModel, GenerationMixin):
     """SWAG MarianMT model"""
 
     internal_model_class = MarianMTModel

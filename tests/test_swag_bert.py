@@ -14,6 +14,9 @@ from swag_transformers.swag_bert import SwagBertConfig, SwagBertLMHeadModel, Swa
 from swag_transformers.trainer_utils import SwagUpdateCallback
 
 
+from . import identical_models
+
+
 class TestSwagBert(unittest.TestCase):
 
     pretrained_model_name = 'prajjwal1/bert-tiny'
@@ -164,9 +167,8 @@ class TestSwagBertFinetune(unittest.TestCase):
         yield {"text": "That's so bad", "label": 0}
         yield {"text": "This is SWAG", "label": 1}
 
-    def pretrained_bert_classifier_finetune(self, no_cov_mat, module_prefix_list=None):
-        train_epochs = 5
-        skip_first = 1
+    def pretrained_bert_classifier_finetune(
+            self, no_cov_mat, module_prefix_list=None, train_epochs=5, skip_first=1):
         model = copy.deepcopy(self.base_model)
         tokenizer = self.tokenizer
         swag_model = SwagBertForSequenceClassification.from_base(
@@ -209,42 +211,94 @@ class TestSwagBertFinetune(unittest.TestCase):
             )
             trainer.train()
         self.assertEqual(swag_model.swag.n_models, train_epochs - skip_first)
-        return swag_model
+        return swag_model, model
 
     def finetuned_model_test(self, swag_model, no_cov_mat=True, blockwise=False, scale=1):
         tokens = self.tokenizer(["Hello world", "Just some swaggering"],
                                 padding=True, truncation=False, return_tensors="pt").to(self.device)
         swag_model.sample_parameters(cov=not no_cov_mat, block=blockwise, scale=scale, seed=1234)
-        out_swag = swag_model(**tokens)
+        with torch.no_grad():
+            out_swag = swag_model(**tokens)
         self.assertEqual(out_swag.logits.shape, (2, self.num_labels))
         # Test saving & loading
         with tempfile.TemporaryDirectory() as tempdir:
-            swag_model.save_pretrained(tempdir)
+            swag_model.save_pretrained(tempdir, safe_serialization=False)
             stored_model = SwagBertForSequenceClassification.from_pretrained(tempdir).to(self.device)
         stored_model.sample_parameters(cov=not no_cov_mat, block=blockwise, scale=scale, seed=1234)
-        out_stored = stored_model(**tokens)
+        self.assertTrue(identical_models(swag_model, stored_model))
+        with torch.no_grad():
+            out_stored = stored_model(**tokens)
         logging.debug(out_swag.logits)
         logging.debug(out_stored.logits)
         self.assertTrue(torch.allclose(out_swag.logits, out_stored.logits))
 
+    def test_pretrained_classifier_finetune_single_pass(self):
+        swag_model, model = self.pretrained_bert_classifier_finetune(
+            no_cov_mat=False, train_epochs=1, skip_first=0)
+        model.eval()
+        logging.info(swag_model.swag.n_models)
+        self.assertTrue(torch.allclose(
+            model.bert.embeddings.token_type_embeddings.weight,
+            swag_model.swag.base.bert.embeddings.token_type_embeddings.weight_mean
+        ))
+        self.assertTrue(torch.allclose(
+            model.classifier.weight,
+            swag_model.swag.base.classifier.weight_mean
+        ))
+
+        self.assertFalse(torch.allclose(
+            model.classifier.weight,
+            swag_model.swag.base.classifier.weight
+        ))
+
+        swag_model.sample_parameters(cov=False, block=False, scale=0, seed=1234)
+        # swag_model.eval()
+        self.assertTrue(torch.allclose(
+            model.bert.embeddings.token_type_embeddings.weight,
+            swag_model.swag.base.bert.embeddings.token_type_embeddings.weight_mean
+        ))
+        self.assertTrue(torch.allclose(
+            model.classifier.weight,
+            swag_model.swag.base.classifier.weight
+        ))
+
+        diffsum = 0
+        for full_name, value in list(model.named_parameters(recurse=True, remove_duplicate=False)):
+            module_path, _, name = full_name.rpartition(".")
+            submodule1 = model.get_submodule(module_path)
+            submodule2 = swag_model.swag.base.get_submodule(module_path)
+            diff = submodule1.weight.data.ne(submodule2.weight.data).sum()
+            logging.info("# %s %s", full_name, diff)
+            diffsum += diff
+        self.assertEqual(diffsum, 0)
+
+        tokens = self.tokenizer(["Hello world", "Just some swaggering"],
+                                padding=True, truncation=False, return_tensors="pt").to(self.device)
+        out_base = model(**tokens)
+        # out_swag = swag_model(**tokens)
+        out_swag = swag_model.swag.base(**tokens)
+        logging.debug(out_base.logits)
+        logging.debug(out_swag.logits)
+        self.assertTrue(torch.allclose(out_base.logits, out_swag.logits))
+
     def test_pretrained_bert_classifier_finetune_no_cov(self):
-        model = self.pretrained_bert_classifier_finetune(no_cov_mat=True)
+        model, _ = self.pretrained_bert_classifier_finetune(no_cov_mat=True)
         self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=0)  # SWA
         self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=1)  # SWAG-Diag
 
     def test_pretrained_bert_classifier_finetune_with_cov(self):
-        model = self.pretrained_bert_classifier_finetune(no_cov_mat=False)
+        model, _ = self.pretrained_bert_classifier_finetune(no_cov_mat=False)
         self.finetuned_model_test(model, no_cov_mat=False, blockwise=False, scale=0.5)
         self.finetuned_model_test(model, no_cov_mat=False, blockwise=True, scale=0.5)
 
     def test_pretrained_bert_classifier_finetune_no_cov_partial(self):
-        model = self.pretrained_bert_classifier_finetune(
+        model, _ = self.pretrained_bert_classifier_finetune(
             no_cov_mat=True, module_prefix_list=['bert.embeddings.word_embeddings', 'classifier'])
         self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=0)  # SWA
         self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=1)  # SWAG-Diag
 
     def test_pretrained_bert_classifier_finetune_with_cov_partial(self):
-        model = self.pretrained_bert_classifier_finetune(
+        model, _ = self.pretrained_bert_classifier_finetune(
             no_cov_mat=False, module_prefix_list=['bert.embeddings.word_embeddings', 'classifier'])
         self.finetuned_model_test(model, no_cov_mat=False, blockwise=False, scale=0.5)
         self.finetuned_model_test(model, no_cov_mat=False, blockwise=True, scale=0.5)
