@@ -95,8 +95,7 @@ class TestSwagRobertaFinetune(unittest.TestCase):
         self.assertEqual(out.last_hidden_state.shape, (1, 2, hidden_size))
         print(swag_model.swag.base.embeddings.word_embeddings.weight_mean)
 
-    def pretrained_bert_classifier_finetune(self, no_cov_mat, module_prefix_list=None):
-        train_epochs = 5
+    def pretrained_classifier_finetune(self, no_cov_mat, module_prefix_list=None, train_epochs=5):
         model = copy.deepcopy(self.base_model)
         tokenizer = self.tokenizer
         swag_model = SwagRobertaForSequenceClassification.from_base(
@@ -139,7 +138,7 @@ class TestSwagRobertaFinetune(unittest.TestCase):
             )
             trainer.train()
         self.assertEqual(swag_model.swag.n_models, train_epochs)
-        return swag_model
+        return swag_model, model
 
     def finetuned_model_test(self, swag_model, no_cov_mat=True, blockwise=False, scale=1):
         tokens = self.tokenizer(["Hello world", "Just some swaggering"],
@@ -158,14 +157,30 @@ class TestSwagRobertaFinetune(unittest.TestCase):
         self.assertTrue(torch.allclose(out_swag.logits, out_stored.logits))
 
     @pytest.mark.slow
-    def test_pretrained_bert_classifier_finetune_no_cov(self):
-        model = self.pretrained_bert_classifier_finetune(no_cov_mat=True)
+    def test_pretrained_classifier_finetune_single_pass(self):
+        swag_model, model = self.pretrained_classifier_finetune(no_cov_mat=True, train_epochs=1)
+        model.eval()
+        tokens = self.tokenizer(["Hello world", "Just some swaggering"],
+                                padding=True, truncation=False, return_tensors="pt").to(self.device)
+        out_base = model(**tokens)
+        self.assertEqual(out_base.logits.shape, (2, self.num_labels))
+        swag_model.sample_parameters(cov=False, block=False, scale=0, seed=1234)
+        # swag_model.eval()
+        out_swag = swag_model(**tokens)
+        self.assertEqual(out_swag.logits.shape, (2, self.num_labels))
+        logging.debug(out_base.logits)
+        logging.debug(out_swag.logits)
+        self.assertTrue(torch.allclose(out_swag.logits, out_base.logits))
+
+    @pytest.mark.slow
+    def test_pretrained_classifier_finetune_no_cov(self):
+        model, _ = self.pretrained_classifier_finetune(no_cov_mat=True)
         self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=0)  # SWA
         self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=1)  # SWAG-Diag
 
     @pytest.mark.slow
-    def test_pretrained_bert_classifier_finetune_no_cov_partial(self):
-        model = self.pretrained_bert_classifier_finetune(
+    def test_pretrained_classifier_finetune_no_cov_partial(self):
+        model, _ = self.pretrained_classifier_finetune(
             no_cov_mat=True, module_prefix_list=['roberta.embeddings.word_embeddings', 'classifier'])
         self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=0)  # SWA
         self.finetuned_model_test(model, no_cov_mat=True, blockwise=False, scale=1)  # SWAG-Diag

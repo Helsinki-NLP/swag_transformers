@@ -3,7 +3,7 @@
 import logging
 
 from transformers import BartConfig, BartModel, BartPreTrainedModel, BartForConditionalGeneration, \
-    BartForSequenceClassification
+    BartForSequenceClassification, GenerationMixin
 
 from .base import SwagConfig, SwagPreTrainedModel, SwagModel, SampleLogitsMixin
 
@@ -37,7 +37,7 @@ class SwagBartModel(SwagModel):
     internal_model_class = BartModel
 
 
-class SwagBartForConditionalGeneration(SwagBartModel):
+class SwagBartForConditionalGeneration(SwagBartModel, GenerationMixin):
     """SWAG BART model for sequence classification"""
 
     internal_model_class = BartForConditionalGeneration

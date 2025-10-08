@@ -3,7 +3,7 @@
 import logging
 
 from transformers import BertConfig, BertLMHeadModel, BertModel, BertPreTrainedModel, \
-    BertForSequenceClassification, BertForQuestionAnswering
+    BertForSequenceClassification, BertForQuestionAnswering, GenerationMixin
 
 from .base import SwagConfig, SwagPreTrainedModel, SwagModel, SampleLogitsMixin
 
@@ -43,7 +43,7 @@ class SwagBertForSequenceClassification(SampleLogitsMixin, SwagBertModel):
     internal_model_class = BertForSequenceClassification
 
 
-class SwagBertLMHeadModel(SwagBertModel):
+class SwagBertLMHeadModel(GenerationMixin, SwagBertModel):
     """SWAG BERT model with LM head"""
 
     internal_model_class = BertLMHeadModel
