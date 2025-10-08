@@ -18,7 +18,7 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     install_requires=[
-        "transformers[torch]>=4.48",
+        "transformers[torch]>=4.54.1",
         "swa_gaussian>=0.1.9"
     ],
     extras_require={
