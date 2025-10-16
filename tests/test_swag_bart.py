@@ -57,8 +57,8 @@ class TestSwagBart(unittest.TestCase):
 
         # Test forward
         with torch.no_grad():
-            base_fwd_out = model.forward(input_ids=torch.tensor([[3, 14]]), decoder_input_ids=torch.tensor([[1, 2, 4]]))
-            swag_fwd_out = swag_model.forward(input_ids=torch.tensor([[3, 14]]), decoder_input_ids=torch.tensor([[1, 2, 4]]))
+            base_fwd_out = model.forward(input_ids=torch.tensor([[3, 14]]).to(device), decoder_input_ids=torch.tensor([[1, 2, 4]]).to(device))
+            swag_fwd_out = swag_model.forward(input_ids=torch.tensor([[3, 14]]).to(device), decoder_input_ids=torch.tensor([[1, 2, 4]]).to(device))
         self.assertTrue(torch.allclose(base_fwd_out.logits, swag_fwd_out.logits))
 
         # Test generate
@@ -94,7 +94,7 @@ class TestSwagBart(unittest.TestCase):
 
         with torch.no_grad():
             stored_fwd_out = stored_model.forward(
-                input_ids=torch.tensor([[3, 14]]), decoder_input_ids=torch.tensor([[1, 2, 4]]))
+                input_ids=torch.tensor([[3, 14]]).to(device), decoder_input_ids=torch.tensor([[1, 2, 4]]).to(device))
         logging.debug(swag_fwd_out.logits)
         logging.debug(stored_fwd_out.logits)
         self.assertTrue(torch.allclose(swag_fwd_out.logits, stored_fwd_out.logits, atol=1e-06))

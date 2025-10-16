@@ -83,14 +83,14 @@ class TestSwagModernBertFinetune(unittest.TestCase):
         swag_model = SwagModernBertPreTrainedModel(config)
         swag_model = SwagModernBertModel(config)
         logging.debug(swag_model)
-        self.assertEqual(swag_model.device.type, 'cpu')
+        swag_model.to(self.device)
         with self.assertLogs(level='WARNING') as cm:
-            out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
+            out = swag_model.forward(input_ids=torch.tensor([[3, 14]]).to(self.device))
             # Warning from using forward before sampling parameters
             self.assertTrue(any(msg.startswith('WARNING') for msg in cm.output))
         logging.debug(out)
         swag_model.sample_parameters()
-        out = swag_model.forward(input_ids=torch.tensor([[3, 14]]))
+        out = swag_model.forward(input_ids=torch.tensor([[3, 14]]).to(self.device))
         logging.debug(out)
         self.assertEqual(out.last_hidden_state.shape, (1, 2, hidden_size))
         print(swag_model.swag.base.embeddings.tok_embeddings.weight_mean)
@@ -127,7 +127,8 @@ class TestSwagModernBertFinetune(unittest.TestCase):
             training_args = TrainingArguments(
                 output_dir=tempdir,
                 num_train_epochs=train_epochs,
-                use_cpu=True if self.device == "cpu" else False
+                use_cpu=True if self.device == "cpu" else False,
+                report_to="none"
             )
             trainer = Trainer(
                 model,

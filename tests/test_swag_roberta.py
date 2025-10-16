@@ -126,7 +126,8 @@ class TestSwagRobertaFinetune(unittest.TestCase):
             training_args = TrainingArguments(
                 output_dir=tempdir,
                 num_train_epochs=train_epochs,
-                use_cpu=True if self.device == "cpu" else False
+                use_cpu=True if self.device == "cpu" else False,
+                report_to="none"
             )
             trainer = Trainer(
                 model,
