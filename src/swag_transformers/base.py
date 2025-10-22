@@ -21,9 +21,14 @@ class SwagConfigurationError(Exception):
     """Configuration error for SWAG"""
 
 
+# Attributes expected to be present at the top level of the config object
 COPIED_CONFIG_ATTRIBS = [
-    'is_encoder_decoder', 'is_decoder', 'architectures', 'problem_type',
-    'pad_token_id', 'bos_token_id', 'eos_token_id', 'use_cache'
+    'is_encoder_decoder',
+    'pad_token_id',
+    'bos_token_id',
+    'eos_token_id',
+    'decoder_start_token_id',
+    'max_length'
 ]
 
 
@@ -57,7 +62,9 @@ class SwagConfig(PretrainedConfig):
             internal_config = self.internal_config_class(**kwargs)
             self.internal_model_config = internal_config.to_dict()
         for attrib in COPIED_CONFIG_ATTRIBS:
-            setattr(self, attrib, self.internal_model_config.get(attrib))
+            value = self.internal_model_config.get(attrib)
+            if value is not None:
+                setattr(self, attrib, value)
         self.no_cov_mat = no_cov_mat
         self.cov_mat_rank = cov_mat_rank
         self.max_num_models = max_num_models
@@ -79,6 +86,25 @@ class SwagConfig(PretrainedConfig):
     @property
     def num_hidden_layers(self):
         return self.internal_model_config.get("num_hidden_layers")
+
+    @property
+    def num_labels(self):
+        if "num_labels" in self.internal_model_config:
+            return self.internal_model_config["num_labels"]
+        elif "id2label" in self.internal_model_config:
+            return len(self.internal_model_config["id2label"])
+        elif "label2id" in self.internal_model_config:
+            return len(self.internal_model_config["label2id"])
+        raise AttributeError(f"'{self.__class__.__name__}' has no attribute 'num_labels'")
+
+    def __getattr__(self, name):
+        # Fallback for attributes not found through the normal lookup:
+        # return internal config attribute if available
+        if "internal_model_config" in self.__dict__:
+            internal = self.__dict__["internal_model_config"]
+            if name in internal:
+                return internal[name]
+        raise AttributeError(f"'{self.__class__.__name__}' has no attribute '{name}'")
 
     @classmethod
     def from_config(cls, base_config: PretrainedConfig, **kwargs):
